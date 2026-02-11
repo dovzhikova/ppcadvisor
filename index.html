@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PPC Advisor - מעטפת שיווק דיגיטלי 360°</title>
+<meta name="description" content="יותר לידים, פחות עלות רכישה, וצמיחה שלא נגמרת. מעטפת שיווק דיגיטלי 360° שמנהלת את הכל תחת קורת גג אחת.">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" type="image/jpeg" href="logo-square.jpg">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/split-type"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0E1F33;--bg-deep:#091525;--primary:#4DBCD0;--primary-light:#6BD4D9;
+--text-light:#ECECEC;--text-dark:#0E1F33;--white:#fff;
+--card-glass:rgba(77,188,208,.07);--card-border:rgba(77,188,208,.15);
+--pill:500px;--radius:36px;--font:'Heebo',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text-light);direction:rtl;overflow-x:hidden;line-height:1.7}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button,input,textarea{font-family:inherit;border:none;outline:none}
+.container{max-width:1200px;margin:0 auto;padding:0 32px}
+h1,h2,h3{line-height:1.3}
+
+/* ===== PILL BUTTON ===== */
+.pill-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 36px;border-radius:var(--pill);font-weight:700;font-size:.95rem;cursor:pointer;transition:all .35s cubic-bezier(.4,0,.2,1);border:2px solid transparent}
+.pill-btn--dark{background:var(--bg);color:var(--text-light);border-color:var(--bg)}
+.pill-btn--dark:hover{background:var(--primary);border-color:var(--primary)}
+.pill-btn--white{background:var(--white);color:var(--bg)}
+.pill-btn--outline{background:transparent;color:var(--text-light);border:2px solid rgba(255,255,255,.3)}
+.pill-btn--outline:hover{border-color:var(--primary);color:var(--primary)}
+.pill-btn .arrow{display:inline-block;transition:transform .3s}
+.pill-btn:hover .arrow{transform:translateX(-4px)}
+
+.reveal{opacity:0;transform:translateY(40px)}
+
+/* ===== HERO (LIGHT BACKGROUND) ===== */
+.hero{min-height:100vh;background:linear-gradient(180deg,#e8f4f8 0%,#c8e6ef 40%,#7bbfd4 70%,var(--bg) 100%);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:60px 0 0}
+.hero__content{position:relative;z-index:2;text-align:center;padding:40px 0}
+.hero__title{font-size:clamp(2.2rem,5vw,4rem);font-weight:900;color:var(--text-dark);line-height:1.15;margin-bottom:20px}
+.hero__subtitle{font-size:clamp(1rem,2vw,1.3rem);font-weight:400;color:var(--text-dark);opacity:.75;max-width:650px;margin:0 auto 32px;line-height:1.8}
+.hero__cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.hero__micro{font-size:.85rem;color:var(--text-dark);opacity:.55;margin-bottom:40px}
+.hero__trust{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;padding:24px 0}
+.hero__trust-badge{display:flex;align-items:center;gap:8px;padding:10px 22px;background:rgba(14,31,51,.65);border-radius:var(--pill);font-size:.85rem;font-weight:600;color:var(--white);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);box-shadow:0 2px 12px rgba(0,0,0,.15)}
+.hero__trust-badge svg{width:18px;height:18px;fill:var(--primary-light)}
+
+@media(max-width:768px){
+.hero__trust{gap:12px}
+.hero__trust-badge{font-size:.75rem;padding:6px 14px}
+}
+
+/* ===== LOGO MARQUEE ===== */
+.marquee{padding:28px 0;background:linear-gradient(180deg,rgba(14,31,51,.3),var(--bg));overflow:hidden;position:relative;z-index:4}
+.marquee-track{display:flex;gap:60px;animation:marquee-scroll 35s linear infinite;width:max-content}
+.marquee-track:hover{animation-play-state:paused}
+.marquee-item{flex-shrink:0;opacity:.45;transition:opacity .3s;display:flex;align-items:center;height:36px;filter:brightness(1.5)}
+.marquee-item:hover{opacity:.8}
+.marquee-item span{font-size:.95rem;font-weight:700;letter-spacing:.05em;white-space:nowrap;color:var(--text-light)}
+@keyframes marquee-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ===== STATS ===== */
+.stats{padding:120px 0;position:relative;overflow:hidden}
+.stats__bg-pattern{position:absolute;inset:0;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 Q15 0 30 30 Q45 60 60 30' stroke='%234DBCD0' fill='none' stroke-width='.5'/%3E%3C/svg%3E");background-size:60px 60px}
+.stats__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat-card{background:linear-gradient(145deg,rgba(30,80,95,.12),rgba(14,50,65,.12));border:1px solid var(--card-border);border-radius:var(--radius);padding:36px 28px;text-align:center;transition:all .4s;backdrop-filter:blur(8px)}
+.stat-card:hover{background:rgba(77,188,208,.12);transform:translateY(-4px)}
+.stat-card__number{font-size:clamp(2rem,3vw,2.8rem);font-weight:900;color:var(--primary);margin-bottom:8px}
+.stat-card__title{font-size:1rem;font-weight:700;margin-bottom:4px}
+.stats__sub{text-align:center;font-size:.95rem;color:rgba(236,236,236,.5);margin-top:40px;max-width:700px;margin-left:auto;margin-right:auto}
+@media(max-width:768px){.stats__grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.stats__grid{grid-template-columns:1fr}}
+
+/* ===== SERVICES ===== */
+.services{padding:140px 0}
+.services__heading{text-align:center;font-size:clamp(2rem,5vw,3.8rem);font-weight:900;margin-bottom:20px}
+.services__sub{text-align:center;font-size:.95rem;color:rgba(236,236,236,.55);max-width:750px;margin:0 auto 60px;line-height:1.9}
+.services__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.service-card{background:linear-gradient(135deg,rgba(30,80,95,.15),rgba(14,50,65,.15));border:1px solid var(--card-border);border-radius:var(--radius);padding:32px 28px;text-align:right;transition:all .4s;backdrop-filter:blur(8px)}
+.service-card:hover{background:rgba(77,188,208,.12);transform:translateY(-4px)}
+.service-card__icon{width:48px;height:48px;border-radius:50%;background:rgba(77,188,208,.15);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.4rem}
+.service-card__title{font-size:1.05rem;font-weight:700;margin-bottom:4px}
+.service-card__label{font-size:.85rem;color:var(--primary);font-weight:600;margin-bottom:12px}
+.service-card__desc{font-size:.85rem;color:rgba(236,236,236,.55);line-height:1.8}
+
+/* ===== PROCESS ===== */
+.process{padding:140px 0;overflow:hidden}
+.process__heading{text-align:center;font-size:clamp(2rem,5vw,3.8rem);font-weight:900;margin-bottom:60px}
+.process__timeline{position:relative;max-width:800px;margin:0 auto}
+/* vertical center line */
+.process__timeline::before{content:'';position:absolute;top:0;bottom:0;right:50%;transform:translateX(50%);width:2px;background:linear-gradient(180deg,transparent,rgba(77,188,208,.3) 10%,rgba(77,188,208,.3) 90%,transparent);transform-origin:top;transition:transform 1s cubic-bezier(.4,0,.2,1)}
+.process-step{display:grid;grid-template-columns:1fr 64px 1fr;align-items:start;gap:0;margin-bottom:48px;position:relative}
+.process-step:last-child{margin-bottom:0}
+/* center column: number circle */
+.process-step__center{grid-column:2;display:flex;justify-content:center;position:relative;z-index:2}
+.process-step__number{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,rgba(77,188,208,.2),rgba(46,139,154,.3));border:2px solid rgba(77,188,208,.35);display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;color:var(--primary);backdrop-filter:blur(8px);transition:all .4s}
+.process-step:hover .process-step__number{background:linear-gradient(135deg,rgba(77,188,208,.35),rgba(46,139,154,.45));box-shadow:0 0 24px rgba(77,188,208,.25);transform:scale(1.08)}
+/* content block */
+.process-step__content{padding:8px 28px;transition:transform .3s}
+.process-step__content h3{font-size:1.05rem;font-weight:700;margin-bottom:6px;line-height:1.4}
+.process-step__content p{font-size:.85rem;color:rgba(236,236,236,.5);line-height:1.8}
+/* odd steps (1,3): content on the right */
+.process-step:nth-child(odd) .process-step__content{grid-column:1;grid-row:1;text-align:left}
+.process-step:nth-child(odd) .process-step__spacer{grid-column:3;grid-row:1}
+/* even steps (2,4): content on the left */
+.process-step:nth-child(even) .process-step__content{grid-column:3;grid-row:1;text-align:right}
+.process-step:nth-child(even) .process-step__spacer{grid-column:1;grid-row:1}
+/* icon hidden - number is the focal point now */
+.process-step__icon{display:none}
+@media(max-width:768px){
+.process__timeline::before{right:28px;transform:none}
+.process-step{grid-template-columns:auto 1fr;gap:0}
+.process-step__center{grid-column:1;padding-left:4px}
+.process-step__number{width:48px;height:48px;font-size:1rem}
+.process-step__content{grid-column:2 !important;grid-row:1 !important;text-align:right !important;padding:4px 20px}
+.process-step__spacer{display:none}
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials{padding:140px 0;position:relative;overflow:hidden}
+.testimonials__heading{text-align:center;font-size:clamp(2rem,5vw,3.8rem);font-weight:900;margin-bottom:50px}
+.testimonials__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.testimonial-card{background:linear-gradient(160deg,rgba(30,80,95,.12),rgba(14,50,65,.1));border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;transition:all .4s}
+.testimonial-card:hover{background:rgba(77,188,208,.12);transform:translateY(-3px)}
+.testimonial-card__text{font-size:.88rem;line-height:1.8;color:rgba(236,236,236,.6);margin-bottom:20px}
+.testimonial-card__author{display:flex;align-items:center;gap:14px;padding-top:16px;border-top:1px solid var(--card-border)}
+.testimonial-card__logo{width:40px;height:40px;border-radius:10px;background:rgba(77,188,208,.12);display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:800;color:var(--primary);overflow:hidden}
+.testimonial-card__name{font-weight:700;font-size:.9rem}
+.testimonial-card__role{font-size:.8rem;color:rgba(236,236,236,.5)}
+
+/* ===== CASE STUDIES ===== */
+.case-studies{padding:120px 0;background:var(--bg-deep);border-top:1px solid var(--card-border)}
+.case-studies__heading{text-align:center;font-size:clamp(2rem,5vw,3.8rem);font-weight:900;margin-bottom:50px}
+.case-studies__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.case-card{background:linear-gradient(150deg,rgba(30,80,95,.14),rgba(14,50,65,.1));border:1px solid var(--card-border);border-radius:var(--radius);padding:32px;transition:all .4s}
+.case-card:hover{background:rgba(77,188,208,.12);transform:translateY(-4px)}
+.case-card__label{font-size:.8rem;color:var(--primary);font-weight:700;margin-bottom:12px}
+.case-card__title{font-size:1.1rem;font-weight:800;margin-bottom:16px}
+.case-card__item{margin-bottom:12px}
+.case-card__item-label{font-size:.8rem;font-weight:700;color:var(--primary);margin-bottom:4px}
+.case-card__item-text{font-size:.85rem;color:rgba(236,236,236,.55);line-height:1.7}
+.case-card__result{margin-top:16px;padding-top:16px;border-top:1px solid var(--card-border);font-size:.95rem;font-weight:700;color:var(--primary)}
+
+/* ===== ABOUT ===== */
+.about{padding:140px 0;position:relative;overflow:hidden}
+.about__grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.about__text{text-align:right}
+.about__text h2{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:900;margin-bottom:20px}
+.about__bio{font-size:.95rem;line-height:2;color:rgba(236,236,236,.6)}
+.about__bio strong{color:var(--text-light);font-weight:700}
+.about__photo{position:relative;display:flex;justify-content:center}
+.about__photo-inner{width:100%;max-width:500px;aspect-ratio:3/4;background:linear-gradient(135deg,rgba(77,188,208,.3),rgba(46,139,154,.4));border-radius:20px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
+.about__photo-inner::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(77,188,208,.2),transparent 70%)}
+.about__photo-placeholder{font-size:.9rem;color:rgba(255,255,255,.4);text-align:center;padding:20px;position:relative;z-index:1}
+.about__glow{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(77,188,208,.15),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+@media(max-width:768px){.about__grid{grid-template-columns:1fr}.about__text{text-align:center}}
+
+/* ===== FAQ ===== */
+.faq{padding:140px 0;position:relative;overflow:hidden}
+.faq__grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.faq__right{text-align:right}
+.faq__right h2{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;margin-bottom:8px;line-height:1.15}
+.faq__right .sub{font-size:.9rem;color:rgba(236,236,236,.5);margin-bottom:24px}
+.faq__right .question-label{font-size:1.1rem;margin-bottom:16px}
+.faq__contact{display:flex;gap:24px;flex-wrap:wrap}
+.faq__contact a{display:flex;align-items:center;gap:8px;color:var(--primary);font-weight:600}
+.faq__contact a svg{width:16px;height:16px;fill:var(--primary)}
+.faq__chat{background:rgba(77,188,208,.06);border-radius:24px;padding:24px;max-height:600px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;border:1px solid var(--card-border)}
+.faq__chat::-webkit-scrollbar{width:4px}
+.faq__chat::-webkit-scrollbar-thumb{background:rgba(77,188,208,.3);border-radius:4px}
+.chat-q{display:flex;align-items:center;gap:10px;padding:14px 20px;background:rgba(77,188,208,.15);border-radius:16px;cursor:pointer;transition:background .3s;font-size:.88rem;font-weight:500}
+.chat-q:hover{background:rgba(77,188,208,.25)}
+.chat-q__icon{width:24px;height:24px;border-radius:50%;background:rgba(77,188,208,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s;font-size:.7rem;color:var(--primary)}
+.chat-q.open .chat-q__icon{transform:rotate(45deg)}
+.chat-q__text{flex:1;text-align:right}
+.chat-a{max-height:0;overflow:hidden;padding:0 20px;background:rgba(255,255,255,.95);color:var(--text-dark);border-radius:16px;font-size:.85rem;line-height:1.8;margin-top:-4px;margin-right:8px;margin-left:8px;box-shadow:0 4px 16px rgba(0,0,0,.05);transition:max-height .35s ease,padding .35s ease,opacity .3s;opacity:0}
+.chat-a.open{padding:16px 20px;opacity:1}
+.chat-a strong{font-weight:700;color:var(--text-dark)}
+.faq__curve{position:absolute;bottom:0;left:0;width:300px;height:300px;background:linear-gradient(135deg,var(--primary),#2E8B9A);border-radius:50% 50% 0 0;opacity:.08;transform:translate(-30%,50%)}
+@media(max-width:768px){.faq__grid{grid-template-columns:1fr}}
+
+/* ===== CTA ===== */
+.cta{padding:120px 0;text-align:center;position:relative}
+.cta h2{font-size:clamp(2.2rem,5vw,4rem);font-weight:900;margin-bottom:16px}
+.cta h2 span{color:var(--primary)}
+.cta p{font-size:clamp(1rem,1.5vw,1.15rem);color:rgba(236,236,236,.6);margin-bottom:28px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.8}
+.cta__contact{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:24px;font-size:.9rem}
+.cta__contact a{display:flex;align-items:center;gap:8px;color:var(--primary);font-weight:600}
+.cta__contact a svg{width:16px;height:16px;fill:var(--primary)}
+.cta__glow{position:absolute;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(77,188,208,.1),transparent 70%);pointer-events:none}
+.cta__glow--1{top:-100px;right:-80px}
+.cta__glow--2{bottom:-100px;left:-80px}
+
+/* ===== CONTACT FORM ===== */
+.form-section{padding:80px 0;position:relative}
+.form-section__grid{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:start}
+.form-section__info{padding-top:40px}
+.form-section__info h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;line-height:1.2;margin-bottom:32px}
+.form-section__info h3{font-size:1.1rem;font-weight:700;margin-bottom:16px}
+.form-section__contact-links{display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
+.form-section__contact-links a{display:flex;align-items:center;gap:10px;color:var(--primary);font-weight:600;font-size:1rem;transition:opacity .3s}
+.form-section__contact-links a:hover{opacity:.8}
+.form-section__social{display:flex;gap:16px;margin-bottom:32px}
+.form-section__social a{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:rgba(77,188,208,.1);transition:background .3s}
+.form-section__social a:hover{background:rgba(77,188,208,.25)}
+.form-section__social svg{width:18px;height:18px;fill:var(--text-light)}
+.form-section__nav h3{font-size:1.1rem;font-weight:700;margin-bottom:12px}
+.form-section__nav-links{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.form-section__nav-links a{font-size:.9rem;color:rgba(236,236,236,.6);transition:color .3s}
+.form-section__nav-links a:hover{color:var(--primary)}
+
+.form-card{background:var(--white);border-radius:24px;padding:48px 40px;color:var(--text-dark);box-shadow:0 20px 60px rgba(0,0,0,.15)}
+.form-card h2{font-size:clamp(1.1rem,2vw,1.4rem);font-weight:700;color:var(--primary);text-align:center;margin-bottom:32px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.form-field{position:relative}
+.form-field input,.form-field textarea{width:100%;padding:14px 40px 14px 16px;border:none;border-bottom:1.5px solid #ddd;background:transparent;font-size:.9rem;color:var(--text-dark);transition:border-color .3s}
+.form-field input:focus,.form-field textarea:focus{border-color:var(--primary)}
+.form-field input::placeholder,.form-field textarea::placeholder{color:#999}
+.form-field__icon{position:absolute;top:14px;right:12px;width:18px;height:18px;fill:#bbb}
+.form-field textarea{min-height:60px;resize:vertical;border-bottom:1.5px solid #ddd}
+.form-checkbox{display:flex;align-items:flex-start;gap:8px;margin:16px 0 24px;font-size:.8rem;color:#666}
+.form-checkbox input[type="checkbox"]{margin-top:3px;accent-color:var(--primary)}
+.form-submit{width:100%;padding:16px;border-radius:var(--pill);background:var(--bg);color:var(--text-light);font-weight:700;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .3s}
+.form-submit:hover{background:var(--primary)}
+.form-submit .arrow{transition:transform .3s}
+.form-submit:hover .arrow{transform:translateX(-6px)}
+
+@media(max-width:768px){
+.form-section__grid{grid-template-columns:1fr}
+.form-row{grid-template-columns:1fr}
+.form-card{padding:32px 24px}
+}
+
+/* ===== FOOTER ===== */
+.footer{padding:60px 0 24px;background:var(--bg-deep)}
+.footer__top{margin-bottom:40px}
+.footer__logo{font-size:clamp(1.5rem,3vw,2rem);font-weight:900;text-align:right;margin-bottom:12px}
+.footer__logo span{color:var(--primary)}
+.footer__links{display:flex;gap:20px;justify-content:flex-end;font-size:.85rem;color:rgba(236,236,236,.5)}
+.footer__links a:hover{color:var(--primary)}
+.footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:40px;padding-top:40px;border-top:1px solid var(--card-border)}
+.footer__tagline{font-size:clamp(1.2rem,2vw,1.6rem);font-weight:300;line-height:1.4}
+.footer__tagline strong{font-weight:900}
+.footer__contact-col h3,.footer__nav-col h3{font-size:.95rem;font-weight:700;margin-bottom:12px}
+.footer__contact-col a,.footer__nav-col a{display:block;font-size:.85rem;color:rgba(236,236,236,.5);margin-bottom:8px;transition:color .3s}
+.footer__contact-col a:hover,.footer__nav-col a:hover{color:var(--primary)}
+.footer__social-col{display:flex;gap:12px;align-items:flex-start}
+.footer__social-col a{opacity:.6;transition:opacity .3s}
+.footer__social-col a:hover{opacity:1}
+.footer__copy{text-align:center;padding-top:40px;margin-top:40px;border-top:1px solid var(--card-border);font-size:.8rem;color:rgba(236,236,236,.35)}
+@media(max-width:768px){.footer__grid{grid-template-columns:1fr}}
+
+/* ===== FLOATING BOTTOM BAR ===== */
+.bottom-bar{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:999;display:flex;align-items:center;gap:0;background:linear-gradient(135deg,rgba(14,31,51,.92),rgba(20,45,70,.92));border-radius:var(--pill);padding:6px;box-shadow:0 8px 32px rgba(0,0,0,.25);backdrop-filter:blur(12px);border:1px solid rgba(77,188,208,.15)}
+.bottom-bar__cta{display:flex;align-items:center;gap:8px;padding:12px 24px;background:var(--primary);color:var(--white);border-radius:var(--pill);font-weight:700;font-size:.85rem;white-space:nowrap;transition:all .3s}
+.bottom-bar__cta:hover{background:var(--primary-light);transform:scale(1.03)}
+.bottom-bar__cta .arrow{font-size:.8rem}
+.bottom-bar__icons{display:flex;align-items:center;gap:4px;padding:0 8px}
+.bottom-bar__icon{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 16px;border-radius:var(--pill);color:var(--text-light);transition:all .3s;cursor:pointer;font-size:.8rem;font-weight:600;white-space:nowrap;opacity:.7}
+.bottom-bar__icon:hover{background:rgba(77,188,208,.15);opacity:1}
+.bottom-bar__icon svg{width:18px;height:18px;fill:var(--primary-light);flex-shrink:0}
+
+/* ===== SCROLL TO TOP ===== */
+.scroll-top{position:fixed;bottom:24px;left:24px;width:48px;height:48px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;z-index:998;cursor:pointer;opacity:0;transition:all .3s;box-shadow:0 4px 16px rgba(77,188,208,.3)}
+.scroll-top.visible{opacity:1}
+.scroll-top:hover{transform:scale(1.1)}
+.scroll-top svg{width:20px;height:20px;fill:white}
+
+/* ===== WHATSAPP ===== */
+.whatsapp{position:fixed;bottom:24px;right:80px;width:52px;height:52px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;z-index:998;cursor:pointer;box-shadow:0 4px 16px rgba(77,188,208,.35);transition:all .3s}
+.whatsapp:hover{transform:scale(1.1)}
+.whatsapp svg{width:26px;height:26px;fill:white}
+
+/* ===== ACCESSIBILITY BTN ===== */
+.a11y-btn{position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;z-index:998;cursor:pointer;box-shadow:0 4px 16px rgba(77,188,208,.3);transition:all .3s}
+.a11y-btn:hover{transform:scale(1.1)}
+.a11y-btn svg{width:24px;height:24px;fill:white}
+
+/* ===== COOKIE BAR ===== */
+.cookie-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(9,21,37,.95);backdrop-filter:blur(12px);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;z-index:1000;border-top:1px solid var(--card-border);transform:translateY(100%);transition:transform .4s;flex-wrap:wrap;gap:12px}
+.cookie-bar.show{transform:translateY(0)}
+.cookie-bar p{font-size:.85rem;color:rgba(236,236,236,.6)}
+.cookie-bar a{color:var(--primary);text-decoration:underline}
+.cookie-bar button{padding:8px 20px;border-radius:var(--pill);background:var(--primary);color:white;font-weight:700;font-size:.85rem;cursor:pointer;transition:background .3s}
+.cookie-bar button:hover{background:var(--primary-light)}
+
+/* ===== HERO LOGO ===== */
+.hero__logo{margin-bottom:24px}
+.hero__logo img{height:80px;margin:0 auto;filter:drop-shadow(0 4px 20px rgba(0,0,0,.15))}
+
+/* ===== HERO DECORATIVE ORBS ===== */
+.hero__orb{position:absolute;border-radius:50%;pointer-events:none;z-index:0}
+.hero__orb--1{width:400px;height:400px;background:radial-gradient(circle,rgba(77,188,208,.25),transparent 70%);top:-80px;right:-120px;animation:float-orb 8s ease-in-out infinite}
+.hero__orb--2{width:300px;height:300px;background:radial-gradient(circle,rgba(46,139,154,.2),transparent 70%);bottom:10%;left:-100px;animation:float-orb 10s ease-in-out infinite reverse}
+.hero__orb--3{width:200px;height:200px;background:radial-gradient(circle,rgba(107,212,217,.15),transparent 70%);top:30%;left:20%;animation:float-orb 12s ease-in-out infinite .5s}
+@keyframes float-orb{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(15px,-20px) scale(1.05)}50%{transform:translate(-10px,15px) scale(.95)}75%{transform:translate(20px,10px) scale(1.02)}}
+
+/* ===== HERO GRID PATTERN ===== */
+.hero__grid-pattern{position:absolute;inset:0;opacity:.04;background-image:
+  linear-gradient(rgba(14,31,51,.3) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(14,31,51,.3) 1px,transparent 1px);
+background-size:60px 60px;z-index:0}
+
+/* ===== SECTION GLOW DIVIDERS ===== */
+.section-glow{position:relative}
+.section-glow::before{content:'';position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:200px;height:2px;background:linear-gradient(90deg,transparent,var(--primary),transparent);opacity:.4}
+
+/* ===== ENHANCED SERVICE CARDS ===== */
+.service-card{position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;inset:0;border-radius:var(--radius);background:linear-gradient(135deg,rgba(77,188,208,.15),transparent 50%);opacity:0;transition:opacity .4s}
+.service-card:hover::before{opacity:1}
+.service-card__icon{transition:transform .3s,background .3s}
+.service-card:hover .service-card__icon{transform:scale(1.15);background:rgba(77,188,208,.25)}
+
+/* ===== ENHANCED STAT CARDS ===== */
+.stat-card{position:relative;overflow:hidden}
+.stat-card::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--primary-light));transition:width .4s;border-radius:2px}
+.stat-card:hover::after{width:60%}
+
+/* ===== TESTIMONIAL QUOTE MARKS ===== */
+.testimonial-card{position:relative;padding-top:40px}
+.testimonial-card::before{content:'\201D';position:absolute;top:8px;right:20px;font-size:4rem;font-family:Georgia,serif;color:rgba(77,188,208,.2);line-height:1}
+
+/* ===== PROCESS TIMELINE ENHANCED ===== */
+
+/* ===== CASE CARD ENHANCED ===== */
+.case-card{position:relative;overflow:hidden}
+.case-card::after{content:'';position:absolute;top:0;right:0;width:4px;height:0;background:linear-gradient(180deg,var(--primary),var(--primary-light));transition:height .4s;border-radius:0 0 2px 2px}
+.case-card:hover::after{height:100%}
+
+/* ===== FOOTER LOGO ===== */
+.footer__logo-img{height:48px;margin-bottom:8px}
+
+/* ===== FORM SECTION LOGO ===== */
+.form-card__logo{height:40px;margin:0 auto 20px}
+
+/* ===== ENHANCED BOTTOM BAR ===== */
+.bottom-bar{transition:transform .4s,opacity .4s}
+.bottom-bar.hidden{transform:translateX(-50%) translateY(120%);opacity:0}
+
+/* ===== TYPING CURSOR ANIMATION ===== */
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* ===== PARALLAX GLOW SECTIONS ===== */
+.parallax-glow{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(77,188,208,.06),transparent 70%);pointer-events:none;z-index:0}
+
+/* ===== PRELOADER ===== */
+.preloader{position:fixed;inset:0;z-index:9999;background:var(--primary);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;transition:opacity .6s,visibility .6s}
+.preloader.hide{opacity:0;visibility:hidden}
+.preloader__logo{height:64px;filter:brightness(0) invert(1);animation:pulse-load 1.2s ease-in-out infinite}
+.preloader__bar{width:120px;height:3px;background:rgba(255,255,255,.3);border-radius:4px;overflow:hidden}
+.preloader__bar-inner{width:0;height:100%;background:#fff;border-radius:4px;animation:loader-fill 1.2s ease-out forwards}
+@keyframes pulse-load{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
+@keyframes loader-fill{0%{width:0}100%{width:100%}}
+
+/* ===== HERO WAVE DIVIDER ===== */
+.hero__wave{position:absolute;bottom:-2px;left:0;width:100%;line-height:0;z-index:3}
+.hero__wave svg{display:block;width:100%;height:auto}
+
+/* ===== ACCENT COLOR ===== */
+.accent{color:var(--primary)}
+
+/* ===== RADIAL GLOW BACKGROUNDS ===== */
+.section-radial{position:relative}
+.section-radial::after{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(77,188,208,.06),transparent 70%);pointer-events:none;z-index:0}
+.section-radial--right::after{top:50%;right:-200px;transform:translateY(-50%)}
+.section-radial--left::after{top:50%;left:-200px;transform:translateY(-50%)}
+
+/* ===== GLOWING CARD BORDERS ON HOVER ===== */
+.stat-card:hover,.service-card:hover,.testimonial-card:hover,.case-card:hover{border-color:rgba(77,188,208,.4);box-shadow:0 0 24px rgba(77,188,208,.12),0 8px 40px rgba(77,188,208,.06)}
+
+/* ===== VISUAL BREAK DIVIDER ===== */
+.visual-break{position:relative;padding:80px 0;overflow:hidden}
+.visual-break__content{position:relative;z-index:2;text-align:center}
+.visual-break__tagline{font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:300;color:rgba(236,236,236,.35);line-height:1.7;max-width:600px;margin:0 auto}
+.visual-break__tagline strong{color:var(--primary);font-weight:700}
+.visual-break__line{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--primary),transparent);margin:0 auto 24px;opacity:.5}
+.visual-break__glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(77,188,208,.07),transparent 70%);pointer-events:none}
+
+/* ===== PROCESS CONNECTOR DOTS ===== */
+.process__connector{display:flex;flex-direction:column;align-items:center;gap:8px;padding:6px 0;position:relative}
+.process__connector-dot{width:5px;height:5px;border-radius:50%;background:rgba(77,188,208,.3);animation:dot-pulse 3s ease-in-out infinite}
+.process__connector-dot:nth-child(2){animation-delay:.5s;width:4px;height:4px}
+.process__connector-dot:nth-child(3){animation-delay:1s;width:3px;height:3px}
+@keyframes dot-pulse{0%,100%{opacity:.15;transform:scale(.8)}50%{opacity:.7;transform:scale(1.5)}}
+
+/* ===== FUN POPUP PHOTO ===== */
+.boss-popup{position:fixed;bottom:-200px;left:24px;z-index:997;width:140px;height:140px;border-radius:50%;overflow:hidden;border:3px solid var(--primary);box-shadow:0 0 30px rgba(77,188,208,.3),0 8px 32px rgba(0,0,0,.4);cursor:pointer;transition:transform .3s;opacity:0}
+.boss-popup:hover{transform:scale(1.1) rotate(-3deg)}
+.boss-popup img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.boss-popup__speech{position:fixed;bottom:170px;left:24px;background:var(--white);color:var(--text-dark);padding:10px 16px;border-radius:16px 16px 16px 4px;font-size:.8rem;font-weight:600;max-width:180px;box-shadow:0 4px 20px rgba(0,0,0,.2);z-index:997;opacity:0;pointer-events:none;line-height:1.4}
+
+@media(max-width:768px){
+html,body{overflow-x:hidden}
+.container{padding:0 16px}
+
+/* Hero mobile */
+.hero{padding:40px 0 0;min-height:auto}
+.hero__logo img{height:60px}
+.hero__title{font-size:clamp(1.6rem,7vw,2.2rem)}
+.hero__subtitle{font-size:.9rem;padding:0 8px}
+.hero__cta{flex-direction:column;align-items:center;gap:12px}
+.hero__cta .pill-btn{width:100%;justify-content:center;padding:14px 24px;font-size:.85rem}
+.hero__micro{font-size:.75rem;padding:0 8px}
+.hero__trust{gap:8px;padding:16px 0}
+.hero__trust-badge{font-size:.7rem;padding:6px 12px}
+.hero__orb--1{width:200px;height:200px;top:-40px;right:-60px}
+.hero__orb--2{width:150px;height:150px}
+.hero__orb--3{width:100px;height:100px}
+
+/* Stats mobile */
+.stats{padding:60px 0}
+
+/* Services mobile */
+.services{padding:80px 0}
+.services__heading{font-size:clamp(1.6rem,7vw,2.2rem);padding:0 8px}
+.services__sub{font-size:.85rem;padding:0 8px}
+.services__grid{grid-template-columns:1fr;gap:16px}
+
+/* Process mobile */
+.process{padding:80px 0}
+.process__heading{font-size:clamp(1.6rem,7vw,2.2rem);padding:0 8px;margin-bottom:40px}
+
+/* Testimonials mobile */
+.testimonials{padding:80px 0}
+.testimonials__heading{font-size:clamp(1.6rem,7vw,2.2rem);padding:0 8px;margin-bottom:32px}
+.testimonials__grid{grid-template-columns:1fr;gap:16px}
+.testimonial-card{padding:24px 20px;padding-top:36px}
+.testimonial-card__text{font-size:.82rem}
+
+/* Case Studies mobile */
+.case-studies{padding:60px 0}
+.case-studies__heading{font-size:clamp(1.6rem,7vw,2.2rem);padding:0 8px;margin-bottom:32px}
+.case-studies__grid{grid-template-columns:1fr;gap:16px}
+.case-card{padding:24px 20px}
+
+/* About mobile */
+.about{padding:80px 0}
+.about__text h2{font-size:clamp(1.4rem,5vw,1.8rem)}
+.about__bio{font-size:.85rem}
+.about__photo-inner{max-width:280px;aspect-ratio:1/1}
+
+/* FAQ mobile */
+.faq{padding:80px 0}
+.faq__right h2{font-size:clamp(1.6rem,7vw,2.2rem)}
+.chat-q{padding:12px 14px;font-size:.82rem}
+.chat-a.open{padding:14px 16px;font-size:.8rem}
+
+/* CTA mobile */
+.cta{padding:60px 0}
+.cta h2{font-size:clamp(1.6rem,7vw,2.2rem)}
+.cta p{font-size:.85rem;padding:0 8px}
+.cta__contact{flex-direction:column;align-items:center;gap:12px}
+
+/* Form section mobile */
+.form-section{padding:40px 0}
+.form-card{padding:28px 16px}
+.form-card h2{font-size:1rem}
+
+/* Footer mobile */
+.footer{padding:40px 0 16px}
+.footer__logo-img{height:36px}
+.footer__tagline{font-size:1rem}
+.footer__copy{font-size:.7rem;padding-top:20px;margin-top:20px}
+
+/* Visual break mobile */
+.visual-break{padding:40px 0}
+.visual-break__tagline{font-size:1rem;padding:0 8px}
+
+/* Bottom bar mobile */
+.bottom-bar{padding:4px;bottom:12px}
+.bottom-bar__cta{padding:10px 16px;font-size:.78rem}
+.bottom-bar__icon{padding:8px 10px;font-size:.72rem}
+.bottom-bar__icon span{display:none}
+
+/* Boss popup mobile */
+.boss-popup{width:100px;height:100px;left:12px}
+.boss-popup__speech{bottom:120px;left:12px;font-size:.7rem;max-width:140px}
+
+/* SplitType fix: prevent word wrapping overflow */
+[style*="display: inline-block"]{white-space:normal !important}
+.word{white-space:normal !important}
+.line{white-space:normal !important}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== PRELOADER ===== -->
+<div class="preloader" id="preloader">
+  <img src="logo-horizontal.png" alt="PPC Advisor" class="preloader__logo">
+  <div class="preloader__bar"><div class="preloader__bar-inner"></div></div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+<div class="hero__grid-pattern"></div>
+<div class="hero__orb hero__orb--1"></div>
+<div class="hero__orb hero__orb--2"></div>
+<div class="hero__orb hero__orb--3"></div>
+<div class="container hero__content">
+  <div class="hero__logo"><img src="logo-horizontal.png" alt="PPC Advisor"></div>
+  <h1 class="hero__title">עוד רצים בין ספקים?<br>צוות אחד. כל הדיגיטל. תוצאות.</h1>
+  <p class="hero__subtitle">יותר לידים, פחות עלות רכישה, וצמיחה שלא נגמרת. מעטפת שיווק דיגיטלי 360° שמנהלת את הכל תחת קורת גג אחת.</p>
+  <div class="hero__cta">
+    <a href="https://wa.me/972000000000" class="pill-btn pill-btn--dark" target="_blank"><span class="arrow">&#8592;</span> רוצים לצמוח? דברו איתנו</a>
+    <a href="#services" class="pill-btn pill-btn--outline" style="color:var(--text-dark);border-color:rgba(14,31,51,.25)">צפו בעבודות שלנו</a>
+  </div>
+  <p class="hero__micro">פגישת אפיון ללא עלות וללא התחייבות &middot; תוך 48 שעות</p>
+  <div class="hero__trust">
+    <span class="hero__trust-badge"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Google Partner</span>
+    <span class="hero__trust-badge"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Meta Business Partner</span>
+    <span class="hero__trust-badge"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg> ללא התחייבות</span>
+    <span class="hero__trust-badge"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg> הנכסים נשארים שלכם</span>
+  </div>
+</div>
+  <div class="hero__wave">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,70 L1440,120 L0,120 Z" fill="#0E1F33"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== MARQUEE ===== -->
+<section class="marquee">
+<div class="marquee-track">
+  <div class="marquee-item"><span>לקוח 1</span></div>
+  <div class="marquee-item"><span>לקוח 2</span></div>
+  <div class="marquee-item"><span>לקוח 3</span></div>
+  <div class="marquee-item"><span>לקוח 4</span></div>
+  <div class="marquee-item"><span>לקוח 5</span></div>
+  <div class="marquee-item"><span>לקוח 6</span></div>
+  <div class="marquee-item"><span>לקוח 7</span></div>
+  <div class="marquee-item"><span>לקוח 8</span></div>
+  <!-- duplicate for infinite scroll -->
+  <div class="marquee-item"><span>לקוח 1</span></div>
+  <div class="marquee-item"><span>לקוח 2</span></div>
+  <div class="marquee-item"><span>לקוח 3</span></div>
+  <div class="marquee-item"><span>לקוח 4</span></div>
+  <div class="marquee-item"><span>לקוח 5</span></div>
+  <div class="marquee-item"><span>לקוח 6</span></div>
+  <div class="marquee-item"><span>לקוח 7</span></div>
+  <div class="marquee-item"><span>לקוח 8</span></div>
+</div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section class="stats" id="stats">
+<div class="stats__bg-pattern"></div>
+<div class="container">
+  <div class="stats__grid">
+    <div class="stat-card">
+      <div class="stat-card__number">267</div>
+      <div class="stat-card__title">לקוחות פעילים</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__number">14</div>
+      <div class="stat-card__title">שנות בשוק</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__number">&#8362;47M+</div>
+      <div class="stat-card__title">תקציבי מדיה מנוהלים</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__number">94%</div>
+      <div class="stat-card__title">שיעור שימור לקוחות</div>
+    </div>
+  </div>
+  <p class="stats__sub reveal">עובדים עם סטארטאפים, עסקים צומחים, חברות איקומרס, וארגונים מכל התעשיות.</p>
+</div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services section-glow section-radial section-radial--right" id="services">
+<div class="container">
+  <h2 class="services__heading reveal">הכל תחת <span class="accent">קורת גג אחת.</span> באמת.</h2>
+  <p class="services__sub reveal">כשהשיווק מנוהל במקום אחד, התוצאות גדלות &ndash; כי כל ערוץ מדבר עם השאר. במקום לרוץ בין ספקים שלא מדברים אחד עם השני, אנחנו מנהלים את כל מערך השיווק שלכם כמקשה אחת. אסטרטגיה, ביצוע, אופטימיזציה &ndash; הכל מסונכרן.</p>
+  <div class="services__grid">
+    <div class="service-card reveal">
+      <div class="service-card__icon">&#128269;</div>
+      <h3 class="service-card__title">קידום אורגני</h3>
+      <p class="service-card__label">SEO &ndash; עמוד 1 בגוגל &ndash; לא במקרה.</p>
+      <p class="service-card__desc">מחקר מילות מפתח, אופטימיזציה טכנית, בניית קישורים, ויצירת תוכן שמוביל טראפיק איכותי לאורך זמן. אנחנו מביאים לקוחות שמחפשים אתכם בדיוק ברגע הזה &ndash; לא גולשים.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card__icon">&#128200;</div>
+      <h3 class="service-card__title">פרסום ממומן</h3>
+      <p class="service-card__label">PPC &ndash; ROI מקסימלי. בלי ניחושים.</p>
+      <p class="service-card__desc">קמפיינים בגוגל, בינג, ופלטפורמות נוספות &ndash; מנוהלים בדיוק מדי יום, מודדים כל המרה, ומוודאים שכל שקל שמשקיעים חוזר אליכם בתוצאות.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card__icon">&#128187;</div>
+      <h3 class="service-card__title">בניית אתרים ודפי נחיתה</h3>
+      <p class="service-card__label">Website &ndash; אתר שמוכר &ndash; לא רק נראה טוב.</p>
+      <p class="service-card__desc">אתרים מודרניים, מהירים וממירים שנבנים להמרה &ndash; לא רק להיראות טוב. אפיון חוויית משתמש, עיצוב UX/UI, מהירות טעינה, והתאמה מלאה למובייל.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card__icon">&#9993;</div>
+      <h3 class="service-card__title">שיווק באימייל</h3>
+      <p class="service-card__label">Email Marketing &ndash; ההודעה הנכונה, לאדם הנכון, ברגע הנכון.</p>
+      <p class="service-card__desc">סיקוונסים אוטומטיים, ניוזלטרים שנפתחים, ומסעות לקוח שמבוססים על דאטה, לא על תחושה בטן. אנחנו בונים מערכות אימייל שמטפחים לידים ומחזירים לקוחות קיימים.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card__icon">&#128242;</div>
+      <h3 class="service-card__title">רשתות חברתיות</h3>
+      <p class="service-card__label">Social Media &ndash; לא סתם פוסטים. נוכחות אמיתית.</p>
+      <p class="service-card__desc">אסטרטגיית תוכן, ניהול קהילה, ויצירת תוכן אורגני שמחבר את המותג לקהל שלכם &ndash; באינסטגרם, בפייסבוק, בטיקטוק, בלינקדאין ובכל פלטפורמה רלוונטית.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card__icon">&#127919;</div>
+      <h3 class="service-card__title">פרסום ברשתות חברתיות</h3>
+      <p class="service-card__label">Paid Social &ndash; להגיע לקהל שלא יודע שהוא צריך אתכם.</p>
+      <p class="service-card__desc">קמפייני מדיה בפייסבוק, אינסטגרם, טיקטוק, לינקדאין, טאבולה ו-Outbrain &ndash; עם טרגוט חכם, קריאייטיב שעוצר, ואופטימיזציה שלא נגמרת.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card__icon">&#127909;</div>
+      <h3 class="service-card__title">צילום ווידאו</h3>
+      <p class="service-card__label">Photo &amp; Video &ndash; תמונה אחת שווה אלף מילים.</p>
+      <p class="service-card__desc">צילומי מוצר, סרטוני וידאו, Reels, UGC, ותוכן ויזואלי שמותאם לכל פלטפורמה. אנחנו יוצרים תוכן שמוכר &ndash; לא רק יפה.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card__icon">&#128640;</div>
+      <h3 class="service-card__title">אסטרטגיית Go-To-Market</h3>
+      <p class="service-card__label">GTM &ndash; מהרעיון לשוק &ndash; בדרך הנכונה.</p>
+      <p class="service-card__desc">השקת מוצר חדש? כניסה לשוק חדש? אנחנו בונים אסטרטגיית GTM מלאה: אנליזת מתחרים ונישת שוק, מיצוב מוצר ותמחור, לוח זמנים להשקה עם אבני דרך, ומיקס ערוצים מותאם לקהל היעד.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== VISUAL BREAK ===== -->
+<section class="visual-break">
+  <div class="visual-break__glow"></div>
+  <div class="visual-break__content container">
+    <div class="visual-break__line reveal"></div>
+    <p class="visual-break__tagline reveal">כשהכל <strong>מסונכרן</strong> — התוצאות מדברות בעד עצמן</p>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section class="process section-glow" id="process">
+<div class="container">
+  <h2 class="process__heading reveal">4 צעדים <span class="accent">לתוצאות.</span> בלי הפתעות.</h2>
+  <div class="process__timeline">
+    <div class="process-step">
+      <div class="process-step__content"><h3>אבחון ואפיון</h3><p>פגישת אפיון מעמיקה ללא עלות וללא התחייבות. אנחנו לומדים את העסק שלכם, המתחרים, הקהל והיעדים.</p></div>
+      <div class="process-step__center"><div class="process-step__number">01</div></div>
+      <div class="process-step__spacer"></div>
+    </div>
+    <div class="process__connector"><span class="process__connector-dot"></span><span class="process__connector-dot"></span><span class="process__connector-dot"></span></div>
+    <div class="process-step">
+      <div class="process-step__spacer"></div>
+      <div class="process-step__center"><div class="process-step__number">02</div></div>
+      <div class="process-step__content"><h3>אסטרטגיה ותכנית פעולה</h3><p>בונים תכנית שיווק חדה ומותאמת אישית לעסק שלכם &ndash; עם יעדים ברורים, לוחות זמנים ו-KPIs מדידים.</p></div>
+    </div>
+    <div class="process__connector"><span class="process__connector-dot"></span><span class="process__connector-dot"></span><span class="process__connector-dot"></span></div>
+    <div class="process-step">
+      <div class="process-step__content"><h3>ביצוע והשקה</h3><p>הצוות שלנו נכנס לעבודה &ndash; בניית אתר, הקמת קמפיינים, יצירת תוכן, צילומים &ndash; בשקיפות מלאה ובתיאום איתכם.</p></div>
+      <div class="process-step__center"><div class="process-step__number">03</div></div>
+      <div class="process-step__spacer"></div>
+    </div>
+    <div class="process__connector"><span class="process__connector-dot"></span><span class="process__connector-dot"></span><span class="process__connector-dot"></span></div>
+    <div class="process-step">
+      <div class="process-step__spacer"></div>
+      <div class="process-step__center"><div class="process-step__number">04</div></div>
+      <div class="process-step__content"><h3>אופטימיזציה וצמיחה</h3><p>בקרה יומיומית, אופטימיזציה מתמשכת, ודיווח שקוף שתמיד תדעו איפה התקציב שלכם עובד.</p></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials section-glow section-radial section-radial--left" id="testimonials">
+<div class="container">
+  <h2 class="testimonials__heading reveal">הם מדברים. <span class="accent">אנחנו עושים.</span></h2>
+  <div class="testimonials__grid">
+    <div class="testimonial-card">
+      <p class="testimonial-card__text">"הגענו ל-PPC Advisor כשהיינו צריכים לעשות סדר בשיווק הדיגיטלי שלנו. תוך חודשיים הצוות שדרג את האתר, הרים קמפיינים חדשים, וכבר בחודש הראשון ראינו עלייה של 40% בלידים. מקצוענים מהרמה הגבוהה."</p>
+      <div class="testimonial-card__author">
+        <div class="testimonial-card__logo">EC</div>
+        <div><div class="testimonial-card__name">CEO</div><div class="testimonial-card__role">חברת איקומרס</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-card__text">"הם לא סתם ספקים &ndash; הם שותפים אמיתיים. הבינו את העסק, הציעו אסטרטגיה חדה, והתקשורת איתם נהדרת. התוצאות מדברות בעד עצמן."</p>
+      <div class="testimonial-card__author">
+        <div class="testimonial-card__logo">SS</div>
+        <div><div class="testimonial-card__name">מנכ"ל</div><div class="testimonial-card__role">סטארטאפ SaaS</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-card__text">"בנו לנו אתר מדהים, הקימו מערך סושיאל מאפס, והובילו את ה-SEO שלנו רמה אחרת. עכשיו אנחנו בעמוד 1-3 בגוגל על מילות המפתח שלנו."</p>
+      <div class="testimonial-card__author">
+        <div class="testimonial-card__logo">RT</div>
+        <div><div class="testimonial-card__name">בעלים</div><div class="testimonial-card__role">רשת קמעונאית</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== CASE STUDIES ===== -->
+<section class="case-studies" id="case-studies">
+<div class="container">
+  <h2 class="case-studies__heading reveal">תוצאות שמדברות <span class="accent">בעד עצמן.</span></h2>
+  <div class="case-studies__grid">
+    <div class="case-card reveal">
+      <p class="case-card__label">חברת איקומרס</p>
+      <h3 class="case-card__title">צמיחה ב-6 חודשים</h3>
+      <div class="case-card__item">
+        <p class="case-card__item-label">האתגר</p>
+        <p class="case-card__item-text">עסק עם תנועה דיגיטלית חלשה ומכירות גבוהות.</p>
+      </div>
+      <div class="case-card__item">
+        <p class="case-card__item-label">הפתרון</p>
+        <p class="case-card__item-text">SEO + PPC + בניית אתר מחדש + אימייל מרקטינג.</p>
+      </div>
+      <p class="case-card__result">+40% לידים &middot; -30% עלות רכישה &middot; ROI מוכח מהחודש הראשון</p>
+    </div>
+    <div class="case-card reveal">
+      <p class="case-card__label">סטארטאפ SaaS</p>
+      <h3 class="case-card__title">מאפס לנוכחות דיגיטלית</h3>
+      <div class="case-card__item">
+        <p class="case-card__item-label">האתגר</p>
+        <p class="case-card__item-text">מוצר חדשני בלי תשתית דיגיטלית, תקציב מוגבל.</p>
+      </div>
+      <div class="case-card__item">
+        <p class="case-card__item-label">הפתרון</p>
+        <p class="case-card__item-text">אסטרטגיית GTM + קמפייני PPC + סושיאל + תוכן.</p>
+      </div>
+      <p class="case-card__result">200+ לידים ברבעון הראשון &middot; נוכחות דיגיטלית אמיתית ומדידה</p>
+    </div>
+    <div class="case-card reveal">
+      <p class="case-card__label">רשת קמעונאית</p>
+      <h3 class="case-card__title">שליטה בדיגיטל</h3>
+      <div class="case-card__item">
+        <p class="case-card__item-label">האתגר</p>
+        <p class="case-card__item-text">נוכחות אונליין חלשה, תחרות גבוהה ממספקים שונים.</p>
+      </div>
+      <div class="case-card__item">
+        <p class="case-card__item-label">הפתרון</p>
+        <p class="case-card__item-text">SEO + תוכן אורגני + סושיאל + צילום ווידאו.</p>
+      </div>
+      <p class="case-card__result">עמוד 1-3 בגוגל &middot; גידול של x3 בתנועה אורגנית</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+<div class="about__glow"></div>
+<div class="container">
+  <div class="about__grid">
+    <div class="about__text reveal">
+      <h2>לא סוכנות. לא פרילנסרים.<br>שותפים.</h2>
+      <p class="about__bio">אחרי <strong>14 שנה</strong> של ניהול קמפיינים למאות עסקים בכל קנה מידה, הבנו דבר אחד: השיווק הדיגיטלי של רוב העסקים מפוזר &ndash; סוכנות אחת עושה SEO, אחרת PPC, שלישית בונה אתרים, ואף אחד לא מדבר עם השני.<br><br>הקמנו את PPC Advisor כדי לעשות את זה אחרת. אנחנו <strong>מעטפת שיווק דיגיטלי 360°</strong> שמנהלת את כל החזית הדיגיטלית שלכם תחת קורת גג אחת &ndash; מהאסטרטגיה הראשונית, דרך הביצוע, ועד לאופטימיזציה וצמיחה.<br><br>הצוות שלנו מורכב ממומחים בכל תחום &ndash; קידום אורגני, מדיה, תוכן, עיצוב, אנליטיקס וטכנולוגיה &ndash; <strong>כולם עובדים יחד על המטרות שלכם.</strong></p>
+    </div>
+    <div class="about__photo reveal">
+      <div class="about__photo-inner">
+        <img src="logo-square.jpg" alt="PPC Advisor" style="width:50%;opacity:.7;border-radius:16px">
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq section-glow section-radial section-radial--right" id="faq">
+<div class="faq__curve"></div>
+<div class="container">
+  <div class="faq__grid">
+    <div class="faq__chat" id="faqChat">
+      <div class="chat-q" onclick="toggleFaq(this)"><span class="chat-q__icon">+</span><span class="chat-q__text">מה ההבדל ביניכם לסוכנות דיגיטל רגילה?</span></div>
+      <div class="chat-a">אצלנו הכל תחת קורת גג אחת. במקום לרוץ בין ספקי SEO, ספקי PPC, וספקי תוכן שלא מדברים אחד עם השני &ndash; אנחנו מנהלים את הכל. <strong>אסטרטגיה, ביצוע, ומדידה &ndash; במקום אחד.</strong></div>
+      <div class="chat-q" onclick="toggleFaq(this)"><span class="chat-q__icon">+</span><span class="chat-q__text">למי השירות מתאים?</span></div>
+      <div class="chat-a">לעסקים בכל קנה מידה &ndash; <strong>מעסקים קטנים שרק מתחילים, חברות בצמיחה, וארגונים גדולים.</strong> אנחנו מתאימים את הפתרון לצורך העסקי.</div>
+      <div class="chat-q" onclick="toggleFaq(this)"><span class="chat-q__icon">+</span><span class="chat-q__text">מה התקציב המינימלי?</span></div>
+      <div class="chat-a"><strong>אין לנו מינימום נוקשה</strong> &ndash; אנחנו בונים חבילה מותאמת אישית לכל עסק. בפגישת האפיון נבין בדיוק את הצרכים ונמליץ על החבילה המתאימה.</div>
+      <div class="chat-q" onclick="toggleFaq(this)"><span class="chat-q__icon">+</span><span class="chat-q__text">תוך כמה זמן רואים תוצאות?</span></div>
+      <div class="chat-a">זה תלוי בשירות ובמצב. קמפיינים ממומנים יכולים להניב תוצאות <strong>כבר בשבועות הראשונים</strong>. SEO הוא תהליך ארוך יותר &ndash; בדרך כלל <strong>3-6 חודשים</strong> לתוצאות משמעותיות. הגישה שלנו: אנחנו שקופים בכל הזמן.</div>
+      <div class="chat-q" onclick="toggleFaq(this)"><span class="chat-q__icon">+</span><span class="chat-q__text">יש לכם התחייבות?</span></div>
+      <div class="chat-a"><strong>אין התחייבות לטווח ארוך.</strong> אנחנו עובדים בהסכמים חודשיים עם אפשרות לצאת בכל רגע. כל הנכסים, החשבונות והדאטה נשארים שלכם לחלוטין. אם זה עובד &ndash; נמשיך. אם לא &ndash; ניפרד בידים טובות.</div>
+      <div class="chat-q" onclick="toggleFaq(this)"><span class="chat-q__icon">+</span><span class="chat-q__text">האם אתם מוסמכים על ידי Google / Meta?</span></div>
+      <div class="chat-a">כן. אנחנו <strong>Google Partner</strong> ו-<strong>Meta Business Partner</strong> מוסמכים. זה אומר שאנחנו עומדים בסטנדרטים הכי גבוהים של הפלטפורמות, עם גישה לכלים מתקדמים, תמיכה ישירה והכשרות מקצועית.</div>
+    </div>
+    <div class="faq__right reveal">
+      <h2>שאלות שנשאלים<br>אותנו הרבה</h2>
+      <p class="sub">לא מצאתם תשובה? דברו איתנו</p>
+      <p class="question-label">יש לכם שאלה שלא מופיעה כאן?<br>נשמח לעזור</p>
+      <div class="faq__contact">
+        <a href="tel:972000000000"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> 0XX-XXXXXXX</a>
+        <a href="mailto:hello@ppcadvisor.co.il"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> hello@ppcadvisor.co.il</a>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta" id="cta">
+<div class="cta__glow cta__glow--1"></div>
+<div class="cta__glow cta__glow--2"></div>
+<div class="container" style="position:relative;z-index:2">
+  <h2 class="reveal">מוכנים <span>לצמיחה?</span></h2>
+  <p class="reveal">ללא התחייבות. ללא עלות על הפגישה. פשוט שיחה כנה על העסק שלכם ואיך אנחנו יכולים לעזור לכם לצמוח.</p>
+  <a href="https://wa.me/972000000000" class="pill-btn pill-btn--outline reveal" target="_blank"><span class="arrow">&#8592;</span> קבעו פגישה חינם</a>
+  <div class="cta__contact reveal">
+    <a href="tel:972000000000"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> 0XX-XXXXXXX</a>
+    <a href="mailto:hello@ppcadvisor.co.il"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> hello@ppcadvisor.co.il</a>
+    <a href="https://wa.me/972000000000" target="_blank"><svg viewBox="0 0 24 24"><path d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.96-1.38-.92-2.61.05-1.22.69-1.8.95-2.04.24-.26.51-.29.68-.28h.5c.16 0 .37-.05.58.45.21.5.71 1.83.78 1.97.07.13.1.29.02.47l-.27.48c-.14.15-.28.34-.4.45-.12.12-.26.25-.11.5.15.25.66 1.1 1.42 1.78.96.87 1.78 1.14 2.04 1.27.26.13.4.11.55-.07.15-.18.65-.75.82-1.01.17-.26.35-.21.58-.13l1.83.87z"/><path d="M12.05 2C6.53 2 2.06 6.48 2.06 12c0 1.77.47 3.44 1.29 4.88L2 22l5.27-1.38A9.94 9.94 0 0012.05 22c5.52 0 10-4.48 10-10s-4.48-10-10-10zm0 18.15a8.14 8.14 0 01-4.35-1.26l-.31-.18-3.22.84.86-3.13-.2-.32A8.14 8.14 0 013.91 12c0-4.49 3.66-8.15 8.15-8.15S20.2 7.51 20.2 12s-3.65 8.15-8.15 8.15z"/></svg> WhatsApp</a>
+  </div>
+</div>
+</section>
+
+<!-- ===== FINAL FORM + FOOTER ===== -->
+<section class="form-section" style="padding:80px 0 40px" id="contact">
+<div class="container">
+  <div class="form-section__grid">
+    <div class="form-section__info reveal">
+      <h2>מוכנים להתחיל?<br>השאירו פרטים.</h2>
+      <h3>צרו קשר</h3>
+      <div class="form-section__contact-links">
+        <a href="tel:972000000000"><svg viewBox="0 0 24 24" width="16" height="16" fill="var(--primary)"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> 0XX-XXXXXXX</a>
+        <a href="mailto:hello@ppcadvisor.co.il"><svg viewBox="0 0 24 24" width="16" height="16" fill="var(--primary)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> hello@ppcadvisor.co.il</a>
+      </div>
+      <div class="form-section__social">
+        <a href="#" target="_blank"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+        <a href="#" target="_blank"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg></a>
+        <a href="#" target="_blank"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+        <a href="#" target="_blank"><svg viewBox="0 0 24 24"><path d="M12.53.02C13.84 0 15.14.01 16.44.05c1.33.06 2.54.2 3.63.82 1.41.79 2.25 1.93 2.7 3.46.3 1.01.4 2.05.43 3.1.05 1.51.06 3.02.05 4.53 0 1.51-.01 3.02-.06 4.53-.03 1.05-.13 2.09-.43 3.1-.45 1.53-1.29 2.67-2.7 3.46-1.09.62-2.3.76-3.53.82-1.5.07-3 .08-4.5.07-1.5 0-3-.01-4.5-.07-1.23-.06-2.44-.2-3.53-.82C2.59 22.27 1.75 21.13 1.3 19.6c-.3-1.01-.4-2.05-.43-3.1C.82 15 .81 13.49.82 12s.01-3 .06-4.5c.03-1.05.13-2.09.43-3.1C1.76 2.87 2.6 1.73 4.01.94 5.1.32 6.31.18 7.54.12 9.04.05 10.55.03 12.06.02h.47zM9.98 8.47v7.03l6.1-3.52-6.1-3.51z"/></svg></a>
+        <a href="#" target="_blank"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.45 6.3 6.3 0 001.86-4.48V8.73a8.28 8.28 0 004.87 1.57V6.86a4.84 4.84 0 01-1.15-.17z"/></svg></a>
+      </div>
+      <div class="form-section__nav">
+        <h3>ניווט באתר</h3>
+        <div class="form-section__nav-links">
+          <a href="#services">שירותים</a>
+          <a href="#case-studies">עבודות</a>
+          <a href="#about">אודות</a>
+          <a href="#">בלוג</a>
+          <a href="#contact">צור קשר</a>
+        </div>
+      </div>
+    </div>
+    <div class="form-card reveal">
+      <img src="logo-square.jpg" alt="PPC Advisor" class="form-card__logo">
+      <h2>השאירו פרטים לקביעת פגישת אפיון ללא עלות:</h2>
+      <form onsubmit="event.preventDefault();alert('הטופס נשלח בהצלחה!')">
+        <div class="form-row">
+          <div class="form-field"><svg class="form-field__icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#bbb"/></svg><input type="text" placeholder="שם מלא" required></div>
+          <div class="form-field"><svg class="form-field__icon" viewBox="0 0 24 24"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z" fill="#bbb"/></svg><input type="tel" placeholder="מספר טלפון" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><svg class="form-field__icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#bbb"/></svg><input type="email" placeholder="אימייל" required></div>
+          <div class="form-field"><svg class="form-field__icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#bbb"/></svg><input type="text" placeholder="שם העסק"></div>
+        </div>
+        <div class="form-field"><svg class="form-field__icon" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z" fill="#bbb"/></svg><textarea placeholder="ספרו לנו קצת על העסק ועל מה שאתם מחפשים:"></textarea></div>
+        <label class="form-checkbox"><input type="checkbox"><span>עם שליחת הטופס אתם מסכימים ליצירת קשר וקבלת דיוור ועדכונים בהתאם ל<a href="#" style="color:var(--primary)">מדיניות הפרטיות</a></span></label>
+        <button type="submit" class="form-submit">שלח טופס <span class="arrow">&#8592;···</span></button>
+      </form>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" style="position:relative">
+<div class="container">
+  <div class="footer__top">
+    <div class="footer__logo"><img src="logo-horizontal.png" alt="PPC Advisor" class="footer__logo-img"></div>
+    <div class="footer__links"><a href="#">תקנון</a><a href="#">מדיניות פרטיות</a><a href="#">נגישות</a></div>
+  </div>
+  <div class="footer__grid">
+    <div class="footer__tagline">יותר לידים, פחות עלות רכישה,<br><strong>וצמיחה שלא נגמרת.</strong></div>
+    <div class="footer__contact-col">
+      <h3>צרו קשר</h3>
+      <a href="tel:972000000000">0XX-XXXXXXX</a>
+      <a href="mailto:hello@ppcadvisor.co.il">hello@ppcadvisor.co.il</a>
+    </div>
+    <div class="footer__nav-col">
+      <h3>ניווט באתר</h3>
+      <a href="#services">שירותים</a>
+      <a href="#case-studies">עבודות</a>
+      <a href="#about">אודות</a>
+      <a href="#">בלוג</a>
+      <a href="#contact">צור קשר</a>
+    </div>
+    <div class="footer__social-col">
+      <a href="#" target="_blank"><svg viewBox="0 0 24 24" width="20" height="20" fill="var(--text-light)"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+      <a href="#" target="_blank"><svg viewBox="0 0 24 24" width="20" height="20" fill="var(--text-light)"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg></a>
+      <a href="#" target="_blank"><svg viewBox="0 0 24 24" width="20" height="20" fill="var(--text-light)"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+      <a href="#" target="_blank"><svg viewBox="0 0 24 24" width="20" height="20" fill="var(--text-light)"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.45 6.3 6.3 0 001.86-4.48V8.73a8.28 8.28 0 004.87 1.57V6.86a4.84 4.84 0 01-1.15-.17z"/></svg></a>
+      <a href="#" target="_blank"><svg viewBox="0 0 24 24" width="20" height="20" fill="var(--text-light)"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
+    </div>
+  </div>
+  <div class="footer__copy">&copy; 2026 PPC Advisor. כל הזכויות שמורות.</div>
+</div>
+</footer>
+
+<!-- ===== FLOATING BOTTOM BAR ===== -->
+<div class="bottom-bar">
+  <a href="https://wa.me/972000000000" class="bottom-bar__cta" target="_blank"><span class="arrow">&#8592;</span> דברו איתנו</a>
+  <div class="bottom-bar__icons">
+    <a href="#services" class="bottom-bar__icon"><svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg> שירותים</a>
+    <a href="#case-studies" class="bottom-bar__icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg> עבודות</a>
+    <a href="#testimonials" class="bottom-bar__icon"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg> לקוחות</a>
+    <a href="#about" class="bottom-bar__icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg> אודות</a>
+  </div>
+</div>
+
+<!-- ===== SCROLL TO TOP ===== -->
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+</div>
+
+<!-- ===== WHATSAPP ===== -->
+<a href="https://wa.me/972000000000" class="whatsapp" target="_blank">
+  <svg viewBox="0 0 32 32"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.132 6.742 3.052 9.38L1.056 31.2l6.048-1.952c2.512 1.684 5.506 2.664 8.724 2.752h.176C24.824 32 32 24.824 32 16.004S24.826 0 16.004 0zm9.47 22.62c-.396 1.116-2.316 2.136-3.228 2.244-.82.096-1.856.136-2.996-.188-.692-.2-1.58-.468-2.716-.916-4.776-1.888-7.892-6.7-8.132-7.012-.232-.312-1.904-2.536-1.904-4.836s1.204-3.432 1.632-3.9c.428-.468.936-.584 1.248-.584.312 0 .624.004.896.016.288.012.672-.108 1.052.804.396.948 1.344 3.284 1.464 3.52.116.232.196.508.04.82-.156.312-.236.508-.468.78-.232.276-.488.616-.696.824-.232.232-.472.484-.204.948.268.468 1.196 1.972 2.568 3.196 1.764 1.572 3.252 2.06 3.716 2.288.468.232.74.196 1.012-.116.268-.312 1.164-1.356 1.472-1.824.312-.468.624-.388 1.052-.232.428.156 2.724 1.284 3.192 1.516.468.232.78.348.896.54.116.196.116 1.112-.28 2.228z"/></svg>
+</a>
+
+<!-- ===== FUN POPUP ===== -->
+<div class="boss-popup" id="bossPopup"><img src="boss.jpg" alt="The Boss"></div>
+<div class="boss-popup__speech" id="bossSpeech">רוצים לצמוח? אני כאן בשבילכם 😎</div>
+
+<!-- ===== ACCESSIBILITY ===== -->
+<div class="a11y-btn" title="נגישות">
+  <svg viewBox="0 0 24 24"><path d="M20.5 6c-2.61.7-5.67 1-8.5 1s-5.89-.3-8.5-1L3 8c1.86.5 4 .83 6 1v13h2v-6h2v6h2V9c2-.17 4.14-.5 6-1l-.5-2zM12 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
+</div>
+
+<!-- ===== COOKIE BAR ===== -->
+<div class="cookie-bar" id="cookieBar">
+  <p>אתר זה עושה שימוש בקבצי Cookies. למידע נוסף יש לעיין <a href="#">בתנאי השימוש</a>.</p>
+  <button onclick="document.getElementById('cookieBar').classList.remove('show')">הבנתי</button>
+</div>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// ===== PRELOADER + HERO SYNC =====
+const heroTL = gsap.timeline({paused:true});
+heroTL
+  .from('.hero__logo',{opacity:0,scale:.8,duration:.7,ease:'back.out(1.4)'})
+  .from('.hero__title',{opacity:0,y:40,duration:.7},'-=.3')
+  .from('.hero__subtitle',{opacity:0,y:30,duration:.5},'-=.2')
+  .from('.hero__cta',{opacity:0,scale:.9,duration:.4},'-=.1')
+  .from('.hero__micro',{opacity:0,y:20,duration:.4},'-=.1')
+  .from('.hero__trust-badge',{opacity:0,y:15,duration:.3,stagger:.08},'-=.2')
+  .from('.hero__wave',{opacity:0,y:20,duration:.5},'-=.2');
+
+window.addEventListener('load',()=>{
+  const pre=document.getElementById('preloader');
+  setTimeout(()=>{
+    pre.classList.add('hide');
+    heroTL.play(); // Hero starts as preloader fades
+  },1000);
+  setTimeout(()=>{pre.style.display='none';},1600);
+});
+
+// ===== REVEAL ANIMATIONS =====
+// Skip elements that have their own dedicated animations
+const skipReveal = new Set();
+document.querySelectorAll('.service-card.reveal, .case-card.reveal, .services__heading.reveal, .process__heading.reveal, .testimonials__heading.reveal, .case-studies__heading.reveal').forEach(el=>skipReveal.add(el));
+
+document.querySelectorAll('.reveal').forEach(el => {
+  if(skipReveal.has(el)) return;
+  gsap.fromTo(el,
+    {opacity:0,y:40},
+    {opacity:1,y:0,duration:.7,ease:'power3.out',
+      scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'}
+    }
+  );
+});
+
+// ===== STATS: stagger from sides + counter =====
+gsap.fromTo('.stat-card',
+  {opacity:0,y:40,scale:.95},
+  {opacity:1,y:0,scale:1,stagger:{each:.12,from:'end'},duration:.7,ease:'power3.out',
+    scrollTrigger:{trigger:'.stats__grid',start:'top 85%',onEnter:animateCounters}
+  }
+);
+
+function animateCounters(){
+  document.querySelectorAll('.stat-card__number').forEach(el=>{
+    const text = el.textContent.trim();
+    let target, prefix='', suffix='';
+    if(text.includes('₪')){
+      prefix='₪'; suffix='M+'; target=47;
+    } else if(text.includes('%')){
+      suffix='%'; target=parseInt(text);
+    } else {
+      target=parseInt(text.replace(/,/g,''));
+    }
+    if(isNaN(target)) return;
+    const obj={val:0};
+    gsap.to(obj,{val:target,duration:2,ease:'power2.out',
+      onUpdate:()=>{
+        const v=Math.round(obj.val);
+        el.textContent=prefix+v.toLocaleString()+suffix;
+      }
+    });
+  });
+}
+
+// ===== SERVICES: single batched stagger =====
+gsap.fromTo('.service-card',
+  {opacity:0,y:50,scale:.92},
+  {opacity:1,y:0,scale:1,stagger:.08,duration:.6,ease:'power3.out',
+    scrollTrigger:{trigger:'.services__grid',start:'top 85%'}
+  }
+);
+
+// ===== PROCESS: progressive opacity on scroll scrub =====
+gsap.utils.toArray('.process-step').forEach(step=>{
+  gsap.fromTo(step,{opacity:.2,y:20},{
+    scrollTrigger:{trigger:step,start:'top 90%',end:'top 55%',scrub:1},
+    opacity:1,y:0,ease:'none'
+  });
+});
+ScrollTrigger.create({trigger:'.process__timeline',start:'top 85%',
+  onEnter:()=>document.querySelector('.process__timeline').classList.add('animate-line')
+});
+
+// ===== TESTIMONIALS: single batched stagger =====
+gsap.fromTo('.testimonial-card',
+  {opacity:0,y:40},
+  {opacity:1,y:0,stagger:.15,duration:.7,ease:'power3.out',
+    scrollTrigger:{trigger:'.testimonials__grid',start:'top 85%'}
+  }
+);
+
+// ===== CASE STUDIES: single batched stagger =====
+gsap.fromTo('.case-card',
+  {opacity:0,y:40,scale:.95},
+  {opacity:1,y:0,scale:1,stagger:.12,duration:.7,ease:'power3.out',
+    scrollTrigger:{trigger:'.case-studies__grid',start:'top 85%'}
+  }
+);
+
+// ===== SECTION HEADING SPLIT-TEXT =====
+const splitHeadings = document.querySelectorAll('.services__heading, .process__heading, .testimonials__heading, .case-studies__heading');
+if(typeof SplitType !== 'undefined'){
+  splitHeadings.forEach(h=>{
+    // Clear .reveal initial state on container so words control visibility
+    gsap.set(h,{opacity:1,y:0,x:0,rotate:0});
+    const split = new SplitType(h,{types:'words'});
+    gsap.fromTo(split.words,
+      {opacity:0,y:20,clipPath:'inset(100% 0 0 0)'},
+      {opacity:1,y:0,clipPath:'inset(0% 0 0 0)',stagger:.03,duration:.5,ease:'power3.out',
+        scrollTrigger:{trigger:h,start:'top 85%'}
+      }
+    );
+  });
+}
+
+// ===== ABOUT: word-by-word scrub opacity reveal =====
+const aboutBio = document.querySelector('.about__bio');
+if(aboutBio && typeof SplitType !== 'undefined'){
+  const split = new SplitType(aboutBio,{types:'words'});
+  gsap.set(split.words,{opacity:.15});
+  gsap.to(split.words,{
+    opacity:1,stagger:.015,ease:'none',
+    scrollTrigger:{trigger:aboutBio,start:'top 80%',end:'bottom 60%',scrub:1}
+  });
+}
+
+// ===== FUN BOSS POPUP =====
+const bossEl = document.getElementById('bossPopup');
+const speechEl = document.getElementById('bossSpeech');
+let bossShown = false;
+ScrollTrigger.create({
+  trigger:'.services',start:'top 60%',
+  onEnter:()=>{
+    if(bossShown) return;
+    bossShown = true;
+    gsap.to(bossEl,{bottom:24,opacity:1,duration:.6,ease:'back.out(1.7)'});
+    gsap.to(speechEl,{opacity:1,delay:.8,duration:.4});
+    gsap.to(speechEl,{opacity:0,delay:4,duration:.3});
+  }
+});
+bossEl.addEventListener('click',()=>{
+  gsap.to(speechEl,{opacity:1,duration:.3});
+  gsap.to(speechEl,{opacity:0,delay:3,duration:.3});
+});
+
+// ===== VISUAL BREAK GLOW PARALLAX =====
+gsap.to('.visual-break__glow',{
+  y:-30,scale:1.1,ease:'none',
+  scrollTrigger:{trigger:'.visual-break',start:'top bottom',end:'bottom top',scrub:1}
+});
+
+// ===== PROCESS CONNECTOR DOTS ANIMATION =====
+gsap.utils.toArray('.process__connector').forEach(conn=>{
+  gsap.fromTo(conn,{opacity:0,scale:.5},{
+    opacity:1,scale:1,duration:.5,ease:'back.out(1.7)',
+    scrollTrigger:{trigger:conn,start:'top 88%'}
+  });
+});
+
+// ===== PARALLAX GLOWS =====
+gsap.to('.about__glow',{
+  y:-60,ease:'none',
+  scrollTrigger:{trigger:'.about',start:'top bottom',end:'bottom top',scrub:1}
+});
+gsap.to('.cta__glow--1',{y:-40,x:20,scrollTrigger:{trigger:'.cta',start:'top bottom',end:'bottom top',scrub:1}});
+gsap.to('.cta__glow--2',{y:40,x:-20,scrollTrigger:{trigger:'.cta',start:'top bottom',end:'bottom top',scrub:1}});
+
+// ===== MARQUEE SPEED ON SCROLL =====
+ScrollTrigger.create({trigger:'.marquee',start:'top bottom',end:'bottom top',
+  onUpdate:self=>{
+    const speed = 35 - (self.progress * 20);
+    document.querySelector('.marquee-track').style.animationDuration = speed+'s';
+  }
+});
+
+// ===== BOTTOM BAR HIDE/SHOW =====
+let lastScroll=0;
+window.addEventListener('scroll',()=>{
+  const curr=window.scrollY;
+  const bar=document.querySelector('.bottom-bar');
+  if(curr>lastScroll && curr>300) bar.classList.add('hidden');
+  else bar.classList.remove('hidden');
+  lastScroll=curr;
+  document.getElementById('scrollTop').classList.toggle('visible',curr>500);
+});
+
+// ===== FAQ ACCORDION =====
+function toggleFaq(el){
+  const wasOpen = el.classList.contains('open');
+  document.querySelectorAll('.chat-q').forEach(q=>q.classList.remove('open'));
+  document.querySelectorAll('.chat-a').forEach(a=>{a.classList.remove('open');a.style.maxHeight=null;});
+  if(!wasOpen){
+    el.classList.add('open');
+    const answer=el.nextElementSibling;
+    answer.classList.add('open');
+    answer.style.maxHeight=answer.scrollHeight+'px';
+  }
+}
+document.querySelector('.chat-q').click();
+
+// ===== COOKIE BAR =====
+setTimeout(()=>document.getElementById('cookieBar').classList.add('show'),2500);
+
+// ===== SMOOTH ANCHOR SCROLLING =====
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const target=document.querySelector(a.getAttribute('href'));
+    if(target){
+      e.preventDefault();
+      window.scrollTo({top:target.offsetTop-20,behavior:'smooth'});
+    }
+  });
+});
+</script>
+</body>
+</html>
