@@ -16,7 +16,7 @@
 --bg:#0E1F33;--bg-deep:#091525;--primary:#4DBCD0;--primary-light:#6BD4D9;
 --text-light:#ECECEC;--text-dark:#0E1F33;--white:#fff;
 --card-glass:rgba(77,188,208,.07);--card-border:rgba(77,188,208,.15);
---pill:500px;--radius:36px;--font:'Varela Round','Heebo',sans-serif;
+--pill:500px;--radius:43px;--font:'Varela Round','Heebo',sans-serif;
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--font);background:var(--bg);color:var(--text-light);direction:rtl;overflow-x:hidden;line-height:1.4}
@@ -67,7 +67,7 @@ h1,h2,h3{line-height:1.05}
 .stats{padding:120px 0;position:relative;overflow:hidden}
 .stats__bg-pattern{position:absolute;inset:0;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 Q15 0 30 30 Q45 60 60 30' stroke='%234DBCD0' fill='none' stroke-width='.5'/%3E%3C/svg%3E");background-size:60px 60px}
 .stats__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.stat-card{background:linear-gradient(145deg,rgba(30,80,95,.12),rgba(14,50,65,.12));border:1px solid var(--card-border);border-radius:var(--radius);padding:36px 28px;text-align:center;transition:all .4s;backdrop-filter:blur(8px)}
+.stat-card{background:linear-gradient(104deg,rgba(40,100,120,.25) 1%,rgba(14,50,65,.25) 112%);border:1px solid var(--card-border);border-radius:var(--radius);padding:48px 32px;min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transition:all .4s;backdrop-filter:blur(8px)}
 .stat-card:hover{background:rgba(77,188,208,.12);transform:translateY(-4px)}
 .stat-card__number{font-size:clamp(2rem,3vw,2.8rem);font-weight:800;color:var(--primary);margin-bottom:8px}
 .stat-card__title{font-size:1rem;font-weight:700;margin-bottom:4px}
@@ -156,11 +156,11 @@ h1,h2,h3{line-height:1.05}
 .about__photo-inner{width:100%;max-width:500px;aspect-ratio:3/4;background:linear-gradient(135deg,rgba(77,188,208,.3),rgba(46,139,154,.4));border-radius:20px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
 .about__photo-inner::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(77,188,208,.2),transparent 70%)}
 .about__photo-placeholder{font-size:.9rem;color:rgba(255,255,255,.4);text-align:center;padding:20px;position:relative;z-index:1}
-.about__glow{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(77,188,208,.15),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.about__glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(77,188,208,.12),rgba(77,188,208,.05) 40%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
 @media(max-width:768px){.about__grid{grid-template-columns:1fr}.about__text{text-align:center}}
 
 /* ===== FAQ ===== */
-.faq{padding:140px 0;position:relative;overflow:hidden}
+.faq{padding:140px 0;position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(30,80,95,.35) 0%,rgba(14,60,75,.25) 40%,var(--bg) 100%)}
 .faq__grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
 .faq__right{text-align:right}
 .faq__right h2{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;margin-bottom:8px;line-height:1.05}
@@ -184,14 +184,14 @@ h1,h2,h3{line-height:1.05}
 @media(max-width:768px){.faq__grid{grid-template-columns:1fr}}
 
 /* ===== CTA ===== */
-.cta{padding:120px 0;text-align:center;position:relative}
+.cta{padding:120px 0;text-align:center;position:relative;background:linear-gradient(180deg,var(--bg) 0%,rgba(30,80,95,.3) 50%,var(--bg) 100%)}
 .cta h2{font-size:clamp(2.2rem,5vw,4rem);font-weight:700;margin-bottom:16px}
 .cta h2 span{color:var(--primary)}
 .cta p{font-size:clamp(1rem,1.5vw,1.15rem);color:rgba(236,236,236,.6);margin-bottom:28px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.5}
 .cta__contact{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:24px;font-size:.9rem}
 .cta__contact a{display:flex;align-items:center;gap:8px;color:var(--primary);font-weight:600}
 .cta__contact a svg{width:16px;height:16px;fill:var(--primary)}
-.cta__glow{position:absolute;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(77,188,208,.1),transparent 70%);pointer-events:none}
+.cta__glow{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(77,188,208,.15),rgba(77,188,208,.06) 40%,transparent 70%);pointer-events:none}
 .cta__glow--1{top:-100px;right:-80px}
 .cta__glow--2{bottom:-100px;left:-80px}
 
@@ -255,20 +255,20 @@ h1,h2,h3{line-height:1.05}
 @media(max-width:768px){.footer__grid{grid-template-columns:1fr}}
 
 /* ===== FLOATING BOTTOM BAR ===== */
-.bottom-bar{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:999;display:flex;align-items:center;gap:0;background:linear-gradient(135deg,rgba(14,31,51,.92),rgba(20,45,70,.92));border-radius:var(--pill);padding:6px;box-shadow:0 8px 32px rgba(0,0,0,.25);backdrop-filter:blur(12px);border:1px solid rgba(77,188,208,.15)}
+.bottom-bar{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:999;display:flex;align-items:center;gap:0;background:linear-gradient(136deg,rgba(230,245,250,.92) 24%,rgba(236,236,236,.92) 89%);border-radius:var(--pill);padding:6px;box-shadow:0 2px 4px rgba(14,31,51,.06),0 4px 8px rgba(14,31,51,.08),0 8px 16px rgba(14,31,51,.1),0 12px 24px rgba(14,31,51,.12),0 20px 40px rgba(14,31,51,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3)}
 .bottom-bar__cta{display:flex;align-items:center;gap:8px;padding:12px 24px;background:var(--primary);color:var(--white);border-radius:var(--pill);font-weight:700;font-size:.85rem;white-space:nowrap;transition:all .3s}
 .bottom-bar__cta:hover{background:var(--primary-light);transform:scale(1.03)}
 .bottom-bar__cta .arrow{font-size:.8rem}
 .bottom-bar__icons{display:flex;align-items:center;gap:4px;padding:0 8px}
-.bottom-bar__icon{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 16px;border-radius:var(--pill);color:var(--text-light);transition:all .3s;cursor:pointer;font-size:.8rem;font-weight:600;white-space:nowrap;opacity:.7}
+.bottom-bar__icon{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 16px;border-radius:var(--pill);color:var(--text-dark);transition:all .3s;cursor:pointer;font-size:.8rem;font-weight:600;white-space:nowrap;opacity:.6}
 .bottom-bar__icon:hover{background:rgba(77,188,208,.15);opacity:1}
-.bottom-bar__icon svg{width:18px;height:18px;fill:var(--primary-light);flex-shrink:0}
+.bottom-bar__icon svg{width:18px;height:18px;fill:var(--primary);flex-shrink:0}
 
 /* ===== SCROLL TO TOP ===== */
-.scroll-top{position:fixed;bottom:24px;left:24px;width:48px;height:48px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;z-index:998;cursor:pointer;opacity:0;transition:all .3s;box-shadow:0 4px 16px rgba(77,188,208,.3)}
+.scroll-top{position:fixed;bottom:24px;left:24px;width:48px;height:48px;border-radius:50%;background:rgba(77,188,208,.15);backdrop-filter:blur(12px);border:1.5px solid rgba(77,188,208,.4);display:flex;align-items:center;justify-content:center;z-index:998;cursor:pointer;opacity:0;transition:all .3s;box-shadow:0 2px 8px rgba(77,188,208,.15),0 8px 24px rgba(0,0,0,.2)}
 .scroll-top.visible{opacity:1}
-.scroll-top:hover{transform:scale(1.1)}
-.scroll-top svg{width:20px;height:20px;fill:white}
+.scroll-top:hover{transform:scale(1.1);background:rgba(77,188,208,.3);border-color:rgba(77,188,208,.6);box-shadow:0 0 20px rgba(77,188,208,.25),0 8px 32px rgba(0,0,0,.25)}
+.scroll-top svg{width:20px;height:20px;fill:var(--primary)}
 
 /* ===== WHATSAPP ===== */
 .whatsapp{position:fixed;bottom:24px;right:80px;width:52px;height:52px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;z-index:998;cursor:pointer;box-shadow:0 4px 16px rgba(77,188,208,.35);transition:all .3s}
@@ -322,8 +322,8 @@ background-size:60px 60px;z-index:0}
 .stat-card:hover::after{width:60%}
 
 /* ===== TESTIMONIAL QUOTE MARKS ===== */
-.testimonial-card{position:relative;padding-top:40px}
-.testimonial-card::before{content:'\201D';position:absolute;top:8px;right:20px;font-size:4rem;font-family:Georgia,serif;color:rgba(77,188,208,.2);line-height:1}
+.testimonial-card{position:relative;padding-top:48px}
+.testimonial-card::before{content:'\201D';position:absolute;top:8px;right:20px;font-size:5rem;font-family:Georgia,serif;color:var(--primary);opacity:.35;line-height:1}
 
 /* ===== PROCESS TIMELINE ENHANCED ===== */
 
@@ -348,6 +348,10 @@ background-size:60px 60px;z-index:0}
 /* ===== PARALLAX GLOW SECTIONS ===== */
 .parallax-glow{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(77,188,208,.06),transparent 70%);pointer-events:none;z-index:0}
 
+/* ===== CURSOR FLASHLIGHT EFFECT ===== */
+.cursor-glow{position:fixed;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(77,188,208,.07) 0%,rgba(77,188,208,.03) 30%,transparent 70%);pointer-events:none;z-index:1;transform:translate(-50%,-50%);transition:opacity .3s;opacity:0}
+.cursor-glow.active{opacity:1}
+
 /* ===== PRELOADER ===== */
 .preloader{position:fixed;inset:0;z-index:9999;background:var(--primary);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;transition:opacity .6s,visibility .6s}
 .preloader.hide{opacity:0;visibility:hidden}
@@ -363,15 +367,16 @@ background-size:60px 60px;z-index:0}
 
 /* ===== ACCENT COLOR ===== */
 .accent{color:var(--primary)}
+.fw-light{font-family:'Heebo',sans-serif;font-weight:300}
 
 /* ===== RADIAL GLOW BACKGROUNDS ===== */
 .section-radial{position:relative}
-.section-radial::after{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(77,188,208,.06),transparent 70%);pointer-events:none;z-index:0}
-.section-radial--right::after{top:50%;right:-200px;transform:translateY(-50%)}
-.section-radial--left::after{top:50%;left:-200px;transform:translateY(-50%)}
+.section-radial::after{content:'';position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(77,188,208,.1),rgba(77,188,208,.04) 40%,transparent 70%);pointer-events:none;z-index:0}
+.section-radial--right::after{top:50%;right:-300px;transform:translateY(-50%)}
+.section-radial--left::after{top:50%;left:-300px;transform:translateY(-50%)}
 
 /* ===== GLOWING CARD BORDERS ON HOVER ===== */
-.stat-card:hover,.service-card:hover,.testimonial-card:hover,.case-card:hover{border-color:rgba(77,188,208,.4);box-shadow:0 0 24px rgba(77,188,208,.12),0 8px 40px rgba(77,188,208,.06)}
+.stat-card:hover,.service-card:hover,.testimonial-card:hover,.case-card:hover{border-color:rgba(77,188,208,.4);box-shadow:0 2px 4px rgba(77,188,208,.06),0 4px 12px rgba(77,188,208,.08),0 8px 24px rgba(77,188,208,.1),0 16px 48px rgba(77,188,208,.06),0 0 20px rgba(77,188,208,.08)}
 
 /* ===== VISUAL BREAK DIVIDER ===== */
 .visual-break{position:relative;padding:80px 0;overflow:hidden}
@@ -490,6 +495,9 @@ html,body{overflow-x:hidden}
 </head>
 <body>
 
+<!-- ===== CURSOR FLASHLIGHT ===== -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
 <!-- ===== PRELOADER ===== -->
 <div class="preloader" id="preloader">
   <img src="logo-horizontal.png" alt="PPC Advisor" class="preloader__logo">
@@ -577,7 +585,7 @@ html,body{overflow-x:hidden}
 <!-- ===== SERVICES ===== -->
 <section class="services section-glow section-radial section-radial--right" id="services">
 <div class="container">
-  <h2 class="services__heading reveal">הכל תחת <span class="accent">קורת גג אחת.</span> באמת.</h2>
+  <h2 class="services__heading reveal"><span class="fw-light">הכל תחת</span> <span class="accent">קורת גג אחת.</span> באמת.</h2>
   <p class="services__sub reveal">כשהשיווק מנוהל במקום אחד, התוצאות גדלות &ndash; כי כל ערוץ מדבר עם השאר. במקום לרוץ בין ספקים שלא מדברים אחד עם השני, אנחנו מנהלים את כל מערך השיווק שלכם כמקשה אחת. אסטרטגיה, ביצוע, אופטימיזציה &ndash; הכל מסונכרן.</p>
   <div class="services__grid">
     <div class="service-card reveal">
@@ -644,7 +652,7 @@ html,body{overflow-x:hidden}
 <!-- ===== PROCESS ===== -->
 <section class="process section-glow" id="process">
 <div class="container">
-  <h2 class="process__heading reveal">4 צעדים <span class="accent">לתוצאות.</span> בלי הפתעות.</h2>
+  <h2 class="process__heading reveal"><span class="fw-light">4 צעדים</span> <span class="accent">לתוצאות.</span> בלי הפתעות.</h2>
   <div class="process__timeline">
     <div class="process-step">
       <div class="process-step__content"><h3>אבחון ואפיון</h3><p>פגישת אפיון מעמיקה ללא עלות וללא התחייבות. אנחנו לומדים את העסק שלכם, המתחרים, הקהל והיעדים.</p></div>
@@ -676,7 +684,7 @@ html,body{overflow-x:hidden}
 <!-- ===== TESTIMONIALS ===== -->
 <section class="testimonials section-glow section-radial section-radial--left" id="testimonials">
 <div class="container">
-  <h2 class="testimonials__heading reveal">הם מדברים. <span class="accent">אנחנו עושים.</span></h2>
+  <h2 class="testimonials__heading reveal"><span class="fw-light">הם מדברים.</span> <span class="accent">אנחנו עושים.</span></h2>
   <div class="testimonials__grid">
     <div class="testimonial-card">
       <p class="testimonial-card__text">"הגענו ל-PPC Advisor כשהיינו צריכים לעשות סדר בשיווק הדיגיטלי שלנו. תוך חודשיים הצוות שדרג את האתר, הרים קמפיינים חדשים, וכבר בחודש הראשון ראינו עלייה של 40% בלידים. מקצוענים מהרמה הגבוהה."</p>
@@ -706,7 +714,7 @@ html,body{overflow-x:hidden}
 <!-- ===== CASE STUDIES ===== -->
 <section class="case-studies" id="case-studies">
 <div class="container">
-  <h2 class="case-studies__heading reveal">תוצאות שמדברות <span class="accent">בעד עצמן.</span></h2>
+  <h2 class="case-studies__heading reveal"><span class="fw-light">תוצאות שמדברות</span> <span class="accent">בעד עצמן.</span></h2>
   <div class="case-studies__grid">
     <div class="case-card reveal">
       <p class="case-card__label">חברת איקומרס</p>
@@ -1190,6 +1198,22 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     }
   });
 });
+
+// ===== CURSOR FLASHLIGHT EFFECT =====
+const cursorGlow = document.getElementById('cursorGlow');
+const heroSection = document.querySelector('.hero');
+document.addEventListener('mousemove',e=>{
+  cursorGlow.style.left = e.clientX+'px';
+  cursorGlow.style.top = e.clientY+'px';
+  // Only show on dark background sections (not hero which is light)
+  const heroRect = heroSection.getBoundingClientRect();
+  if(e.clientY > heroRect.bottom){
+    cursorGlow.classList.add('active');
+  } else {
+    cursorGlow.classList.remove('active');
+  }
+});
+document.addEventListener('mouseleave',()=>cursorGlow.classList.remove('active'));
 </script>
 </body>
 </html>
