@@ -61,13 +61,13 @@ h1,h2,h3{line-height:1.05}
 }
 
 /* ===== LOGO MARQUEE ===== */
-.marquee{padding:28px 0;background:linear-gradient(180deg,rgba(14,31,51,.3),var(--bg));overflow:hidden;position:relative;z-index:4;direction:ltr}
-.marquee-track{display:flex;gap:60px;animation:marquee-scroll 60s linear infinite;width:max-content}
+.marquee{padding:32px 0;background:linear-gradient(180deg,rgba(14,31,51,.3),var(--bg));overflow:hidden;position:relative;z-index:4;direction:ltr}
+.marquee-track{display:flex;gap:56px;align-items:center;animation:marquee-scroll 60s linear infinite;width:max-content}
 .marquee-track:hover{animation-play-state:paused}
-.marquee-item{flex-shrink:0;opacity:.6;transition:opacity .3s;display:flex;align-items:center;height:40px}
+.marquee-item{flex-shrink:0;opacity:.75;transition:opacity .4s,filter .4s;display:flex;align-items:center;justify-content:center;height:44px}
 .marquee-item:hover{opacity:1}
-.marquee-item img{height:32px;width:auto;object-fit:contain;max-width:140px;filter:grayscale(1) brightness(1.8)}
-.marquee-item:hover img{filter:grayscale(0) brightness(1)}
+.marquee-item img{height:36px;width:auto;object-fit:contain;max-width:160px;filter:brightness(0) invert(1) opacity(.85)}
+.marquee-item:hover img{filter:brightness(0) invert(1) opacity(1)}
 .marquee-item span{font-size:1rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:var(--text-light)}
 @keyframes marquee-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
