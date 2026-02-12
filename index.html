@@ -62,11 +62,12 @@ h1,h2,h3{line-height:1.05}
 
 /* ===== LOGO MARQUEE ===== */
 .marquee{padding:28px 0;background:linear-gradient(180deg,rgba(14,31,51,.3),var(--bg));overflow:hidden;position:relative;z-index:4}
-.marquee-track{display:flex;gap:60px;animation:marquee-scroll 35s linear infinite;width:max-content}
+.marquee-track{display:flex;gap:60px;animation:marquee-scroll 60s linear infinite;width:max-content}
 .marquee-track:hover{animation-play-state:paused}
-.marquee-item{flex-shrink:0;opacity:.45;transition:opacity .3s;display:flex;align-items:center;height:36px;filter:brightness(1.5)}
-.marquee-item:hover{opacity:.8}
-.marquee-item span{font-size:.95rem;font-weight:700;letter-spacing:.05em;white-space:nowrap;color:var(--text-light)}
+.marquee-item{flex-shrink:0;opacity:.5;transition:opacity .3s;display:flex;align-items:center;height:40px;filter:grayscale(1) brightness(2)}
+.marquee-item:hover{opacity:.85;filter:grayscale(0) brightness(1)}
+.marquee-item img{height:32px;width:auto;object-fit:contain;max-width:140px}
+.marquee-item span{font-size:1rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:var(--text-light)}
 @keyframes marquee-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ===== STATS ===== */
@@ -187,7 +188,7 @@ h1,h2,h3{line-height:1.05}
 .faq__contact{display:flex;gap:24px;flex-wrap:wrap}
 .faq__contact a{display:flex;align-items:center;gap:8px;color:var(--primary);font-weight:600}
 .faq__contact a svg{width:16px;height:16px;fill:var(--primary)}
-.faq__chat{background:rgba(77,188,208,.06);border-radius:24px;padding:24px;max-height:600px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;border:1px solid var(--card-border)}
+.faq__chat{background:rgba(77,188,208,.06);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:8px;border:1px solid var(--card-border)}
 .faq__chat::-webkit-scrollbar{width:4px}
 .faq__chat::-webkit-scrollbar-thumb{background:rgba(77,188,208,.3);border-radius:4px}
 .chat-q{display:flex;align-items:center;gap:10px;padding:14px 20px;background:rgba(77,188,208,.15);border-radius:16px;cursor:pointer;transition:background .3s;font-size:.88rem;font-weight:500}
@@ -569,49 +570,48 @@ html,body{overflow-x:hidden}
 
 <!-- ===== MARQUEE ===== -->
 <section class="marquee">
-<div class="marquee-track">
-  <div class="marquee-item"><span>PaintVibe</span></div>
-  <div class="marquee-item"><span>HeyHobby</span></div>
-  <div class="marquee-item"><span>Coppry</span></div>
-  <div class="marquee-item"><span>Director Center</span></div>
-  <div class="marquee-item"><span>Kibbutz Movement</span></div>
-  <div class="marquee-item"><span>Luka Yourself</span></div>
-  <div class="marquee-item"><span>Goldy's</span></div>
-  <div class="marquee-item"><span>Shabbos Kodesh</span></div>
-  <div class="marquee-item"><span>Greco</span></div>
-  <div class="marquee-item"><span>Ad Shifer</span></div>
-  <div class="marquee-item"><span>Quiz Please TLV</span></div>
-  <div class="marquee-item"><span>Lublinsky</span></div>
-  <div class="marquee-item"><span>Soul &amp; Pepper</span></div>
-  <div class="marquee-item"><span>Nisha</span></div>
-  <div class="marquee-item"><span>JCE</span></div>
-  <div class="marquee-item"><span>JetBrains</span></div>
-  <div class="marquee-item"><span>Huawei</span></div>
-  <div class="marquee-item"><span>Bitcoin.com</span></div>
-  <div class="marquee-item"><span>Odigos</span></div>
-  <div class="marquee-item"><span>Carol Bike</span></div>
-  <!-- duplicate for infinite scroll -->
-  <div class="marquee-item"><span>PaintVibe</span></div>
-  <div class="marquee-item"><span>HeyHobby</span></div>
-  <div class="marquee-item"><span>Coppry</span></div>
-  <div class="marquee-item"><span>Director Center</span></div>
-  <div class="marquee-item"><span>Kibbutz Movement</span></div>
-  <div class="marquee-item"><span>Luka Yourself</span></div>
-  <div class="marquee-item"><span>Goldy's</span></div>
-  <div class="marquee-item"><span>Shabbos Kodesh</span></div>
-  <div class="marquee-item"><span>Greco</span></div>
-  <div class="marquee-item"><span>Ad Shifer</span></div>
-  <div class="marquee-item"><span>Quiz Please TLV</span></div>
-  <div class="marquee-item"><span>Lublinsky</span></div>
-  <div class="marquee-item"><span>Soul &amp; Pepper</span></div>
-  <div class="marquee-item"><span>Nisha</span></div>
-  <div class="marquee-item"><span>JCE</span></div>
-  <div class="marquee-item"><span>JetBrains</span></div>
-  <div class="marquee-item"><span>Huawei</span></div>
-  <div class="marquee-item"><span>Bitcoin.com</span></div>
-  <div class="marquee-item"><span>Odigos</span></div>
-  <div class="marquee-item"><span>Carol Bike</span></div>
-</div>
+<div class="marquee-track" id="marqueeTrack"></div>
+<script>
+(function(){
+  const clients=[
+    {name:'PaintVibe',logo:null},
+    {name:'HeyHobby',logo:null},
+    {name:'Coppry',logo:null},
+    {name:'Director Center',logo:null},
+    {name:'Kibbutz Movement',logo:null},
+    {name:'Luka Yourself',logo:null},
+    {name:"Goldy's",logo:null},
+    {name:'Shabbos Kodesh',logo:null},
+    {name:'Greco',logo:null},
+    {name:'Ad Shifer',logo:null},
+    {name:'Quiz Please TLV',logo:null},
+    {name:'Lublinsky',logo:null},
+    {name:'Soul & Pepper',logo:null},
+    {name:'Nisha',logo:null},
+    {name:'JCE',logo:'https://www.jce.ac.il/wp-content/uploads/2024/11/JCE-logo-original.svg'},
+    {name:'JetBrains',logo:'https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.svg'},
+    {name:'Huawei',logo:'https://www.huawei.com/-/media/hcomponent-header/1.0.1.20251208095539/component/img/huawei_logo.png'},
+    {name:'Bitcoin.com',logo:'https://www.bitcoin.com/images/uploads/home/desktop-logo.webp'},
+    {name:'Odigos',logo:'https://odigos.io/assets/odigos/logo_text_white.svg'},
+    {name:'Carol Bike',logo:'https://carolbike.com/wp-content/uploads/2023/04/logo.svg'}
+  ];
+  const track=document.getElementById('marqueeTrack');
+  function buildItems(){
+    let html='';
+    for(let r=0;r<2;r++){
+      clients.forEach(c=>{
+        if(c.logo){
+          html+=`<div class="marquee-item"><img src="${c.logo}" alt="${c.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span style="display:none">${c.name}</span></div>`;
+        } else {
+          html+=`<div class="marquee-item"><span>${c.name}</span></div>`;
+        }
+      });
+    }
+    track.innerHTML=html;
+  }
+  buildItems();
+})();
+</script>
 </section>
 
 <!-- ===== STATS ===== -->
@@ -1279,7 +1279,7 @@ gsap.to('.cta__glow--2',{y:40,x:-20,scrollTrigger:{trigger:'.cta',start:'top bot
 // ===== MARQUEE SPEED ON SCROLL =====
 ScrollTrigger.create({trigger:'.marquee',start:'top bottom',end:'bottom top',
   onUpdate:self=>{
-    const speed = 35 - (self.progress * 20);
+    const speed = 60 - (self.progress * 25);
     document.querySelector('.marquee-track').style.animationDuration = speed+'s';
   }
 });
