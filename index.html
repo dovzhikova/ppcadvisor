@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PPC Advisor - מעטפת שיווק דיגיטלי 360°</title>
-<meta name="description" content="יותר לידים, פחות עלות רכישה, וצמיחה שלא נגמרת. מעטפת שיווק דיגיטלי 360° שמנהלת את הכל תחת קורת גג אחת.">
+<meta name="description" content="יותר לקוחות, יותר מכירות, וצמיחה שלא נגמרת. מעטפת שיווק דיגיטלי 360° שמנהלת את הכל תחת קורת גג אחת.">
 <link href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Heebo:wght@300;400;500;600;700;800;900&family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" type="image/jpeg" href="logo-square.jpg">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -165,6 +165,18 @@ h1,h2,h3{line-height:1.05}
 .about__glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(77,188,208,.12),rgba(77,188,208,.05) 40%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
 @media(max-width:768px){.about__grid{grid-template-columns:1fr}.about__text{text-align:center}}
 
+/* ===== TEAM ===== */
+.team{padding:120px 0;position:relative;overflow:hidden}
+.team__heading{text-align:center;font-size:clamp(2rem,5vw,3.8rem);font-weight:700;margin-bottom:20px}
+.team__sub{text-align:center;font-size:.95rem;color:rgba(236,236,236,.55);max-width:650px;margin:0 auto 50px;line-height:1.5}
+.team__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.team-card{background:linear-gradient(135deg,rgba(30,80,95,.15),rgba(14,50,65,.15));border:1px solid var(--card-border);border-radius:var(--radius);padding:32px 28px;text-align:center;transition:all .4s;backdrop-filter:blur(8px)}
+.team-card:hover{background:rgba(77,188,208,.12);transform:translateY(-4px);border-color:rgba(77,188,208,.4);box-shadow:0 2px 4px rgba(77,188,208,.06),0 4px 12px rgba(77,188,208,.08),0 8px 24px rgba(77,188,208,.1)}
+.team-card__photo{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,rgba(77,188,208,.2),rgba(46,139,154,.3));margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:.8rem;color:rgba(255,255,255,.4)}
+.team-card__name{font-size:1.1rem;font-weight:700;margin-bottom:4px}
+.team-card__role{font-size:.85rem;color:var(--primary);font-weight:600;margin-bottom:12px}
+.team-card__desc{font-size:.85rem;color:rgba(236,236,236,.55);line-height:1.5}
+
 /* ===== FAQ ===== */
 .faq{padding:140px 0;position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(30,80,95,.35) 0%,rgba(14,60,75,.25) 40%,var(--bg) 100%)}
 .faq__grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
@@ -248,7 +260,7 @@ h1,h2,h3{line-height:1.05}
 .footer__logo span{color:var(--primary)}
 .footer__links{display:flex;gap:20px;justify-content:flex-end;font-size:.85rem;color:rgba(236,236,236,.5)}
 .footer__links a:hover{color:var(--primary)}
-.footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:40px;padding-top:40px;border-top:1px solid var(--card-border)}
+.footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:40px;padding-top:40px;border-top:1px solid var(--card-border)}
 .footer__tagline{font-size:clamp(1.2rem,2vw,1.6rem);font-weight:300;line-height:1.3}
 .footer__tagline strong{font-weight:900}
 .footer__contact-col h3,.footer__nav-col h3{font-size:.95rem;font-weight:700;margin-bottom:12px}
@@ -459,6 +471,12 @@ html,body{overflow-x:hidden}
 .about__bio{font-size:.85rem}
 .about__photo-inner{max-width:280px;aspect-ratio:1/1}
 
+/* Team mobile */
+.team{padding:80px 0}
+.team__heading{font-size:clamp(1.6rem,7vw,2.2rem);padding:0 8px}
+.team__sub{font-size:.85rem;padding:0 8px}
+.team__grid{grid-template-columns:1fr;gap:16px}
+
 /* FAQ mobile */
 .faq{padding:80px 0}
 .faq__right h2{font-size:clamp(1.6rem,7vw,2.2rem)}
@@ -529,7 +547,7 @@ html,body{overflow-x:hidden}
     <span class="hero__line hero__line--lg">כל הדיגיטל</span>
     <span class="hero__line hero__line--accent">תוצאות</span>
   </h1>
-  <p class="hero__subtitle">יותר לידים, פחות עלות רכישה, וצמיחה שלא נגמרת. מעטפת שיווק דיגיטלי 360° שמנהלת את הכל תחת קורת גג אחת.</p>
+  <p class="hero__subtitle">יותר לקוחות, יותר מכירות, וצמיחה שלא נגמרת. מעטפת שיווק דיגיטלי 360° שמנהלת את הכל תחת קורת גג אחת.</p>
   <div class="hero__cta">
     <a href="https://wa.me/972000000000" class="pill-btn pill-btn--dark" target="_blank"><span class="arrow">&#8592;</span> רוצים לצמוח? דברו איתנו</a>
     <a href="#services" class="pill-btn pill-btn--outline" style="color:var(--text-dark);border-color:rgba(14,31,51,.25)">צפו בעבודות שלנו</a>
@@ -552,23 +570,47 @@ html,body{overflow-x:hidden}
 <!-- ===== MARQUEE ===== -->
 <section class="marquee">
 <div class="marquee-track">
-  <div class="marquee-item"><span>לקוח 1</span></div>
-  <div class="marquee-item"><span>לקוח 2</span></div>
-  <div class="marquee-item"><span>לקוח 3</span></div>
-  <div class="marquee-item"><span>לקוח 4</span></div>
-  <div class="marquee-item"><span>לקוח 5</span></div>
-  <div class="marquee-item"><span>לקוח 6</span></div>
-  <div class="marquee-item"><span>לקוח 7</span></div>
-  <div class="marquee-item"><span>לקוח 8</span></div>
+  <div class="marquee-item"><span>PaintVibe</span></div>
+  <div class="marquee-item"><span>HeyHobby</span></div>
+  <div class="marquee-item"><span>Coppry</span></div>
+  <div class="marquee-item"><span>Director Center</span></div>
+  <div class="marquee-item"><span>Kibbutz Movement</span></div>
+  <div class="marquee-item"><span>Luka Yourself</span></div>
+  <div class="marquee-item"><span>Goldy's</span></div>
+  <div class="marquee-item"><span>Shabbos Kodesh</span></div>
+  <div class="marquee-item"><span>Greco</span></div>
+  <div class="marquee-item"><span>Ad Shifer</span></div>
+  <div class="marquee-item"><span>Quiz Please TLV</span></div>
+  <div class="marquee-item"><span>Lublinsky</span></div>
+  <div class="marquee-item"><span>Soul &amp; Pepper</span></div>
+  <div class="marquee-item"><span>Nisha</span></div>
+  <div class="marquee-item"><span>JCE</span></div>
+  <div class="marquee-item"><span>JetBrains</span></div>
+  <div class="marquee-item"><span>Huawei</span></div>
+  <div class="marquee-item"><span>Bitcoin.com</span></div>
+  <div class="marquee-item"><span>Odigos</span></div>
+  <div class="marquee-item"><span>Carol Bike</span></div>
   <!-- duplicate for infinite scroll -->
-  <div class="marquee-item"><span>לקוח 1</span></div>
-  <div class="marquee-item"><span>לקוח 2</span></div>
-  <div class="marquee-item"><span>לקוח 3</span></div>
-  <div class="marquee-item"><span>לקוח 4</span></div>
-  <div class="marquee-item"><span>לקוח 5</span></div>
-  <div class="marquee-item"><span>לקוח 6</span></div>
-  <div class="marquee-item"><span>לקוח 7</span></div>
-  <div class="marquee-item"><span>לקוח 8</span></div>
+  <div class="marquee-item"><span>PaintVibe</span></div>
+  <div class="marquee-item"><span>HeyHobby</span></div>
+  <div class="marquee-item"><span>Coppry</span></div>
+  <div class="marquee-item"><span>Director Center</span></div>
+  <div class="marquee-item"><span>Kibbutz Movement</span></div>
+  <div class="marquee-item"><span>Luka Yourself</span></div>
+  <div class="marquee-item"><span>Goldy's</span></div>
+  <div class="marquee-item"><span>Shabbos Kodesh</span></div>
+  <div class="marquee-item"><span>Greco</span></div>
+  <div class="marquee-item"><span>Ad Shifer</span></div>
+  <div class="marquee-item"><span>Quiz Please TLV</span></div>
+  <div class="marquee-item"><span>Lublinsky</span></div>
+  <div class="marquee-item"><span>Soul &amp; Pepper</span></div>
+  <div class="marquee-item"><span>Nisha</span></div>
+  <div class="marquee-item"><span>JCE</span></div>
+  <div class="marquee-item"><span>JetBrains</span></div>
+  <div class="marquee-item"><span>Huawei</span></div>
+  <div class="marquee-item"><span>Bitcoin.com</span></div>
+  <div class="marquee-item"><span>Odigos</span></div>
+  <div class="marquee-item"><span>Carol Bike</span></div>
 </div>
 </section>
 
@@ -579,7 +621,7 @@ html,body{overflow-x:hidden}
   <div class="stats__grid">
     <div class="stat-card">
       <div class="stat-card__number">267</div>
-      <div class="stat-card__title">לקוחות פעילים</div>
+      <div class="stat-card__title">לקוחות מרוצים</div>
     </div>
     <div class="stat-card">
       <div class="stat-card__number">14</div>
@@ -594,7 +636,7 @@ html,body{overflow-x:hidden}
       <div class="stat-card__title">שיעור שימור לקוחות</div>
     </div>
   </div>
-  <p class="stats__sub reveal">עובדים עם סטארטאפים, עסקים צומחים, חברות איקומרס, וארגונים מכל התעשיות.</p>
+  <p class="stats__sub reveal">עובדים עם עצמאים, חנויות אונליין, עסקים צומחים, חברות איקומרס, וארגונים מכל התעשיות.</p>
 </div>
 </section>
 
@@ -603,6 +645,7 @@ html,body{overflow-x:hidden}
 <div class="container">
   <h2 class="services__heading reveal"><span class="fw-light">הכל תחת</span> <span class="accent">קורת גג אחת.</span> באמת.</h2>
   <p class="services__sub reveal">כשהשיווק מנוהל במקום אחד, התוצאות גדלות &ndash; כי כל ערוץ מדבר עם השאר. במקום לרוץ בין ספקים שלא מדברים אחד עם השני, אנחנו מנהלים את כל מערך השיווק שלכם כמקשה אחת. אסטרטגיה, ביצוע, אופטימיזציה &ndash; הכל מסונכרן.</p>
+  <p class="services__sub reveal" style="margin-top:-30px"><strong style="color:var(--primary)">היתרון הטכנולוגי שלנו:</strong> אנחנו משלבים טכנולוגיות מתקדמות שרוב הסוכנויות עדיין לא משתמשות בהן. דאטה בזמן אמת דרך דשבורדים חכמים, אוטומציות מתקדמות שחוסכות שעות עבודה, כלי AI לכתיבת תוכן ואופטימיזציה של קמפיינים, ומערכות חיזוי שמזהות הזדמנויות עוד לפני שהן הופכות לבעיות. התוצאה? החלטות מהירות יותר, עלויות נמוכות יותר, וROI שרק משתפר.</p>
   <div class="services__grid">
     <div class="service-card reveal">
       <div class="service-card__icon">&#128269;</div>
@@ -611,16 +654,22 @@ html,body{overflow-x:hidden}
       <p class="service-card__desc">מחקר מילות מפתח, אופטימיזציה טכנית, בניית קישורים, ויצירת תוכן שמוביל טראפיק איכותי לאורך זמן. אנחנו מביאים לקוחות שמחפשים אתכם בדיוק ברגע הזה &ndash; לא גולשים.</p>
     </div>
     <div class="service-card reveal">
+      <div class="service-card__icon">&#129302;</div>
+      <h3 class="service-card__title">אופטימיזציה למנועי AI</h3>
+      <p class="service-card__label">GEO &ndash; להופיע בתשובות של ChatGPT, Gemini ו-Perplexity.</p>
+      <p class="service-card__desc">העולם הדיגיטלי משתנה. יותר ויותר אנשים מחפשים דרך מנועי בינה מלאכותית במקום גוגל מסורתי. אנחנו בונים מבנה תוכן שמותאם ל-AI, סכמה מובנית, ואוטוריטט תוכני שמבטיח נוכחות גם בעולם של אחרי החיפוש.</p>
+    </div>
+    <div class="service-card reveal">
       <div class="service-card__icon">&#128200;</div>
       <h3 class="service-card__title">פרסום ממומן</h3>
       <p class="service-card__label">PPC &ndash; ROI מקסימלי. בלי ניחושים.</p>
-      <p class="service-card__desc">קמפיינים בגוגל, בינג, ופלטפורמות נוספות &ndash; מנוהלים בדיוק מדי יום, מודדים כל המרה, ומוודאים שכל שקל שמשקיעים חוזר אליכם בתוצאות.</p>
+      <p class="service-card__desc">קמפיינים בגוגל, בינג, ופלטפורמות נוספות &ndash; מנוהלים בדיוק מדי יום, מודדים כל המרה, ומוודאים שכל שקל שמשקיעים חוזר אליכם בתוצאות. בידינג חכם מבוסס AI, אופטימיזציה אוטומטית של הצעות וקריאייטיבים, ודוחות ביצועים בזמן אמת.</p>
     </div>
     <div class="service-card reveal">
       <div class="service-card__icon">&#128187;</div>
-      <h3 class="service-card__title">בניית אתרים ודפי נחיתה</h3>
+      <h3 class="service-card__title">בניית אתרים וחנויות אונליין</h3>
       <p class="service-card__label">Website &ndash; אתר שמוכר &ndash; לא רק נראה טוב.</p>
-      <p class="service-card__desc">אתרים מודרניים, מהירים וממירים שנבנים להמרה &ndash; לא רק להיראות טוב. אפיון חוויית משתמש, עיצוב UX/UI, מהירות טעינה, והתאמה מלאה למובייל.</p>
+      <p class="service-card__desc">אתרים מודרניים, מהירים וממירים שנבנים להמרה &ndash; לא רק להיראות טוב. פיתוח ב-WordPress, Elementor, Shopify ופלטפורמות מותאמות אישית. אפיון חוויית משתמש, עיצוב UX/UI, חנויות אונליין, דפי נחיתה, מהירות טעינה, והתאמה מלאה למובייל.</p>
     </div>
     <div class="service-card reveal">
       <div class="service-card__icon">&#9993;</div>
@@ -650,7 +699,7 @@ html,body{overflow-x:hidden}
       <div class="service-card__icon">&#128640;</div>
       <h3 class="service-card__title">אסטרטגיית Go-To-Market</h3>
       <p class="service-card__label">GTM &ndash; מהרעיון לשוק &ndash; בדרך הנכונה.</p>
-      <p class="service-card__desc">השקת מוצר חדש? כניסה לשוק חדש? אנחנו בונים אסטרטגיית GTM מלאה: אנליזת מתחרים ונישת שוק, מיצוב מוצר ותמחור, לוח זמנים להשקה עם אבני דרך, ומיקס ערוצים מותאם לקהל היעד.</p>
+      <p class="service-card__desc">השקת מוצר חדש? כניסה לשוק חדש? אנחנו בונים אסטרטגיית GTM מלאה: אנליזת מתחרים ונישת שוק, מיצוב מוצר ותמחור, אסטרטגיית תמחור, לוח זמנים להשקה עם אבני דרך, ומיקס ערוצים מותאם לקהל היעד. מהאפס הראשון ועד לאופטימיזציה שוטפת.</p>
     </div>
   </div>
 </div>
@@ -705,15 +754,15 @@ html,body{overflow-x:hidden}
     <div class="testimonial-card">
       <p class="testimonial-card__text">"הגענו ל-PPC Advisor כשהיינו צריכים לעשות סדר בשיווק הדיגיטלי שלנו. תוך חודשיים הצוות שדרג את האתר, הרים קמפיינים חדשים, וכבר בחודש הראשון ראינו עלייה של 40% בלידים. מקצוענים מהרמה הגבוהה."</p>
       <div class="testimonial-card__author">
-        <div class="testimonial-card__logo">EC</div>
-        <div><div class="testimonial-card__name">CEO</div><div class="testimonial-card__role">חברת איקומרס</div></div>
+        <div class="testimonial-card__logo">OB</div>
+        <div><div class="testimonial-card__name">בעלים</div><div class="testimonial-card__role">חנות אונליין למוצרי טיפוח</div></div>
       </div>
     </div>
     <div class="testimonial-card">
-      <p class="testimonial-card__text">"הם לא סתם ספקים &ndash; הם שותפים אמיתיים. הבינו את העסק, הציעו אסטרטגיה חדה, והתקשורת איתם נהדרת. התוצאות מדברות בעד עצמן."</p>
+      <p class="testimonial-card__text">"הם לא סתם ספקים &ndash; הם שותפים אמיתיים. בנו לי חנות Shopify מאפס, הקימו קמפיינים חכמים, והתקשורת איתם נהדרת. המכירות הכפילו את עצמן תוך חודשיים."</p>
       <div class="testimonial-card__author">
-        <div class="testimonial-card__logo">SS</div>
-        <div><div class="testimonial-card__name">מנכ"ל</div><div class="testimonial-card__role">סטארטאפ SaaS</div></div>
+        <div class="testimonial-card__logo">OB</div>
+        <div><div class="testimonial-card__name">בעלים</div><div class="testimonial-card__role">חנות אונליין</div></div>
       </div>
     </div>
     <div class="testimonial-card">
@@ -746,17 +795,17 @@ html,body{overflow-x:hidden}
       <p class="case-card__result">+40% לידים &middot; -30% עלות רכישה &middot; ROI מוכח מהחודש הראשון</p>
     </div>
     <div class="case-card reveal">
-      <p class="case-card__label">סטארטאפ SaaS</p>
-      <h3 class="case-card__title">מאפס לנוכחות דיגיטלית</h3>
+      <p class="case-card__label">חנות אונליין</p>
+      <h3 class="case-card__title">מאפס להכנסות מכובדות</h3>
       <div class="case-card__item">
         <p class="case-card__item-label">האתגר</p>
-        <p class="case-card__item-text">מוצר חדשני בלי תשתית דיגיטלית, תקציב מוגבל.</p>
+        <p class="case-card__item-text">חנות Shopify עם מכירות נמוכות ותנועה חלשה בדיגיטל.</p>
       </div>
       <div class="case-card__item">
         <p class="case-card__item-label">הפתרון</p>
-        <p class="case-card__item-text">אסטרטגיית GTM + קמפייני PPC + סושיאל + תוכן.</p>
+        <p class="case-card__item-text">שדרוג חנות + קמפייני PPC + סושיאל + אימייל מרקטינג.</p>
       </div>
-      <p class="case-card__result">200+ לידים ברבעון הראשון &middot; נוכחות דיגיטלית אמיתית ומדידה</p>
+      <p class="case-card__result">עלייה של 180% בהכנסות &middot; ירידה של 35% בעלות רכישה &middot; מותג חזק וצומח</p>
     </div>
     <div class="case-card reveal">
       <p class="case-card__label">רשת קמעונאית</p>
@@ -782,12 +831,40 @@ html,body{overflow-x:hidden}
   <div class="about__grid">
     <div class="about__text reveal">
       <h2>לא סוכנות. לא פרילנסרים.<br>שותפים.</h2>
-      <p class="about__bio">אחרי <strong>14 שנה</strong> של ניהול קמפיינים למאות עסקים בכל קנה מידה, הבנו דבר אחד: השיווק הדיגיטלי של רוב העסקים מפוזר &ndash; סוכנות אחת עושה SEO, אחרת PPC, שלישית בונה אתרים, ואף אחד לא מדבר עם השני.<br><br>הקמנו את PPC Advisor כדי לעשות את זה אחרת. אנחנו <strong>מעטפת שיווק דיגיטלי 360°</strong> שמנהלת את כל החזית הדיגיטלית שלכם תחת קורת גג אחת &ndash; מהאסטרטגיה הראשונית, דרך הביצוע, ועד לאופטימיזציה וצמיחה.<br><br>הצוות שלנו מורכב ממומחים בכל תחום &ndash; קידום אורגני, מדיה, תוכן, עיצוב, אנליטיקס וטכנולוגיה &ndash; <strong>כולם עובדים יחד על המטרות שלכם.</strong></p>
+      <p class="about__bio">[מקום לשם המייסד/ית] התחיל/ה את הדרך בעולם הדיגיטל מלמטה, ואחרי <strong>14 שנה</strong> של ניהול קמפיינים לעצמאים, חנויות ועסקים בכל קנה מידה, הבין/ה דבר אחד: השיווק הדיגיטלי של רוב העסקים מפוזר &ndash; סוכנות אחת עושה SEO, אחרת PPC, שלישית בונה אתרים, ואף אחד לא מדבר עם השני.<br><br>הקמנו את PPC Advisor כדי לעשות את זה אחרת. אנחנו <strong>מעטפת שיווק דיגיטלי 360°</strong> שמנהלת את כל החזית הדיגיטלית שלכם תחת קורת גג אחת &ndash; מהאסטרטגיה הראשונית, דרך הביצוע, ועד לאופטימיזציה וצמיחה.<br><br>הצוות שלנו מורכב ממומחים בכל תחום &ndash; קידום אורגני, מדיה, תוכן, עיצוב, אנליטיקס וטכנולוגיה &ndash; <strong>כולם עובדים יחד על המטרות שלכם.</strong></p>
     </div>
     <div class="about__photo reveal">
       <div class="about__photo-inner">
         <img src="logo-square.jpg" alt="PPC Advisor" style="width:50%;opacity:.7;border-radius:16px">
       </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== TEAM ===== -->
+<section class="team section-glow" id="team">
+<div class="container">
+  <h2 class="team__heading reveal"><span class="fw-light">האנשים מאחורי</span> <span class="accent">התוצאות.</span></h2>
+  <p class="team__sub reveal">לא צוות גנרי &ndash; צוות מומחים שכל אחד מהם חי ונושם את התחום שלו. כולם עובדים יחד על המטרות שלכם.</p>
+  <div class="team__grid">
+    <div class="team-card reveal">
+      <div class="team-card__photo"><span>[תמונה]</span></div>
+      <h3 class="team-card__name">[שם מלא]</h3>
+      <p class="team-card__role">מייסד/ת ו-CEO</p>
+      <p class="team-card__desc">14+ שנות ניסיון בשיווק דיגיטלי. ניהל/ה תקציבי מדיה של מיליוני שקלים למאות עסקים. Google Partner ו-Meta Business Partner מוסמך/ת.</p>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-card__photo"><span>[תמונה]</span></div>
+      <h3 class="team-card__name">[שם מלא]</h3>
+      <p class="team-card__role">ראש/ת צוות SEO ותוכן</p>
+      <p class="team-card__desc">מומחה בקידום אורגני ואסטרטגיית תוכן. הוביל/ה אתרים לעמוד 1 בגוגל בתחומים תחרותיים.</p>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-card__photo"><span>[תמונה]</span></div>
+      <h3 class="team-card__name">[שם מלא]</h3>
+      <p class="team-card__role">ראש/ת צוות מדיה ופרפורמנס</p>
+      <p class="team-card__desc">מנהל/ת תקציבי מדיה של מיליוני שקלים בשנה בגוגל, Meta, ופלטפורמות נוספות. חי ונושם אופטימיזציה בזמן אמת.</p>
     </div>
   </div>
 </div>
@@ -802,13 +879,17 @@ html,body{overflow-x:hidden}
       <div class="chat-q" onclick="toggleFaq(this)"><span class="chat-q__icon">+</span><span class="chat-q__text">מה ההבדל ביניכם לסוכנות דיגיטל רגילה?</span></div>
       <div class="chat-a">אצלנו הכל תחת קורת גג אחת. במקום לרוץ בין ספקי SEO, ספקי PPC, וספקי תוכן שלא מדברים אחד עם השני &ndash; אנחנו מנהלים את הכל. <strong>אסטרטגיה, ביצוע, ומדידה &ndash; במקום אחד.</strong></div>
       <div class="chat-q" onclick="toggleFaq(this)"><span class="chat-q__icon">+</span><span class="chat-q__text">למי השירות מתאים?</span></div>
-      <div class="chat-a">לעסקים בכל קנה מידה &ndash; <strong>מעסקים קטנים שרק מתחילים, חברות בצמיחה, וארגונים גדולים.</strong> אנחנו מתאימים את הפתרון לצורך העסקי.</div>
+      <div class="chat-a">לכל מי שרוצה לגדול אונליין &ndash; <strong>עצמאים, בעלי חנויות, מעסקים קטנים שרק מתחילים, חברות בצמיחה, וארגונים גדולים.</strong> אנחנו מתאימים את הפתרון לצורך שלכם, בלי קשר לגודל.</div>
       <div class="chat-q" onclick="toggleFaq(this)"><span class="chat-q__icon">+</span><span class="chat-q__text">מה התקציב המינימלי?</span></div>
       <div class="chat-a"><strong>אין לנו מינימום נוקשה</strong> &ndash; אנחנו בונים חבילה מותאמת אישית לכל עסק. בפגישת האפיון נבין בדיוק את הצרכים ונמליץ על החבילה המתאימה.</div>
       <div class="chat-q" onclick="toggleFaq(this)"><span class="chat-q__icon">+</span><span class="chat-q__text">תוך כמה זמן רואים תוצאות?</span></div>
       <div class="chat-a">זה תלוי בשירות ובמצב. קמפיינים ממומנים יכולים להניב תוצאות <strong>כבר בשבועות הראשונים</strong>. SEO הוא תהליך ארוך יותר &ndash; בדרך כלל <strong>3-6 חודשים</strong> לתוצאות משמעותיות. הגישה שלנו: אנחנו שקופים בכל הזמן.</div>
       <div class="chat-q" onclick="toggleFaq(this)"><span class="chat-q__icon">+</span><span class="chat-q__text">יש לכם התחייבות?</span></div>
       <div class="chat-a"><strong>אין התחייבות לטווח ארוך.</strong> אנחנו עובדים בהסכמים חודשיים עם אפשרות לצאת בכל רגע. כל הנכסים, החשבונות והדאטה נשארים שלכם לחלוטין. אם זה עובד &ndash; נמשיך. אם לא &ndash; ניפרד בידים טובות.</div>
+      <div class="chat-q" onclick="toggleFaq(this)"><span class="chat-q__icon">+</span><span class="chat-q__text">מה זה GEO ולמה זה חשוב?</span></div>
+      <div class="chat-a">GEO &ndash; Generative Engine Optimization &ndash; זה האופטימיזציה לדור הבא. היום אנשים לא רק מגוגלים &ndash; הם שואלים את ChatGPT, Gemini ו-Perplexity. אם העסק שלכם לא מופיע שם &ndash; <strong>אתם מפסידים לקוחות.</strong> אנחנו דואגים שהתוכן שלכם יהיה מותאם גם לעולם החדש הזה.</div>
+      <div class="chat-q" onclick="toggleFaq(this)"><span class="chat-q__icon">+</span><span class="chat-q__text">באיזה פלטפורמה אתם בונים אתרים?</span></div>
+      <div class="chat-a">אנחנו מתמחים ב-<strong>WordPress, Elementor, Shopify</strong> ופלטפורמות נוספות לפי הצורך. אם אתם מוכרים מוצרים אונליין &ndash; נבנה חנות ב-Shopify. צריכים אתר תדמיתי עם גמישות מלאה &ndash; נבנה ב-WordPress + Elementor. הכל מותאם אישית.</div>
       <div class="chat-q" onclick="toggleFaq(this)"><span class="chat-q__icon">+</span><span class="chat-q__text">האם אתם מוסמכים על ידי Google / Meta?</span></div>
       <div class="chat-a">כן. אנחנו <strong>Google Partner</strong> ו-<strong>Meta Business Partner</strong> מוסמכים. זה אומר שאנחנו עומדים בסטנדרטים הכי גבוהים של הפלטפורמות, עם גישה לכלים מתקדמים, תמיכה ישירה והכשרות מקצועית.</div>
     </div>
@@ -831,7 +912,7 @@ html,body{overflow-x:hidden}
 <div class="cta__glow cta__glow--2"></div>
 <div class="container" style="position:relative;z-index:2">
   <h2 class="reveal">מוכנים <span>לצמיחה?</span></h2>
-  <p class="reveal">ללא התחייבות. ללא עלות על הפגישה. פשוט שיחה כנה על העסק שלכם ואיך אנחנו יכולים לעזור לכם לצמוח.</p>
+  <p class="reveal">ללא התחייבות. ללא עלות על הפגישה. הנכסים נשארים שלכם. פשוט דברו איתנו ונראה אם אנחנו הצוות הנכון עבורכם.</p>
   <a href="https://wa.me/972000000000" class="pill-btn pill-btn--outline reveal" target="_blank"><span class="arrow">&#8592;</span> קבעו פגישה חינם</a>
   <div class="cta__contact reveal">
     <a href="tel:972000000000"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> 0XX-XXXXXXX</a>
@@ -899,7 +980,7 @@ html,body{overflow-x:hidden}
     <div class="footer__links"><a href="#">תקנון</a><a href="#">מדיניות פרטיות</a><a href="#">נגישות</a></div>
   </div>
   <div class="footer__grid">
-    <div class="footer__tagline">יותר לידים, פחות עלות רכישה,<br><strong>וצמיחה שלא נגמרת.</strong></div>
+    <div class="footer__tagline">יותר לקוחות, יותר מכירות,<br><strong>וצמיחה שלא נגמרת.</strong></div>
     <div class="footer__contact-col">
       <h3>צרו קשר</h3>
       <a href="tel:972000000000">0XX-XXXXXXX</a>
@@ -912,6 +993,17 @@ html,body{overflow-x:hidden}
       <a href="#about">אודות</a>
       <a href="#">בלוג</a>
       <a href="#contact">צור קשר</a>
+    </div>
+    <div class="footer__nav-col">
+      <h3>שירותים</h3>
+      <a href="#services">SEO</a>
+      <a href="#services">GEO</a>
+      <a href="#services">PPC</a>
+      <a href="#services">WordPress &amp; Shopify</a>
+      <a href="#services">אימייל</a>
+      <a href="#services">סושיאל</a>
+      <a href="#services">צילום ווידאו</a>
+      <a href="#services">GTM</a>
     </div>
     <div class="footer__social-col">
       <a href="#" target="_blank"><svg viewBox="0 0 24 24" width="20" height="20" fill="var(--text-light)"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
@@ -991,7 +1083,7 @@ window.addEventListener('load',()=>{
 // ===== REVEAL ANIMATIONS =====
 // Skip elements that have their own dedicated animations
 const skipReveal = new Set();
-document.querySelectorAll('.service-card.reveal, .case-card.reveal, .services__heading.reveal, .process__heading.reveal, .testimonials__heading.reveal, .case-studies__heading.reveal, .testimonial-card.reveal').forEach(el=>skipReveal.add(el));
+document.querySelectorAll('.service-card.reveal, .case-card.reveal, .services__heading.reveal, .process__heading.reveal, .testimonials__heading.reveal, .case-studies__heading.reveal, .team__heading.reveal, .testimonial-card.reveal, .team-card.reveal').forEach(el=>skipReveal.add(el));
 
 document.querySelectorAll('.reveal').forEach(el => {
   if(skipReveal.has(el)) return;
@@ -1090,7 +1182,7 @@ gsap.utils.toArray('.case-card').forEach((card,i)=>{
 });
 
 // ===== SECTION HEADING SPLIT-TEXT: scrub-linked clip-path (shiruziel style) =====
-const splitHeadings = document.querySelectorAll('.services__heading, .process__heading, .testimonials__heading, .case-studies__heading');
+const splitHeadings = document.querySelectorAll('.services__heading, .process__heading, .testimonials__heading, .case-studies__heading, .team__heading');
 if(typeof SplitType !== 'undefined'){
   splitHeadings.forEach(h=>{
     gsap.set(h,{opacity:1,y:0,x:0,rotate:0});
@@ -1103,6 +1195,16 @@ if(typeof SplitType !== 'undefined'){
     );
   });
 }
+
+// ===== TEAM: clip-path reveal =====
+gsap.utils.toArray('.team-card').forEach((card,i)=>{
+  gsap.fromTo(card,
+    {clipPath:'inset(100% 0% 0% 0%)',opacity:0,y:30},
+    {clipPath:'inset(0% 0% 0% 0%)',opacity:1,y:0,ease:'none',
+      scrollTrigger:{trigger:card,start:'top 90%',end:'top 55%',scrub:1}
+    }
+  );
+});
 
 // ===== ABOUT: word-by-word scrub opacity reveal =====
 const aboutBio = document.querySelector('.about__bio');
