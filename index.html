@@ -40,7 +40,7 @@ h1,h2,h3{line-height:1.05}
 
 /* ===== HERO (LIGHT BACKGROUND) ===== */
 .hero{min-height:100vh;background:linear-gradient(180deg,#e8f4f8 0%,#c8e6ef 40%,#7bbfd4 70%,var(--bg) 100%);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:60px 0 0}
-.hero__content{position:relative;z-index:2;text-align:right;padding:40px 0}
+.hero__content{position:relative;z-index:4;text-align:right;padding:40px 0}
 .hero__title{font-family:'Heebo',sans-serif;font-weight:900;color:var(--text-dark);line-height:1;margin-bottom:24px}
 .hero__line{display:block}
 .hero__line--sm{font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:600;opacity:.6;margin-bottom:12px;letter-spacing:.01em}
@@ -51,9 +51,16 @@ h1,h2,h3{line-height:1.05}
 .hero__subtitle{font-size:clamp(1rem,2vw,1.25rem);font-weight:400;color:var(--text-dark);opacity:.65;max-width:600px;margin:0 0 32px;line-height:1.5}
 .hero__cta{display:flex;gap:16px;justify-content:flex-start;flex-wrap:wrap;margin-bottom:16px}
 .hero__micro{font-size:.85rem;color:var(--text-dark);opacity:.5;margin-bottom:40px}
-.hero__trust{display:flex;gap:20px;justify-content:flex-start;flex-wrap:wrap;padding:24px 0}
+.hero__trust{display:flex;gap:14px;justify-content:flex-start;flex-wrap:wrap;align-items:center;padding:24px 0}
 .hero__trust-badge{display:flex;align-items:center;gap:8px;padding:10px 22px;background:rgba(14,31,51,.65);border-radius:var(--pill);font-size:.85rem;font-weight:600;color:var(--white);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);box-shadow:0 2px 12px rgba(0,0,0,.15)}
 .hero__trust-badge svg{width:18px;height:18px;fill:var(--primary-light)}
+
+/* ===== HERO PHOTO ===== */
+.hero__photo{position:absolute;left:5%;top:50%;transform:translateY(-50%);z-index:2;pointer-events:none}
+.hero__photo-circle{width:clamp(260px,22vw,380px);height:clamp(260px,22vw,380px);border-radius:50%;overflow:hidden;border:4px solid rgba(77,188,208,.4);box-shadow:0 0 60px rgba(77,188,208,.2),0 20px 60px rgba(0,0,0,.15);position:relative}
+.hero__photo-circle::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(77,188,208,.15),transparent 70%);pointer-events:none}
+.hero__photo-circle img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.hero__photo-glow{position:absolute;width:120%;height:120%;top:-10%;left:-10%;border-radius:50%;background:radial-gradient(circle,rgba(77,188,208,.2),transparent 70%);z-index:-1}
 
 @media(max-width:768px){
 .hero__trust{gap:12px}
@@ -436,7 +443,9 @@ html,body{overflow-x:hidden}
 .hero__cta .pill-btn{width:100%;justify-content:center;padding:14px 24px;font-size:.85rem}
 .hero__micro{font-size:.75rem}
 .hero__trust{gap:8px;padding:16px 0}
-.hero__trust-badge{font-size:.7rem;padding:6px 12px}
+.hero__trust-badge{font-size:.72rem;padding:8px 14px}
+.hero__photo{position:relative;left:auto;top:auto;transform:none;display:flex;justify-content:center;margin:-20px 0 20px;pointer-events:none}
+.hero__photo-circle{width:160px;height:160px;border-width:3px}
 .hero__orb--1{width:200px;height:200px;top:-40px;right:-60px}
 .hero__orb--2{width:150px;height:150px}
 .hero__orb--3{width:100px;height:100px}
@@ -507,10 +516,16 @@ html,body{overflow-x:hidden}
 .visual-break__tagline{font-size:1rem;padding:0 8px}
 
 /* Bottom bar mobile */
-.bottom-bar{padding:4px;bottom:12px}
-.bottom-bar__cta{padding:10px 16px;font-size:.78rem}
-.bottom-bar__icon{padding:8px 10px;font-size:.72rem}
-.bottom-bar__icon span{display:none}
+.bottom-bar{padding:4px;bottom:12px;max-width:calc(100vw - 24px);width:calc(100vw - 24px)}
+.bottom-bar__icons{flex:1;min-width:0;justify-content:space-evenly;gap:0;padding:0 4px}
+.bottom-bar__cta{padding:10px 16px;font-size:.78rem;flex-shrink:0}
+.bottom-bar__icon{padding:8px 8px;font-size:.72rem;flex-shrink:1;min-width:0}
+.bottom-bar__icon span{font-size:.68rem}
+
+/* Floating buttons above bottom bar on mobile */
+.whatsapp{bottom:76px;right:16px;width:46px;height:46px}
+.a11y-btn{bottom:76px;right:68px;width:42px;height:42px}
+.scroll-top{bottom:76px;left:16px;width:42px;height:42px}
 
 /* Boss popup mobile */
 .boss-popup{width:100px;height:100px;left:12px}
@@ -541,6 +556,10 @@ html,body{overflow-x:hidden}
 <div class="hero__orb hero__orb--2"></div>
 <div class="hero__orb hero__orb--3"></div>
 <div class="hero__watermark">PPC</div>
+<div class="hero__photo">
+  <div class="hero__photo-glow"></div>
+  <div class="hero__photo-circle"><img src="hero-photo.jpeg" alt="PPC Advisor"></div>
+</div>
 <div class="container hero__content">
   <div class="hero__logo"><img src="logo-horizontal.png" alt="PPC Advisor"></div>
   <h1 class="hero__title">
@@ -551,15 +570,15 @@ html,body{overflow-x:hidden}
   </h1>
   <p class="hero__subtitle">יותר לקוחות, יותר מכירות, וצמיחה שלא נגמרת. מעטפת שיווק דיגיטלי 360° שמנהלת את הכל תחת קורת גג אחת.</p>
   <div class="hero__cta">
-    <a href="https://wa.me/972000000000" class="pill-btn pill-btn--dark" target="_blank"><span class="arrow">&#8592;</span> רוצים לצמוח? דברו איתנו</a>
+    <a href="https://wa.me/972587497497" class="pill-btn pill-btn--dark" target="_blank"><span class="arrow">&#8592;</span> רוצים לצמוח? דברו איתנו</a>
     <a href="#services" class="pill-btn pill-btn--outline" style="color:var(--text-dark);border-color:rgba(14,31,51,.25)">צפו בעבודות שלנו</a>
   </div>
   <p class="hero__micro">פגישת אפיון ללא עלות וללא התחייבות &middot; תוך 48 שעות</p>
   <div class="hero__trust">
-    <span class="hero__trust-badge"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Google Partner</span>
-    <span class="hero__trust-badge"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Meta Business Partner</span>
-    <span class="hero__trust-badge"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg> ללא התחייבות</span>
-    <span class="hero__trust-badge"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg> הנכסים נשארים שלכם</span>
+    <span class="hero__trust-badge"><svg viewBox="0 0 24 24" style="fill:none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09a6.87 6.87 0 0 1 0-4.17V7.07H2.18a11.96 11.96 0 0 0 0 9.86l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Google Partner</span>
+    <span class="hero__trust-badge"><svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047v-2.66c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.971H15.83c-1.491 0-1.956.93-1.956 1.886v2.264h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" fill="#1877F2"/></svg>Meta Business Partner</span>
+    <span class="hero__trust-badge"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>ללא התחייבות</span>
+    <span class="hero__trust-badge"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg>הנכסים נשארים שלכם</span>
   </div>
 </div>
   <div class="hero__wave">
@@ -580,8 +599,8 @@ html,body{overflow-x:hidden}
     {name:'HeyHobby',logo:'https://heyhobby.com/cdn/shop/files/HeyHobby-logo.png?height=60&v=1762942646'},
     {name:'Coppry',logo:'https://coppry.com/cdn/shop/t/11/assets/logo.png?v=155814478334280506681669230653'},
     {name:'Huawei',logo:'https://www.huawei.com/-/media/hcomponent-header/1.0.1.20251208095539/component/img/huawei_logo.png'},
-    {name:'Director Center',logo:'https://director-center.co.il/wp-content/uploads/2024/02/logo-horizontal-blue-1.svg'},
-    {name:'Kibbutz Movement',logo:'https://kibbutz.org.il/themes/kibbutzim/logo-n.png'},
+    {name:'Director Center',logo:'https://director-center.co.il/wp-content/uploads/2024/02/logo_fix-blue-invert-lines.svg'},
+    {name:'התנועה הקיבוצית'},
     {name:'JCE',logo:'https://www.jce.ac.il/wp-content/uploads/2024/11/JCE-logo-original.svg'},
     {name:'Luka Yourself',logo:'https://www.lukatyourself.com/cdn/shop/files/logo_since1.png'},
     {name:"Goldy's",logo:'https://media.getmood.io/warehouse/dynamic/711352.svg'},
@@ -594,7 +613,7 @@ html,body{overflow-x:hidden}
     {name:'Carol Bike',logo:'https://carolbike.com/wp-content/uploads/2023/04/logo.svg'},
     {name:'Lublinsky',logo:'https://media.getmood.io/warehouse/dynamic/401675.svg'},
     {name:'Soul & Pepper',logo:'https://media.getmood.io/warehouse/dynamic/344124.svg'},
-    {name:'Nisha',logo:'https://www.nisha.co.il/wp-content/uploads/2025/09/logo_nisha_RGB-new.png'}
+    {name:'Nisha'}
   ];
   const track=document.getElementById('marqueeTrack');
   function buildItems(){
@@ -843,33 +862,6 @@ html,body{overflow-x:hidden}
 </div>
 </section>
 
-<!-- ===== TEAM ===== -->
-<section class="team section-glow" id="team">
-<div class="container">
-  <h2 class="team__heading reveal"><span class="fw-light">האנשים מאחורי</span> <span class="accent">התוצאות.</span></h2>
-  <p class="team__sub reveal">לא צוות גנרי &ndash; צוות מומחים שכל אחד מהם חי ונושם את התחום שלו. כולם עובדים יחד על המטרות שלכם.</p>
-  <div class="team__grid">
-    <div class="team-card reveal">
-      <div class="team-card__photo"><span>[תמונה]</span></div>
-      <h3 class="team-card__name">[שם מלא]</h3>
-      <p class="team-card__role">מייסד/ת ו-CEO</p>
-      <p class="team-card__desc">14+ שנות ניסיון בשיווק דיגיטלי. ניהל/ה תקציבי מדיה של מיליוני שקלים למאות עסקים. Google Partner ו-Meta Business Partner מוסמך/ת.</p>
-    </div>
-    <div class="team-card reveal">
-      <div class="team-card__photo"><span>[תמונה]</span></div>
-      <h3 class="team-card__name">[שם מלא]</h3>
-      <p class="team-card__role">ראש/ת צוות SEO ותוכן</p>
-      <p class="team-card__desc">מומחה בקידום אורגני ואסטרטגיית תוכן. הוביל/ה אתרים לעמוד 1 בגוגל בתחומים תחרותיים.</p>
-    </div>
-    <div class="team-card reveal">
-      <div class="team-card__photo"><span>[תמונה]</span></div>
-      <h3 class="team-card__name">[שם מלא]</h3>
-      <p class="team-card__role">ראש/ת צוות מדיה ופרפורמנס</p>
-      <p class="team-card__desc">מנהל/ת תקציבי מדיה של מיליוני שקלים בשנה בגוגל, Meta, ופלטפורמות נוספות. חי ונושם אופטימיזציה בזמן אמת.</p>
-    </div>
-  </div>
-</div>
-</section>
 
 <!-- ===== FAQ ===== -->
 <section class="faq section-glow section-radial section-radial--right" id="faq">
@@ -899,8 +891,8 @@ html,body{overflow-x:hidden}
       <p class="sub">לא מצאתם תשובה? דברו איתנו</p>
       <p class="question-label">יש לכם שאלה שלא מופיעה כאן?<br>נשמח לעזור</p>
       <div class="faq__contact">
-        <a href="tel:972000000000"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> 0XX-XXXXXXX</a>
-        <a href="mailto:hello@ppcadvisor.co.il"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> hello@ppcadvisor.co.il</a>
+        <a href="tel:972587497497"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> 0XX-XXXXXXX</a>
+        <a href="mailto:felix@ppcadvisor.co.il"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> felix@ppcadvisor.co.il</a>
       </div>
     </div>
   </div>
@@ -914,11 +906,11 @@ html,body{overflow-x:hidden}
 <div class="container" style="position:relative;z-index:2">
   <h2 class="reveal">מוכנים <span>לצמיחה?</span></h2>
   <p class="reveal">ללא התחייבות. ללא עלות על הפגישה. הנכסים נשארים שלכם. פשוט דברו איתנו ונראה אם אנחנו הצוות הנכון עבורכם.</p>
-  <a href="https://wa.me/972000000000" class="pill-btn pill-btn--outline reveal" target="_blank"><span class="arrow">&#8592;</span> קבעו פגישה חינם</a>
+  <a href="https://wa.me/972587497497" class="pill-btn pill-btn--outline reveal" target="_blank"><span class="arrow">&#8592;</span> קבעו פגישה חינם</a>
   <div class="cta__contact reveal">
-    <a href="tel:972000000000"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> 0XX-XXXXXXX</a>
-    <a href="mailto:hello@ppcadvisor.co.il"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> hello@ppcadvisor.co.il</a>
-    <a href="https://wa.me/972000000000" target="_blank"><svg viewBox="0 0 24 24"><path d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.96-1.38-.92-2.61.05-1.22.69-1.8.95-2.04.24-.26.51-.29.68-.28h.5c.16 0 .37-.05.58.45.21.5.71 1.83.78 1.97.07.13.1.29.02.47l-.27.48c-.14.15-.28.34-.4.45-.12.12-.26.25-.11.5.15.25.66 1.1 1.42 1.78.96.87 1.78 1.14 2.04 1.27.26.13.4.11.55-.07.15-.18.65-.75.82-1.01.17-.26.35-.21.58-.13l1.83.87z"/><path d="M12.05 2C6.53 2 2.06 6.48 2.06 12c0 1.77.47 3.44 1.29 4.88L2 22l5.27-1.38A9.94 9.94 0 0012.05 22c5.52 0 10-4.48 10-10s-4.48-10-10-10zm0 18.15a8.14 8.14 0 01-4.35-1.26l-.31-.18-3.22.84.86-3.13-.2-.32A8.14 8.14 0 013.91 12c0-4.49 3.66-8.15 8.15-8.15S20.2 7.51 20.2 12s-3.65 8.15-8.15 8.15z"/></svg> WhatsApp</a>
+    <a href="tel:972587497497"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> 0XX-XXXXXXX</a>
+    <a href="mailto:felix@ppcadvisor.co.il"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> felix@ppcadvisor.co.il</a>
+    <a href="https://wa.me/972587497497" target="_blank"><svg viewBox="0 0 24 24"><path d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.96-1.38-.92-2.61.05-1.22.69-1.8.95-2.04.24-.26.51-.29.68-.28h.5c.16 0 .37-.05.58.45.21.5.71 1.83.78 1.97.07.13.1.29.02.47l-.27.48c-.14.15-.28.34-.4.45-.12.12-.26.25-.11.5.15.25.66 1.1 1.42 1.78.96.87 1.78 1.14 2.04 1.27.26.13.4.11.55-.07.15-.18.65-.75.82-1.01.17-.26.35-.21.58-.13l1.83.87z"/><path d="M12.05 2C6.53 2 2.06 6.48 2.06 12c0 1.77.47 3.44 1.29 4.88L2 22l5.27-1.38A9.94 9.94 0 0012.05 22c5.52 0 10-4.48 10-10s-4.48-10-10-10zm0 18.15a8.14 8.14 0 01-4.35-1.26l-.31-.18-3.22.84.86-3.13-.2-.32A8.14 8.14 0 013.91 12c0-4.49 3.66-8.15 8.15-8.15S20.2 7.51 20.2 12s-3.65 8.15-8.15 8.15z"/></svg> WhatsApp</a>
   </div>
 </div>
 </section>
@@ -931,8 +923,8 @@ html,body{overflow-x:hidden}
       <h2>מוכנים להתחיל?<br>השאירו פרטים.</h2>
       <h3>צרו קשר</h3>
       <div class="form-section__contact-links">
-        <a href="tel:972000000000"><svg viewBox="0 0 24 24" width="16" height="16" fill="var(--primary)"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> 0XX-XXXXXXX</a>
-        <a href="mailto:hello@ppcadvisor.co.il"><svg viewBox="0 0 24 24" width="16" height="16" fill="var(--primary)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> hello@ppcadvisor.co.il</a>
+        <a href="tel:972587497497"><svg viewBox="0 0 24 24" width="16" height="16" fill="var(--primary)"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> 0XX-XXXXXXX</a>
+        <a href="mailto:felix@ppcadvisor.co.il"><svg viewBox="0 0 24 24" width="16" height="16" fill="var(--primary)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> felix@ppcadvisor.co.il</a>
       </div>
       <div class="form-section__social">
         <a href="#" target="_blank"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
@@ -955,18 +947,22 @@ html,body{overflow-x:hidden}
     <div class="form-card reveal">
       <img src="logo-square.jpg" alt="PPC Advisor" class="form-card__logo">
       <h2>השאירו פרטים לקביעת פגישת אפיון ללא עלות:</h2>
-      <form onsubmit="event.preventDefault();alert('הטופס נשלח בהצלחה!')">
+      <form id="contactForm" action="https://formsubmit.co/felix@ppcadvisor.co.il" method="POST">
+        <input type="hidden" name="_subject" value="פנייה חדשה מהאתר - PPC Advisor">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none">
         <div class="form-row">
-          <div class="form-field"><svg class="form-field__icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#bbb"/></svg><input type="text" placeholder="שם מלא" required></div>
-          <div class="form-field"><svg class="form-field__icon" viewBox="0 0 24 24"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z" fill="#bbb"/></svg><input type="tel" placeholder="מספר טלפון" required></div>
+          <div class="form-field"><svg class="form-field__icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#bbb"/></svg><input type="text" name="name" placeholder="שם מלא" required></div>
+          <div class="form-field"><svg class="form-field__icon" viewBox="0 0 24 24"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z" fill="#bbb"/></svg><input type="tel" name="phone" placeholder="מספר טלפון" required></div>
         </div>
         <div class="form-row">
-          <div class="form-field"><svg class="form-field__icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#bbb"/></svg><input type="email" placeholder="אימייל" required></div>
-          <div class="form-field"><svg class="form-field__icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#bbb"/></svg><input type="text" placeholder="שם העסק"></div>
+          <div class="form-field"><svg class="form-field__icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#bbb"/></svg><input type="email" name="email" placeholder="אימייל" required></div>
+          <div class="form-field"><svg class="form-field__icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#bbb"/></svg><input type="text" name="business" placeholder="שם העסק"></div>
         </div>
-        <div class="form-field"><svg class="form-field__icon" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z" fill="#bbb"/></svg><textarea placeholder="ספרו לנו קצת על העסק ועל מה שאתם מחפשים:"></textarea></div>
+        <div class="form-field"><svg class="form-field__icon" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z" fill="#bbb"/></svg><textarea name="message" placeholder="ספרו לנו קצת על העסק ועל מה שאתם מחפשים:"></textarea></div>
         <label class="form-checkbox"><input type="checkbox"><span>עם שליחת הטופס אתם מסכימים ליצירת קשר וקבלת דיוור ועדכונים בהתאם ל<a href="#" style="color:var(--primary)">מדיניות הפרטיות</a></span></label>
-        <button type="submit" class="form-submit">שלח טופס <span class="arrow">&#8592;···</span></button>
+        <button type="submit" class="form-submit" id="formSubmitBtn">שלח טופס <span class="arrow">&#8592;···</span></button>
       </form>
     </div>
   </div>
@@ -984,8 +980,8 @@ html,body{overflow-x:hidden}
     <div class="footer__tagline">יותר לקוחות, יותר מכירות,<br><strong>וצמיחה שלא נגמרת.</strong></div>
     <div class="footer__contact-col">
       <h3>צרו קשר</h3>
-      <a href="tel:972000000000">0XX-XXXXXXX</a>
-      <a href="mailto:hello@ppcadvisor.co.il">hello@ppcadvisor.co.il</a>
+      <a href="tel:972587497497">0XX-XXXXXXX</a>
+      <a href="mailto:felix@ppcadvisor.co.il">felix@ppcadvisor.co.il</a>
     </div>
     <div class="footer__nav-col">
       <h3>ניווט באתר</h3>
@@ -1020,7 +1016,7 @@ html,body{overflow-x:hidden}
 
 <!-- ===== FLOATING BOTTOM BAR ===== -->
 <div class="bottom-bar">
-  <a href="https://wa.me/972000000000" class="bottom-bar__cta" target="_blank"><span class="arrow">&#8592;</span> דברו איתנו</a>
+  <a href="https://wa.me/972587497497" class="bottom-bar__cta" target="_blank"><span class="arrow">&#8592;</span> דברו איתנו</a>
   <div class="bottom-bar__icons">
     <a href="#services" class="bottom-bar__icon"><svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg> שירותים</a>
     <a href="#case-studies" class="bottom-bar__icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg> עבודות</a>
@@ -1035,7 +1031,7 @@ html,body{overflow-x:hidden}
 </div>
 
 <!-- ===== WHATSAPP ===== -->
-<a href="https://wa.me/972000000000" class="whatsapp" target="_blank">
+<a href="https://wa.me/972587497497" class="whatsapp" target="_blank">
   <svg viewBox="0 0 32 32"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.132 6.742 3.052 9.38L1.056 31.2l6.048-1.952c2.512 1.684 5.506 2.664 8.724 2.752h.176C24.824 32 32 24.824 32 16.004S24.826 0 16.004 0zm9.47 22.62c-.396 1.116-2.316 2.136-3.228 2.244-.82.096-1.856.136-2.996-.188-.692-.2-1.58-.468-2.716-.916-4.776-1.888-7.892-6.7-8.132-7.012-.232-.312-1.904-2.536-1.904-4.836s1.204-3.432 1.632-3.9c.428-.468.936-.584 1.248-.584.312 0 .624.004.896.016.288.012.672-.108 1.052.804.396.948 1.344 3.284 1.464 3.52.116.232.196.508.04.82-.156.312-.236.508-.468.78-.232.276-.488.616-.696.824-.232.232-.472.484-.204.948.268.468 1.196 1.972 2.568 3.196 1.764 1.572 3.252 2.06 3.716 2.288.468.232.74.196 1.012-.116.268-.312 1.164-1.356 1.472-1.824.312-.468.624-.388 1.052-.232.428.156 2.724 1.284 3.192 1.516.468.232.78.348.896.54.116.196.116 1.112-.28 2.228z"/></svg>
 </a>
 
@@ -1084,7 +1080,7 @@ window.addEventListener('load',()=>{
 // ===== REVEAL ANIMATIONS =====
 // Skip elements that have their own dedicated animations
 const skipReveal = new Set();
-document.querySelectorAll('.service-card.reveal, .case-card.reveal, .services__heading.reveal, .process__heading.reveal, .testimonials__heading.reveal, .case-studies__heading.reveal, .team__heading.reveal, .testimonial-card.reveal, .team-card.reveal').forEach(el=>skipReveal.add(el));
+document.querySelectorAll('.service-card.reveal, .case-card.reveal, .services__heading.reveal, .process__heading.reveal, .testimonials__heading.reveal, .case-studies__heading.reveal, .testimonial-card.reveal').forEach(el=>skipReveal.add(el));
 
 document.querySelectorAll('.reveal').forEach(el => {
   if(skipReveal.has(el)) return;
@@ -1183,7 +1179,7 @@ gsap.utils.toArray('.case-card').forEach((card,i)=>{
 });
 
 // ===== SECTION HEADING SPLIT-TEXT: scrub-linked clip-path (shiruziel style) =====
-const splitHeadings = document.querySelectorAll('.services__heading, .process__heading, .testimonials__heading, .case-studies__heading, .team__heading');
+const splitHeadings = document.querySelectorAll('.services__heading, .process__heading, .testimonials__heading, .case-studies__heading');
 if(typeof SplitType !== 'undefined'){
   splitHeadings.forEach(h=>{
     gsap.set(h,{opacity:1,y:0,x:0,rotate:0});
@@ -1196,16 +1192,6 @@ if(typeof SplitType !== 'undefined'){
     );
   });
 }
-
-// ===== TEAM: clip-path reveal =====
-gsap.utils.toArray('.team-card').forEach((card,i)=>{
-  gsap.fromTo(card,
-    {clipPath:'inset(100% 0% 0% 0%)',opacity:0,y:30},
-    {clipPath:'inset(0% 0% 0% 0%)',opacity:1,y:0,ease:'none',
-      scrollTrigger:{trigger:card,start:'top 90%',end:'top 55%',scrub:1}
-    }
-  );
-});
 
 // ===== ABOUT: word-by-word scrub opacity reveal =====
 const aboutBio = document.querySelector('.about__bio');
@@ -1339,6 +1325,46 @@ document.addEventListener('mousemove',e=>{
   }
 });
 document.addEventListener('mouseleave',()=>cursorGlow.classList.remove('active'));
+
+// ===== FORM SUBMISSION HANDLER =====
+const contactForm = document.getElementById('contactForm');
+const submitBtn = document.getElementById('formSubmitBtn');
+contactForm.addEventListener('submit', async function(e){
+  e.preventDefault();
+  const originalText = submitBtn.innerHTML;
+  submitBtn.innerHTML = 'שולח... <span class="arrow" style="animation:pulse-load 1s infinite">&#8592;</span>';
+  submitBtn.disabled = true;
+  submitBtn.style.opacity = '.7';
+  try {
+    const res = await fetch(contactForm.action, {
+      method: 'POST',
+      body: new FormData(contactForm),
+      headers: {'Accept':'application/json'}
+    });
+    if(res.ok){
+      contactForm.reset();
+      submitBtn.innerHTML = '&#10003; הטופס נשלח בהצלחה!';
+      submitBtn.style.background = '#27ae60';
+      submitBtn.style.opacity = '1';
+      setTimeout(()=>{
+        submitBtn.innerHTML = originalText;
+        submitBtn.style.background = '';
+        submitBtn.disabled = false;
+      }, 4000);
+    } else {
+      throw new Error('Server error');
+    }
+  } catch(err){
+    submitBtn.innerHTML = 'שגיאה - נסו שוב';
+    submitBtn.style.background = '#c0392b';
+    submitBtn.style.opacity = '1';
+    setTimeout(()=>{
+      submitBtn.innerHTML = originalText;
+      submitBtn.style.background = '';
+      submitBtn.disabled = false;
+    }, 3000);
+  }
+});
 </script>
 </body>
 </html>
