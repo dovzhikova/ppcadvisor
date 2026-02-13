@@ -73,9 +73,11 @@ h1,h2,h3{line-height:1.05}
 .marquee-track:hover{animation-play-state:paused}
 .marquee-item{flex-shrink:0;opacity:.75;transition:opacity .4s,filter .4s;display:flex;align-items:center;justify-content:center;height:44px}
 .marquee-item:hover{opacity:1}
-.marquee-item img{height:36px;width:auto;object-fit:contain;max-width:160px;filter:brightness(0) invert(1) opacity(.85)}
-.marquee-item:hover img{filter:brightness(0) invert(1) opacity(1)}
-.marquee-item span{font-size:1rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:var(--text-light)}
+.marquee-item a{display:flex;align-items:center;justify-content:center;text-decoration:none;color:inherit;cursor:pointer}
+.marquee-item img{height:36px;width:auto;object-fit:contain;max-width:160px;filter:brightness(0) invert(1) opacity(.85);transition:filter .3s}
+.marquee-item:hover img{filter:none}
+.marquee-item span{font-size:1rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:var(--text-light);transition:color .3s}
+.marquee-item:hover span{color:var(--primary)}
 @keyframes marquee-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ===== STATS ===== */
@@ -594,36 +596,38 @@ html,body{overflow-x:hidden}
 <script>
 (function(){
   const clients=[
-    {name:'PaintVibe',logo:'https://paintvibe.com/wp-content/uploads/2023/09/logo.png'},
-    {name:'JetBrains',logo:'https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.svg'},
-    {name:'HeyHobby',logo:'https://heyhobby.com/cdn/shop/files/HeyHobby-logo.png?height=60&v=1762942646'},
-    {name:'Coppry',logo:'https://coppry.com/cdn/shop/t/11/assets/logo.png?v=155814478334280506681669230653'},
-    {name:'Huawei',logo:'https://www.huawei.com/-/media/hcomponent-header/1.0.1.20251208095539/component/img/huawei_logo.png'},
-    {name:'Director Center',logo:'https://director-center.co.il/wp-content/uploads/2024/02/logo_fix-blue-invert-lines.svg'},
-    {name:'התנועה הקיבוצית'},
-    {name:'JCE',logo:'https://www.jce.ac.il/wp-content/uploads/2024/11/JCE-logo-original.svg'},
-    {name:'Luka Yourself',logo:'https://www.lukatyourself.com/cdn/shop/files/logo_since1.png'},
-    {name:"Goldy's",logo:'https://media.getmood.io/warehouse/dynamic/711352.svg'},
-    {name:'Bitcoin.com',logo:'https://www.bitcoin.com/images/uploads/home/desktop-logo.webp'},
-    {name:'Shabbos Kodesh',logo:'https://www.shabboskodesh.com/warehouse/temp/Shabes%20kodesh/logo.svg'},
-    {name:'Greco',logo:'https://media.getmood.io/warehouse/dynamic/295281.png'},
-    {name:'Odigos',logo:'https://odigos.io/assets/odigos/logo_text_white.svg'},
-    {name:'Ad Shifer',logo:'https://ad-shifer.co.il/wp-content/uploads/2020/07/logoo.png'},
-    {name:'Quiz Please TLV',logo:'https://cdn1.quizplease.com/old_static/themes/b4/images/logo-dark.svg'},
-    {name:'Carol Bike',logo:'https://carolbike.com/wp-content/uploads/2023/04/logo.svg'},
-    {name:'Lublinsky',logo:'https://media.getmood.io/warehouse/dynamic/401675.svg'},
-    {name:'Soul & Pepper',logo:'https://media.getmood.io/warehouse/dynamic/344124.svg'},
-    {name:'Nisha'}
+    {name:'PaintVibe',logo:'https://paintvibe.com/wp-content/uploads/2023/09/logo.png',url:'https://paintvibe.com'},
+    {name:'JetBrains',logo:'https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.svg',url:'https://www.jetbrains.com'},
+    {name:'HeyHobby',logo:'https://heyhobby.com/cdn/shop/files/HeyHobby-logo.png?height=60&v=1762942646',url:'https://heyhobby.com'},
+    {name:'Coppry',logo:'https://coppry.com/cdn/shop/t/11/assets/logo.png?v=155814478334280506681669230653',url:'https://coppry.com'},
+    {name:'Huawei',logo:'https://www.huawei.com/-/media/hcomponent-header/1.0.1.20251208095539/component/img/huawei_logo.png',url:'https://www.huawei.com'},
+    {name:'Director Center',logo:'https://director-center.co.il/wp-content/uploads/2024/02/logo_fix-blue-invert-lines.svg',url:'https://director-center.co.il'},
+    {name:'התנועה הקיבוצית',url:'https://www.tkz.co.il'},
+    {name:'JCE',logo:'https://www.jce.ac.il/wp-content/uploads/2024/11/JCE-logo-original.svg',url:'https://www.jce.ac.il'},
+    {name:'Luka Yourself',logo:'https://www.lukatyourself.com/cdn/shop/files/logo_since1.png',url:'https://www.lukatyourself.com'},
+    {name:"Goldy's",logo:'https://media.getmood.io/warehouse/dynamic/711352.svg',url:'https://www.goldys.co.il'},
+    {name:'Bitcoin.com',logo:'https://www.bitcoin.com/images/uploads/home/desktop-logo.webp',url:'https://www.bitcoin.com'},
+    {name:'Shabbos Kodesh',logo:'https://www.shabboskodesh.com/warehouse/temp/Shabes%20kodesh/logo.svg',url:'https://www.shabboskodesh.com'},
+    {name:'Greco',logo:'https://media.getmood.io/warehouse/dynamic/295281.png',url:'https://www.greco.co.il'},
+    {name:'Odigos',logo:'https://odigos.io/assets/odigos/logo_text_white.svg',url:'https://odigos.io'},
+    {name:'Ad Shifer',logo:'https://ad-shifer.co.il/wp-content/uploads/2020/07/logoo.png',url:'https://ad-shifer.co.il'},
+    {name:'Quiz Please TLV',logo:'https://cdn1.quizplease.com/old_static/themes/b4/images/logo-dark.svg',url:'https://quizplease.co.il'},
+    {name:'Carol Bike',logo:'https://carolbike.com/wp-content/uploads/2023/04/logo.svg',url:'https://carolbike.com'},
+    {name:'Lublinsky',logo:'https://media.getmood.io/warehouse/dynamic/401675.svg',url:'https://www.lublinsky.co.il'},
+    {name:'Soul & Pepper',logo:'https://media.getmood.io/warehouse/dynamic/344124.svg',url:'https://www.soulandpepper.co.il'},
+    {name:'Nisha',url:'https://www.nisha.co.il'}
   ];
   const track=document.getElementById('marqueeTrack');
   function buildItems(){
     let html='';
     for(let r=0;r<2;r++){
       clients.forEach(c=>{
+        const link=c.url?`<a href="${c.url}" target="_blank" rel="noopener noreferrer">`:'';
+        const linkClose=c.url?'</a>':'';
         if(c.logo){
-          html+=`<div class="marquee-item"><img src="${c.logo}" alt="${c.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span style="display:none">${c.name}</span></div>`;
+          html+=`<div class="marquee-item">${link}<img src="${c.logo}" alt="${c.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span style="display:none">${c.name}</span>${linkClose}</div>`;
         } else {
-          html+=`<div class="marquee-item"><span>${c.name}</span></div>`;
+          html+=`<div class="marquee-item">${link}<span>${c.name}</span>${linkClose}</div>`;
         }
       });
     }
