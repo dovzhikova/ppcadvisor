@@ -104,6 +104,46 @@ h1,h2,h3{line-height:1.05}
 .service-card__label{font-size:.85rem;color:var(--primary);font-weight:600;margin-bottom:12px}
 .service-card__desc{font-size:.85rem;color:rgba(236,236,236,.55);line-height:1.5}
 
+/* ===== SERVICE MAP (TIER 1) ===== */
+.services-tier-1{margin-bottom:60px}
+.pillar-tabs{display:flex;gap:12px;justify-content:center;margin-bottom:40px;flex-wrap:wrap}
+.pillar-tab{padding:10px 24px;border-radius:var(--pill);border:1px solid rgba(77,188,208,.2);background:transparent;color:var(--text-light);font-family:var(--font);font-size:.9rem;font-weight:600;cursor:pointer;transition:all .3s;white-space:nowrap}
+.pillar-tab:hover{border-color:var(--primary);color:var(--primary)}
+.pillar-tab--active{background:var(--primary);border-color:var(--primary);color:var(--bg)}
+.service-map-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:720px;margin:0 auto}
+.service-pill{background:linear-gradient(135deg,rgba(30,80,95,.12),rgba(14,50,65,.12));border:1px solid var(--card-border);border-radius:20px;padding:24px 16px;text-align:center;cursor:pointer;transition:all .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;backdrop-filter:blur(6px)}
+.service-pill::before{content:'';position:absolute;inset:0;border-radius:20px;background:linear-gradient(135deg,rgba(77,188,208,.12),transparent 60%);opacity:0;transition:opacity .35s}
+.service-pill:hover::before{opacity:1}
+.service-pill:hover{transform:translateY(-6px);border-color:rgba(77,188,208,.35);box-shadow:0 8px 32px rgba(77,188,208,.12)}
+.service-pill.active{background:rgba(77,188,208,.18);border-color:var(--primary);box-shadow:0 0 0 2px rgba(77,188,208,.25)}
+.service-pill.dimmed{opacity:.2;pointer-events:none;transform:scale(.96)}
+.pill-icon{font-size:2.2rem;margin-bottom:10px;transition:transform .3s}
+.service-pill:hover .pill-icon{transform:scale(1.15) rotate(-5deg)}
+.pill-title-en{font-size:.8rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.06em;margin:0 0 4px}
+.pill-title-he{font-size:.88rem;font-weight:500;color:var(--text-light);margin:0;opacity:.75}
+
+/* Pillar color coding */
+.service-pill[data-pillar="visibility"]{border-color:rgba(77,188,208,.22)}
+.service-pill[data-pillar="infrastructure"]{border-color:rgba(100,200,230,.22)}
+.service-pill[data-pillar="content"]{border-color:rgba(130,210,245,.22)}
+
+/* ===== AI DIFFERENTIATOR ===== */
+.ai-differentiator{background:linear-gradient(135deg,rgba(77,188,208,.1),rgba(46,139,154,.08));border:1px solid rgba(77,188,208,.25);border-radius:var(--radius);padding:48px 36px;text-align:center;margin:0 auto 80px;max-width:760px;backdrop-filter:blur(10px);position:relative;overflow:hidden}
+.ai-differentiator::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 40%,rgba(77,188,208,.06),transparent 60%);pointer-events:none}
+.ai-differentiator__icon{font-size:2.8rem;margin-bottom:16px}
+.ai-differentiator__title{font-size:1.35rem;font-weight:700;color:var(--primary);margin-bottom:12px}
+.ai-differentiator__text{font-size:.92rem;color:rgba(236,236,236,.65);line-height:1.7;max-width:600px;margin:0 auto}
+
+/* ===== PILLAR SECTIONS (TIER 2) ===== */
+.services-tier-2{margin-top:20px}
+.pillar-section{margin-bottom:80px;scroll-margin-top:100px}
+.pillar-section:last-child{margin-bottom:0}
+.pillar-heading-wrap{text-align:center;margin-bottom:36px}
+.pillar-letter{display:inline-block;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(77,188,208,.25),rgba(46,139,154,.35));color:var(--primary);font-size:1rem;font-weight:800;line-height:40px;text-align:center;margin-bottom:12px;border:1px solid rgba(77,188,208,.3)}
+.pillar-heading{font-size:clamp(1.4rem,3.5vw,2rem);font-weight:700;margin:0 0 8px;color:var(--text-light)}
+.pillar-subtitle{font-size:.88rem;color:rgba(236,236,236,.45);margin:0;font-style:italic}
+.pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+
 /* ===== PROCESS ===== */
 .process{padding:140px 0;overflow:hidden}
 .process__heading{text-align:center;font-size:clamp(2rem,5vw,3.8rem);font-weight:700;margin-bottom:60px}
@@ -460,6 +500,21 @@ html,body{overflow-x:hidden}
 .services__heading{font-size:clamp(1.6rem,7vw,2.2rem);padding:0 8px}
 .services__sub{font-size:.85rem;padding:0 8px}
 .services__grid{grid-template-columns:1fr;gap:16px}
+.pillar-tabs{gap:8px;margin-bottom:24px;padding:0 8px}
+.pillar-tab{padding:8px 16px;font-size:.78rem}
+.service-map-grid{grid-template-columns:repeat(3,1fr);gap:10px;max-width:100%;padding:0 8px}
+.service-pill{padding:16px 8px;border-radius:14px}
+.pill-icon{font-size:1.6rem;margin-bottom:6px}
+.pill-title-en{font-size:.65rem}
+.pill-title-he{font-size:.72rem}
+.ai-differentiator{padding:28px 20px;margin:0 auto 50px}
+.ai-differentiator__icon{font-size:2rem}
+.ai-differentiator__title{font-size:1.1rem}
+.ai-differentiator__text{font-size:.82rem}
+.pillar-section{margin-bottom:50px}
+.pillar-letter{width:32px;height:32px;font-size:.85rem;line-height:32px}
+.pillar-heading{font-size:clamp(1.2rem,5vw,1.6rem)}
+.pillar-grid{grid-template-columns:1fr;gap:16px}
 
 /* Process mobile */
 .process{padding:80px 0}
@@ -669,62 +724,161 @@ html,body{overflow-x:hidden}
 <div class="container">
   <h2 class="services__heading reveal"><span class="fw-light">הכל תחת</span> <span class="accent">קורת גג אחת.</span> באמת.</h2>
   <p class="services__sub reveal">כשהשיווק מנוהל במקום אחד, התוצאות גדלות &ndash; כי כל ערוץ מדבר עם השאר. במקום לרוץ בין ספקים שלא מדברים אחד עם השני, אנחנו מנהלים את כל מערך השיווק שלכם כמקשה אחת. אסטרטגיה, ביצוע, אופטימיזציה &ndash; הכל מסונכרן.</p>
-  <p class="services__sub reveal" style="margin-top:-30px"><strong style="color:var(--primary)">היתרון הטכנולוגי שלנו:</strong> אנחנו משלבים טכנולוגיות מתקדמות שרוב הסוכנויות עדיין לא משתמשות בהן. דאטה בזמן אמת דרך דשבורדים חכמים, אוטומציות מתקדמות שחוסכות שעות עבודה, כלי AI לכתיבת תוכן ואופטימיזציה של קמפיינים, ומערכות חיזוי שמזהות הזדמנויות עוד לפני שהן הופכות לבעיות. התוצאה? החלטות מהירות יותר, עלויות נמוכות יותר, וROI שרק משתפר.</p>
-  <div class="services__grid">
-    <div class="service-card reveal">
-      <div class="service-card__icon">&#128269;</div>
-      <h3 class="service-card__title">קידום אורגני</h3>
-      <p class="service-card__label">SEO &ndash; עמוד 1 בגוגל &ndash; לא במקרה.</p>
-      <p class="service-card__desc">מחקר מילות מפתח, אופטימיזציה טכנית, בניית קישורים, ויצירת תוכן שמוביל טראפיק איכותי לאורך זמן. אנחנו מביאים לקוחות שמחפשים אתכם בדיוק ברגע הזה &ndash; לא גולשים.</p>
+  <p class="services__sub reveal" style="margin-top:-30px">9 שירותים. 3 עמודים. מערך שיווק שלם שמדבר בשפה אחת.</p>
+  <!-- ===== TIER 1: SERVICE MAP ===== -->
+  <div class="services-tier-1">
+    <div class="pillar-tabs">
+      <button class="pillar-tab pillar-tab--active" data-pillar="all">הכל</button>
+      <button class="pillar-tab" data-pillar="visibility">&#128269; נוכחות &amp; תנועה</button>
+      <button class="pillar-tab" data-pillar="infrastructure">&#128187; בניה &amp; תשתית</button>
+      <button class="pillar-tab" data-pillar="content">&#127909; תוכן &amp; מדיה</button>
     </div>
-    <div class="service-card reveal">
-      <div class="service-card__icon">&#129302;</div>
-      <h3 class="service-card__title">אופטימיזציה למנועי AI</h3>
-      <p class="service-card__label">GEO &ndash; להופיע בתשובות של ChatGPT, Gemini ו-Perplexity.</p>
-      <p class="service-card__desc">העולם הדיגיטלי משתנה. יותר ויותר אנשים מחפשים דרך מנועי בינה מלאכותית במקום גוגל מסורתי. אנחנו בונים מבנה תוכן שמותאם ל-AI, סכמה מובנית, ואוטוריטט תוכני שמבטיח נוכחות גם בעולם של אחרי החיפוש.</p>
+    <div class="service-map-grid">
+      <div class="service-pill reveal" data-pillar="visibility" data-detail-id="seo-detail">
+        <div class="pill-icon">&#128269;</div>
+        <h4 class="pill-title-en">SEO</h4>
+        <p class="pill-title-he">קידום אורגני</p>
+      </div>
+      <div class="service-pill reveal" data-pillar="visibility" data-detail-id="geo-detail">
+        <div class="pill-icon">&#129302;</div>
+        <h4 class="pill-title-en">GEO</h4>
+        <p class="pill-title-he">אופטימיזציה למנועי AI</p>
+      </div>
+      <div class="service-pill reveal" data-pillar="visibility" data-detail-id="ppc-detail">
+        <div class="pill-icon">&#128200;</div>
+        <h4 class="pill-title-en">PPC</h4>
+        <p class="pill-title-he">פרסום ממומן</p>
+      </div>
+      <div class="service-pill reveal" data-pillar="infrastructure" data-detail-id="web-detail">
+        <div class="pill-icon">&#128187;</div>
+        <h4 class="pill-title-en">Website</h4>
+        <p class="pill-title-he">בניית אתרים</p>
+      </div>
+      <div class="service-pill reveal" data-pillar="infrastructure" data-detail-id="email-detail">
+        <div class="pill-icon">&#9993;</div>
+        <h4 class="pill-title-en">Email</h4>
+        <p class="pill-title-he">שיווק באימייל</p>
+      </div>
+      <div class="service-pill reveal" data-pillar="infrastructure" data-detail-id="gtm-detail">
+        <div class="pill-icon">&#128640;</div>
+        <h4 class="pill-title-en">GTM</h4>
+        <p class="pill-title-he">Go-To-Market</p>
+      </div>
+      <div class="service-pill reveal" data-pillar="content" data-detail-id="social-detail">
+        <div class="pill-icon">&#128242;</div>
+        <h4 class="pill-title-en">Social</h4>
+        <p class="pill-title-he">רשתות חברתיות</p>
+      </div>
+      <div class="service-pill reveal" data-pillar="content" data-detail-id="paid-detail">
+        <div class="pill-icon">&#127919;</div>
+        <h4 class="pill-title-en">Paid Social</h4>
+        <p class="pill-title-he">פרסום ברשתות</p>
+      </div>
+      <div class="service-pill reveal" data-pillar="content" data-detail-id="photo-detail">
+        <div class="pill-icon">&#127909;</div>
+        <h4 class="pill-title-en">Photo &amp; Video</h4>
+        <p class="pill-title-he">צילום ווידאו</p>
+      </div>
     </div>
-    <div class="service-card reveal">
-      <div class="service-card__icon">&#128200;</div>
-      <h3 class="service-card__title">פרסום ממומן</h3>
-      <p class="service-card__label">PPC &ndash; ROI מקסימלי. בלי ניחושים.</p>
-      <p class="service-card__desc">קמפיינים בגוגל, בינג, ופלטפורמות נוספות &ndash; מנוהלים בדיוק מדי יום, מודדים כל המרה, ומוודאים שכל שקל שמשקיעים חוזר אליכם בתוצאות. בידינג חכם מבוסס AI, אופטימיזציה אוטומטית של הצעות וקריאייטיבים, ודוחות ביצועים בזמן אמת.</p>
+  </div>
+
+  <!-- ===== AI DIFFERENTIATOR BLOCK ===== -->
+  <div class="ai-differentiator reveal">
+    <div class="ai-differentiator__icon">&#9889;</div>
+    <h3 class="ai-differentiator__title">היתרון הטכנולוגי שלנו</h3>
+    <p class="ai-differentiator__text">אנחנו משלבים טכנולוגיות מתקדמות שרוב הסוכנויות עדיין לא משתמשות בהן. דאטה בזמן אמת, אוטומציות מתקדמות, כלי AI לכתיבת תוכן ואופטימיזציה של קמפיינים, ומערכות חיזוי שמזהות הזדמנויות לפני שהן הופכות לבעיות.</p>
+  </div>
+
+  <!-- ===== TIER 2: PILLAR DETAIL SECTIONS ===== -->
+  <div class="services-tier-2">
+
+    <!-- PILLAR A: נוכחות ותנועה -->
+    <div class="pillar-section" id="pillar-visibility">
+      <div class="pillar-heading-wrap">
+        <span class="pillar-letter">A</span>
+        <h3 class="pillar-heading">נוכחות ותנועה</h3>
+        <p class="pillar-subtitle">שימצאו אתכם בכל מקום &ndash; בגוגל, ב-AI, ובפרסום ממומן</p>
+      </div>
+      <div class="pillar-grid">
+        <div class="service-card reveal" id="seo-detail">
+          <div class="service-card__icon">&#128269;</div>
+          <h3 class="service-card__title">קידום אורגני</h3>
+          <p class="service-card__label">SEO &ndash; עמוד 1 בגוגל &ndash; לא במקרה.</p>
+          <p class="service-card__desc">מחקר מילות מפתח, אופטימיזציה טכנית, בניית קישורים, ויצירת תוכן שמוביל טראפיק איכותי לאורך זמן. אנחנו מביאים לקוחות שמחפשים אתכם בדיוק ברגע הזה &ndash; לא גולשים.</p>
+        </div>
+        <div class="service-card reveal" id="geo-detail">
+          <div class="service-card__icon">&#129302;</div>
+          <h3 class="service-card__title">אופטימיזציה למנועי AI</h3>
+          <p class="service-card__label">GEO &ndash; להופיע בתשובות של ChatGPT, Gemini ו-Perplexity.</p>
+          <p class="service-card__desc">העולם הדיגיטלי משתנה. יותר ויותר אנשים מחפשים דרך מנועי בינה מלאכותית במקום גוגל מסורתי. אנחנו בונים מבנה תוכן שמותאם ל-AI, סכמה מובנית, ואוטוריטט תוכני שמבטיח נוכחות גם בעולם של אחרי החיפוש.</p>
+        </div>
+        <div class="service-card reveal" id="ppc-detail">
+          <div class="service-card__icon">&#128200;</div>
+          <h3 class="service-card__title">פרסום ממומן</h3>
+          <p class="service-card__label">PPC &ndash; ROI מקסימלי. בלי ניחושים.</p>
+          <p class="service-card__desc">קמפיינים בגוגל, בינג, ופלטפורמות נוספות &ndash; מנוהלים בדיוק מדי יום, מודדים כל המרה, ומוודאים שכל שקל שמשקיעים חוזר אליכם בתוצאות. בידינג חכם מבוסס AI, אופטימיזציה אוטומטית של הצעות וקריאייטיבים, ודוחות ביצועים בזמן אמת.</p>
+        </div>
+      </div>
     </div>
-    <div class="service-card reveal">
-      <div class="service-card__icon">&#128187;</div>
-      <h3 class="service-card__title">בניית אתרים וחנויות אונליין</h3>
-      <p class="service-card__label">Website &ndash; אתר שמוכר &ndash; לא רק נראה טוב.</p>
-      <p class="service-card__desc">אתרים מודרניים, מהירים וממירים שנבנים להמרה &ndash; לא רק להיראות טוב. פיתוח ב-WordPress, Elementor, Shopify ופלטפורמות מותאמות אישית. אפיון חוויית משתמש, עיצוב UX/UI, חנויות אונליין, דפי נחיתה, מהירות טעינה, והתאמה מלאה למובייל.</p>
+
+    <!-- PILLAR B: בניה ותשתית -->
+    <div class="pillar-section" id="pillar-infrastructure">
+      <div class="pillar-heading-wrap">
+        <span class="pillar-letter">B</span>
+        <h3 class="pillar-heading">בניה ותשתית</h3>
+        <p class="pillar-subtitle">הבסיס לצמיחה &ndash; אתרים, אימייל ואסטרטגיית שוק</p>
+      </div>
+      <div class="pillar-grid">
+        <div class="service-card reveal" id="web-detail">
+          <div class="service-card__icon">&#128187;</div>
+          <h3 class="service-card__title">בניית אתרים וחנויות אונליין</h3>
+          <p class="service-card__label">Website &ndash; אתר שמוכר &ndash; לא רק נראה טוב.</p>
+          <p class="service-card__desc">אתרים מודרניים, מהירים וממירים שנבנים להמרה &ndash; לא רק להיראות טוב. פיתוח ב-WordPress, Elementor, Shopify ופלטפורמות מותאמות אישית. אפיון חוויית משתמש, עיצוב UX/UI, חנויות אונליין, דפי נחיתה, מהירות טעינה, והתאמה מלאה למובייל.</p>
+        </div>
+        <div class="service-card reveal" id="email-detail">
+          <div class="service-card__icon">&#9993;</div>
+          <h3 class="service-card__title">שיווק באימייל</h3>
+          <p class="service-card__label">Email Marketing &ndash; ההודעה הנכונה, לאדם הנכון, ברגע הנכון.</p>
+          <p class="service-card__desc">סיקוונסים אוטומטיים, ניוזלטרים שנפתחים, ומסעות לקוח שמבוססים על דאטה, לא על תחושה בטן. אנחנו בונים מערכות אימייל שמטפחים לידים ומחזירים לקוחות קיימים.</p>
+        </div>
+        <div class="service-card reveal" id="gtm-detail">
+          <div class="service-card__icon">&#128640;</div>
+          <h3 class="service-card__title">אסטרטגיית Go-To-Market</h3>
+          <p class="service-card__label">GTM &ndash; מהרעיון לשוק &ndash; בדרך הנכונה.</p>
+          <p class="service-card__desc">השקת מוצר חדש? כניסה לשוק חדש? אנחנו בונים אסטרטגיית GTM מלאה: אנליזת מתחרים ונישת שוק, מיצוב מוצר ותמחור, אסטרטגיית תמחור, לוח זמנים להשקה עם אבני דרך, ומיקס ערוצים מותאם לקהל היעד. מהאפס הראשון ועד לאופטימיזציה שוטפת.</p>
+        </div>
+      </div>
     </div>
-    <div class="service-card reveal">
-      <div class="service-card__icon">&#9993;</div>
-      <h3 class="service-card__title">שיווק באימייל</h3>
-      <p class="service-card__label">Email Marketing &ndash; ההודעה הנכונה, לאדם הנכון, ברגע הנכון.</p>
-      <p class="service-card__desc">סיקוונסים אוטומטיים, ניוזלטרים שנפתחים, ומסעות לקוח שמבוססים על דאטה, לא על תחושה בטן. אנחנו בונים מערכות אימייל שמטפחים לידים ומחזירים לקוחות קיימים.</p>
+
+    <!-- PILLAR C: תוכן ומדיה -->
+    <div class="pillar-section" id="pillar-content">
+      <div class="pillar-heading-wrap">
+        <span class="pillar-letter">C</span>
+        <h3 class="pillar-heading">תוכן ומדיה</h3>
+        <p class="pillar-subtitle">הסיפור שמוכר &ndash; תוכן, פרסום ברשתות וויזואל</p>
+      </div>
+      <div class="pillar-grid">
+        <div class="service-card reveal" id="social-detail">
+          <div class="service-card__icon">&#128242;</div>
+          <h3 class="service-card__title">רשתות חברתיות</h3>
+          <p class="service-card__label">Social Media &ndash; לא סתם פוסטים. נוכחות אמיתית.</p>
+          <p class="service-card__desc">אסטרטגיית תוכן, ניהול קהילה, ויצירת תוכן אורגני שמחבר את המותג לקהל שלכם &ndash; באינסטגרם, בפייסבוק, בטיקטוק, בלינקדאין ובכל פלטפורמה רלוונטית.</p>
+        </div>
+        <div class="service-card reveal" id="paid-detail">
+          <div class="service-card__icon">&#127919;</div>
+          <h3 class="service-card__title">פרסום ברשתות חברתיות</h3>
+          <p class="service-card__label">Paid Social &ndash; להגיע לקהל שלא יודע שהוא צריך אתכם.</p>
+          <p class="service-card__desc">קמפייני מדיה בפייסבוק, אינסטגרם, טיקטוק, לינקדאין, טאבולה ו-Outbrain &ndash; עם טרגוט חכם, קריאייטיב שעוצר, ואופטימיזציה שלא נגמרת.</p>
+        </div>
+        <div class="service-card reveal" id="photo-detail">
+          <div class="service-card__icon">&#127909;</div>
+          <h3 class="service-card__title">צילום ווידאו</h3>
+          <p class="service-card__label">Photo &amp; Video &ndash; תמונה אחת שווה אלף מילים.</p>
+          <p class="service-card__desc">צילומי מוצר, סרטוני וידאו, Reels, UGC, ותוכן ויזואלי שמותאם לכל פלטפורמה. אנחנו יוצרים תוכן שמוכר &ndash; לא רק יפה.</p>
+        </div>
+      </div>
     </div>
-    <div class="service-card reveal">
-      <div class="service-card__icon">&#128242;</div>
-      <h3 class="service-card__title">רשתות חברתיות</h3>
-      <p class="service-card__label">Social Media &ndash; לא סתם פוסטים. נוכחות אמיתית.</p>
-      <p class="service-card__desc">אסטרטגיית תוכן, ניהול קהילה, ויצירת תוכן אורגני שמחבר את המותג לקהל שלכם &ndash; באינסטגרם, בפייסבוק, בטיקטוק, בלינקדאין ובכל פלטפורמה רלוונטית.</p>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-card__icon">&#127919;</div>
-      <h3 class="service-card__title">פרסום ברשתות חברתיות</h3>
-      <p class="service-card__label">Paid Social &ndash; להגיע לקהל שלא יודע שהוא צריך אתכם.</p>
-      <p class="service-card__desc">קמפייני מדיה בפייסבוק, אינסטגרם, טיקטוק, לינקדאין, טאבולה ו-Outbrain &ndash; עם טרגוט חכם, קריאייטיב שעוצר, ואופטימיזציה שלא נגמרת.</p>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-card__icon">&#127909;</div>
-      <h3 class="service-card__title">צילום ווידאו</h3>
-      <p class="service-card__label">Photo &amp; Video &ndash; תמונה אחת שווה אלף מילים.</p>
-      <p class="service-card__desc">צילומי מוצר, סרטוני וידאו, Reels, UGC, ותוכן ויזואלי שמותאם לכל פלטפורמה. אנחנו יוצרים תוכן שמוכר &ndash; לא רק יפה.</p>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-card__icon">&#128640;</div>
-      <h3 class="service-card__title">אסטרטגיית Go-To-Market</h3>
-      <p class="service-card__label">GTM &ndash; מהרעיון לשוק &ndash; בדרך הנכונה.</p>
-      <p class="service-card__desc">השקת מוצר חדש? כניסה לשוק חדש? אנחנו בונים אסטרטגיית GTM מלאה: אנליזת מתחרים ונישת שוק, מיצוב מוצר ותמחור, אסטרטגיית תמחור, לוח זמנים להשקה עם אבני דרך, ומיקס ערוצים מותאם לקהל היעד. מהאפס הראשון ועד לאופטימיזציה שוטפת.</p>
-    </div>
+
   </div>
 </div>
 </section>
@@ -1084,7 +1238,7 @@ window.addEventListener('load',()=>{
 // ===== REVEAL ANIMATIONS =====
 // Skip elements that have their own dedicated animations
 const skipReveal = new Set();
-document.querySelectorAll('.service-card.reveal, .case-card.reveal, .services__heading.reveal, .process__heading.reveal, .testimonials__heading.reveal, .case-studies__heading.reveal, .testimonial-card.reveal').forEach(el=>skipReveal.add(el));
+document.querySelectorAll('.service-card.reveal, .case-card.reveal, .services__heading.reveal, .process__heading.reveal, .testimonials__heading.reveal, .case-studies__heading.reveal, .testimonial-card.reveal, .service-pill.reveal, .ai-differentiator.reveal').forEach(el=>skipReveal.add(el));
 
 document.querySelectorAll('.reveal').forEach(el => {
   if(skipReveal.has(el)) return;
@@ -1141,7 +1295,33 @@ function animateCounters(){
   });
 }
 
-// ===== SERVICES: clip-path reveal from bottom with scrub =====
+// ===== SERVICE PILLS: clip-path reveal =====
+gsap.utils.toArray('.service-pill').forEach((pill,i)=>{
+  gsap.fromTo(pill,
+    {clipPath:'inset(100% 0% 0% 0%)',opacity:0,y:20,scale:.92},
+    {clipPath:'inset(0% 0% 0% 0%)',opacity:1,y:0,scale:1,ease:'none',
+      scrollTrigger:{trigger:pill,start:'top 92%',end:'top 65%',scrub:1}
+    }
+  );
+});
+
+// ===== AI DIFFERENTIATOR: scale + fade reveal =====
+gsap.fromTo('.ai-differentiator',
+  {opacity:0,scale:.95,y:30},
+  {opacity:1,scale:1,y:0,ease:'none',
+    scrollTrigger:{trigger:'.ai-differentiator',start:'top 85%',end:'top 60%',scrub:1}
+  }
+);
+
+// ===== PILLAR SECTIONS: fade in on scroll =====
+gsap.utils.toArray('.pillar-section').forEach(sec=>{
+  gsap.fromTo(sec,{opacity:.15,y:40},{
+    opacity:1,y:0,ease:'none',
+    scrollTrigger:{trigger:sec,start:'top 85%',end:'top 50%',scrub:1}
+  });
+});
+
+// ===== SERVICE CARDS: clip-path reveal from bottom with scrub =====
 gsap.utils.toArray('.service-card').forEach((card,i)=>{
   gsap.fromTo(card,
     {clipPath:'inset(100% 0% 0% 0%)',opacity:0,y:30},
@@ -1149,6 +1329,37 @@ gsap.utils.toArray('.service-card').forEach((card,i)=>{
       scrollTrigger:{trigger:card,start:'top 90%',end:'top 55%',scrub:1}
     }
   );
+});
+
+// ===== PILLAR TAB FILTER =====
+document.querySelectorAll('.pillar-tab').forEach(tab=>{
+  tab.addEventListener('click',function(){
+    const p=this.dataset.pillar;
+    document.querySelectorAll('.pillar-tab').forEach(t=>t.classList.remove('pillar-tab--active'));
+    this.classList.add('pillar-tab--active');
+    document.querySelectorAll('.service-pill').forEach(pill=>{
+      if(p==='all'||pill.dataset.pillar===p){
+        pill.classList.remove('dimmed');
+        gsap.to(pill,{opacity:1,scale:1,duration:.3,ease:'power2.out'});
+      }else{
+        pill.classList.add('dimmed');
+        gsap.to(pill,{opacity:.2,scale:.96,duration:.3,ease:'power2.out'});
+      }
+    });
+  });
+});
+
+// ===== PILL CLICK -> SCROLL TO DETAIL =====
+document.querySelectorAll('.service-pill').forEach(pill=>{
+  pill.addEventListener('click',function(){
+    if(this.classList.contains('dimmed')) return;
+    const el=document.getElementById(this.dataset.detailId);
+    if(!el) return;
+    document.querySelectorAll('.service-pill').forEach(p=>p.classList.remove('active'));
+    this.classList.add('active');
+    el.scrollIntoView({behavior:'smooth',block:'start'});
+    gsap.fromTo(el,{boxShadow:'0 0 0 2px rgba(77,188,208,.6)'},{boxShadow:'0 0 0 2px rgba(77,188,208,0)',duration:1.2,delay:.4,ease:'power2.out'});
+  });
 });
 
 // ===== PROCESS: progressive opacity on scroll scrub =====
