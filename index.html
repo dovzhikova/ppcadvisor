@@ -1430,9 +1430,18 @@ ScrollTrigger.create({
     gsap.to(speechEl,{opacity:0,delay:4,duration:.3});
   }
 });
+let bossClicked = false;
 bossEl.addEventListener('click',()=>{
-  document.querySelector('.audit').scrollIntoView({behavior:'smooth',block:'center'});
-  gsap.to(speechEl,{opacity:0,duration:.2});
+  if(!bossClicked){
+    bossClicked = true;
+    speechEl.textContent = 'בואו נבדוק איפה אתם מפסידים כסף – חינם!';
+    gsap.to(speechEl,{opacity:1,duration:.3});
+    setTimeout(()=>{
+      document.querySelector('.audit').scrollIntoView({behavior:'smooth',block:'center'});
+      gsap.to(speechEl,{opacity:0,delay:1,duration:.3});
+      setTimeout(()=>{ bossClicked = false; },2000);
+    },1200);
+  }
 });
 
 // ===== VISUAL BREAK GLOW PARALLAX =====
