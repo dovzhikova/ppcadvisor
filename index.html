@@ -126,10 +126,8 @@ h1,h2,h3{line-height:1.05}
 .svc-row__info{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
 .svc-row__title{font-size:1.05rem;font-weight:700;color:var(--text-light);margin:0}
 .svc-row__label{font-size:.82rem;color:var(--primary);font-weight:600;margin:0}
-.svc-row__desc{font-size:.82rem;color:rgba(236,236,236,.45);margin:0}
-.svc-row__bullets{grid-column:2;display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-top:4px}
-.svc-row__bullet{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;color:rgba(236,236,236,.55);background:rgba(77,188,208,.08);border:1px solid rgba(77,188,208,.12);border-radius:500px;padding:5px 14px;white-space:nowrap}
-.svc-row__bullet::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0;opacity:.6}
+.svc-row__desc{grid-column:2;font-size:.82rem;line-height:1.65;color:rgba(236,236,236,.55);margin:0;padding-top:4px}
+.svc-row__result{grid-column:2;font-size:.78rem;font-weight:600;color:var(--primary);margin:8px 0 0;opacity:.85}
 
 /* ===== PROCESS ===== */
 .process{padding:140px 0;overflow:hidden}
@@ -556,8 +554,8 @@ html,body{overflow-x:hidden}
 .svc-row__info{gap:4px 8px}
 .svc-row__title{font-size:.9rem}
 .svc-row__label{font-size:.72rem}
-.svc-row__bullets{grid-column:1;padding-top:6px}
-.svc-row__bullet{font-size:.68rem;padding:4px 10px}
+.svc-row__desc{grid-column:1;padding-top:6px;font-size:.75rem}
+.svc-row__result{grid-column:1;font-size:.7rem}
 
 /* Process mobile */
 .process{padding:80px 0}
@@ -778,13 +776,13 @@ html,body{overflow-x:hidden}
 <section class="services section-glow section-radial section-radial--right" id="services">
 <div class="container">
   <h2 class="services__heading reveal"><span class="fw-light">הכל תחת</span> <span class="accent">קורת גג אחת.</span> באמת.</h2>
-  <p class="services__sub reveal">רוב העסקים מנהלים את השיווק עם 3&ndash;5 ספקים שלא מדברים אחד עם השני. סוכנות אחת עושה SEO, אחרת PPC, שלישית בונה אתרים &ndash; ואף אחד לא רואה את התמונה המלאה. אנחנו עושים את זה אחרת.</p>
-  <p class="services__sub reveal" style="margin-top:-30px">9 שירותים. 3 עמודים. מערך שיווק שלם שמדבר בשפה אחת.</p>
+  <p class="services__sub reveal">רוב העסקים מנהלים את השיווק עם 3&ndash;5 ספקים שלא מדברים אחד עם השני. התוצאה? תקציב שנשרף, מסרים סותרים, ואף אחד לא לוקח אחריות על התמונה הגדולה. אצלנו הכל תחת צוות אחד &ndash; אסטרטגיה, ביצוע, אופטימיזציה &ndash; מסונכרן מהיום הראשון.</p>
+  <p class="services__sub reveal" style="margin-top:-30px">9 שירותים. 3 עמודים. תוצאות שמורגשות כבר בחודש הראשון.</p>
   <!-- ===== AI DIFFERENTIATOR BLOCK ===== -->
   <div class="ai-differentiator reveal">
     <div class="ai-differentiator__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
     <h3 class="ai-differentiator__title">AI-First &ndash; לא רק באזוורד</h3>
-    <p class="ai-differentiator__text">בידינג חכם שמתעדכן כל שעה, לא כל שבוע. חיזוי ביצועים שמזהה קמפיינים בירידה לפני שהם שורפים תקציב. יצירת תוכן וקריאייטיב עם AI שמייצר ווריאציות ובודק מה עובד &ndash; אוטומטית. אנחנו לא מדברים על AI. אנחנו עובדים איתו כל יום.</p>
+    <p class="ai-differentiator__text">בידינג חכם שמתעדכן כל שעה, לא כל שבוע. חיזוי ביצועים שמזהה קמפיינים בירידה לפני שהם שורפים תקציב. יצירת תוכן וקריאייטיב עם AI שמייצר וריאציות ובודק מה עובד &ndash; אוטומטית. אנחנו לא מדברים על AI. אנחנו עובדים איתו כל יום.</p>
   </div>
 
   <!-- ===== STACKING SERVICE CARDS ===== -->
@@ -794,60 +792,69 @@ html,body{overflow-x:hidden}
 
     <div class="svc-row" id="seo-detail" style="--card-i:0">
       <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></span>
-      <div class="svc-row__info"><h4 class="svc-row__title">קידום אורגני</h4><span class="svc-row__label">SEO</span><span class="svc-row__desc">&ndash; לקוחות שמחפשים אתכם עכשיו ימצאו אתכם ראשונים.</span></div>
-      <div class="svc-row__bullets"><span class="svc-row__bullet">מחקר מילות מפתח ממוקד כוונת רכישה</span><span class="svc-row__bullet">אופטימיזציה טכנית</span><span class="svc-row__bullet">בניית סמכות תוכנית</span><span class="svc-row__bullet">עמוד 1 תוך 90 יום · +68% תנועה</span></div>
+      <div class="svc-row__info"><h4 class="svc-row__title">קידום אורגני</h4><span class="svc-row__label">SEO &ndash; לקוחות שמחפשים אתכם עכשיו ימצאו אתכם ראשונים.</span></div>
+      <p class="svc-row__desc">אנחנו לא רודפים אחרי דירוגים &ndash; אנחנו בונים מערך תוכן וסמכות שמביא לקוחות שמוכנים לקנות, ישירות מגוגל. מחקר מילות מפתח ממוקד כוונת רכישה, אופטימיזציה טכנית, ותוכן שמדבר גם למנוע וגם לאדם.</p>
+      <p class="svc-row__result">ממוצע: עמוד 1 תוך 90 יום · +68% תנועה אורגנית</p>
     </div>
 
     <div class="svc-row" id="geo-detail" style="--card-i:1">
       <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="16" rx="3"/><circle cx="9.5" cy="10" r="1.2"/><circle cx="14.5" cy="10" r="1.2"/><path d="M9 15h6"/><path d="M9 1v3M15 1v3"/></svg></span>
-      <div class="svc-row__info"><h4 class="svc-row__title">אופטימיזציה למנועי AI</h4><span class="svc-row__label">GEO</span><span class="svc-row__desc">&ndash; כש-ChatGPT ממליץ על עסק בתחום שלכם, זה יהיה אתם.</span></div>
-      <div class="svc-row__bullets"><span class="svc-row__bullet">מבנה תוכן מותאם AI</span><span class="svc-row__bullet">סכמה מובנית</span><span class="svc-row__bullet">אוטוריטט תוכני</span><span class="svc-row__bullet">שירות ייחודי · &lt;3% מהסוכנויות מציעות</span></div>
+      <div class="svc-row__info"><h4 class="svc-row__title">אופטימיזציה למנועי AI</h4><span class="svc-row__label">GEO &ndash; כש-ChatGPT ממליץ על עסק בתחום שלכם, זה יהיה אתם.</span></div>
+      <p class="svc-row__desc">40% מהחיפושים כבר עוברים דרך מנועי AI. מי שלא מותאם &ndash; פשוט לא קיים שם. אנחנו בונים מבנה תוכן, סכמה מובנית ואוטוריטט שגורם ל-ChatGPT, Gemini ו-Perplexity להמליץ עליכם &ndash; לא על המתחרים.</p>
+      <p class="svc-row__result">שירות ייחודי · פחות מ-3% מהסוכנויות בישראל מציעות GEO</p>
     </div>
 
     <div class="svc-row" id="ppc-detail" style="--card-i:2">
       <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
-      <div class="svc-row__info"><h4 class="svc-row__title">פרסום ממומן</h4><span class="svc-row__label">PPC</span><span class="svc-row__desc">&ndash; כל שקל עובד. כל המרה נמדדת. בלי ניחושים.</span></div>
-      <div class="svc-row__bullets"><span class="svc-row__bullet">בידינג חכם כל שעה</span><span class="svc-row__bullet">A/B טסטינג שוטף</span><span class="svc-row__bullet">דוחות שקופים</span><span class="svc-row__bullet">ROAS x4.2 · ₪47M+ מנוהלים</span></div>
+      <div class="svc-row__info"><h4 class="svc-row__title">פרסום ממומן</h4><span class="svc-row__label">PPC &ndash; כל שקל עובד. כל המרה נמדדת. בלי ניחושים.</span></div>
+      <p class="svc-row__desc">קמפיינים בגוגל ובינג עם בידינג חכם שמתעדכן כל שעה, לא כל שבוע. אנחנו מנהלים תקציבי מדיה של מיליונים &ndash; עם אותה דקדקנות בין אם התקציב &#8362;5K או &#8362;500K. אופטימיזציה יומית, A/B טסטינג שוטף, ודוחות שקופים.</p>
+      <p class="svc-row__result">ממוצע ROAS: x4.2 · &#8362;47M+ תקציבי מדיה מנוהלים</p>
     </div>
 
     <div class="pillar-header reveal"><span class="pillar-header__letter">B</span><div class="pillar-header__text"><h3>בניה ותשתית</h3><p>בלי תשתית חזקה, כל תקציב הפרסום בעולם לא יעזור. אנחנו בונים את הבסיס שהופך תנועה להכנסות</p></div></div>
 
     <div class="svc-row" id="web-detail" style="--card-i:3">
       <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
-      <div class="svc-row__info"><h4 class="svc-row__title">בניית אתרים וחנויות</h4><span class="svc-row__label">Website</span><span class="svc-row__desc">&ndash; אתר שמביא לקוחות, לא סתם כרטיס ביקור דיגיטלי.</span></div>
-      <div class="svc-row__bullets"><span class="svc-row__bullet">WordPress &amp; Shopify</span><span class="svc-row__bullet">UX שמוביל להמרה</span><span class="svc-row__bullet">מהירות &lt;2.5s</span><span class="svc-row__bullet">+35% שיעור המרה אחרי שדרוג</span></div>
+      <div class="svc-row__info"><h4 class="svc-row__title">בניית אתרים וחנויות אונליין</h4><span class="svc-row__label">Website &ndash; אתר שמביא לקוחות, לא סתם כרטיס ביקור דיגיטלי.</span></div>
+      <p class="svc-row__desc">אתר יפה שלא ממיר הוא הוצאה &ndash; לא נכס. אנחנו בונים אתרים וחנויות אונליין שתוכננו מהבסיס להמרה: מסע משתמש חד, מהירות טעינה מתחת ל-3 שניות, התאמה מלאה למובייל, ו-UX שמוביל את המבקר מהכניסה ועד ללחיצה על ״קנה עכשיו״.</p>
+      <p class="svc-row__result">ממוצע: +35% שיעור המרה אחרי שדרוג · זמן טעינה &lt;2.5s</p>
     </div>
 
     <div class="svc-row" id="email-detail" style="--card-i:4">
       <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 4 12 13 2 4"/></svg></span>
-      <div class="svc-row__info"><h4 class="svc-row__title">שיווק באימייל ואוטומציות</h4><span class="svc-row__label">Email Marketing</span><span class="svc-row__desc">&ndash; הלידים שכבר יש לכם? אנחנו הופכים אותם ללקוחות משלמים.</span></div>
-      <div class="svc-row__bullets"><span class="svc-row__bullet">סיקוונסים אוטומטיים</span><span class="svc-row__bullet">מסעות לקוח דאטה דריבן</span><span class="svc-row__bullet">42% פתיחות</span><span class="svc-row__bullet">+28% הכנסה מלקוחות חוזרים</span></div>
+      <div class="svc-row__info"><h4 class="svc-row__title">שיווק באימייל</h4><span class="svc-row__label">Email Marketing &ndash; הלידים שכבר יש לכם? אנחנו הופכים אותם ללקוחות משלמים.</span></div>
+      <p class="svc-row__desc">רוב העסקים יושבים על מאגר לידים שלא עושים איתו כלום. אנחנו בונים סיקוונסים אוטומטיים שמטפחים כל ליד לפי ההתנהגות שלו &ndash; מ״ברוכים הבאים״ ועד לרכישה חוזרת. דאטה דריבן, לא תחושה בטן.</p>
+      <p class="svc-row__result">ממוצע: 42% פתיחות · +28% הכנסה מלקוחות חוזרים</p>
     </div>
 
     <div class="svc-row" id="gtm-detail" style="--card-i:5">
       <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span>
-      <div class="svc-row__info"><h4 class="svc-row__title">אסטרטגיית Go-To-Market</h4><span class="svc-row__label">GTM</span><span class="svc-row__desc">&ndash; משקיעים בהשקה? אנחנו מוודאים שהיא מצליחה מהיום הראשון.</span></div>
-      <div class="svc-row__bullets"><span class="svc-row__bullet">ניתוח מתחרים ושוק</span><span class="svc-row__bullet">מיצוב ותמחור</span><span class="svc-row__bullet">תכנית פעולה שמתבצעת</span><span class="svc-row__bullet">מאפיון להשקה תוך 6&ndash;8 שבועות</span></div>
+      <div class="svc-row__info"><h4 class="svc-row__title">אסטרטגיית Go-To-Market</h4><span class="svc-row__label">GTM &ndash; משקיעים בהשקה? אנחנו מוודאים שהיא מצליחה מהיום הראשון.</span></div>
+      <p class="svc-row__desc">מוצר חדש, שוק חדש, או ריפוזישנינג &ndash; אנחנו בונים תכנית GTM שלמה: ניתוח מתחרים ושוק, מיצוב ותמחור, בחירת ערוצים, ולוח זמנים עם אבני דרך ברורות. לא מסמך אסטרטגי שנשאר במגירה &ndash; תכנית פעולה שמתבצעת.</p>
+      <p class="svc-row__result">מהאפיון ועד להשקה חיה תוך 6&ndash;8 שבועות</p>
     </div>
 
     <div class="pillar-header reveal"><span class="pillar-header__letter">C</span><div class="pillar-header__text"><h3>תוכן ומדיה</h3><p>המוצר שלכם מעולה. עכשיו צריך שהעולם ידע על זה &ndash; עם תוכן שעוצר אצבע ומניע פעולה</p></div></div>
 
     <div class="svc-row" id="social-detail" style="--card-i:6">
       <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg></span>
-      <div class="svc-row__info"><h4 class="svc-row__title">ניהול רשתות חברתיות</h4><span class="svc-row__label">Social Media</span><span class="svc-row__desc">&ndash; מותג שאנשים רוצים לעקוב אחריו, לא רק לגלול מעבר.</span></div>
-      <div class="svc-row__bullets"><span class="svc-row__bullet">אסטרטגיית תוכן שלמה</span><span class="svc-row__bullet">קהילה אמיתית</span><span class="svc-row__bullet">x3 מעורבות</span><span class="svc-row__bullet">+45% עוקבים אורגניים ב-6 חודשים</span></div>
+      <div class="svc-row__info"><h4 class="svc-row__title">רשתות חברתיות</h4><span class="svc-row__label">Social Media &ndash; מותג שאנשים רוצים לעקוב אחריו, לא רק לגלול מעבר.</span></div>
+      <p class="svc-row__desc">פוסט בשבוע לא בונה מותג. אנחנו בונים אסטרטגיית תוכן שלמה שיוצרת קהילה אמיתית סביב העסק שלכם &ndash; עם תוכן שמדבר בשפה של הקהל, בפלטפורמות שהוא נמצא בהן, בתדירות שמחזיקה רלוונטיות.</p>
+      <p class="svc-row__result">ממוצע: x3 מעורבות · +45% עוקבים אורגניים ב-6 חודשים</p>
     </div>
 
     <div class="svc-row" id="paid-detail" style="--card-i:7">
       <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
-      <div class="svc-row__info"><h4 class="svc-row__title">פרסום ברשתות חברתיות</h4><span class="svc-row__label">Paid Social</span><span class="svc-row__desc">&ndash; להגיע לקהל שלא יודע שהוא צריך אתכם. עדיין.</span></div>
-      <div class="svc-row__bullets"><span class="svc-row__bullet">טרגוט מבוסס דאטה</span><span class="svc-row__bullet">A/B טסטינג שוטף</span><span class="svc-row__bullet">-40% עלות ליד</span><span class="svc-row__bullet">ROAS x3.8 על Meta</span></div>
+      <div class="svc-row__info"><h4 class="svc-row__title">פרסום ברשתות חברתיות</h4><span class="svc-row__label">Paid Social &ndash; להגיע לקהל שלא יודע שהוא צריך אתכם. עדיין.</span></div>
+      <p class="svc-row__desc">פרסום ממומן בפייסבוק, אינסטגרם, טיקטוק ולינקדאין עם טרגוט שמבוסס על דאטה &ndash; לא על ניחוש. אנחנו בונים קהלים, יוצרים קריאייטיבים שעוצרים גלילה, ומריצים A/B טסטינג שוטף שמוריד עלות לידים ומעלה ROAS כל שבוע.</p>
+      <p class="svc-row__result">ממוצע: -40% עלות ליד · ROAS x3.8 על קמפייני Meta</p>
     </div>
 
     <div class="svc-row" id="photo-detail" style="--card-i:8">
       <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></span>
-      <div class="svc-row__info"><h4 class="svc-row__title">צילום ווידאו</h4><span class="svc-row__label">Photo &amp; Video</span><span class="svc-row__desc">&ndash; תוכן שעוצר אצבע ומניע פעולה.</span></div>
-      <div class="svc-row__bullets"><span class="svc-row__bullet">צילומי מוצר</span><span class="svc-row__bullet">Reels &amp; UGC</span><span class="svc-row__bullet">תוכן לכל פלטפורמה</span><span class="svc-row__bullet">+25% CTR על קמפיינים קיימים</span></div>
+      <div class="svc-row__info"><h4 class="svc-row__title">צילום ווידאו</h4><span class="svc-row__label">Photo &amp; Video &ndash; תוכן שעוצר אצבע ומניע פעולה.</span></div>
+      <p class="svc-row__desc">הקריאייטיב הוא מה שקובע אם מודעה מצליחה או נכשלת. אנחנו מפיקים צילומי מוצר, סרטוני Reels, UGC ותוכן ויזואלי שמותאם לכל פלטפורמה &ndash; מאינסטגרם ועד לדף הנחיתה. תוכן שנבנה למכור, לא רק להרשים.</p>
+      <p class="svc-row__result">קריאייטיב חדש = בממוצע +25% CTR על קמפיינים קיימים</p>
     </div>
 
   </div>
