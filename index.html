@@ -5,19 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PPC Advisor - מעטפת שיווק דיגיטלי 360°</title>
 <meta name="description" content="יותר לקוחות, יותר מכירות, וצמיחה שלא נגמרת. מעטפת שיווק דיגיטלי 360° שמנהלת את הכל תחת קורת גג אחת.">
-<link href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Heebo:wght@300;400;500;600;700;800;900&family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="icon" type="image/jpeg" href="logo-square.jpg">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/split-type"></script>
 <style>
+@font-face{font-family:'Ploni';src:url('fonts/ploni-light.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Ploni';src:url('fonts/ploni-regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Ploni';src:url('fonts/ploni-bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
 --bg:#0E1F33;--bg-deep:#091525;--primary:#4DBCD0;--primary-light:#6BD4D9;
 --text-light:#ECECEC;--text-dark:#0E1F33;--white:#fff;
 --text-1:rgba(236,236,236,.85);--text-2:rgba(236,236,236,.6);--text-3:rgba(236,236,236,.5);
 --card-glass:rgba(77,188,208,.07);--card-border:rgba(77,188,208,.15);
---pill:500px;--radius:43px;--font:'Varela Round','Heebo',sans-serif;
+--pill:500px;--radius:43px;--font:'Ploni','Heebo',sans-serif;
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--font);background:var(--bg);color:var(--text-light);direction:rtl;overflow-x:hidden;line-height:1.4}
@@ -42,13 +45,13 @@ h1,h2,h3{line-height:1.05}
 /* ===== HERO (LIGHT BACKGROUND) ===== */
 .hero{min-height:100vh;background:linear-gradient(180deg,#e8f4f8 0%,#c8e6ef 40%,#7bbfd4 70%,var(--bg) 100%);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:60px 0 0}
 .hero__content{position:relative;z-index:4;text-align:right;padding:40px 0}
-.hero__title{font-family:'Heebo',sans-serif;font-weight:900;color:var(--text-dark);line-height:1;margin-bottom:24px}
+.hero__title{font-family:'Ploni','Heebo',sans-serif;font-weight:700;color:var(--text-dark);line-height:1;margin-bottom:24px}
 .hero__line{display:block}
 .hero__line--sm{font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:600;opacity:.6;margin-bottom:12px;letter-spacing:.01em}
 .hero__line--md{font-size:clamp(2.8rem,6vw,5rem);line-height:1.05}
 .hero__line--lg{font-size:clamp(3.2rem,7.5vw,6.5rem);line-height:1}
 .hero__line--accent{font-size:clamp(4.5rem,12vw,10rem);color:var(--primary);line-height:.85;letter-spacing:-.03em}
-.hero__watermark{position:absolute;top:50%;left:5%;transform:translateY(-55%);font-size:clamp(12rem,28vw,24rem);font-weight:900;color:transparent;-webkit-text-stroke:1.5px rgba(14,31,51,.07);pointer-events:none;z-index:1;line-height:.8;letter-spacing:-.05em;user-select:none;font-family:'Heebo',sans-serif}
+.hero__watermark{position:absolute;top:50%;left:5%;transform:translateY(-55%);font-size:clamp(12rem,28vw,24rem);font-weight:900;color:transparent;-webkit-text-stroke:1.5px rgba(14,31,51,.07);pointer-events:none;z-index:1;line-height:.8;letter-spacing:-.05em;user-select:none;font-family:'Ploni','Heebo',sans-serif}
 .hero__subtitle{font-size:clamp(1rem,2vw,1.25rem);font-weight:400;color:var(--text-dark);opacity:.65;max-width:600px;margin:0 0 32px;line-height:1.5}
 .hero__cta{display:flex;gap:16px;justify-content:flex-start;flex-wrap:wrap;margin-bottom:16px}
 .hero__micro{font-size:.85rem;color:var(--text-dark);opacity:.5;margin-bottom:40px}
@@ -167,9 +170,9 @@ h1,h2,h3{line-height:1.05}
 .testimonials{padding:100px 0 60px;position:relative;overflow:hidden}
 .testimonials__heading{text-align:center;font-size:clamp(2rem,5vw,3.8rem);font-weight:700;margin-bottom:50px}
 .testimonials__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-.testimonial-card{background:linear-gradient(160deg,rgba(30,80,95,.12),rgba(14,50,65,.1));border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;transition:all .4s}
+.testimonial-card{background:linear-gradient(160deg,rgba(30,80,95,.25),rgba(14,50,65,.22));border:1px solid rgba(77,188,208,.25);border-radius:var(--radius);padding:28px;transition:all .4s;backdrop-filter:blur(8px)}
 .testimonial-card:hover{background:rgba(77,188,208,.12);transform:translateY(-3px)}
-.testimonial-card__text{font-size:.88rem;line-height:1.5;color:rgba(236,236,236,.6);margin-bottom:20px}
+.testimonial-card__text{font-size:.88rem;line-height:1.5;color:rgba(236,236,236,.75);margin-bottom:20px}
 .testimonial-card__author{display:flex;align-items:center;gap:14px;padding-top:16px;border-top:1px solid var(--card-border)}
 .testimonial-card__logo{width:40px;height:40px;border-radius:10px;background:rgba(77,188,208,.12);display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:800;color:var(--primary);overflow:hidden}
 .testimonial-card__name{font-weight:700;font-size:.9rem}
@@ -245,7 +248,7 @@ h1,h2,h3{line-height:1.05}
 @media(max-width:768px){.faq__grid{grid-template-columns:1fr}}
 
 /* ===== CTA ===== */
-.cta{padding:80px 0;text-align:center;position:relative;background:linear-gradient(180deg,var(--bg) 0%,rgba(30,80,95,.3) 50%,var(--bg) 100%)}
+.cta{padding:80px 0;text-align:center;position:relative;background:linear-gradient(180deg,var(--bg) 0%,rgba(30,80,95,.3) 50%,var(--bg) 100%);overflow:hidden}
 .cta h2{font-size:clamp(2.2rem,5vw,4rem);font-weight:700;margin-bottom:16px}
 .cta h2 span{color:var(--primary)}
 .cta p{font-size:clamp(1rem,1.5vw,1.15rem);color:rgba(236,236,236,.6);margin-bottom:28px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.5}
@@ -479,7 +482,7 @@ background-size:60px 60px;z-index:0}
 
 /* ===== ACCENT COLOR ===== */
 .accent{color:var(--primary)}
-.fw-light{font-family:'Heebo',sans-serif;font-weight:300}
+.fw-light{font-family:'Ploni','Heebo',sans-serif;font-weight:300}
 
 /* ===== RADIAL GLOW BACKGROUNDS ===== */
 .section-radial{position:relative}
@@ -527,7 +530,7 @@ html,body{overflow-x:hidden}
 .hero__cta{flex-direction:column;align-items:stretch;gap:12px}
 .hero__cta .pill-btn{width:100%;justify-content:center;padding:14px 24px;font-size:.85rem}
 .hero__micro{font-size:.75rem}
-.hero__trust{gap:8px;padding:16px 0}
+.hero__trust{gap:8px;padding:16px 0 80px}
 .hero__trust-badge{font-size:.72rem;padding:8px 14px}
 .hero__photo{position:relative;left:auto;top:auto;transform:none;display:flex;justify-content:center;margin:-20px 0 20px;pointer-events:none}
 .hero__photo-circle{width:160px;height:160px;border-width:3px}
@@ -638,9 +641,9 @@ html,body{overflow-x:hidden}
 .a11y-btn{bottom:76px;right:68px;width:42px;height:42px}
 .scroll-top{bottom:76px;left:16px;width:42px;height:42px}
 
-/* Boss popup mobile */
-.boss-popup{width:100px;height:100px;left:12px}
-.boss-popup__speech{bottom:180px;left:12px;font-size:.7rem;max-width:140px}
+/* Boss popup mobile - hidden to avoid blocking content */
+.boss-popup{display:none !important}
+.boss-popup__speech{display:none !important}
 
 /* SplitType fix: prevent word wrapping overflow */
 [style*="display: inline-block"]{white-space:normal !important}
@@ -1016,7 +1019,7 @@ html,body{overflow-x:hidden}
     </div>
     <div class="about__photo reveal">
       <div class="about__photo-inner">
-        <img src="logo-square.jpg" alt="PPC Advisor" style="width:50%;opacity:.7;border-radius:16px">
+        <img src="boss.jpg" alt="פליקס - מייסד PPC Advisor" style="width:80%;border-radius:16px;object-fit:cover">
       </div>
     </div>
   </div>
@@ -1087,20 +1090,12 @@ html,body{overflow-x:hidden}
         <a href="tel:972587497497"><svg viewBox="0 0 24 24" width="16" height="16" fill="var(--primary)"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> 058-749-7497</a>
         <a href="mailto:felix@ppcadvisor.co.il"><svg viewBox="0 0 24 24" width="16" height="16" fill="var(--primary)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> felix@ppcadvisor.co.il</a>
       </div>
-      <div class="form-section__social">
-        <a href="#" target="_blank"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
-        <a href="#" target="_blank"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg></a>
-        <a href="#" target="_blank"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
-        <a href="#" target="_blank"><svg viewBox="0 0 24 24"><path d="M12.53.02C13.84 0 15.14.01 16.44.05c1.33.06 2.54.2 3.63.82 1.41.79 2.25 1.93 2.7 3.46.3 1.01.4 2.05.43 3.1.05 1.51.06 3.02.05 4.53 0 1.51-.01 3.02-.06 4.53-.03 1.05-.13 2.09-.43 3.1-.45 1.53-1.29 2.67-2.7 3.46-1.09.62-2.3.76-3.53.82-1.5.07-3 .08-4.5.07-1.5 0-3-.01-4.5-.07-1.23-.06-2.44-.2-3.53-.82C2.59 22.27 1.75 21.13 1.3 19.6c-.3-1.01-.4-2.05-.43-3.1C.82 15 .81 13.49.82 12s.01-3 .06-4.5c.03-1.05.13-2.09.43-3.1C1.76 2.87 2.6 1.73 4.01.94 5.1.32 6.31.18 7.54.12 9.04.05 10.55.03 12.06.02h.47zM9.98 8.47v7.03l6.1-3.52-6.1-3.51z"/></svg></a>
-        <a href="#" target="_blank"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.45 6.3 6.3 0 001.86-4.48V8.73a8.28 8.28 0 004.87 1.57V6.86a4.84 4.84 0 01-1.15-.17z"/></svg></a>
-      </div>
       <div class="form-section__nav">
         <h3>ניווט באתר</h3>
         <div class="form-section__nav-links">
           <a href="#services">שירותים</a>
           <a href="#case-studies">עבודות</a>
           <a href="#about">אודות</a>
-          <a href="#">בלוג</a>
           <a href="#contact">צור קשר</a>
         </div>
       </div>
@@ -1149,7 +1144,6 @@ html,body{overflow-x:hidden}
       <a href="#services">שירותים</a>
       <a href="#case-studies">עבודות</a>
       <a href="#about">אודות</a>
-      <a href="#">בלוג</a>
       <a href="#contact">צור קשר</a>
     </div>
     <div class="footer__nav-col">
@@ -1162,13 +1156,6 @@ html,body{overflow-x:hidden}
       <a href="#services">סושיאל</a>
       <a href="#services">צילום ווידאו</a>
       <a href="#services">GTM</a>
-    </div>
-    <div class="footer__social-col">
-      <a href="#" target="_blank"><svg viewBox="0 0 24 24" width="20" height="20" fill="var(--text-light)"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
-      <a href="#" target="_blank"><svg viewBox="0 0 24 24" width="20" height="20" fill="var(--text-light)"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg></a>
-      <a href="#" target="_blank"><svg viewBox="0 0 24 24" width="20" height="20" fill="var(--text-light)"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
-      <a href="#" target="_blank"><svg viewBox="0 0 24 24" width="20" height="20" fill="var(--text-light)"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.45 6.3 6.3 0 001.86-4.48V8.73a8.28 8.28 0 004.87 1.57V6.86a4.84 4.84 0 01-1.15-.17z"/></svg></a>
-      <a href="#" target="_blank"><svg viewBox="0 0 24 24" width="20" height="20" fill="var(--text-light)"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
     </div>
   </div>
   <div class="footer__badges"><img src="google-partner-badge.svg" alt="Google Partner" class="footer__badge"><img src="meta-partner-badge.svg" alt="Meta Business Partner" class="footer__badge"><img src="hubspot-badge.svg" alt="HubSpot Certified Partner" class="footer__badge"></div>
