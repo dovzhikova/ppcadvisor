@@ -27,21 +27,6 @@ button,input,textarea{font-family:inherit;border:none;outline:none}
 .container{max-width:1200px;margin:0 auto;padding:0 32px}
 h1,h2,h3{line-height:1.05}
 
-/* ===== TOP NAV ===== */
-.top-nav{position:fixed;top:0;left:0;right:0;z-index:998;padding:12px 0;background:rgba(14,31,51,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(77,188,208,.1);transform:translateY(-100%);transition:transform .4s cubic-bezier(.4,0,.2,1)}
-.top-nav.visible{transform:translateY(0)}
-.top-nav .container{display:flex;align-items:center;justify-content:space-between}
-.top-nav__logo img{height:32px}
-.top-nav__links{display:flex;align-items:center;gap:28px}
-.top-nav__links a{font-size:.85rem;font-weight:600;color:var(--text-light);opacity:.7;transition:opacity .3s,color .3s}
-.top-nav__links a:hover{opacity:1;color:var(--primary)}
-.top-nav__cta{padding:8px 20px;border-radius:var(--pill);background:var(--primary);color:var(--white);font-weight:700;font-size:.82rem;transition:background .3s}
-.top-nav__cta:hover{background:var(--primary-light)}
-@media(max-width:768px){
-.top-nav__links a:not(.top-nav__cta){display:none}
-.top-nav__cta{font-size:.78rem;padding:8px 16px}
-}
-
 /* ===== PILL BUTTON ===== */
 .pill-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 36px;border-radius:var(--pill);font-weight:700;font-size:.95rem;cursor:pointer;transition:all .35s cubic-bezier(.4,0,.2,1);border:2px solid transparent}
 .pill-btn--dark{background:var(--bg);color:var(--text-light);border-color:var(--bg)}
@@ -674,21 +659,6 @@ html,body{overflow-x:hidden}
   <img src="logo-horizontal.png" alt="PPC Advisor" class="preloader__logo">
   <div class="preloader__bar"><div class="preloader__bar-inner"></div></div>
 </div>
-
-<!-- ===== TOP NAV ===== -->
-<nav class="top-nav" id="topNav">
-<div class="container">
-  <a href="#hero" class="top-nav__logo"><img src="logo-horizontal.png" alt="PPC Advisor"></a>
-  <div class="top-nav__links">
-    <a href="#services">שירותים</a>
-    <a href="#case-studies">עבודות</a>
-    <a href="#testimonials">לקוחות</a>
-    <a href="#about">אודות</a>
-    <a href="#faq">שאלות</a>
-    <a href="https://wa.me/972587497497" class="top-nav__cta" target="_blank">דברו איתנו</a>
-  </div>
-</div>
-</nav>
 
 <!-- ===== HERO ===== -->
 <section class="hero" id="hero">
@@ -1525,7 +1495,6 @@ window.addEventListener('scroll',()=>{
   else bar.classList.remove('hidden');
   lastScroll=curr;
   document.getElementById('scrollTop').classList.toggle('visible',curr>500);
-  document.getElementById('topNav').classList.toggle('visible',curr>600);
 });
 
 // ===== FAQ ACCORDION =====
