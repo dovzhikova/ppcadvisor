@@ -98,7 +98,7 @@ p{line-height:1.4}
 @media(max-width:480px){.stats__grid{grid-template-columns:repeat(2,1fr);gap:10px}.stat-card{padding:18px 14px}.stat-card__title{font-size:.9rem}}
 
 /* ===== SERVICES ===== */
-.services{padding:140px 0;background:linear-gradient(115deg,transparent 10%,rgba(77,188,208,.03) 18%,rgba(77,188,208,.08) 20%,rgba(77,188,208,.12) 22%,rgba(77,188,208,.08) 24%,rgba(77,188,208,.03) 28%,transparent 35%),linear-gradient(115deg,transparent 42%,rgba(77,188,208,.02) 48%,rgba(77,188,208,.06) 51%,rgba(77,188,208,.09) 53%,rgba(77,188,208,.06) 55%,rgba(77,188,208,.02) 58%,transparent 65%),linear-gradient(115deg,transparent 68%,rgba(77,188,208,.015) 74%,rgba(77,188,208,.05) 77%,rgba(77,188,208,.07) 79%,rgba(77,188,208,.05) 81%,rgba(77,188,208,.015) 84%,transparent 90%)}
+.services{padding:140px 0;background:linear-gradient(115deg,transparent 5%,rgba(77,188,208,.06) 12%,rgba(77,188,208,.18) 17%,rgba(77,188,208,.28) 22%,rgba(77,188,208,.18) 27%,rgba(77,188,208,.06) 32%,transparent 40%),linear-gradient(115deg,transparent 38%,rgba(77,188,208,.05) 44%,rgba(77,188,208,.15) 49%,rgba(77,188,208,.22) 53%,rgba(77,188,208,.15) 57%,rgba(77,188,208,.05) 62%,transparent 68%),linear-gradient(115deg,transparent 64%,rgba(77,188,208,.04) 70%,rgba(77,188,208,.12) 75%,rgba(77,188,208,.18) 79%,rgba(77,188,208,.12) 83%,rgba(77,188,208,.04) 88%,transparent 94%)}
 .services__heading{text-align:center;font-size:clamp(2rem,5vw,3.8rem);font-weight:400;margin-bottom:20px}
 .services__sub{text-align:center;font-size:1.2rem;color:rgba(236,236,236,.6);max-width:750px;margin:0 auto 60px;line-height:1.4}
 .services__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
@@ -137,6 +137,34 @@ p{line-height:1.4}
 .svc-row__label{font-size:1rem;color:var(--primary);font-weight:600;margin:0}
 .svc-row__desc{grid-column:2;font-size:1.05rem;line-height:1.4;color:rgba(236,236,236,.6);margin:0;padding-top:6px}
 .svc-row__result{grid-column:2;font-size:.95rem;font-weight:600;color:var(--primary);margin:10px 0 0;opacity:.9}
+
+/* Primary services - 2x2 featured grid */
+.svc-primary{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:48px}
+.svc-featured{background:linear-gradient(150deg,rgba(14,31,51,.99),rgba(9,21,37,.97));border:1px solid rgba(77,188,208,.25);border-radius:16px;padding:32px;position:relative;overflow:hidden;transition:border-color .4s,box-shadow .4s}
+.svc-featured:hover{border-color:rgba(77,188,208,.45);box-shadow:0 8px 40px rgba(77,188,208,.12)}
+.svc-featured__icon{width:40px;height:40px;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.svc-featured__icon svg{width:100%;height:100%}
+.svc-featured__title{font-size:1.5rem;font-weight:700;color:var(--text-light);margin:0 0 6px}
+.svc-featured__label{font-size:1.05rem;color:var(--primary);font-weight:600;margin:0 0 14px;display:block}
+.svc-featured__desc{font-size:1.05rem;line-height:1.5;color:rgba(236,236,236,.6);margin:0}
+.svc-featured__result{font-size:.95rem;font-weight:600;color:var(--primary);margin:14px 0 0;opacity:.9}
+
+/* Secondary services header */
+.svc-secondary-header{font-size:1.1rem;color:rgba(236,236,236,.4);text-align:center;margin:8px 0 20px;font-weight:400}
+
+/* Secondary services - infinite carousel */
+.svc-secondary{overflow:hidden;position:relative;direction:ltr}
+.svc-secondary-track{display:flex;gap:16px;animation:svc-scroll 40s linear infinite;width:max-content}
+.svc-secondary-track:hover{animation-play-state:paused}
+.svc-secondary .svc-row{position:relative;top:auto;z-index:auto;min-width:340px;max-width:340px;flex-shrink:0;margin-bottom:0;direction:rtl}
+@keyframes svc-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@media(max-width:768px){
+.svc-primary{grid-template-columns:1fr;gap:16px;margin-bottom:32px}
+.svc-featured{padding:24px 20px}
+.svc-featured__title{font-size:1.25rem}
+.svc-secondary .svc-row{min-width:280px;max-width:280px}
+.svc-secondary-track{animation-duration:30s}
+}
 
 /* ===== PROCESS ===== */
 .process{padding:140px 0;overflow:hidden}
@@ -206,24 +234,23 @@ p{line-height:1.4}
 .portfolio{padding:120px 0}
 .portfolio__heading{text-align:center;font-size:clamp(2rem,5vw,3.8rem);font-weight:400;margin-bottom:16px}
 .portfolio__sub{text-align:center;font-size:1.2rem;color:rgba(236,236,236,.6);max-width:700px;margin:0 auto 56px;line-height:1.4}
-.portfolio__grid{display:flex;flex-direction:column;gap:64px;max-width:1200px;margin:0 auto;padding:0 32px}
-.portfolio-card{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-.portfolio-card__carousel{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:16/10;border:1px solid var(--card-border);direction:ltr}
-.portfolio-card__slides{display:flex;width:300%;height:100%;animation:portfolioSlide 9s infinite !important}
-.portfolio-card__slides img{width:33.333%;height:100%;object-fit:cover;flex-shrink:0}
-@keyframes portfolioSlide{0%,30%{transform:translateX(0)}33.33%,63.33%{transform:translateX(-33.333%)}66.66%,96.66%{transform:translateX(-66.666%)}100%{transform:translateX(0)}}
-.portfolio-card__dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
-.portfolio-card__dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4)}
-.portfolio-card__info{text-align:right}
-.portfolio-card__name{font-size:1.6rem;font-weight:700;margin-bottom:8px;color:var(--text-light)}
-.portfolio-card__url{font-size:.95rem;color:var(--primary);margin-bottom:16px;display:inline-block;text-decoration:none;transition:opacity .3s}
-.portfolio-card__url:hover{opacity:.7}
-.portfolio-card__desc{font-size:1.1rem;color:rgba(236,236,236,.6);line-height:1.5}
-.portfolio-card__tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;justify-content:flex-end}
-.portfolio-card__tag{font-size:.85rem;padding:4px 12px;border-radius:20px;background:rgba(77,188,208,.1);border:1px solid rgba(77,188,208,.2);color:var(--primary)}
-.portfolio-card:nth-child(2) .portfolio-card__slides{animation-delay:-3s !important}
-.portfolio-card:nth-child(3) .portfolio-card__slides{animation-delay:-6s !important}
-.portfolio-card:nth-child(4) .portfolio-card__slides{animation-delay:-1.5s !important}
+.portfolio__stack{display:flex;flex-direction:column;gap:0;max-width:1100px;margin:0 auto;padding:0 32px}
+.pf-card{position:sticky;top:calc(70px + var(--pf-i,0) * 12px);z-index:calc(var(--pf-i,0) + 1);background:linear-gradient(150deg,rgba(14,31,51,.99),rgba(9,21,37,.97));border:1px solid var(--card-border);border-radius:16px;overflow:hidden;margin-bottom:16px;box-shadow:0 4px 24px rgba(0,0,0,.4);transition:border-color .4s,box-shadow .4s}
+.pf-card:hover{border-color:rgba(77,188,208,.35);box-shadow:0 8px 40px rgba(77,188,208,.1)}
+.pf-card__inner{display:grid;grid-template-columns:1fr 1fr;min-height:340px}
+.pf-card__img{position:relative;overflow:hidden}
+.pf-card__img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.pf-card:hover .pf-card__img img{transform:scale(1.04)}
+.pf-card__info{padding:36px 32px;display:flex;flex-direction:column;justify-content:center;text-align:right}
+.pf-card__name{font-size:1.8rem;font-weight:700;color:var(--text-light);margin:0 0 8px}
+.pf-card__url{font-size:.95rem;color:var(--primary);display:inline-block;text-decoration:none;margin-bottom:16px;transition:opacity .3s}
+.pf-card__url:hover{opacity:.7}
+.pf-card__desc{font-size:1.05rem;color:rgba(236,236,236,.6);line-height:1.5;margin:0 0 20px}
+.pf-card__tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.pf-card__tag{font-size:.85rem;padding:4px 12px;border-radius:20px;background:rgba(77,188,208,.1);border:1px solid rgba(77,188,208,.2);color:var(--primary)}
+.portfolio__cta{display:flex;justify-content:center;margin-top:48px}
+.portfolio__cta a{display:inline-flex;align-items:center;gap:8px;padding:16px 40px;border-radius:50px;background:linear-gradient(135deg,rgba(77,188,208,.12),rgba(77,188,208,.06));border:1px solid rgba(77,188,208,.3);color:var(--text-light);font-size:1.1rem;font-weight:600;text-decoration:none;transition:all .4s;box-shadow:0 0 30px rgba(77,188,208,.08)}
+.portfolio__cta a:hover{background:linear-gradient(135deg,rgba(77,188,208,.2),rgba(77,188,208,.1));border-color:rgba(77,188,208,.5);box-shadow:0 0 50px rgba(77,188,208,.15);transform:translateY(-2px)}
 
 /* ===== ABOUT ===== */
 .about{padding:140px 0;position:relative;overflow:hidden}
@@ -611,10 +638,14 @@ html,body{overflow-x:hidden}
 .portfolio{padding:60px 0}
 .portfolio__heading{padding:0 16px}
 .portfolio__sub{padding:0 16px}
-.portfolio__grid{padding:0 16px;gap:40px}
-.portfolio-card{grid-template-columns:1fr;gap:20px}
-.portfolio-card__info{text-align:center}
-.portfolio-card__tags{justify-content:center}
+.portfolio__stack{padding:0 16px}
+.pf-card__inner{grid-template-columns:1fr;min-height:auto}
+.pf-card__img{aspect-ratio:16/10}
+.pf-card__info{padding:24px 20px}
+.pf-card__name{font-size:1.4rem}
+.pf-card__desc{font-size:1rem}
+.pf-card__tags{justify-content:center}
+.portfolio__cta a{padding:14px 32px;font-size:1rem}
 
 /* About mobile */
 .about{padding:80px 0}
@@ -819,7 +850,7 @@ html,body{overflow-x:hidden}
 <div class="container">
   <h2 class="services__heading reveal"><span class="fw-light">הכל תחת</span> <span class="accent">קורת גג אחת.</span> באמת.</h2>
   <p class="services__sub reveal">רוב העסקים מנהלים את השיווק עם 3&ndash;5 ספקים שלא מדברים אחד עם השני. התוצאה? תקציב שנשרף, מסרים סותרים, ואף אחד לא לוקח אחריות על התמונה הגדולה. אצלנו הכל תחת צוות אחד &ndash; אסטרטגיה, ביצוע, אופטימיזציה &ndash; מסונכרן מהיום הראשון.</p>
-  <p class="services__sub reveal" style="margin-top:-30px">9 שירותים. 3 עמודים. תוצאות שמורגשות כבר בחודש הראשון.</p>
+  <p class="services__sub reveal" style="margin-top:-30px">9 שירותים. 4 התמחויות ליבה. תוצאות שמורגשות כבר בחודש הראשון.</p>
   <!-- ===== AI DIFFERENTIATOR BLOCK ===== -->
   <div class="ai-differentiator reveal">
     <div class="ai-differentiator__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
@@ -833,78 +864,123 @@ html,body{overflow-x:hidden}
     </div>
   </div>
 
-  <!-- ===== STACKING SERVICE CARDS ===== -->
+  <!-- ===== PRIMARY SERVICES (2x2 Featured Grid) ===== -->
   <div class="services-tier-2">
+    <div class="svc-primary">
 
-    <div class="pillar-header reveal"><span class="pillar-header__letter">A</span><div class="pillar-header__text"><h3>נוכחות ותנועה</h3><p>לקוחות מחפשים אתכם עכשיו &ndash; בגוגל, ב-AI ובמודעות. השאלה היא אם ימצאו אתכם או את המתחרים</p></div></div>
+      <div class="svc-featured reveal" id="web-detail">
+        <span class="svc-featured__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+        <h4 class="svc-featured__title">בניית אתרים וחנויות אונליין</h4>
+        <span class="svc-featured__label">Website &ndash; אתר שמביא לקוחות, לא סתם כרטיס ביקור דיגיטלי.</span>
+        <p class="svc-featured__desc">אתר יפה שלא ממיר הוא הוצאה &ndash; לא נכס. אנחנו בונים אתרים וחנויות אונליין שתוכננו מהבסיס להמרה: מסע משתמש חד, מהירות טעינה מתחת ל-3 שניות, התאמה מלאה למובייל, ו-UX שמוביל את המבקר מהכניסה ועד ללחיצה על ״קנה עכשיו״.</p>
+        <p class="svc-featured__result">ממוצע: +35% שיעור המרה אחרי שדרוג · זמן טעינה &lt;2.5s</p>
+      </div>
 
-    <div class="svc-row" id="seo-detail" style="--card-i:0">
-      <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></span>
-      <div class="svc-row__info"><h4 class="svc-row__title">קידום אורגני</h4><span class="svc-row__label">SEO &ndash; לקוחות שמחפשים אתכם עכשיו ימצאו אתכם ראשונים.</span></div>
-      <p class="svc-row__desc">אנחנו לא רודפים אחרי דירוגים &ndash; אנחנו בונים מערך תוכן וסמכות שמביא לקוחות שמוכנים לקנות, ישירות מגוגל. מחקר מילות מפתח ממוקד כוונת רכישה, אופטימיזציה טכנית, ותוכן שמדבר גם למנוע וגם לאדם.</p>
-      <p class="svc-row__result">ממוצע: עמוד 1 תוך 90 יום · +68% תנועה אורגנית</p>
+      <div class="svc-featured reveal" id="geo-detail">
+        <span class="svc-featured__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="16" rx="3"/><circle cx="9.5" cy="10" r="1.2"/><circle cx="14.5" cy="10" r="1.2"/><path d="M9 15h6"/><path d="M9 1v3M15 1v3"/></svg></span>
+        <h4 class="svc-featured__title">אופטימיזציה למנועי AI</h4>
+        <span class="svc-featured__label">GEO &ndash; כש-ChatGPT ממליץ על עסק בתחום שלכם, זה יהיה אתם.</span>
+        <p class="svc-featured__desc">40% מהחיפושים כבר עוברים דרך מנועי AI. מי שלא מותאם &ndash; פשוט לא קיים שם. אנחנו בונים מבנה תוכן, סכמה מובנית ואוטוריטט שגורם ל-ChatGPT, Gemini ו-Perplexity להמליץ עליכם &ndash; לא על המתחרים.</p>
+        <p class="svc-featured__result">שירות ייחודי · פחות מ-3% מהסוכנויות בישראל מציעות GEO</p>
+      </div>
+
+      <div class="svc-featured reveal" id="ppc-detail">
+        <span class="svc-featured__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
+        <h4 class="svc-featured__title">פרסום ממומן</h4>
+        <span class="svc-featured__label">PPC &ndash; כל שקל עובד. כל המרה נמדדת. בלי ניחושים.</span>
+        <p class="svc-featured__desc">קמפיינים בגוגל ובינג עם בידינג חכם שמתעדכן כל שעה, לא כל שבוע. אנחנו מנהלים תקציבי מדיה של מיליונים &ndash; עם אותה דקדקנות בין אם התקציב &#8362;5K או &#8362;500K. אופטימיזציה יומית, A/B טסטינג שוטף, ודוחות שקופים.</p>
+        <p class="svc-featured__result">ממוצע ROAS: x4.2 · &#8362;47M+ תקציבי מדיה מנוהלים</p>
+      </div>
+
+      <div class="svc-featured reveal" id="photo-detail">
+        <span class="svc-featured__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></span>
+        <h4 class="svc-featured__title">צילום ווידאו</h4>
+        <span class="svc-featured__label">Photo &amp; Video &ndash; תוכן שעוצר אצבע ומניע פעולה.</span>
+        <p class="svc-featured__desc">הקריאייטיב הוא מה שקובע אם מודעה מצליחה או נכשלת. אנחנו מפיקים צילומי מוצר, סרטוני Reels, UGC ותוכן ויזואלי שמותאם לכל פלטפורמה &ndash; מאינסטגרם ועד לדף הנחיתה. תוכן שנבנה למכור, לא רק להרשים.</p>
+        <p class="svc-featured__result">קריאייטיב חדש = בממוצע +25% CTR על קמפיינים קיימים</p>
+      </div>
+
     </div>
 
-    <div class="svc-row" id="geo-detail" style="--card-i:1">
-      <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="16" rx="3"/><circle cx="9.5" cy="10" r="1.2"/><circle cx="14.5" cy="10" r="1.2"/><path d="M9 15h6"/><path d="M9 1v3M15 1v3"/></svg></span>
-      <div class="svc-row__info"><h4 class="svc-row__title">אופטימיזציה למנועי AI</h4><span class="svc-row__label">GEO &ndash; כש-ChatGPT ממליץ על עסק בתחום שלכם, זה יהיה אתם.</span></div>
-      <p class="svc-row__desc">40% מהחיפושים כבר עוברים דרך מנועי AI. מי שלא מותאם &ndash; פשוט לא קיים שם. אנחנו בונים מבנה תוכן, סכמה מובנית ואוטוריטט שגורם ל-ChatGPT, Gemini ו-Perplexity להמליץ עליכם &ndash; לא על המתחרים.</p>
-      <p class="svc-row__result">שירות ייחודי · פחות מ-3% מהסוכנויות בישראל מציעות GEO</p>
+    <!-- ===== SECONDARY SERVICES ===== -->
+    <p class="svc-secondary-header reveal">שירותים נוספים</p>
+
+    <div class="svc-secondary">
+      <div class="svc-secondary-track">
+
+      <div class="svc-row" id="seo-detail">
+        <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></span>
+        <div class="svc-row__info"><h4 class="svc-row__title">קידום אורגני</h4><span class="svc-row__label">SEO &ndash; לקוחות שמחפשים אתכם עכשיו ימצאו אתכם ראשונים.</span></div>
+        <p class="svc-row__desc">אנחנו לא רודפים אחרי דירוגים &ndash; אנחנו בונים מערך תוכן וסמכות שמביא לקוחות שמוכנים לקנות, ישירות מגוגל. מחקר מילות מפתח ממוקד כוונת רכישה, אופטימיזציה טכנית, ותוכן שמדבר גם למנוע וגם לאדם.</p>
+        <p class="svc-row__result">ממוצע: עמוד 1 תוך 90 יום · +68% תנועה אורגנית</p>
+      </div>
+
+      <div class="svc-row" id="email-detail">
+        <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 4 12 13 2 4"/></svg></span>
+        <div class="svc-row__info"><h4 class="svc-row__title">שיווק באימייל</h4><span class="svc-row__label">Email Marketing &ndash; הלידים שכבר יש לכם? אנחנו הופכים אותם ללקוחות משלמים.</span></div>
+        <p class="svc-row__desc">רוב העסקים יושבים על מאגר לידים שלא עושים איתו כלום. אנחנו בונים סיקוונסים אוטומטיים שמטפחים כל ליד לפי ההתנהגות שלו &ndash; מ״ברוכים הבאים״ ועד לרכישה חוזרת. דאטה דריבן, לא תחושה בטן.</p>
+        <p class="svc-row__result">ממוצע: 42% פתיחות · +28% הכנסה מלקוחות חוזרים</p>
+      </div>
+
+      <div class="svc-row" id="gtm-detail">
+        <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span>
+        <div class="svc-row__info"><h4 class="svc-row__title">אסטרטגיית Go-To-Market</h4><span class="svc-row__label">GTM &ndash; משקיעים בהשקה? אנחנו מוודאים שהיא מצליחה מהיום הראשון.</span></div>
+        <p class="svc-row__desc">מוצר חדש, שוק חדש, או ריפוזישנינג &ndash; אנחנו בונים תכנית GTM שלמה: ניתוח מתחרים ושוק, מיצוב ותמחור, בחירת ערוצים, ולוח זמנים עם אבני דרך ברורות. לא מסמך אסטרטגי שנשאר במגירה &ndash; תכנית פעולה שמתבצעת.</p>
+        <p class="svc-row__result">מהאפיון ועד להשקה חיה תוך 6&ndash;8 שבועות</p>
+      </div>
+
+      <div class="svc-row" id="social-detail">
+        <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg></span>
+        <div class="svc-row__info"><h4 class="svc-row__title">רשתות חברתיות</h4><span class="svc-row__label">Social Media &ndash; מותג שאנשים רוצים לעקוב אחריו, לא רק לגלול מעבר.</span></div>
+        <p class="svc-row__desc">פוסט בשבוע לא בונה מותג. אנחנו בונים אסטרטגיית תוכן שלמה שיוצרת קהילה אמיתית סביב העסק שלכם &ndash; עם תוכן שמדבר בשפה של הקהל, בפלטפורמות שהוא נמצא בהן, בתדירות שמחזיקה רלוונטיות.</p>
+        <p class="svc-row__result">ממוצע: x3 מעורבות · +45% עוקבים אורגניים ב-6 חודשים</p>
+      </div>
+
+      <div class="svc-row" id="paid-detail">
+        <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+        <div class="svc-row__info"><h4 class="svc-row__title">פרסום ברשתות חברתיות</h4><span class="svc-row__label">Paid Social &ndash; להגיע לקהל שלא יודע שהוא צריך אתכם. עדיין.</span></div>
+        <p class="svc-row__desc">פרסום ממומן בפייסבוק, אינסטגרם, טיקטוק ולינקדאין עם טרגוט שמבוסס על דאטה &ndash; לא על ניחוש. אנחנו בונים קהלים, יוצרים קריאייטיבים שעוצרים גלילה, ומריצים A/B טסטינג שוטף שמוריד עלות לידים ומעלה ROAS כל שבוע.</p>
+        <p class="svc-row__result">ממוצע: -40% עלות ליד · ROAS x3.8 על קמפייני Meta</p>
+      </div>
+
+      <!-- Duplicate set for infinite loop -->
+      <div class="svc-row" aria-hidden="true">
+        <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></span>
+        <div class="svc-row__info"><h4 class="svc-row__title">קידום אורגני</h4><span class="svc-row__label">SEO &ndash; לקוחות שמחפשים אתכם עכשיו ימצאו אתכם ראשונים.</span></div>
+        <p class="svc-row__desc">אנחנו לא רודפים אחרי דירוגים &ndash; אנחנו בונים מערך תוכן וסמכות שמביא לקוחות שמוכנים לקנות, ישירות מגוגל. מחקר מילות מפתח ממוקד כוונת רכישה, אופטימיזציה טכנית, ותוכן שמדבר גם למנוע וגם לאדם.</p>
+        <p class="svc-row__result">ממוצע: עמוד 1 תוך 90 יום · +68% תנועה אורגנית</p>
+      </div>
+
+      <div class="svc-row" aria-hidden="true">
+        <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 4 12 13 2 4"/></svg></span>
+        <div class="svc-row__info"><h4 class="svc-row__title">שיווק באימייל</h4><span class="svc-row__label">Email Marketing &ndash; הלידים שכבר יש לכם? אנחנו הופכים אותם ללקוחות משלמים.</span></div>
+        <p class="svc-row__desc">רוב העסקים יושבים על מאגר לידים שלא עושים איתו כלום. אנחנו בונים סיקוונסים אוטומטיים שמטפחים כל ליד לפי ההתנהגות שלו &ndash; מ״ברוכים הבאים״ ועד לרכישה חוזרת. דאטה דריבן, לא תחושה בטן.</p>
+        <p class="svc-row__result">ממוצע: 42% פתיחות · +28% הכנסה מלקוחות חוזרים</p>
+      </div>
+
+      <div class="svc-row" aria-hidden="true">
+        <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span>
+        <div class="svc-row__info"><h4 class="svc-row__title">אסטרטגיית Go-To-Market</h4><span class="svc-row__label">GTM &ndash; משקיעים בהשקה? אנחנו מוודאים שהיא מצליחה מהיום הראשון.</span></div>
+        <p class="svc-row__desc">מוצר חדש, שוק חדש, או ריפוזישנינג &ndash; אנחנו בונים תכנית GTM שלמה: ניתוח מתחרים ושוק, מיצוב ותמחור, בחירת ערוצים, ולוח זמנים עם אבני דרך ברורות. לא מסמך אסטרטגי שנשאר במגירה &ndash; תכנית פעולה שמתבצעת.</p>
+        <p class="svc-row__result">מהאפיון ועד להשקה חיה תוך 6&ndash;8 שבועות</p>
+      </div>
+
+      <div class="svc-row" aria-hidden="true">
+        <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg></span>
+        <div class="svc-row__info"><h4 class="svc-row__title">רשתות חברתיות</h4><span class="svc-row__label">Social Media &ndash; מותג שאנשים רוצים לעקוב אחריו, לא רק לגלול מעבר.</span></div>
+        <p class="svc-row__desc">פוסט בשבוע לא בונה מותג. אנחנו בונים אסטרטגיית תוכן שלמה שיוצרת קהילה אמיתית סביב העסק שלכם &ndash; עם תוכן שמדבר בשפה של הקהל, בפלטפורמות שהוא נמצא בהן, בתדירות שמחזיקה רלוונטיות.</p>
+        <p class="svc-row__result">ממוצע: x3 מעורבות · +45% עוקבים אורגניים ב-6 חודשים</p>
+      </div>
+
+      <div class="svc-row" aria-hidden="true">
+        <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+        <div class="svc-row__info"><h4 class="svc-row__title">פרסום ברשתות חברתיות</h4><span class="svc-row__label">Paid Social &ndash; להגיע לקהל שלא יודע שהוא צריך אתכם. עדיין.</span></div>
+        <p class="svc-row__desc">פרסום ממומן בפייסבוק, אינסטגרם, טיקטוק ולינקדאין עם טרגוט שמבוסס על דאטה &ndash; לא על ניחוש. אנחנו בונים קהלים, יוצרים קריאייטיבים שעוצרים גלילה, ומריצים A/B טסטינג שוטף שמוריד עלות לידים ומעלה ROAS כל שבוע.</p>
+        <p class="svc-row__result">ממוצע: -40% עלות ליד · ROAS x3.8 על קמפייני Meta</p>
+      </div>
+
+      </div>
     </div>
-
-    <div class="svc-row" id="ppc-detail" style="--card-i:2">
-      <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
-      <div class="svc-row__info"><h4 class="svc-row__title">פרסום ממומן</h4><span class="svc-row__label">PPC &ndash; כל שקל עובד. כל המרה נמדדת. בלי ניחושים.</span></div>
-      <p class="svc-row__desc">קמפיינים בגוגל ובינג עם בידינג חכם שמתעדכן כל שעה, לא כל שבוע. אנחנו מנהלים תקציבי מדיה של מיליונים &ndash; עם אותה דקדקנות בין אם התקציב &#8362;5K או &#8362;500K. אופטימיזציה יומית, A/B טסטינג שוטף, ודוחות שקופים.</p>
-      <p class="svc-row__result">ממוצע ROAS: x4.2 · &#8362;47M+ תקציבי מדיה מנוהלים</p>
-    </div>
-
-    <div class="pillar-header reveal"><span class="pillar-header__letter">B</span><div class="pillar-header__text"><h3>בניה ותשתית</h3><p>בלי תשתית חזקה, כל תקציב הפרסום בעולם לא יעזור. אנחנו בונים את הבסיס שהופך תנועה להכנסות</p></div></div>
-
-    <div class="svc-row" id="web-detail" style="--card-i:3">
-      <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
-      <div class="svc-row__info"><h4 class="svc-row__title">בניית אתרים וחנויות אונליין</h4><span class="svc-row__label">Website &ndash; אתר שמביא לקוחות, לא סתם כרטיס ביקור דיגיטלי.</span></div>
-      <p class="svc-row__desc">אתר יפה שלא ממיר הוא הוצאה &ndash; לא נכס. אנחנו בונים אתרים וחנויות אונליין שתוכננו מהבסיס להמרה: מסע משתמש חד, מהירות טעינה מתחת ל-3 שניות, התאמה מלאה למובייל, ו-UX שמוביל את המבקר מהכניסה ועד ללחיצה על ״קנה עכשיו״.</p>
-      <p class="svc-row__result">ממוצע: +35% שיעור המרה אחרי שדרוג · זמן טעינה &lt;2.5s</p>
-    </div>
-
-    <div class="svc-row" id="email-detail" style="--card-i:4">
-      <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 4 12 13 2 4"/></svg></span>
-      <div class="svc-row__info"><h4 class="svc-row__title">שיווק באימייל</h4><span class="svc-row__label">Email Marketing &ndash; הלידים שכבר יש לכם? אנחנו הופכים אותם ללקוחות משלמים.</span></div>
-      <p class="svc-row__desc">רוב העסקים יושבים על מאגר לידים שלא עושים איתו כלום. אנחנו בונים סיקוונסים אוטומטיים שמטפחים כל ליד לפי ההתנהגות שלו &ndash; מ״ברוכים הבאים״ ועד לרכישה חוזרת. דאטה דריבן, לא תחושה בטן.</p>
-      <p class="svc-row__result">ממוצע: 42% פתיחות · +28% הכנסה מלקוחות חוזרים</p>
-    </div>
-
-    <div class="svc-row" id="gtm-detail" style="--card-i:5">
-      <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span>
-      <div class="svc-row__info"><h4 class="svc-row__title">אסטרטגיית Go-To-Market</h4><span class="svc-row__label">GTM &ndash; משקיעים בהשקה? אנחנו מוודאים שהיא מצליחה מהיום הראשון.</span></div>
-      <p class="svc-row__desc">מוצר חדש, שוק חדש, או ריפוזישנינג &ndash; אנחנו בונים תכנית GTM שלמה: ניתוח מתחרים ושוק, מיצוב ותמחור, בחירת ערוצים, ולוח זמנים עם אבני דרך ברורות. לא מסמך אסטרטגי שנשאר במגירה &ndash; תכנית פעולה שמתבצעת.</p>
-      <p class="svc-row__result">מהאפיון ועד להשקה חיה תוך 6&ndash;8 שבועות</p>
-    </div>
-
-    <div class="pillar-header reveal"><span class="pillar-header__letter">C</span><div class="pillar-header__text"><h3>תוכן ומדיה</h3><p>המוצר שלכם מעולה. עכשיו צריך שהעולם ידע על זה &ndash; עם תוכן שעוצר אצבע ומניע פעולה</p></div></div>
-
-    <div class="svc-row" id="social-detail" style="--card-i:6">
-      <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg></span>
-      <div class="svc-row__info"><h4 class="svc-row__title">רשתות חברתיות</h4><span class="svc-row__label">Social Media &ndash; מותג שאנשים רוצים לעקוב אחריו, לא רק לגלול מעבר.</span></div>
-      <p class="svc-row__desc">פוסט בשבוע לא בונה מותג. אנחנו בונים אסטרטגיית תוכן שלמה שיוצרת קהילה אמיתית סביב העסק שלכם &ndash; עם תוכן שמדבר בשפה של הקהל, בפלטפורמות שהוא נמצא בהן, בתדירות שמחזיקה רלוונטיות.</p>
-      <p class="svc-row__result">ממוצע: x3 מעורבות · +45% עוקבים אורגניים ב-6 חודשים</p>
-    </div>
-
-    <div class="svc-row" id="paid-detail" style="--card-i:7">
-      <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
-      <div class="svc-row__info"><h4 class="svc-row__title">פרסום ברשתות חברתיות</h4><span class="svc-row__label">Paid Social &ndash; להגיע לקהל שלא יודע שהוא צריך אתכם. עדיין.</span></div>
-      <p class="svc-row__desc">פרסום ממומן בפייסבוק, אינסטגרם, טיקטוק ולינקדאין עם טרגוט שמבוסס על דאטה &ndash; לא על ניחוש. אנחנו בונים קהלים, יוצרים קריאייטיבים שעוצרים גלילה, ומריצים A/B טסטינג שוטף שמוריד עלות לידים ומעלה ROAS כל שבוע.</p>
-      <p class="svc-row__result">ממוצע: -40% עלות ליד · ROAS x3.8 על קמפייני Meta</p>
-    </div>
-
-    <div class="svc-row" id="photo-detail" style="--card-i:8">
-      <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></span>
-      <div class="svc-row__info"><h4 class="svc-row__title">צילום ווידאו</h4><span class="svc-row__label">Photo &amp; Video &ndash; תוכן שעוצר אצבע ומניע פעולה.</span></div>
-      <p class="svc-row__desc">הקריאייטיב הוא מה שקובע אם מודעה מצליחה או נכשלת. אנחנו מפיקים צילומי מוצר, סרטוני Reels, UGC ותוכן ויזואלי שמותאם לכל פלטפורמה &ndash; מאינסטגרם ועד לדף הנחיתה. תוכן שנבנה למכור, לא רק להרשים.</p>
-      <p class="svc-row__result">קריאייטיב חדש = בממוצע +25% CTR על קמפיינים קיימים</p>
-    </div>
-
   </div>
 </div>
 </section>
@@ -923,97 +999,92 @@ html,body{overflow-x:hidden}
 <div class="container">
   <h2 class="portfolio__heading reveal">הפרויקטים שלנו</h2>
   <p class="portfolio__sub reveal">אתרים שבנינו, עיצבנו וקידמנו &ndash; מהרעיון ועד לתוצאות בשטח.</p>
-  <div class="portfolio__grid">
+</div>
+<div class="portfolio__stack">
 
-    <!-- Quiz Please -->
-    <div class="portfolio-card reveal">
-      <div class="portfolio-card__carousel">
-        <div class="portfolio-card__slides">
-          <img src="portfolio/quiz-please-1.jpg" alt="Quiz Please screenshot 1" loading="lazy">
-          <img src="portfolio/quiz-please-2.jpg" alt="Quiz Please screenshot 2" loading="lazy">
-          <img src="portfolio/quiz-please-3.jpg" alt="Quiz Please screenshot 3" loading="lazy">
-        </div>
-        <div class="portfolio-card__dots"><span class="portfolio-card__dot"></span><span class="portfolio-card__dot"></span><span class="portfolio-card__dot"></span></div>
-      </div>
-      <div class="portfolio-card__info">
-        <h3 class="portfolio-card__name">Quiz Please</h3>
-        <a href="https://quizplease.co.il" target="_blank" class="portfolio-card__url">quizplease.co.il</a>
-        <p class="portfolio-card__desc">דף נחיתה לחברת הטריוויה הבינלאומית Quiz Please &ndash; הזמנת משחקים, לוח אירועים ותשלום אונליין. עיצוב צבעוני, מותאם מובייל ומחובר למערכת הזמנות.</p>
-        <div class="portfolio-card__tags">
-          <span class="portfolio-card__tag">Next.js</span>
-          <span class="portfolio-card__tag">Stripe</span>
-          <span class="portfolio-card__tag">SEO</span>
+  <div class="pf-card reveal" style="--pf-i:0">
+    <div class="pf-card__inner">
+      <div class="pf-card__img"><img src="portfolio/quiz-please-1.jpg" alt="Quiz Please" loading="lazy"></div>
+      <div class="pf-card__info">
+        <h3 class="pf-card__name">Quiz Please</h3>
+        <a href="https://quizplease.co.il" target="_blank" class="pf-card__url">quizplease.co.il</a>
+        <p class="pf-card__desc">דף נחיתה לחברת הטריוויה הבינלאומית Quiz Please &ndash; הזמנת משחקים, לוח אירועים ותשלום אונליין. עיצוב צבעוני, מותאם מובייל ומחובר למערכת הזמנות.</p>
+        <div class="pf-card__tags">
+          <span class="pf-card__tag">Next.js</span>
+          <span class="pf-card__tag">Stripe</span>
+          <span class="pf-card__tag">SEO</span>
         </div>
       </div>
     </div>
-
-    <!-- JustPickForMe -->
-    <div class="portfolio-card reveal">
-      <div class="portfolio-card__carousel">
-        <div class="portfolio-card__slides">
-          <img src="portfolio/pickforme-1.jpg" alt="JustPickForMe screenshot 1" loading="lazy">
-          <img src="portfolio/pickforme-2.jpg" alt="JustPickForMe screenshot 2" loading="lazy">
-          <img src="portfolio/pickforme-3.jpg" alt="JustPickForMe screenshot 3" loading="lazy">
-        </div>
-        <div class="portfolio-card__dots"><span class="portfolio-card__dot"></span><span class="portfolio-card__dot"></span><span class="portfolio-card__dot"></span></div>
-      </div>
-      <div class="portfolio-card__info">
-        <h3 class="portfolio-card__name">JustPickForMe</h3>
-        <a href="https://justpickforme.app" target="_blank" class="portfolio-card__url">justpickforme.app</a>
-        <p class="portfolio-card__desc">אפליקציית AI שעוזרת להחליט לאן ללכת לאכול, מה לבשל או מה לצפות &ndash; על בסיס העדפות אישיות. חוויית משתמש מהירה ואינטואיטיבית.</p>
-        <div class="portfolio-card__tags">
-          <span class="portfolio-card__tag">React</span>
-          <span class="portfolio-card__tag">AI / GPT</span>
-          <span class="portfolio-card__tag">UX</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Grey Volcano -->
-    <div class="portfolio-card reveal">
-      <div class="portfolio-card__carousel">
-        <div class="portfolio-card__slides">
-          <img src="portfolio/grey-volcano-1.jpg" alt="Grey Volcano screenshot 1" loading="lazy">
-          <img src="portfolio/grey-volcano-2.jpg" alt="Grey Volcano screenshot 2" loading="lazy">
-          <img src="portfolio/grey-volcano-3.jpg" alt="Grey Volcano screenshot 3" loading="lazy">
-        </div>
-        <div class="portfolio-card__dots"><span class="portfolio-card__dot"></span><span class="portfolio-card__dot"></span><span class="portfolio-card__dot"></span></div>
-      </div>
-      <div class="portfolio-card__info">
-        <h3 class="portfolio-card__name">Grey Volcano</h3>
-        <a href="https://www.grey-volcano.com" target="_blank" class="portfolio-card__url">grey-volcano.com</a>
-        <p class="portfolio-card__desc">אתר תדמית לסטודיו לעיצוב ופיתוח Grey Volcano &ndash; הצגת פרויקטים, שירותים ותיק עבודות. עיצוב מינימליסטי עם אנימציות scroll מתקדמות.</p>
-        <div class="portfolio-card__tags">
-          <span class="portfolio-card__tag">Next.js</span>
-          <span class="portfolio-card__tag">GSAP</span>
-          <span class="portfolio-card__tag">Branding</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- CAROL Bike -->
-    <div class="portfolio-card reveal">
-      <div class="portfolio-card__carousel">
-        <div class="portfolio-card__slides">
-          <img src="portfolio/carolbike-1.jpg" alt="CAROL Bike screenshot 1" loading="lazy">
-          <img src="portfolio/carolbike-2.jpg" alt="CAROL Bike screenshot 2" loading="lazy">
-          <img src="portfolio/carolbike-3.jpg" alt="CAROL Bike screenshot 3" loading="lazy">
-        </div>
-        <div class="portfolio-card__dots"><span class="portfolio-card__dot"></span><span class="portfolio-card__dot"></span><span class="portfolio-card__dot"></span></div>
-      </div>
-      <div class="portfolio-card__info">
-        <h3 class="portfolio-card__name">CAROL Bike</h3>
-        <a href="https://www.carolbike.com" target="_blank" class="portfolio-card__url">carolbike.com</a>
-        <p class="portfolio-card__desc">ניהול מדיה חברתית לקהילת Reddit של CAROL Bike &ndash; יצירת תוכן, ניהול מעורבות וצמיחה אורגנית של הקהילה. אסטרטגיית תוכן ממוקדת המרה.</p>
-        <div class="portfolio-card__tags">
-          <span class="portfolio-card__tag">Social Media</span>
-          <span class="portfolio-card__tag">Content</span>
-          <span class="portfolio-card__tag">Reddit</span>
-        </div>
-      </div>
-    </div>
-
   </div>
+
+  <div class="pf-card reveal" style="--pf-i:1">
+    <div class="pf-card__inner">
+      <div class="pf-card__img"><img src="portfolio/pickforme-1.jpg" alt="JustPickForMe" loading="lazy"></div>
+      <div class="pf-card__info">
+        <h3 class="pf-card__name">JustPickForMe</h3>
+        <a href="https://justpickforme.app" target="_blank" class="pf-card__url">justpickforme.app</a>
+        <p class="pf-card__desc">אפליקציית AI שעוזרת להחליט לאן ללכת לאכול, מה לבשל או מה לצפות &ndash; על בסיס העדפות אישיות. חוויית משתמש מהירה ואינטואיטיבית.</p>
+        <div class="pf-card__tags">
+          <span class="pf-card__tag">React</span>
+          <span class="pf-card__tag">AI / GPT</span>
+          <span class="pf-card__tag">UX</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pf-card reveal" style="--pf-i:2">
+    <div class="pf-card__inner">
+      <div class="pf-card__img"><img src="portfolio/grey-volcano-1.jpg" alt="Grey Volcano" loading="lazy"></div>
+      <div class="pf-card__info">
+        <h3 class="pf-card__name">Grey Volcano</h3>
+        <a href="https://www.grey-volcano.com" target="_blank" class="pf-card__url">grey-volcano.com</a>
+        <p class="pf-card__desc">אתר תדמית לסטודיו לעיצוב ופיתוח Grey Volcano &ndash; הצגת פרויקטים, שירותים ותיק עבודות. עיצוב מינימליסטי עם אנימציות scroll מתקדמות.</p>
+        <div class="pf-card__tags">
+          <span class="pf-card__tag">Next.js</span>
+          <span class="pf-card__tag">GSAP</span>
+          <span class="pf-card__tag">Branding</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pf-card reveal" style="--pf-i:3">
+    <div class="pf-card__inner">
+      <div class="pf-card__img"><img src="portfolio/carolbike-1.jpg" alt="CAROL Bike" loading="lazy"></div>
+      <div class="pf-card__info">
+        <h3 class="pf-card__name">CAROL Bike</h3>
+        <a href="https://www.carolbike.com" target="_blank" class="pf-card__url">carolbike.com</a>
+        <p class="pf-card__desc">ניהול מדיה חברתית לקהילת Reddit של CAROL Bike &ndash; יצירת תוכן, ניהול מעורבות וצמיחה אורגנית של הקהילה. אסטרטגיית תוכן ממוקדת המרה.</p>
+        <div class="pf-card__tags">
+          <span class="pf-card__tag">Social Media</span>
+          <span class="pf-card__tag">Content</span>
+          <span class="pf-card__tag">Reddit</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pf-card reveal" style="--pf-i:4">
+    <div class="pf-card__inner">
+      <div class="pf-card__img"><img src="portfolio/coppry-1.jpg" alt="Coppry" loading="lazy"></div>
+      <div class="pf-card__info">
+        <h3 class="pf-card__name">Coppry</h3>
+        <a href="https://coppry.com" target="_blank" class="pf-card__url">coppry.com</a>
+        <p class="pf-card__desc">חנות Shopify למותג כריות משי עם נחושת &ndash; בניית דף מוצר ממיר, קמפיינים ממומנים, אסטרטגיית תוכן וניהול סושיאל. דירוג 4.9 עם 12,500+ לקוחות מרוצים.</p>
+        <div class="pf-card__tags">
+          <span class="pf-card__tag">Shopify</span>
+          <span class="pf-card__tag">PPC</span>
+          <span class="pf-card__tag">Social</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="portfolio__cta reveal">
+  <a href="#contact">לכל הפרויקטים</a>
 </div>
 </section>
 
