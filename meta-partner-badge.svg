@@ -1,14 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 120" fill="none">
-  <rect width="280" height="120" rx="12" fill="#fff"/>
-  <!-- Meta infinity logo simplified -->
-  <g transform="translate(195,12)">
-    <svg width="48" height="48" viewBox="0 0 48 48">
-      <path d="M24 24c0-4.5-2.8-10.5-6.5-15C14 4.3 10 2 7.5 2 3.4 2 0 9.8 0 20s3.4 18 7.5 18c2.5 0 6.5-2.3 10-7 3.7-4.5 6.5-10.5 6.5-15v4c0 4.5 2.8 10.5 6.5 15 3.5 4.7 7.5 7 10 7 4.1 0 7.5-7.8 7.5-18S44.1 2 40 2c-2.5 0-6.5 2.3-10 7-3.7 4.5-6.5 10.5-6.5 15v-4z" fill="#0668E1" transform="scale(0.85) translate(4,4)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 120" fill="none">
+  <rect width="300" height="120" rx="10" fill="#fff"/>
+
+  <!-- Meta infinity logo -->
+  <g transform="translate(20, 22)">
+    <svg width="60" height="60" viewBox="0 0 512 512">
+      <path d="M256 256c0-62.4-36-144-88-198C136 22 102 0 76 0 28 0 0 96 0 220s28 220 76 220c26 0 60-22 92-58 52-54 88-136 88-198v42c0 62 36 144 88 198 32 36 66 58 92 58 48 0 76-96 76-220S484 0 436 0c-26 0-60 22-92 58-52 54-88 136-88 198v-42z" fill="#0668E1"/>
     </svg>
   </g>
+
   <!-- Meta text -->
-  <text x="24" y="50" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="800" font-size="34" fill="#1C2B33">Meta</text>
-  <!-- BUSINESS PARTNER text -->
-  <text x="24" y="78" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="17" letter-spacing="2.5" fill="#1C2B33">BUSINESS</text>
-  <text x="24" y="102" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="17" letter-spacing="2.5" fill="#1C2B33">PARTNER</text>
+  <text x="95" y="58" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="30" fill="#1C2B33">Meta</text>
+
+  <!-- Business Partner text -->
+  <text x="95" y="84" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="500" font-size="15" letter-spacing="1.2" fill="#65676B">Business Partner</text>
 </svg>

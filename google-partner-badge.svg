@@ -1,21 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 120" fill="none">
-  <rect width="280" height="120" rx="12" fill="#fff"/>
-  <!-- Google "G" logo -->
-  <g transform="translate(186,12)">
-    <svg width="48" height="48" viewBox="0 0 48 48">
-      <path d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 20.5-8 20.5-22 0-1.3-.2-2.7-.5-4h-0z" fill="#4285F4"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 120" fill="none">
+  <rect width="300" height="120" rx="10" fill="#fff"/>
+
+  <!-- Google "G" multicolor icon -->
+  <g transform="translate(16, 16)">
+    <svg width="88" height="88" viewBox="0 0 48 48">
+      <path d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 20.5-8 20.5-22 0-1.3-.2-2.7-.5-4z" fill="#4285F4"/>
       <path d="M3.2 14.5l7.4 5.4C12.6 15.3 17.9 12 24 12c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 15.4 2 8 7.2 3.2 14.5z" fill="#EA4335"/>
       <path d="M24 46c5.4 0 10.3-1.8 14.1-5l-7-5.4C29 37.3 26.6 38 24 38c-6.1 0-11.2-4.1-13-9.6l-7.4 5.7C8 41.2 15.5 46 24 46z" fill="#34A853"/>
-      <path d="M3.2 33.5l7.4-5.7c-0.7-2.2-1.1-4.5-1.1-6.8 0-2.3 0.4-4.6 1.1-6.8l-7.4-5.4C1.2 12.6 0 18.1 0 24s1.2 11.4 3.2 15.5z" fill="#FBBC05"/>
+      <path d="M3.2 33.5l7.4-5.7c-.7-2.2-1.1-4.5-1.1-6.8s.4-4.6 1.1-6.8l-7.4-5.4C1.2 12.6 0 18.1 0 24s1.2 11.4 3.2 15.5z" fill="#FBBC05"/>
     </svg>
   </g>
-  <!-- Google text -->
-  <text x="24" y="40" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="800" font-size="34" fill="#4285F4">G</text>
-  <text x="45" y="40" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="800" font-size="34" fill="#EA4335">o</text>
-  <text x="68" y="40" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="800" font-size="34" fill="#FBBC05">o</text>
-  <text x="91" y="40" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="800" font-size="34" fill="#4285F4">g</text>
-  <text x="114" y="40" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="800" font-size="34" fill="#34A853">l</text>
-  <text x="126" y="40" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="800" font-size="34" fill="#EA4335">e</text>
-  <!-- PARTNER text -->
-  <text x="24" y="76" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="20" letter-spacing="3" fill="#5F6368">PARTNER</text>
+
+  <!-- Google text with brand colors -->
+  <text x="115" y="42" font-family="'Product Sans','Helvetica Neue',Arial,sans-serif" font-weight="500" font-size="32" fill="#4285F4">G</text>
+  <text x="137" y="42" font-family="'Product Sans','Helvetica Neue',Arial,sans-serif" font-weight="500" font-size="32" fill="#EA4335">o</text>
+  <text x="160" y="42" font-family="'Product Sans','Helvetica Neue',Arial,sans-serif" font-weight="500" font-size="32" fill="#FBBC05">o</text>
+  <text x="184" y="42" font-family="'Product Sans','Helvetica Neue',Arial,sans-serif" font-weight="500" font-size="32" fill="#4285F4">g</text>
+  <text x="207" y="42" font-family="'Product Sans','Helvetica Neue',Arial,sans-serif" font-weight="500" font-size="32" fill="#34A853">l</text>
+  <text x="218" y="42" font-family="'Product Sans','Helvetica Neue',Arial,sans-serif" font-weight="500" font-size="32" fill="#EA4335">e</text>
+
+  <!-- Partner text -->
+  <text x="115" y="78" font-family="'Product Sans','Helvetica Neue',Arial,sans-serif" font-weight="400" font-size="22" letter-spacing="2" fill="#5F6368">Partner</text>
 </svg>

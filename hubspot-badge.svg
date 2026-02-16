@@ -1,27 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 120" fill="none">
-  <rect width="280" height="120" rx="12" fill="#fff"/>
-  <!-- HubSpot sprocket icon -->
-  <g transform="translate(180,18)">
-    <circle cx="24" cy="24" r="8.5" stroke="#FF7A59" stroke-width="3.5" fill="none"/>
-    <circle cx="24" cy="4" r="4" fill="#FF7A59"/>
-    <circle cx="24" cy="44" r="4" fill="#FF7A59"/>
-    <circle cx="6.5" cy="14" r="4" fill="#FF7A59"/>
-    <circle cx="41.5" cy="14" r="4" fill="#FF7A59"/>
-    <circle cx="6.5" cy="34" r="4" fill="#FF7A59"/>
-    <circle cx="41.5" cy="34" r="4" fill="#FF7A59"/>
-    <line x1="24" y1="8" x2="24" y2="15.5" stroke="#FF7A59" stroke-width="3"/>
-    <line x1="24" y1="32.5" x2="24" y2="40" stroke="#FF7A59" stroke-width="3"/>
-    <line x1="10" y1="16" x2="16.5" y2="19.5" stroke="#FF7A59" stroke-width="3"/>
-    <line x1="31.5" y1="28.5" x2="38" y2="32" stroke="#FF7A59" stroke-width="3"/>
-    <line x1="10" y1="32" x2="16.5" y2="28.5" stroke="#FF7A59" stroke-width="3"/>
-    <line x1="31.5" y1="19.5" x2="38" y2="16" stroke="#FF7A59" stroke-width="3"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 120" fill="none">
+  <rect width="300" height="120" rx="10" fill="#fff"/>
+
+  <!-- HubSpot Sprocket icon -->
+  <g transform="translate(20, 16)">
+    <svg width="88" height="88" viewBox="0 0 512 512">
+      <!-- Sprocket center -->
+      <circle cx="256" cy="256" r="68" fill="#FF7A59"/>
+      <!-- Sprocket ring -->
+      <circle cx="256" cy="256" r="115" stroke="#FF7A59" stroke-width="38" fill="none"/>
+      <!-- Top spoke -->
+      <rect x="236" y="80" width="40" height="62" rx="20" fill="#FF7A59"/>
+      <!-- Top node -->
+      <circle cx="256" cy="52" r="40" fill="#FF7A59"/>
+      <!-- Bottom spoke -->
+      <rect x="236" y="370" width="40" height="62" rx="20" fill="#FF7A59"/>
+      <!-- Bottom node -->
+      <circle cx="256" cy="460" r="40" fill="#FF7A59"/>
+      <!-- Top-right spoke -->
+      <rect x="342" y="118" width="40" height="62" rx="20" fill="#FF7A59" transform="rotate(60, 362, 149)"/>
+      <!-- Top-right node -->
+      <circle cx="432" cy="152" r="40" fill="#FF7A59"/>
+      <!-- Bottom-right spoke -->
+      <rect x="342" y="332" width="40" height="62" rx="20" fill="#FF7A59" transform="rotate(-60, 362, 363)"/>
+      <!-- Bottom-right node -->
+      <circle cx="432" cy="360" r="40" fill="#FF7A59"/>
+      <!-- Top-left spoke -->
+      <rect x="130" y="118" width="40" height="62" rx="20" fill="#FF7A59" transform="rotate(-60, 150, 149)"/>
+      <!-- Top-left node -->
+      <circle cx="80" cy="152" r="40" fill="#FF7A59"/>
+      <!-- Bottom-left spoke -->
+      <rect x="130" y="332" width="40" height="62" rx="20" fill="#FF7A59" transform="rotate(60, 150, 363)"/>
+      <!-- Bottom-left node -->
+      <circle cx="80" cy="360" r="40" fill="#FF7A59"/>
+    </svg>
   </g>
+
   <!-- HubSpot text -->
-  <text x="24" y="52" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="800" font-size="36" fill="#33475B">Hub</text>
-  <text x="114" y="52" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="800" font-size="36" fill="#33475B">Sp</text>
-  <text x="160" y="52" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="800" font-size="36" fill="#FF7A59">o</text>
-  <text x="181" y="52" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="800" font-size="36" fill="#33475B">t</text>
-  <!-- CERTIFIED PARTNER text -->
-  <text x="24" y="88" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="20" letter-spacing="3" fill="#33475B">CERTIFIED</text>
-  <text x="24" y="108" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="20" letter-spacing="3" fill="#33475B">PARTNER</text>
+  <text x="115" y="50" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="30" fill="#33475B">HubSpot</text>
+
+  <!-- Solutions Partner text -->
+  <text x="115" y="80" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="500" font-size="15" letter-spacing="1" fill="#516F90">Solutions Partner</text>
 </svg>
