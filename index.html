@@ -1709,7 +1709,7 @@ function toggleFaq(el){
     el.classList.add('open');
     const answer=el.nextElementSibling;
     answer.classList.add('open');
-    answer.style.maxHeight=answer.scrollHeight+'px';
+    answer.style.maxHeight=(answer.scrollHeight+40)+'px';
   }
 }
 document.querySelector('.chat-q').click();
