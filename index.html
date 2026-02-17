@@ -5,13 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PPC Advisor - מעטפת שיווק דיגיטלי 360°</title>
 <meta name="description" content="יותר לקוחות, יותר מכירות, וצמיחה שלא נגמרת. מעטפת שיווק דיגיטלי 360° שמנהלת את הכל תחת קורת גג אחת.">
+<link rel="canonical" href="https://ppcadvisor.co.il/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PPC Advisor - מעטפת שיווק דיגיטלי 360°">
+<meta property="og:description" content="יותר לקוחות, יותר מכירות, וצמיחה שלא נגמרת. מעטפת שיווק דיגיטלי 360° שמנהלת את הכל תחת קורת גג אחת.">
+<meta property="og:image" content="https://ppcadvisor.co.il/og-image.jpg">
+<meta property="og:url" content="https://ppcadvisor.co.il">
+<meta property="og:locale" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PPC Advisor - מעטפת שיווק דיגיטלי 360°">
+<meta name="twitter:description" content="יותר לקוחות, יותר מכירות, וצמיחה שלא נגמרת.">
+<meta name="twitter:image" content="https://ppcadvisor.co.il/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="icon" type="image/jpeg" href="logo-square.jpg">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js" defer integrity="sha384-wQImCCD/id1jPTwSloatzKlEpnEAQ5aH8H2Ud27FnNcJ1lf2+hB75ctoWnWxyD8X" crossorigin="anonymous"></script>
 <style>
 @font-face{font-family:'Ploni';src:url('fonts/ploni-light.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
 @font-face{font-family:'Ploni';src:url('fonts/ploni-regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
@@ -60,7 +71,7 @@ p{line-height:1.4}
 .hero__cta{display:flex;gap:16px;justify-content:flex-start;flex-wrap:wrap;margin-bottom:16px}
 .hero__micro{font-size:1rem;color:var(--text-dark);opacity:.55;margin-bottom:40px}
 .hero__trust{display:flex;gap:14px;justify-content:flex-start;flex-wrap:wrap;align-items:center;padding:24px 0}
-.hero__trust-badge{display:flex;align-items:center;gap:8px;padding:10px 22px;background:rgba(14,31,51,.65);border-radius:var(--pill);font-size:1rem;font-weight:600;color:var(--white);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);box-shadow:0 2px 12px rgba(0,0,0,.15)}
+.hero__trust-badge{display:flex;align-items:center;gap:8px;padding:10px 22px;background:rgba(14,31,51,.65);border-radius:var(--pill);font-size:1rem;font-weight:600;color:var(--white);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);box-shadow:0 2px 12px rgba(0,0,0,.15)}
 .hero__trust-badge svg{width:18px;height:18px;fill:var(--primary-light)}
 
 /* ===== HERO PHOTO ===== */
@@ -92,11 +103,11 @@ p{line-height:1.4}
 .stats{padding:120px 0;position:relative;overflow:hidden}
 .stats__bg-pattern{position:absolute;inset:0;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 Q15 0 30 30 Q45 60 60 30' stroke='%234DBCD0' fill='none' stroke-width='.5'/%3E%3C/svg%3E");background-size:60px 60px}
 .stats__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.stat-card{background:linear-gradient(150deg,rgba(30,80,95,.14),rgba(14,50,65,.1));border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transition:all .4s;backdrop-filter:blur(8px)}
+.stat-card{background:linear-gradient(150deg,rgba(30,80,95,.14),rgba(14,50,65,.1));border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transition:all .4s;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .stat-card:hover{background:rgba(77,188,208,.08);transform:translateY(-3px)}
 .stat-card__number{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;color:var(--primary);margin-bottom:6px;letter-spacing:-.02em;line-height:1}
 .stat-card__title{font-size:1rem;font-weight:500;color:var(--text-2);margin-bottom:0}
-.stats__sub{text-align:center;font-size:1.05rem;color:rgba(236,236,236,.45);margin-top:32px;max-width:700px;margin-left:auto;margin-right:auto;line-height:1.4}
+.stats__sub{text-align:center;font-size:1.05rem;color:rgba(236,236,236,.6);margin-top:32px;max-width:700px;margin-left:auto;margin-right:auto;line-height:1.4}
 @media(max-width:768px){.stats__grid{grid-template-columns:repeat(2,1fr);gap:12px}.stat-card{padding:20px 16px}.stat-card__number{font-size:1.6rem}}
 @media(max-width:480px){.stats__grid{grid-template-columns:repeat(2,1fr);gap:10px}.stat-card{padding:18px 14px}.stat-card__title{font-size:.9rem}}
 
@@ -105,7 +116,7 @@ p{line-height:1.4}
 .services__heading{text-align:center;font-size:clamp(2rem,5vw,3.8rem);font-weight:400;margin-bottom:20px}
 .services__sub{text-align:center;font-size:1.2rem;color:rgba(236,236,236,.6);max-width:750px;margin:0 auto 60px;line-height:1.4}
 .services__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-.service-card{background:linear-gradient(135deg,rgba(30,80,95,.15),rgba(14,50,65,.15));border:1px solid var(--card-border);border-radius:var(--radius);padding:32px 28px;text-align:right;transition:all .4s;backdrop-filter:blur(8px)}
+.service-card{background:linear-gradient(135deg,rgba(30,80,95,.15),rgba(14,50,65,.15));border:1px solid var(--card-border);border-radius:var(--radius);padding:32px 28px;text-align:right;transition:all .4s;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .service-card:hover{background:rgba(77,188,208,.12);transform:translateY(-4px)}
 .service-card__icon{width:48px;height:48px;border-radius:50%;background:rgba(77,188,208,.15);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.4rem}
 .service-card__title{font-size:1.25rem;font-weight:700;margin-bottom:6px}
@@ -114,7 +125,7 @@ p{line-height:1.4}
 
 
 /* ===== AI DIFFERENTIATOR ===== */
-.ai-differentiator{background:linear-gradient(135deg,rgba(77,188,208,.1),rgba(46,139,154,.08));border:1px solid rgba(77,188,208,.25);border-radius:var(--radius);padding:48px 36px;text-align:center;margin:0 auto 80px;max-width:760px;backdrop-filter:blur(10px);position:relative;overflow:hidden}
+.ai-differentiator{background:linear-gradient(135deg,rgba(77,188,208,.1),rgba(46,139,154,.08));border:1px solid rgba(77,188,208,.25);border-radius:var(--radius);padding:48px 36px;text-align:center;margin:0 auto 80px;max-width:760px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);position:relative;overflow:hidden}
 .ai-differentiator::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 40%,rgba(77,188,208,.06),transparent 60%);pointer-events:none}
 .ai-differentiator__icon{width:48px;height:48px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center}
 .ai-differentiator__icon svg{width:100%;height:100%}
@@ -130,7 +141,7 @@ p{line-height:1.4}
 .pillar-header{display:flex;align-items:center;gap:14px;padding:24px 0 10px}
 .pillar-header__letter{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,rgba(77,188,208,.25),rgba(46,139,154,.35));color:var(--primary);font-size:.9rem;font-weight:800;line-height:36px;text-align:center;border:1px solid rgba(77,188,208,.3);flex-shrink:0}
 .pillar-header__text h3{font-size:clamp(1.2rem,2.5vw,1.5rem);font-weight:700;color:var(--text-light);margin:0}
-.pillar-header__text p{font-size:1rem;color:rgba(236,236,236,.45);margin:4px 0 0;font-style:italic}
+.pillar-header__text p{font-size:1rem;color:rgba(236,236,236,.6);margin:4px 0 0;font-style:italic}
 .svc-row{position:sticky;top:calc(70px + var(--card-i,0) * 8px);background:linear-gradient(150deg,rgba(14,31,51,.99),rgba(9,21,37,.97));border:1px solid var(--card-border);border-radius:16px;padding:20px 28px;margin-bottom:12px;display:grid;grid-template-columns:auto 1fr;gap:4px 16px;align-items:start;z-index:calc(var(--card-i,0) + 1);box-shadow:0 2px 16px rgba(0,0,0,.3);transition:border-color .4s,box-shadow .4s}
 .svc-row:hover{border-color:rgba(77,188,208,.35);box-shadow:0 8px 32px rgba(77,188,208,.1)}
 .svc-row__icon{width:26px;height:26px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--primary);grid-row:1/3}
@@ -153,7 +164,7 @@ p{line-height:1.4}
 .svc-featured__result{font-size:.95rem;font-weight:600;color:var(--primary);margin:14px 0 0;opacity:.9}
 
 /* Secondary services header */
-.svc-secondary-header{font-size:1.1rem;color:rgba(236,236,236,.4);text-align:center;margin:8px 0 20px;font-weight:400}
+.svc-secondary-header{font-size:1.1rem;color:rgba(236,236,236,.6);text-align:center;margin:8px 0 20px;font-weight:400}
 
 /* Secondary services - infinite carousel */
 .svc-secondary{overflow:hidden;position:relative;direction:ltr}
@@ -179,7 +190,7 @@ p{line-height:1.4}
 .process-step:last-child{margin-bottom:0}
 /* center column: number circle */
 .process-step__center{grid-column:2;display:flex;justify-content:center;position:relative;z-index:2}
-.process-step__number{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,rgba(77,188,208,.2),rgba(46,139,154,.3));border:2px solid rgba(77,188,208,.35);display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;color:var(--primary);backdrop-filter:blur(8px);transition:all .4s}
+.process-step__number{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,rgba(77,188,208,.2),rgba(46,139,154,.3));border:2px solid rgba(77,188,208,.35);display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;color:var(--primary);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:all .4s}
 .process-step:hover .process-step__number{background:linear-gradient(135deg,rgba(77,188,208,.35),rgba(46,139,154,.45));box-shadow:0 0 24px rgba(77,188,208,.25);transform:scale(1.08)}
 /* content block */
 .process-step__content{padding:8px 28px;transition:transform .3s}
@@ -206,7 +217,7 @@ p{line-height:1.4}
 .testimonials{padding:100px 0 60px;position:relative;overflow:hidden}
 .testimonials__heading{text-align:center;font-size:clamp(2rem,5vw,3.8rem);font-weight:400;margin-bottom:50px}
 .testimonials__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-.testimonial-card{background:linear-gradient(160deg,rgba(30,80,95,.25),rgba(14,50,65,.22));border:1px solid rgba(77,188,208,.25);border-radius:var(--radius);padding:28px;transition:all .4s;backdrop-filter:blur(8px)}
+.testimonial-card{background:linear-gradient(160deg,rgba(30,80,95,.25),rgba(14,50,65,.22));border:1px solid rgba(77,188,208,.25);border-radius:var(--radius);padding:28px;transition:all .4s;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .testimonial-card:hover{background:rgba(77,188,208,.12);transform:translateY(-3px)}
 .testimonial-card__text{font-size:1.1rem;line-height:1.4;color:rgba(236,236,236,.78);margin-bottom:20px}
 .testimonial-card__author{display:flex;align-items:center;gap:14px;padding-top:16px;border-top:1px solid var(--card-border)}
@@ -274,7 +285,7 @@ p{line-height:1.4}
 .team__heading{text-align:center;font-size:clamp(2rem,5vw,3.8rem);font-weight:400;margin-bottom:20px}
 .team__sub{text-align:center;font-size:1.05rem;color:rgba(236,236,236,.55);max-width:650px;margin:0 auto 50px;line-height:1.6}
 .team__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-.team-card{background:linear-gradient(135deg,rgba(30,80,95,.15),rgba(14,50,65,.15));border:1px solid var(--card-border);border-radius:var(--radius);padding:32px 28px;text-align:center;transition:all .4s;backdrop-filter:blur(8px)}
+.team-card{background:linear-gradient(135deg,rgba(30,80,95,.15),rgba(14,50,65,.15));border:1px solid var(--card-border);border-radius:var(--radius);padding:32px 28px;text-align:center;transition:all .4s;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .team-card:hover{background:rgba(77,188,208,.12);transform:translateY(-4px);border-color:rgba(77,188,208,.4);box-shadow:0 2px 4px rgba(77,188,208,.06),0 4px 12px rgba(77,188,208,.08),0 8px 24px rgba(77,188,208,.1)}
 .team-card__photo{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,rgba(77,188,208,.2),rgba(46,139,154,.3));margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:.8rem;color:rgba(255,255,255,.4)}
 .team-card__name{font-size:1.2rem;font-weight:700;margin-bottom:4px}
@@ -367,7 +378,7 @@ p{line-height:1.4}
 .audit__checks{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:32px}
 .audit__check{display:flex;align-items:flex-start;gap:12px;font-size:1.15rem;color:var(--text-light);line-height:1.6}
 .audit__check-icon{flex-shrink:0;width:22px;height:22px;color:var(--primary);margin-top:2px}
-.audit__micro{font-size:.9rem;color:rgba(236,236,236,.4);font-style:italic}
+.audit__micro{font-size:.9rem;color:rgba(236,236,236,.6);font-style:italic}
 .audit__card{background:var(--white);border-radius:24px;padding:40px 36px;color:var(--text-dark);box-shadow:0 20px 60px rgba(0,0,0,.25),0 0 80px rgba(77,188,208,.08);position:relative}
 .audit__card h3{font-size:1.15rem;font-weight:700;color:var(--primary);text-align:center;margin-bottom:28px}
 .audit__card .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
@@ -388,7 +399,7 @@ p{line-height:1.4}
 .audit__thankyou a:hover{background:#3aa8bc}
 
 /* ===== POPUP MODAL ===== */
-.popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);z-index:9999;display:none;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
+.popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);z-index:9999;display:none;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
 .popup-overlay.show{display:flex;opacity:1}
 .popup-card{background:var(--white);border-radius:24px;padding:40px;max-width:480px;width:90%;color:var(--text-dark);position:relative;transform:translateY(20px);opacity:0;transition:transform .3s ease-out,opacity .3s ease-out;box-shadow:0 20px 60px rgba(0,0,0,.3)}
 .popup-overlay.show .popup-card{transform:translateY(0);opacity:1}
@@ -430,7 +441,7 @@ p{line-height:1.4}
 @media(max-width:768px){.footer__grid{grid-template-columns:1fr}}
 
 /* ===== FLOATING BOTTOM BAR ===== */
-.bottom-bar{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:999;display:flex;align-items:center;gap:0;background:linear-gradient(136deg,rgba(230,245,250,.92) 24%,rgba(236,236,236,.92) 89%);border-radius:var(--pill);padding:6px;box-shadow:0 2px 4px rgba(14,31,51,.06),0 4px 8px rgba(14,31,51,.08),0 8px 16px rgba(14,31,51,.1),0 12px 24px rgba(14,31,51,.12),0 20px 40px rgba(14,31,51,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3)}
+.bottom-bar{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:999;display:flex;align-items:center;gap:0;background:linear-gradient(136deg,rgba(230,245,250,.92) 24%,rgba(236,236,236,.92) 89%);border-radius:var(--pill);padding:6px;box-shadow:0 2px 4px rgba(14,31,51,.06),0 4px 8px rgba(14,31,51,.08),0 8px 16px rgba(14,31,51,.1),0 12px 24px rgba(14,31,51,.12),0 20px 40px rgba(14,31,51,.15);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3)}
 .bottom-bar__cta{display:flex;align-items:center;gap:8px;padding:12px 24px;background:var(--primary);color:var(--white);border-radius:var(--pill);font-weight:700;font-size:.9rem;white-space:nowrap;transition:all .3s}
 .bottom-bar__cta:hover{background:var(--primary-light);transform:scale(1.03)}
 .bottom-bar__cta .arrow{font-size:.8rem}
@@ -440,7 +451,7 @@ p{line-height:1.4}
 .bottom-bar__icon svg{width:18px;height:18px;fill:var(--primary);flex-shrink:0}
 
 /* ===== SCROLL TO TOP ===== */
-.scroll-top{position:fixed;bottom:24px;left:24px;width:48px;height:48px;border-radius:50%;background:rgba(77,188,208,.15);backdrop-filter:blur(12px);border:1.5px solid rgba(77,188,208,.4);display:flex;align-items:center;justify-content:center;z-index:998;cursor:pointer;opacity:0;transition:all .3s;box-shadow:0 2px 8px rgba(77,188,208,.15),0 8px 24px rgba(0,0,0,.2);color:inherit;padding:0}
+.scroll-top{position:fixed;bottom:24px;left:24px;width:48px;height:48px;border-radius:50%;background:rgba(77,188,208,.15);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1.5px solid rgba(77,188,208,.4);display:flex;align-items:center;justify-content:center;z-index:998;cursor:pointer;opacity:0;transition:all .3s;box-shadow:0 2px 8px rgba(77,188,208,.15),0 8px 24px rgba(0,0,0,.2);color:inherit;padding:0}
 .scroll-top.visible{opacity:1}
 .scroll-top:hover{transform:scale(1.1);background:rgba(77,188,208,.3);border-color:rgba(77,188,208,.6);box-shadow:0 0 20px rgba(77,188,208,.25),0 8px 32px rgba(0,0,0,.25)}
 .scroll-top svg{width:20px;height:20px;fill:var(--primary)}
@@ -451,12 +462,12 @@ p{line-height:1.4}
 .whatsapp svg{width:26px;height:26px;fill:white}
 
 /* ===== ACCESSIBILITY BTN ===== */
-.a11y-btn{position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;z-index:998;cursor:pointer;box-shadow:0 4px 16px rgba(77,188,208,.3);transition:all .3s}
+.a11y-btn{position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;z-index:998;cursor:pointer;box-shadow:0 4px 16px rgba(77,188,208,.3);transition:all .3s;border:none;padding:0}
 .a11y-btn:hover{transform:scale(1.1)}
 .a11y-btn svg{width:24px;height:24px;fill:white}
 
 /* ===== COOKIE BAR ===== */
-.cookie-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(9,21,37,.95);backdrop-filter:blur(12px);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;z-index:1000;border-top:1px solid var(--card-border);transform:translateY(100%);transition:transform .4s;flex-wrap:wrap;gap:12px}
+.cookie-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(9,21,37,.95);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;z-index:1000;border-top:1px solid var(--card-border);transform:translateY(100%);transition:transform .4s;flex-wrap:wrap;gap:12px}
 .cookie-bar.show{transform:translateY(0)}
 .cookie-bar p{font-size:.9rem;color:rgba(236,236,236,.6)}
 .cookie-bar a{color:var(--primary);text-decoration:underline}
@@ -554,7 +565,7 @@ background-size:60px 60px;z-index:0}
 /* ===== VISUAL BREAK DIVIDER ===== */
 .visual-break{position:relative;padding:80px 0;overflow:hidden}
 .visual-break__content{position:relative;z-index:2;text-align:center}
-.visual-break__tagline{font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:300;color:rgba(236,236,236,.35);line-height:1.4;max-width:600px;margin:0 auto}
+.visual-break__tagline{font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:300;color:rgba(236,236,236,.55);line-height:1.4;max-width:600px;margin:0 auto}
 .visual-break__tagline strong{color:var(--primary);font-weight:700}
 .visual-break__line{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--primary),transparent);margin:0 auto 24px;opacity:.5}
 .visual-break__glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(77,188,208,.07),transparent 70%);pointer-events:none}
@@ -567,13 +578,13 @@ background-size:60px 60px;z-index:0}
 @keyframes dot-pulse{0%,100%{opacity:.15;transform:scale(.8)}50%{opacity:.7;transform:scale(1.5)}}
 
 /* ===== FUN POPUP PHOTO ===== */
-.boss-popup{position:fixed;bottom:-200px;left:80px;z-index:997;width:100px;height:100px;border-radius:50%;overflow:hidden;border:3px solid var(--primary);box-shadow:0 0 20px rgba(77,188,208,.2),0 8px 24px rgba(0,0,0,.3);cursor:pointer;transition:transform .3s;opacity:0}
+.boss-popup{position:fixed;bottom:-200px;left:80px;z-index:997;width:100px;height:100px;border-radius:50%;overflow:hidden;border:3px solid var(--primary);box-shadow:0 0 20px rgba(77,188,208,.2),0 8px 24px rgba(0,0,0,.3);cursor:pointer;transition:transform .3s;opacity:0;padding:0;background:none}
 .boss-popup:hover{transform:scale(1.1) rotate(-3deg)}
 .boss-popup img{width:100%;height:100%;object-fit:cover;object-position:center top}
 .boss-popup__speech{position:fixed;bottom:170px;left:80px;background:var(--white);color:var(--text-dark);padding:8px 14px;border-radius:16px 16px 16px 4px;font-size:.75rem;font-weight:600;max-width:160px;box-shadow:0 4px 16px rgba(0,0,0,.15);z-index:997;opacity:0;pointer-events:none;line-height:1.4}
 
 @media(max-width:768px){
-html,body{overflow-x:hidden}
+body{overflow-x:hidden}
 .container{padding:0 16px}
 
 /* Hero mobile */
@@ -722,7 +733,14 @@ html,body{overflow-x:hidden}
 .word{white-space:normal !important}
 .line{white-space:normal !important}
 }
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}.marquee-track,.svc-secondary-track{animation:none !important}.reveal{opacity:1 !important;transform:none !important}}
 </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"PPC Advisor","url":"https://ppcadvisor.co.il","telephone":"+972587497497","email":"felix@ppcadvisor.co.il","description":"מעטפת שיווק דיגיטלי 360° – אסטרטגיה, ביצוע ומדידה תחת קורת גג אחת","address":{"@type":"PostalAddress","addressCountry":"IL"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"מה ההבדל ביניכם לסוכנות דיגיטל רגילה?","acceptedAnswer":{"@type":"Answer","text":"אצלנו הכל תחת קורת גג אחת. במקום לרוץ בין ספקי SEO, ספקי PPC, וספקי תוכן שלא מדברים אחד עם השני – אנחנו מנהלים את הכל. אסטרטגיה, ביצוע, ומדידה – במקום אחד."}},{"@type":"Question","name":"למי השירות מתאים?","acceptedAnswer":{"@type":"Answer","text":"לכל מי שרוצה לגדול אונליין – עצמאים, בעלי חנויות, מעסקים קטנים שרק מתחילים, חברות בצמיחה, וארגונים גדולים. אנחנו מתאימים את הפתרון לצורך שלכם, בלי קשר לגודל."}},{"@type":"Question","name":"מה התקציב המינימלי?","acceptedAnswer":{"@type":"Answer","text":"אין לנו מינימום נוקשה – אנחנו בונים חבילה מותאמת אישית לכל עסק. בפגישת האפיון נבין בדיוק את הצרכים ונמליץ על החבילה המתאימה."}},{"@type":"Question","name":"תוך כמה זמן רואים תוצאות?","acceptedAnswer":{"@type":"Answer","text":"זה תלוי בשירות ובמצב. קמפיינים ממומנים יכולים להניב תוצאות כבר בשבועות הראשונים. SEO הוא תהליך ארוך יותר – בדרך כלל 3-6 חודשים לתוצאות משמעותיות."}},{"@type":"Question","name":"יש לכם התחייבות?","acceptedAnswer":{"@type":"Answer","text":"אין התחייבות לטווח ארוך. אנחנו עובדים בהסכמים חודשיים עם אפשרות לצאת בכל רגע. כל הנכסים, החשבונות והדאטה נשארים שלכם לחלוטין."}},{"@type":"Question","name":"מה זה GEO ולמה זה חשוב?","acceptedAnswer":{"@type":"Answer","text":"GEO – Generative Engine Optimization – זה האופטימיזציה לדור הבא. היום אנשים לא רק מגוגלים – הם שואלים את ChatGPT, Gemini ו-Perplexity. אם העסק שלכם לא מופיע שם – אתם מפסידים לקוחות."}},{"@type":"Question","name":"באיזה פלטפורמה אתם בונים אתרים?","acceptedAnswer":{"@type":"Answer","text":"אנחנו מתמחים ב-WordPress, Elementor, Shopify ופלטפורמות נוספות לפי הצורך."}},{"@type":"Question","name":"האם אתם מוסמכים על ידי Google / Meta?","acceptedAnswer":{"@type":"Answer","text":"כן. אנחנו Google Partner ו-Meta Business Partner מוסמכים. זה אומר שאנחנו עומדים בסטנדרטים הכי גבוהים של הפלטפורמות."}}]}
+</script>
 </head>
 <body>
 <a href="#services" class="sr-only" style="position:absolute;z-index:10000;padding:8px 16px;background:var(--primary);color:var(--bg);border-radius:8px;top:-100px;right:16px;focus:top:16px" onfocus="this.style.top='16px'" onblur="this.style.top='-100px'">דלג לתוכן</a>
@@ -736,6 +754,7 @@ html,body{overflow-x:hidden}
   <div class="preloader__bar"><div class="preloader__bar-inner"></div></div>
 </div>
 
+<main>
 <!-- ===== HERO ===== -->
 <section class="hero" id="hero">
 <div class="hero__grid-pattern"></div>
@@ -745,7 +764,7 @@ html,body{overflow-x:hidden}
 <div class="hero__watermark">PPC</div>
 <div class="hero__photo">
   <div class="hero__photo-glow"></div>
-  <div class="hero__photo-circle"><img src="hero-photo.jpeg" alt="PPC Advisor"></div>
+  <div class="hero__photo-circle"><img src="hero-photo.jpeg" alt="פליקס, מייסד PPC Advisor"></div>
 </div>
 <div class="container hero__content">
   <div class="hero__logo"><img src="logo-horizontal.png" alt="PPC Advisor"></div>
@@ -844,7 +863,6 @@ html,body{overflow-x:hidden}
 </script>
 </section>
 
-<main>
 <!-- ===== STATS ===== -->
 <section class="stats" id="stats">
 <div class="stats__bg-pattern"></div>
@@ -896,7 +914,7 @@ html,body{overflow-x:hidden}
 
       <div class="svc-featured reveal" id="web-detail">
         <span class="svc-featured__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
-        <h4 class="svc-featured__title">בניית אתרים וחנויות אונליין</h4>
+        <h3 class="svc-featured__title">בניית אתרים וחנויות אונליין</h3>
         <span class="svc-featured__label">Website &ndash; אתר שמביא לקוחות, לא סתם כרטיס ביקור דיגיטלי.</span>
         <p class="svc-featured__desc">אתר יפה שלא ממיר הוא הוצאה &ndash; לא נכס. אנחנו בונים אתרים וחנויות אונליין שתוכננו מהבסיס להמרה: מסע משתמש חד, מהירות טעינה מתחת ל-3 שניות, התאמה מלאה למובייל, ו-UX שמוביל את המבקר מהכניסה ועד ללחיצה על ״קנה עכשיו״.</p>
         <p class="svc-featured__result">ממוצע: +35% שיעור המרה אחרי שדרוג · זמן טעינה &lt;2.5s</p>
@@ -904,7 +922,7 @@ html,body{overflow-x:hidden}
 
       <div class="svc-featured reveal" id="geo-detail">
         <span class="svc-featured__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="16" rx="3"/><circle cx="9.5" cy="10" r="1.2"/><circle cx="14.5" cy="10" r="1.2"/><path d="M9 15h6"/><path d="M9 1v3M15 1v3"/></svg></span>
-        <h4 class="svc-featured__title">אופטימיזציה למנועי AI</h4>
+        <h3 class="svc-featured__title">אופטימיזציה למנועי AI</h3>
         <span class="svc-featured__label">GEO &ndash; כש-ChatGPT ממליץ על עסק בתחום שלכם, זה יהיה אתם.</span>
         <p class="svc-featured__desc">40% מהחיפושים כבר עוברים דרך מנועי AI. מי שלא מותאם &ndash; פשוט לא קיים שם. אנחנו בונים מבנה תוכן, סכמה מובנית ואוטוריטט שגורם ל-ChatGPT, Gemini ו-Perplexity להמליץ עליכם &ndash; לא על המתחרים.</p>
         <p class="svc-featured__result">שירות ייחודי · פחות מ-3% מהסוכנויות בישראל מציעות GEO</p>
@@ -912,7 +930,7 @@ html,body{overflow-x:hidden}
 
       <div class="svc-featured reveal" id="ppc-detail">
         <span class="svc-featured__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
-        <h4 class="svc-featured__title">פרסום ממומן</h4>
+        <h3 class="svc-featured__title">פרסום ממומן</h3>
         <span class="svc-featured__label">PPC &ndash; כל שקל עובד. כל המרה נמדדת. בלי ניחושים.</span>
         <p class="svc-featured__desc">קמפיינים בגוגל ובינג עם בידינג חכם שמתעדכן כל שעה, לא כל שבוע. אנחנו מנהלים תקציבי מדיה של מיליונים &ndash; עם אותה דקדקנות בין אם התקציב &#8362;5K או &#8362;500K. אופטימיזציה יומית, A/B טסטינג שוטף, ודוחות שקופים.</p>
         <p class="svc-featured__result">ממוצע ROAS: x4.2 · &#8362;47M+ תקציבי מדיה מנוהלים</p>
@@ -920,7 +938,7 @@ html,body{overflow-x:hidden}
 
       <div class="svc-featured reveal" id="photo-detail">
         <span class="svc-featured__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></span>
-        <h4 class="svc-featured__title">צילום ווידאו</h4>
+        <h3 class="svc-featured__title">צילום ווידאו</h3>
         <span class="svc-featured__label">Photo &amp; Video &ndash; תוכן שעוצר אצבע ומניע פעולה.</span>
         <p class="svc-featured__desc">הקריאייטיב הוא מה שקובע אם מודעה מצליחה או נכשלת. אנחנו מפיקים צילומי מוצר, סרטוני Reels, UGC ותוכן ויזואלי שמותאם לכל פלטפורמה &ndash; מאינסטגרם ועד לדף הנחיתה. תוכן שנבנה למכור, לא רק להרשים.</p>
         <p class="svc-featured__result">קריאייטיב חדש = בממוצע +25% CTR על קמפיינים קיימים</p>
@@ -936,35 +954,35 @@ html,body{overflow-x:hidden}
 
       <div class="svc-row" id="seo-detail">
         <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></span>
-        <div class="svc-row__info"><h4 class="svc-row__title">קידום אורגני</h4><span class="svc-row__label">SEO &ndash; לקוחות שמחפשים אתכם עכשיו ימצאו אתכם ראשונים.</span></div>
+        <div class="svc-row__info"><h3 class="svc-row__title">קידום אורגני</h3><span class="svc-row__label">SEO &ndash; לקוחות שמחפשים אתכם עכשיו ימצאו אתכם ראשונים.</span></div>
         <p class="svc-row__desc">אנחנו לא רודפים אחרי דירוגים &ndash; אנחנו בונים מערך תוכן וסמכות שמביא לקוחות שמוכנים לקנות, ישירות מגוגל. מחקר מילות מפתח ממוקד כוונת רכישה, אופטימיזציה טכנית, ותוכן שמדבר גם למנוע וגם לאדם.</p>
         <p class="svc-row__result">ממוצע: עמוד 1 תוך 90 יום · +68% תנועה אורגנית</p>
       </div>
 
       <div class="svc-row" id="email-detail">
         <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 4 12 13 2 4"/></svg></span>
-        <div class="svc-row__info"><h4 class="svc-row__title">שיווק באימייל</h4><span class="svc-row__label">Email Marketing &ndash; הלידים שכבר יש לכם? אנחנו הופכים אותם ללקוחות משלמים.</span></div>
+        <div class="svc-row__info"><h3 class="svc-row__title">שיווק באימייל</h3><span class="svc-row__label">Email Marketing &ndash; הלידים שכבר יש לכם? אנחנו הופכים אותם ללקוחות משלמים.</span></div>
         <p class="svc-row__desc">רוב העסקים יושבים על מאגר לידים שלא עושים איתו כלום. אנחנו בונים סיקוונסים אוטומטיים שמטפחים כל ליד לפי ההתנהגות שלו &ndash; מ״ברוכים הבאים״ ועד לרכישה חוזרת. דאטה דריבן, לא תחושה בטן.</p>
         <p class="svc-row__result">ממוצע: 42% פתיחות · +28% הכנסה מלקוחות חוזרים</p>
       </div>
 
       <div class="svc-row" id="gtm-detail">
         <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span>
-        <div class="svc-row__info"><h4 class="svc-row__title">אסטרטגיית Go-To-Market</h4><span class="svc-row__label">GTM &ndash; משקיעים בהשקה? אנחנו מוודאים שהיא מצליחה מהיום הראשון.</span></div>
+        <div class="svc-row__info"><h3 class="svc-row__title">אסטרטגיית Go-To-Market</h3><span class="svc-row__label">GTM &ndash; משקיעים בהשקה? אנחנו מוודאים שהיא מצליחה מהיום הראשון.</span></div>
         <p class="svc-row__desc">מוצר חדש, שוק חדש, או ריפוזישנינג &ndash; אנחנו בונים תכנית GTM שלמה: ניתוח מתחרים ושוק, מיצוב ותמחור, בחירת ערוצים, ולוח זמנים עם אבני דרך ברורות. לא מסמך אסטרטגי שנשאר במגירה &ndash; תכנית פעולה שמתבצעת.</p>
         <p class="svc-row__result">מהאפיון ועד להשקה חיה תוך 6&ndash;8 שבועות</p>
       </div>
 
       <div class="svc-row" id="social-detail">
         <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg></span>
-        <div class="svc-row__info"><h4 class="svc-row__title">רשתות חברתיות</h4><span class="svc-row__label">Social Media &ndash; מותג שאנשים רוצים לעקוב אחריו, לא רק לגלול מעבר.</span></div>
+        <div class="svc-row__info"><h3 class="svc-row__title">רשתות חברתיות</h3><span class="svc-row__label">Social Media &ndash; מותג שאנשים רוצים לעקוב אחריו, לא רק לגלול מעבר.</span></div>
         <p class="svc-row__desc">פוסט בשבוע לא בונה מותג. אנחנו בונים אסטרטגיית תוכן שלמה שיוצרת קהילה אמיתית סביב העסק שלכם &ndash; עם תוכן שמדבר בשפה של הקהל, בפלטפורמות שהוא נמצא בהן, בתדירות שמחזיקה רלוונטיות.</p>
         <p class="svc-row__result">ממוצע: x3 מעורבות · +45% עוקבים אורגניים ב-6 חודשים</p>
       </div>
 
       <div class="svc-row" id="paid-detail">
         <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
-        <div class="svc-row__info"><h4 class="svc-row__title">פרסום ברשתות חברתיות</h4><span class="svc-row__label">Paid Social &ndash; להגיע לקהל שלא יודע שהוא צריך אתכם. עדיין.</span></div>
+        <div class="svc-row__info"><h3 class="svc-row__title">פרסום ברשתות חברתיות</h3><span class="svc-row__label">Paid Social &ndash; להגיע לקהל שלא יודע שהוא צריך אתכם. עדיין.</span></div>
         <p class="svc-row__desc">פרסום ממומן בפייסבוק, אינסטגרם, טיקטוק ולינקדאין עם טרגוט שמבוסס על דאטה &ndash; לא על ניחוש. אנחנו בונים קהלים, יוצרים קריאייטיבים שעוצרים גלילה, ומריצים A/B טסטינג שוטף שמוריד עלות לידים ומעלה ROAS כל שבוע.</p>
         <p class="svc-row__result">ממוצע: -40% עלות ליד · ROAS x3.8 על קמפייני Meta</p>
       </div>
@@ -972,35 +990,35 @@ html,body{overflow-x:hidden}
       <!-- Duplicate set for infinite loop -->
       <div class="svc-row" aria-hidden="true">
         <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></span>
-        <div class="svc-row__info"><h4 class="svc-row__title">קידום אורגני</h4><span class="svc-row__label">SEO &ndash; לקוחות שמחפשים אתכם עכשיו ימצאו אתכם ראשונים.</span></div>
+        <div class="svc-row__info"><h3 class="svc-row__title">קידום אורגני</h3><span class="svc-row__label">SEO &ndash; לקוחות שמחפשים אתכם עכשיו ימצאו אתכם ראשונים.</span></div>
         <p class="svc-row__desc">אנחנו לא רודפים אחרי דירוגים &ndash; אנחנו בונים מערך תוכן וסמכות שמביא לקוחות שמוכנים לקנות, ישירות מגוגל. מחקר מילות מפתח ממוקד כוונת רכישה, אופטימיזציה טכנית, ותוכן שמדבר גם למנוע וגם לאדם.</p>
         <p class="svc-row__result">ממוצע: עמוד 1 תוך 90 יום · +68% תנועה אורגנית</p>
       </div>
 
       <div class="svc-row" aria-hidden="true">
         <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 4 12 13 2 4"/></svg></span>
-        <div class="svc-row__info"><h4 class="svc-row__title">שיווק באימייל</h4><span class="svc-row__label">Email Marketing &ndash; הלידים שכבר יש לכם? אנחנו הופכים אותם ללקוחות משלמים.</span></div>
+        <div class="svc-row__info"><h3 class="svc-row__title">שיווק באימייל</h3><span class="svc-row__label">Email Marketing &ndash; הלידים שכבר יש לכם? אנחנו הופכים אותם ללקוחות משלמים.</span></div>
         <p class="svc-row__desc">רוב העסקים יושבים על מאגר לידים שלא עושים איתו כלום. אנחנו בונים סיקוונסים אוטומטיים שמטפחים כל ליד לפי ההתנהגות שלו &ndash; מ״ברוכים הבאים״ ועד לרכישה חוזרת. דאטה דריבן, לא תחושה בטן.</p>
         <p class="svc-row__result">ממוצע: 42% פתיחות · +28% הכנסה מלקוחות חוזרים</p>
       </div>
 
       <div class="svc-row" aria-hidden="true">
         <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span>
-        <div class="svc-row__info"><h4 class="svc-row__title">אסטרטגיית Go-To-Market</h4><span class="svc-row__label">GTM &ndash; משקיעים בהשקה? אנחנו מוודאים שהיא מצליחה מהיום הראשון.</span></div>
+        <div class="svc-row__info"><h3 class="svc-row__title">אסטרטגיית Go-To-Market</h3><span class="svc-row__label">GTM &ndash; משקיעים בהשקה? אנחנו מוודאים שהיא מצליחה מהיום הראשון.</span></div>
         <p class="svc-row__desc">מוצר חדש, שוק חדש, או ריפוזישנינג &ndash; אנחנו בונים תכנית GTM שלמה: ניתוח מתחרים ושוק, מיצוב ותמחור, בחירת ערוצים, ולוח זמנים עם אבני דרך ברורות. לא מסמך אסטרטגי שנשאר במגירה &ndash; תכנית פעולה שמתבצעת.</p>
         <p class="svc-row__result">מהאפיון ועד להשקה חיה תוך 6&ndash;8 שבועות</p>
       </div>
 
       <div class="svc-row" aria-hidden="true">
         <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg></span>
-        <div class="svc-row__info"><h4 class="svc-row__title">רשתות חברתיות</h4><span class="svc-row__label">Social Media &ndash; מותג שאנשים רוצים לעקוב אחריו, לא רק לגלול מעבר.</span></div>
+        <div class="svc-row__info"><h3 class="svc-row__title">רשתות חברתיות</h3><span class="svc-row__label">Social Media &ndash; מותג שאנשים רוצים לעקוב אחריו, לא רק לגלול מעבר.</span></div>
         <p class="svc-row__desc">פוסט בשבוע לא בונה מותג. אנחנו בונים אסטרטגיית תוכן שלמה שיוצרת קהילה אמיתית סביב העסק שלכם &ndash; עם תוכן שמדבר בשפה של הקהל, בפלטפורמות שהוא נמצא בהן, בתדירות שמחזיקה רלוונטיות.</p>
         <p class="svc-row__result">ממוצע: x3 מעורבות · +45% עוקבים אורגניים ב-6 חודשים</p>
       </div>
 
       <div class="svc-row" aria-hidden="true">
         <span class="svc-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
-        <div class="svc-row__info"><h4 class="svc-row__title">פרסום ברשתות חברתיות</h4><span class="svc-row__label">Paid Social &ndash; להגיע לקהל שלא יודע שהוא צריך אתכם. עדיין.</span></div>
+        <div class="svc-row__info"><h3 class="svc-row__title">פרסום ברשתות חברתיות</h3><span class="svc-row__label">Paid Social &ndash; להגיע לקהל שלא יודע שהוא צריך אתכם. עדיין.</span></div>
         <p class="svc-row__desc">פרסום ממומן בפייסבוק, אינסטגרם, טיקטוק ולינקדאין עם טרגוט שמבוסס על דאטה &ndash; לא על ניחוש. אנחנו בונים קהלים, יוצרים קריאייטיבים שעוצרים גלילה, ומריצים A/B טסטינג שוטף שמוריד עלות לידים ומעלה ROAS כל שבוע.</p>
         <p class="svc-row__result">ממוצע: -40% עלות ליד · ROAS x3.8 על קמפייני Meta</p>
       </div>
@@ -1358,7 +1376,7 @@ html,body{overflow-x:hidden}
           <div class="form-field"><svg class="form-field__icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#bbb"/></svg><label for="contact_business" class="sr-only">שם העסק</label><input type="text" id="contact_business" name="business" placeholder="שם העסק"></div>
         </div>
         <div class="form-field"><svg class="form-field__icon" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z" fill="#bbb"/></svg><label for="contact_message" class="sr-only">הודעה</label><textarea id="contact_message" name="message" placeholder="ספרו לנו קצת על העסק ועל מה שאתם מחפשים:"></textarea></div>
-        <label class="form-checkbox"><input type="checkbox"><span>עם שליחת הטופס אתם מסכימים ליצירת קשר וקבלת דיוור ועדכונים בהתאם ל<a href="#" style="color:var(--primary)">מדיניות הפרטיות</a></span></label>
+        <label class="form-checkbox"><input type="checkbox" required><span>עם שליחת הטופס אתם מסכימים ליצירת קשר וקבלת דיוור ועדכונים בהתאם ל<a href="#" style="color:var(--primary)">מדיניות הפרטיות</a></span></label>
         <button type="submit" class="form-submit" id="formSubmitBtn">שלח טופס <span class="arrow">&#8592;···</span></button>
       </form>
     </div>
@@ -1410,11 +1428,11 @@ html,body{overflow-x:hidden}
 <div class="bottom-bar">
   <a href="https://wa.me/972587497497" class="bottom-bar__cta" target="_blank" rel="noopener noreferrer"><span class="arrow">&#8592;</span> דברו איתנו</a>
   <div class="bottom-bar__icons">
-    <a href="#services" class="bottom-bar__icon"><svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg> שירותים</a>
-    <a href="#case-studies" class="bottom-bar__icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg> עבודות</a>
-    <a href="#portfolio" class="bottom-bar__icon"><svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9h-4v4h-2v-4H9V9h4V5h2v4h4v2z"/></svg> פורטפוליו</a>
-    <a href="#testimonials" class="bottom-bar__icon"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg> לקוחות</a>
-    <a href="#about" class="bottom-bar__icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg> אודות</a>
+    <a href="#services" class="bottom-bar__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg> שירותים</a>
+    <a href="#case-studies" class="bottom-bar__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg> עבודות</a>
+    <a href="#portfolio" class="bottom-bar__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9h-4v4h-2v-4H9V9h4V5h2v4h4v2z"/></svg> פורטפוליו</a>
+    <a href="#testimonials" class="bottom-bar__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg> לקוחות</a>
+    <a href="#about" class="bottom-bar__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg> אודות</a>
   </div>
 </div>
 
@@ -1429,13 +1447,13 @@ html,body{overflow-x:hidden}
 </a>
 
 <!-- ===== FUN POPUP ===== -->
-<div class="boss-popup" id="bossPopup"><img src="boss.jpg" alt="The Boss"></div>
+<button class="boss-popup" id="bossPopup" type="button" aria-label="קבלו אבחון דיגיטלי חינם"><img src="boss.jpg" alt="The Boss"></button>
 <div class="boss-popup__speech" id="bossSpeech">רוצים אבחון דיגיטלי חינם? לחצו עליי!</div>
 
 <!-- ===== ACCESSIBILITY ===== -->
-<div class="a11y-btn" title="נגישות">
-  <svg viewBox="0 0 24 24"><path d="M20.5 6c-2.61.7-5.67 1-8.5 1s-5.89-.3-8.5-1L3 8c1.86.5 4 .83 6 1v13h2v-6h2v6h2V9c2-.17 4.14-.5 6-1l-.5-2zM12 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
-</div>
+<button class="a11y-btn" type="button" aria-label="תפריט נגישות" title="נגישות">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 6c-2.61.7-5.67 1-8.5 1s-5.89-.3-8.5-1L3 8c1.86.5 4 .83 6 1v13h2v-6h2v6h2V9c2-.17 4.14-.5 6-1l-.5-2zM12 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
+</button>
 
 <!-- ===== AUDIT POPUP (EXIT-INTENT / TIMED / SCROLL) ===== -->
 <div class="popup-overlay" id="auditPopup" role="dialog" aria-modal="true" aria-labelledby="popupHeading">
@@ -1458,7 +1476,7 @@ html,body{overflow-x:hidden}
 <!-- ===== COOKIE BAR ===== -->
 <div class="cookie-bar" id="cookieBar">
   <p>אתר זה עושה שימוש בקבצי Cookies. למידע נוסף יש לעיין <a href="#">בתנאי השימוש</a>.</p>
-  <button onclick="document.getElementById('cookieBar').classList.remove('show')">הבנתי</button>
+  <button onclick="document.getElementById('cookieBar').classList.remove('show');localStorage.setItem('ppc_cookies_accepted','1')">הבנתי</button>
 </div>
 
 <script>
@@ -1478,6 +1496,8 @@ function toggleFaq(el){
 
 document.addEventListener('DOMContentLoaded',function(){
 gsap.registerPlugin(ScrollTrigger);
+const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(prefersReducedMotion){document.querySelectorAll('.reveal').forEach(el=>{el.style.opacity='1';el.style.transform='none';});}
 
 // ===== PRELOADER + HERO SYNC =====
 const heroTL = gsap.timeline({paused:true});
@@ -1748,12 +1768,14 @@ window.addEventListener('scroll',()=>{
 document.querySelector('.chat-q').click();
 
 // ===== COOKIE BAR =====
-setTimeout(()=>document.getElementById('cookieBar').classList.add('show'),2500);
+if(!localStorage.getItem('ppc_cookies_accepted')){setTimeout(()=>document.getElementById('cookieBar').classList.add('show'),2500);}
 
 // ===== SMOOTH ANCHOR SCROLLING =====
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
-    const target=document.querySelector(a.getAttribute('href'));
+    const href=a.getAttribute('href');
+    if(!href||href.length<2) return;
+    const target=document.querySelector(href);
     if(target){
       e.preventDefault();
       window.scrollTo({top:target.offsetTop-20,behavior:'smooth'});
@@ -1792,12 +1814,16 @@ contactForm.addEventListener('submit', async function(e){
   submitBtn.innerHTML = 'שולח... <span class="arrow" style="animation:pulse-load 1s infinite">&#8592;</span>';
   submitBtn.disabled = true;
   submitBtn.style.opacity = '.7';
+  const ac=new AbortController();
+  const tid=setTimeout(()=>ac.abort(),10000);
   try {
     const res = await fetch(contactForm.action, {
       method: 'POST',
       body: new FormData(contactForm),
-      headers: {'Accept':'application/json'}
+      headers: {'Accept':'application/json'},
+      signal:ac.signal
     });
+    clearTimeout(tid);
     if(res.ok){
       contactForm.reset();
       submitBtn.innerHTML = '&#10003; הטופס נשלח בהצלחה!';
@@ -1844,8 +1870,10 @@ if(auditForm){
     data.append('_captcha','false');
     data.append('_honey','');
     data.append('source','landing_page_section');
+    const ac=new AbortController();const tid=setTimeout(()=>ac.abort(),10000);
     try{
-      const res = await fetch('https://formsubmit.co/ajax/felix@ppcadvisor.co.il',{method:'POST',body:data,headers:{'Accept':'application/json'}});
+      const res = await fetch('https://formsubmit.co/ajax/felix@ppcadvisor.co.il',{method:'POST',body:data,headers:{'Accept':'application/json'},signal:ac.signal});
+      clearTimeout(tid);
       if(res.ok){
         showAuditThankyou(document.getElementById('auditCard'));
       } else {
@@ -1853,6 +1881,7 @@ if(auditForm){
         btn.disabled=false;
       }
     }catch(err){
+      clearTimeout(tid);
       btn.textContent='שגיאה - נסו שוב';
       btn.disabled=false;
     }
@@ -1885,7 +1914,19 @@ function showPopup(source, heading, body, cta, dismiss){
   document.getElementById('popupDismiss').textContent = dismiss;
   popupOverlay.classList.add('show');
   document.body.style.overflow = 'hidden';
+  const firstInput = popupOverlay.querySelector('input');
+  if(firstInput) firstInput.focus();
 }
+
+function trapFocus(e){
+  if(e.key!=='Tab') return;
+  const focusable=popupOverlay.querySelectorAll('input,button,[tabindex]');
+  if(!focusable.length) return;
+  const first=focusable[0],last=focusable[focusable.length-1];
+  if(e.shiftKey && document.activeElement===first){e.preventDefault();last.focus();}
+  else if(!e.shiftKey && document.activeElement===last){e.preventDefault();first.focus();}
+}
+popupOverlay.addEventListener('keydown',trapFocus);
 
 function closePopup(){
   popupOverlay.classList.remove('show');
@@ -1913,14 +1954,17 @@ if(popupForm){
     data.append('_template','table');
     data.append('_captcha','false');
     data.append('_honey','');
+    const ac=new AbortController();const tid=setTimeout(()=>ac.abort(),10000);
     try{
-      const res = await fetch('https://formsubmit.co/ajax/felix@ppcadvisor.co.il',{method:'POST',body:data,headers:{'Accept':'application/json'}});
+      const res = await fetch('https://formsubmit.co/ajax/felix@ppcadvisor.co.il',{method:'POST',body:data,headers:{'Accept':'application/json'},signal:ac.signal});
+      clearTimeout(tid);
       if(!res.ok){
         btn.textContent='שגיאה - נסו שוב';
         btn.disabled=false;
         return;
       }
     }catch(err){
+      clearTimeout(tid);
       btn.textContent='שגיאה - נסו שוב';
       btn.disabled=false;
       return;
