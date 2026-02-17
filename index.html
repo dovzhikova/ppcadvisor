@@ -36,7 +36,7 @@
 --card-glass:rgba(77,188,208,.07);--card-border:rgba(77,188,208,.15);
 --pill:500px;--radius:43px;--font:'Ploni','Heebo',sans-serif;
 }
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden}
 body{font-family:var(--font);background:var(--bg);color:var(--text-light);direction:rtl;overflow-x:hidden;line-height:1.4;font-size:1.15rem}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
@@ -675,11 +675,11 @@ background-size:60px 60px;z-index:0}
 .visual-break__tagline{font-size:1.1rem;padding:0 8px}
 
 /* Bottom bar mobile */
-.bottom-bar{padding:4px;bottom:12px;max-width:calc(100vw - 24px);width:calc(100vw - 24px)}
+.bottom-bar{padding:4px;bottom:12px;max-width:calc(100vw - 24px);width:auto}
 .bottom-bar__icons{flex:1;min-width:0;justify-content:space-evenly;gap:0;padding:0 4px}
 .bottom-bar__cta{padding:10px 16px;font-size:.85rem;flex-shrink:0}
-.bottom-bar__icon{padding:8px 8px;font-size:.78rem;flex-shrink:1;min-width:0}
-.bottom-bar__icon span{font-size:.75rem}
+.bottom-bar__icon{padding:10px 12px;font-size:0;flex-shrink:0;min-width:0;opacity:.7}
+.bottom-bar__icon svg{width:22px;height:22px}
 
 /* Floating buttons above bottom bar on mobile */
 .whatsapp{bottom:76px;right:16px;width:46px;height:46px}
