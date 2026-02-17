@@ -250,8 +250,12 @@ p{line-height:1.4}
 .pf-card:hover{border-color:rgba(77,188,208,.35);box-shadow:0 8px 40px rgba(77,188,208,.1)}
 .pf-card__inner{display:grid;grid-template-columns:1fr 1fr;min-height:340px}
 .pf-card__img{position:relative;overflow:hidden}
-.pf-card__img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
-.pf-card:hover .pf-card__img img{transform:scale(1.04)}
+.pf-card__img img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .5s,transform .6s;position:absolute;inset:0;opacity:0}
+.pf-card__img img.active{position:relative;opacity:1}
+.pf-card:hover .pf-card__img img.active{transform:scale(1.04)}
+.pf-card__dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:2}
+.pf-card__dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);border:none;padding:0;cursor:pointer;transition:background .3s,transform .3s}
+.pf-card__dot.active{background:var(--primary);transform:scale(1.25)}
 .pf-card__info{padding:36px 32px;display:flex;flex-direction:column;justify-content:center;text-align:right}
 .pf-card__name{font-size:1.8rem;font-weight:700;color:var(--text-light);margin:0 0 8px}
 .pf-card__url{font-size:.95rem;color:var(--primary);display:inline-block;text-decoration:none;margin-bottom:16px;transition:opacity .3s}
@@ -1010,7 +1014,7 @@ background-size:60px 60px;z-index:0}
 
   <div class="pf-card reveal" style="--pf-i:0">
     <div class="pf-card__inner">
-      <div class="pf-card__img"><img src="portfolio/quiz-please-1.jpg" alt="Quiz Please" loading="lazy"></div>
+      <div class="pf-card__img"><img src="portfolio/quiz-please-1.jpg" alt="Quiz Please" class="active" loading="lazy"><img src="portfolio/quiz-please-2.jpg" alt="Quiz Please" loading="lazy"><img src="portfolio/quiz-please-3.jpg" alt="Quiz Please" loading="lazy"><div class="pf-card__dots"><button class="pf-card__dot active"></button><button class="pf-card__dot"></button><button class="pf-card__dot"></button></div></div>
       <div class="pf-card__info">
         <h3 class="pf-card__name">Quiz Please</h3>
         <a href="https://quizplease.co.il" target="_blank" rel="noopener noreferrer" class="pf-card__url">quizplease.co.il</a>
@@ -1026,7 +1030,7 @@ background-size:60px 60px;z-index:0}
 
   <div class="pf-card reveal" style="--pf-i:1">
     <div class="pf-card__inner">
-      <div class="pf-card__img"><img src="portfolio/pickforme-1.jpg" alt="JustPickForMe" loading="lazy"></div>
+      <div class="pf-card__img"><img src="portfolio/pickforme-1.jpg" alt="JustPickForMe" class="active" loading="lazy"><img src="portfolio/pickforme-2.jpg" alt="JustPickForMe" loading="lazy"><img src="portfolio/pickforme-3.jpg" alt="JustPickForMe" loading="lazy"><div class="pf-card__dots"><button class="pf-card__dot active"></button><button class="pf-card__dot"></button><button class="pf-card__dot"></button></div></div>
       <div class="pf-card__info">
         <h3 class="pf-card__name">JustPickForMe</h3>
         <a href="https://justpickforme.app" target="_blank" rel="noopener noreferrer" class="pf-card__url">justpickforme.app</a>
@@ -1042,7 +1046,7 @@ background-size:60px 60px;z-index:0}
 
   <div class="pf-card reveal" style="--pf-i:2">
     <div class="pf-card__inner">
-      <div class="pf-card__img"><img src="portfolio/grey-volcano-1.jpg" alt="Grey Volcano" loading="lazy"></div>
+      <div class="pf-card__img"><img src="portfolio/grey-volcano-1.jpg" alt="Grey Volcano" class="active" loading="lazy"><img src="portfolio/grey-volcano-2.jpg" alt="Grey Volcano" loading="lazy"><img src="portfolio/grey-volcano-3.jpg" alt="Grey Volcano" loading="lazy"><div class="pf-card__dots"><button class="pf-card__dot active"></button><button class="pf-card__dot"></button><button class="pf-card__dot"></button></div></div>
       <div class="pf-card__info">
         <h3 class="pf-card__name">Grey Volcano</h3>
         <a href="https://www.grey-volcano.com" target="_blank" rel="noopener noreferrer" class="pf-card__url">grey-volcano.com</a>
@@ -1058,7 +1062,7 @@ background-size:60px 60px;z-index:0}
 
   <div class="pf-card reveal" style="--pf-i:3">
     <div class="pf-card__inner">
-      <div class="pf-card__img"><img src="portfolio/carolbike-1.jpg" alt="CAROL Bike" loading="lazy"></div>
+      <div class="pf-card__img"><img src="portfolio/carolbike-1.jpg" alt="CAROL Bike" class="active" loading="lazy"><img src="portfolio/carolbike-2.jpg" alt="CAROL Bike" loading="lazy"><img src="portfolio/carolbike-3.jpg" alt="CAROL Bike" loading="lazy"><div class="pf-card__dots"><button class="pf-card__dot active"></button><button class="pf-card__dot"></button><button class="pf-card__dot"></button></div></div>
       <div class="pf-card__info">
         <h3 class="pf-card__name">CAROL Bike</h3>
         <a href="https://www.carolbike.com" target="_blank" rel="noopener noreferrer" class="pf-card__url">carolbike.com</a>
@@ -1074,7 +1078,7 @@ background-size:60px 60px;z-index:0}
 
   <div class="pf-card reveal" style="--pf-i:4">
     <div class="pf-card__inner">
-      <div class="pf-card__img"><img src="portfolio/coppry-1.jpg" alt="Coppry" loading="lazy"></div>
+      <div class="pf-card__img"><img src="portfolio/coppry-1.jpg" alt="Coppry" class="active" loading="lazy"></div>
       <div class="pf-card__info">
         <h3 class="pf-card__name">Coppry</h3>
         <a href="https://coppry.com" target="_blank" rel="noopener noreferrer" class="pf-card__url">coppry.com</a>
@@ -1706,13 +1710,28 @@ gsap.to('.about__glow',{
 gsap.to('.cta__glow--1',{y:-40,x:20,scrollTrigger:{trigger:'.cta',start:'top bottom',end:'bottom top',scrub:1}});
 gsap.to('.cta__glow--2',{y:40,x:-20,scrollTrigger:{trigger:'.cta',start:'top bottom',end:'bottom top',scrub:1}});
 
-// ===== MARQUEE SPEED ON SCROLL =====
-ScrollTrigger.create({trigger:'.marquee',start:'top bottom',end:'bottom top',
-  onUpdate:self=>{
-    const speed = 60 - (self.progress * 25);
-    document.querySelector('.marquee-track').style.animationDuration = speed+'s';
+// ===== PORTFOLIO SCREENSHOT CAROUSEL =====
+document.querySelectorAll('.pf-card__img').forEach(container=>{
+  const imgs=container.querySelectorAll('img');
+  const dots=container.querySelectorAll('.pf-card__dot');
+  if(imgs.length<2)return;
+  let current=0;let timer;
+  function show(i){
+    imgs[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current=i;
+    imgs[current].classList.add('active');
+    dots[current].classList.add('active');
   }
+  function next(){show((current+1)%imgs.length)}
+  function startAuto(){timer=setInterval(next,3500)}
+  function resetAuto(){clearInterval(timer);startAuto()}
+  dots.forEach((dot,i)=>dot.addEventListener('click',e=>{e.stopPropagation();show(i);resetAuto()}));
+  container.addEventListener('click',()=>{next();resetAuto()});
+  startAuto();
 });
+
+// ===== MARQUEE (constant speed, independent of scroll) =====
 
 // ===== BOTTOM BAR HIDE/SHOW =====
 let lastScroll=0;
