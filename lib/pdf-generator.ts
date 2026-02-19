@@ -1,3 +1,4 @@
+import './chromium-setup';
 import chromium from '@sparticuz/chromium';
 import puppeteer from 'puppeteer-core';
 import type { AuditData } from './types';

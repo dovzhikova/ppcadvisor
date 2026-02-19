@@ -1,3 +1,4 @@
+import './chromium-setup';
 import puppeteer from 'puppeteer-core';
 import chromium from '@sparticuz/chromium';
 import type { ScrapedData } from './types';

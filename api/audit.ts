@@ -31,24 +31,45 @@ function validateRequest(body: Record<string, unknown>): AuditRequest | null {
 }
 
 async function runAuditPipeline(request: AuditRequest): Promise<void> {
-  const scraped = await scrapeWebsite(request.website);
+  console.log(`[audit] Starting pipeline for ${request.website}`);
 
+  console.log('[audit] Scraping website...');
+  const scraped = await scrapeWebsite(request.website);
+  console.log(`[audit] Scrape done: ${scraped.title} (${scraped.loadTimeMs}ms)`);
+
+  console.log('[audit] Running PageSpeed + AI presence...');
   const [pageSpeed, aiPresence] = await Promise.all([
-    getPageSpeedInsights(request.website),
+    getPageSpeedInsights(request.website).catch((err) => {
+      console.warn('[audit] PageSpeed failed, using defaults:', err.message);
+      return {
+        performanceScore: 0, accessibilityScore: 0, seoScore: 0, bestPracticesScore: 0,
+        lcp: { value: 0, unit: 'ms' as const, rating: 'needs-improvement' as const },
+        inp: { value: 0, unit: 'ms' as const, rating: 'needs-improvement' as const },
+        cls: { value: 0, unit: '' as const, rating: 'needs-improvement' as const },
+        opportunities: [],
+      };
+    }),
     checkAIPresence(scraped.title || new URL(request.website).hostname, request.website),
   ]);
+  console.log(`[audit] PageSpeed: ${pageSpeed.performanceScore}/100, AI: ${aiPresence.summary}`);
 
+  console.log('[audit] Generating report with Gemini...');
   const report = await analyzeWebsite(scraped, pageSpeed, aiPresence);
+  console.log(`[audit] Report done: ${report.actionPlan.length} action items`);
 
   const auditData: AuditData = { request, scraped, pageSpeed, aiPresence, report };
 
+  console.log('[audit] Generating PDF...');
   const pdfBuffer = await generatePDF(auditData);
+  console.log(`[audit] PDF generated: ${(pdfBuffer.length / 1024).toFixed(0)}KB`);
 
   const keyFindings = report.actionPlan.slice(0, 3).map(
     (item) => `${item.title} (${item.impact === 'high' ? 'עדיפות גבוהה' : item.impact === 'medium' ? 'עדיפות בינונית' : 'עדיפות נמוכה'})`
   );
 
+  console.log('[audit] Sending emails...');
   await sendAuditEmail(request, pdfBuffer, keyFindings);
+  console.log('[audit] Pipeline complete!');
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
