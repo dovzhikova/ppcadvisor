@@ -11,7 +11,7 @@
     "resolveJsonModule": true,
     "declaration": true,
     "sourceMap": true,
-    "lib": ["ES2022"]
+    "lib": ["ES2022", "DOM"]
   },
   "include": ["api/**/*.ts", "lib/**/*.ts", "tests/**/*.ts"],
   "exclude": ["node_modules", "dist"]
