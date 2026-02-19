@@ -63,12 +63,8 @@ async function runAuditPipeline(request: AuditRequest): Promise<void> {
   const pdfBuffer = await generatePDF(auditData);
   console.log(`[audit] PDF generated: ${(pdfBuffer.length / 1024).toFixed(0)}KB`);
 
-  const keyFindings = report.actionPlan.slice(0, 3).map(
-    (item) => `${item.title} (${item.impact === 'high' ? 'עדיפות גבוהה' : item.impact === 'medium' ? 'עדיפות בינונית' : 'עדיפות נמוכה'})`
-  );
-
   console.log('[audit] Sending emails...');
-  await sendAuditEmail(request, pdfBuffer, keyFindings);
+  await sendAuditEmail(auditData, pdfBuffer);
   console.log('[audit] Pipeline complete!');
 }
 
