@@ -1,7 +1,13 @@
-import Anthropic from '@anthropic-ai/sdk';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import type { ScrapedData, PageSpeedResult, AIPresenceResult, AuditReport } from './types';
 
-const client = new Anthropic();
+let _genAI: GoogleGenerativeAI | null = null;
+function getGenAI(): GoogleGenerativeAI {
+  if (!_genAI) {
+    _genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY!);
+  }
+  return _genAI;
+}
 
 type ScrapedDataWithoutBuffers = Omit<ScrapedData, 'screenshotDesktop' | 'screenshotMobile'>;
 
@@ -79,16 +85,9 @@ export async function analyzeWebsite(
   const { screenshotDesktop, screenshotMobile, ...scrapedWithoutBuffers } = scraped;
   const prompt = buildAnalysisPrompt(scrapedWithoutBuffers, pageSpeed, aiPresence);
 
-  const message = await client.messages.create({
-    model: 'claude-sonnet-4-20250514',
-    max_tokens: 4096,
-    messages: [{ role: 'user', content: prompt }],
-  });
-
-  const responseText = message.content
-    .filter((block): block is Anthropic.TextBlock => block.type === 'text')
-    .map((block) => block.text)
-    .join('');
+  const model = getGenAI().getGenerativeModel({ model: 'gemini-2.0-flash' });
+  const result = await model.generateContent(prompt);
+  const responseText = result.response.text();
 
   return parseReportResponse(responseText);
 }
@@ -97,13 +96,9 @@ export async function checkAIPresence(
   businessName: string,
   url: string
 ): Promise<AIPresenceResult> {
-  const message = await client.messages.create({
-    model: 'claude-sonnet-4-20250514',
-    max_tokens: 1024,
-    messages: [
-      {
-        role: 'user',
-        content: `Check if the business "${businessName}" (website: ${url}) appears in AI search results. Search for the business name and related industry terms. Report whether this business is mentioned by AI assistants like ChatGPT, Gemini, or Perplexity when users ask about their industry/services.
+  const model = getGenAI().getGenerativeModel({ model: 'gemini-2.0-flash' });
+  const result = await model.generateContent(
+    `Check if the business "${businessName}" (website: ${url}) appears in AI search results. Search for the business name and related industry terms. Report whether this business is mentioned by AI assistants like ChatGPT, Gemini, or Perplexity when users ask about their industry/services.
 
 Respond with a JSON object (no markdown fencing):
 {
@@ -114,16 +109,10 @@ Respond with a JSON object (no markdown fencing):
   "details": "Detailed findings in Hebrew"
 }
 
-Return ONLY the JSON object.`,
-      },
-    ],
-  });
+Return ONLY the JSON object.`
+  );
 
-  const responseText = message.content
-    .filter((block): block is Anthropic.TextBlock => block.type === 'text')
-    .map((block) => block.text)
-    .join('');
-
+  const responseText = result.response.text();
   const cleaned = responseText.replace(/^```(?:json)?\s*/m, '').replace(/\s*```$/m, '').trim();
   return JSON.parse(cleaned) as AIPresenceResult;
 }

@@ -56,7 +56,7 @@ describe('buildAnalysisPrompt', () => {
 });
 
 describe('parseReportResponse', () => {
-  it('parses valid JSON response from Claude', () => {
+  it('parses valid JSON response from Gemini', () => {
     const json = JSON.stringify({
       executiveSummary: 'Summary text',
       screenshotObservations: { desktop: 'Looks clean', mobile: 'Responsive' },
