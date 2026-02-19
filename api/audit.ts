@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { waitUntil } from '@vercel/functions';
 import type { AuditRequest, AuditData } from '../lib/types';
 import { scrapeWebsite } from '../lib/scraper';
 import { getPageSpeedInsights } from '../lib/pagespeed';
@@ -60,18 +61,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: 'Missing required fields: name, email, website' });
   }
 
-  // Respond immediately
+  // Respond immediately so the frontend shows the thank-you message
   res.status(200).json({ success: true, message: 'Audit request received' });
 
-  // Run pipeline in background (within maxDuration)
-  try {
-    await runAuditPipeline(request);
-  } catch (error) {
-    console.error('Audit pipeline failed:', error);
-    try {
-      await sendErrorNotification(request, error instanceof Error ? error.stack || error.message : String(error));
-    } catch (emailError) {
-      console.error('Failed to send error notification:', emailError);
-    }
-  }
+  // Run the pipeline in the background using waitUntil
+  waitUntil(
+    runAuditPipeline(request).catch(async (error) => {
+      console.error('Audit pipeline failed:', error);
+      try {
+        await sendErrorNotification(
+          request,
+          error instanceof Error ? error.stack || error.message : String(error)
+        );
+      } catch (emailError) {
+        console.error('Failed to send error notification:', emailError);
+      }
+    })
+  );
 }
