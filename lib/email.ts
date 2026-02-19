@@ -9,7 +9,7 @@ function getResend(): Resend {
   return _resend;
 }
 
-const FROM_EMAIL = 'PPC Advisor <audit@ppcadvisor.co.il>';
+const FROM_EMAIL = process.env.EMAIL_FROM || 'PPC Advisor <onboarding@resend.dev>';
 const TEAM_EMAIL = 'felix@ppcadvisor.co.il';
 
 export function buildUserEmailHTML(name: string, domain: string, keyFindings: string[]): string {
