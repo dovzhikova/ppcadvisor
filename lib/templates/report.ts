@@ -79,7 +79,7 @@ function translatePSDesc(desc: string): string {
 let _logoB64: string | null = null;
 function getLogoB64(): string {
   if (!_logoB64) {
-    const logoPath = path.join(process.cwd(), 'logo-horizontal-white.png');
+    const logoPath = path.join(process.cwd(), 'public', 'logo-horizontal-white.png');
     _logoB64 = fs.readFileSync(logoPath).toString('base64');
   }
   return _logoB64;
