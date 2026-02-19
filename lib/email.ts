@@ -299,12 +299,19 @@ export async function sendAuditEmail(
   pdfBuffer: Buffer,
 ): Promise<void> {
   const domain = new URL(auditData.request.website).hostname;
+  const isProduction = process.env.VERCEL_ENV === 'production';
+
+  // In production, delay user email by 2 hours so it feels hand-crafted
+  const scheduledAt = isProduction
+    ? new Date(Date.now() + 2 * 60 * 60 * 1000).toISOString()
+    : undefined;
 
   await getResend().emails.send({
     from: FROM_EMAIL,
     to: auditData.request.email,
     subject: `\u05D4\u05D3\u05D5\u05D7 \u05E9\u05DC\u05DA \u05DE\u05D5\u05DB\u05DF \u2014 \u05D0\u05D1\u05D7\u05D5\u05DF \u05D3\u05D9\u05D2\u05D9\u05D8\u05DC\u05D9 \u05DC-${domain}`,
     html: buildUserEmailHTML(auditData),
+    scheduledAt,
     attachments: [
       {
         filename: `audit-report-${domain}.pdf`,
@@ -313,6 +320,7 @@ export async function sendAuditEmail(
     ],
   });
 
+  // Team notification always sends immediately
   await getResend().emails.send({
     from: FROM_EMAIL,
     to: TEAM_EMAIL,
