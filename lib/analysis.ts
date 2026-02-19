@@ -73,7 +73,14 @@ Include 5-8 action plan items ordered by impact. Return ONLY the JSON object.`;
 }
 
 export function parseReportResponse(text: string): AuditReport {
-  const cleaned = text.replace(/^```(?:json)?\s*/m, '').replace(/\s*```$/m, '').trim();
+  // Strip markdown code fences
+  let cleaned = text.replace(/^```(?:json)?\s*/m, '').replace(/\s*```$/m, '').trim();
+  // Extract the JSON object if surrounded by extra text
+  const start = cleaned.indexOf('{');
+  const end = cleaned.lastIndexOf('}');
+  if (start !== -1 && end !== -1 && end > start) {
+    cleaned = cleaned.slice(start, end + 1);
+  }
   return JSON.parse(cleaned) as AuditReport;
 }
 

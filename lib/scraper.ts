@@ -116,9 +116,14 @@ export async function scrapeWebsite(url: string): Promise<ScrapedData> {
     await page.setViewport({ width: 1440, height: 900 });
     await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
 
-    const screenshotDesktop = Buffer.from(
-      await page.screenshot({ fullPage: true }),
-    );
+    let screenshotDesktop = Buffer.alloc(0);
+    try {
+      screenshotDesktop = Buffer.from(
+        await page.screenshot({ fullPage: false }),
+      );
+    } catch (e) {
+      console.warn('[scraper] Desktop screenshot failed:', (e as Error).message);
+    }
 
     // Extract all page data in a single evaluate call
     const rawData = await page.evaluate(() => {
@@ -202,9 +207,14 @@ export async function scrapeWebsite(url: string): Promise<ScrapedData> {
     await page.setViewport({ width: 390, height: 844 });
     await page.reload({ waitUntil: 'networkidle2', timeout: 30000 });
 
-    const screenshotMobile = Buffer.from(
-      await page.screenshot({ fullPage: true }),
-    );
+    let screenshotMobile = Buffer.alloc(0);
+    try {
+      screenshotMobile = Buffer.from(
+        await page.screenshot({ fullPage: false }),
+      );
+    } catch (e) {
+      console.warn('[scraper] Mobile screenshot failed:', (e as Error).message);
+    }
 
     const loadTimeMs = Date.now() - startTime;
 
