@@ -2,7 +2,8 @@
   "functions": {
     "api/audit.ts": {
       "maxDuration": 300,
-      "memory": 3009
+      "memory": 3009,
+      "includeFiles": "logo-horizontal-white.png"
     }
   }
 }
