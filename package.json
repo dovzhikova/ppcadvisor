@@ -12,7 +12,8 @@
     "@sparticuz/chromium": "^131.0.0",
     "puppeteer-core": "^24.0.0",
     "resend": "^4.0.0",
-    "@vercel/functions": "^2.0.0"
+    "@vercel/functions": "^2.0.0",
+    "@vercel/postgres": "^0.10.0"
   },
   "devDependencies": {
     "@vercel/node": "^5.0.0",

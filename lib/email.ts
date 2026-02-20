@@ -294,10 +294,15 @@ export function buildTeamNotificationHTML(request: AuditRequest): string {
 </body></html>`;
 }
 
+export interface EmailTimestamps {
+  userEmailScheduledAt?: string;
+  teamEmailSentAt?: string;
+}
+
 export async function sendAuditEmail(
   auditData: AuditData,
   pdfBuffer: Buffer,
-): Promise<void> {
+): Promise<EmailTimestamps> {
   const domain = new URL(auditData.request.website).hostname;
   const isProduction = process.env.VERCEL_ENV === 'production';
 
@@ -320,6 +325,8 @@ export async function sendAuditEmail(
     ],
   });
 
+  const teamEmailSentAt = new Date().toISOString();
+
   // Team notification always sends immediately
   await getResend().emails.send({
     from: FROM_EMAIL,
@@ -333,6 +340,11 @@ export async function sendAuditEmail(
       },
     ],
   });
+
+  return {
+    userEmailScheduledAt: scheduledAt ?? new Date().toISOString(),
+    teamEmailSentAt,
+  };
 }
 
 export async function sendErrorNotification(request: AuditRequest, error: string): Promise<void> {

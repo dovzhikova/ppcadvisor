@@ -6,6 +6,7 @@ import { getPageSpeedInsights } from '../lib/pagespeed';
 import { analyzeWebsite, checkAIPresence } from '../lib/analysis';
 import { generatePDF } from '../lib/pdf-generator';
 import { sendAuditEmail, sendErrorNotification } from '../lib/email';
+import { createAudit, updateAuditStatus, saveAuditResults, saveEmailTimestamps } from '../lib/db';
 
 function validateRequest(body: Record<string, unknown>): AuditRequest | null {
   const name = typeof body.name === 'string' ? body.name.trim() : '';
@@ -30,13 +31,15 @@ function validateRequest(body: Record<string, unknown>): AuditRequest | null {
   };
 }
 
-async function runAuditPipeline(request: AuditRequest): Promise<void> {
+async function runAuditPipeline(request: AuditRequest, auditId: string | null): Promise<void> {
   console.log(`[audit] Starting pipeline for ${request.website}`);
 
+  await updateAuditStatus(auditId, 'scraping');
   console.log('[audit] Scraping website...');
   const scraped = await scrapeWebsite(request.website);
   console.log(`[audit] Scrape done: ${scraped.title} (${scraped.loadTimeMs}ms)`);
 
+  await updateAuditStatus(auditId, 'analyzing');
   console.log('[audit] Running PageSpeed + AI presence...');
   const [pageSpeed, aiPresence] = await Promise.all([
     getPageSpeedInsights(request.website).catch((err) => {
@@ -57,14 +60,19 @@ async function runAuditPipeline(request: AuditRequest): Promise<void> {
   const report = await analyzeWebsite(scraped, pageSpeed, aiPresence);
   console.log(`[audit] Report done: ${report.actionPlan.length} action items`);
 
+  await saveAuditResults(auditId, scraped, pageSpeed, aiPresence, report);
+
   const auditData: AuditData = { request, scraped, pageSpeed, aiPresence, report };
 
   console.log('[audit] Generating PDF...');
   const pdfBuffer = await generatePDF(auditData);
   console.log(`[audit] PDF generated: ${(pdfBuffer.length / 1024).toFixed(0)}KB`);
 
+  await updateAuditStatus(auditId, 'sending_email');
   console.log('[audit] Sending emails...');
-  await sendAuditEmail(auditData, pdfBuffer);
+  const emailTimestamps = await sendAuditEmail(auditData, pdfBuffer);
+
+  await saveEmailTimestamps(auditId, emailTimestamps);
   console.log('[audit] Pipeline complete!');
 }
 
@@ -78,18 +86,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: 'Missing required fields: name, email, website' });
   }
 
+  const auditId = await createAudit(request);
+
   // Respond immediately so the frontend shows the thank-you message
   res.status(200).json({ success: true, message: 'Audit request received' });
 
   // Run the pipeline in the background using waitUntil
   waitUntil(
-    runAuditPipeline(request).catch(async (error) => {
+    runAuditPipeline(request, auditId).catch(async (error) => {
       console.error('Audit pipeline failed:', error);
+      const errorMsg = error instanceof Error ? error.stack || error.message : String(error);
+      await updateAuditStatus(auditId, 'failed', errorMsg);
       try {
-        await sendErrorNotification(
-          request,
-          error instanceof Error ? error.stack || error.message : String(error)
-        );
+        await sendErrorNotification(request, errorMsg);
       } catch (emailError) {
         console.error('Failed to send error notification:', emailError);
       }
