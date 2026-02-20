@@ -22,9 +22,18 @@ function makeMockAuditData(): AuditData {
     aiPresence: { summary: 'Low', foundInChatGPT: false, foundInGemini: false, foundInPerplexity: false, details: 'Not found' },
     report: {
       executiveSummary: 'סיכום מנהלים', screenshotObservations: { desktop: 'נראה טוב', mobile: 'רספונסיבי' },
-      seoAnalysis: 'ניתוח SEO', aiPresenceAnalysis: 'ניתוח AI', competitorPositioning: 'עמדה תחרותית',
-      actionPlan: [{ priority: 1, title: 'תקנו SEO', description: 'הוסיפו meta tags', impact: 'high' }],
-      nextSteps: 'צרו קשר',
+      reportPurpose: 'מטרת הדוח',
+      situationOverview: 'סקירת מצב',
+      businessModelAnalysis: 'ניתוח מודל עסקי',
+      competitorAnalysis: { insight: 'תובנה תחרותית', competitors: [{ name: 'מתחרה1', url: 'https://comp.co.il', strengths: 'חוזקות' }] },
+      seoAnalysis: 'ניתוח SEO', croAnalysis: 'ניתוח CRO', marketingChannelInsights: 'תובנות שיווק',
+      aiPresenceAnalysis: 'ניתוח AI',
+      businessPotential: 'פוטנציאל צמיחה',
+      phasedActionPlan: {
+        phase1: { title: 'ימים 1-30', items: [{ title: 'תקנו SEO', description: 'הוסיפו meta tags', impact: 'high' as const }] },
+        phase2: { title: 'ימים 31-60', items: [{ title: 'שפרו CRO', description: 'הוסיפו trust signals', impact: 'medium' as const }] },
+        phase3: { title: 'ימים 61-90', items: [{ title: 'הגדילו שיווק', description: 'השיקו קמפיינים', impact: 'low' as const }] },
+      },
     },
   };
 }

@@ -60,17 +60,24 @@ describe('parseReportResponse', () => {
     const json = JSON.stringify({
       executiveSummary: 'Summary text',
       screenshotObservations: { desktop: 'Looks clean', mobile: 'Responsive' },
+      reportPurpose: 'Purpose text',
+      situationOverview: 'Situation text',
+      businessModelAnalysis: 'Business model text',
+      competitorAnalysis: { insight: 'Insight text', competitors: [{ name: 'Comp1', url: 'https://comp1.com', strengths: 'Strong SEO' }] },
       seoAnalysis: 'SEO needs work',
+      croAnalysis: 'CRO text',
+      marketingChannelInsights: 'Marketing text',
       aiPresenceAnalysis: 'Not found in AI',
-      competitorPositioning: 'Behind competitors',
-      actionPlan: [
-        { priority: 1, title: 'Fix SEO', description: 'Add meta tags', impact: 'high' },
-      ],
-      nextSteps: 'Schedule a call',
+      businessPotential: 'Growth potential text',
+      phasedActionPlan: {
+        phase1: { title: 'ימים 1-30', items: [{ title: 'Fix SEO', description: 'Add meta tags', impact: 'high' }] },
+        phase2: { title: 'ימים 31-60', items: [{ title: 'Improve CRO', description: 'Add trust signals', impact: 'medium' }] },
+        phase3: { title: 'ימים 61-90', items: [{ title: 'Scale marketing', description: 'Launch campaigns', impact: 'medium' }] },
+      },
     });
     const result = parseReportResponse(json);
     expect(result.executiveSummary).toBe('Summary text');
-    expect(result.actionPlan).toHaveLength(1);
-    expect(result.actionPlan[0].priority).toBe(1);
+    expect(result.phasedActionPlan.phase1.items).toHaveLength(1);
+    expect(result.phasedActionPlan.phase1.items[0].title).toBe('Fix SEO');
   });
 });

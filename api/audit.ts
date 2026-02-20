@@ -58,7 +58,8 @@ async function runAuditPipeline(request: AuditRequest, auditId: string | null): 
 
   console.log('[audit] Generating report with Gemini...');
   const report = await analyzeWebsite(scraped, pageSpeed, aiPresence);
-  console.log(`[audit] Report done: ${report.actionPlan.length} action items`);
+  const totalItems = report.phasedActionPlan.phase1.items.length + report.phasedActionPlan.phase2.items.length + report.phasedActionPlan.phase3.items.length;
+  console.log(`[audit] Report done: ${totalItems} action items across 3 phases`);
 
   await saveAuditResults(auditId, scraped, pageSpeed, aiPresence, report);
 

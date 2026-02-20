@@ -23,14 +23,20 @@ function mockAuditData(overrides: Partial<AuditData> = {}): AuditData {
     report: {
       executiveSummary: 'Summary text',
       screenshotObservations: { desktop: 'desktop obs', mobile: 'mobile obs' },
+      reportPurpose: 'Purpose text',
+      situationOverview: 'Situation text',
+      businessModelAnalysis: 'Business model text',
+      competitorAnalysis: { insight: 'Insight text', competitors: [{ name: 'Comp1', url: 'https://comp1.com', strengths: 'Strong SEO' }] },
       seoAnalysis: 'SEO analysis text',
+      croAnalysis: 'CRO analysis text',
+      marketingChannelInsights: 'Marketing text',
       aiPresenceAnalysis: 'AI analysis text',
-      competitorPositioning: 'Competitor text',
-      actionPlan: [
-        { priority: 1, title: '\u05E6\u05D9\u05D5\u05DF \u05D1\u05D9\u05E6\u05D5\u05E2\u05D9\u05DD: 72/100', description: 'Needs improvement', impact: 'high' },
-        { priority: 2, title: '\u05D7\u05E1\u05E8 Schema.org', description: 'Add structured data', impact: 'medium' },
-      ],
-      nextSteps: 'Next steps text',
+      businessPotential: 'Growth potential text',
+      phasedActionPlan: {
+        phase1: { title: '\u05D9\u05DE\u05D9\u05DD 1-30', items: [{ title: '\u05E6\u05D9\u05D5\u05DF \u05D1\u05D9\u05E6\u05D5\u05E2\u05D9\u05DD: 72/100', description: 'Needs improvement', impact: 'high' as const }] },
+        phase2: { title: '\u05D9\u05DE\u05D9\u05DD 31-60', items: [{ title: '\u05D7\u05E1\u05E8 Schema.org', description: 'Add structured data', impact: 'medium' as const }] },
+        phase3: { title: '\u05D9\u05DE\u05D9\u05DD 61-90', items: [{ title: 'Scale', description: 'Expand reach', impact: 'low' as const }] },
+      },
     },
     ...overrides,
   };

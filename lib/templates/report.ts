@@ -96,7 +96,7 @@ function impactBadge(impact: 'high' | 'medium' | 'low'): string {
     low:    { bg: 'rgba(77,188,208,.15)', border: 'rgba(77,188,208,.35)', text: '#4DBCD0', label: '\u05E0\u05DE\u05D5\u05DA' },
   };
   const c = m[impact] || m.medium;
-  return `<span style="display:inline-block;padding:6px 22px;border-radius:500px;font-size:14px;font-weight:700;background:${c.bg};color:${c.text};border:1px solid ${c.border};">${c.label}</span>`;
+  return `<span style="display:inline-block;padding:4px 16px;border-radius:500px;font-size:12px;font-weight:700;background:${c.bg};color:${c.text};border:1px solid ${c.border};">${c.label}</span>`;
 }
 
 function scoreGaugeSVG(score: number, label: string): string {
@@ -360,6 +360,9 @@ function renderCover(data: AuditData): string {
         <div style="text-align:center"><div class="cs-n">14</div><div class="cs-l">\u05E9\u05E0\u05D5\u05EA \u05D1\u05E9\u05D5\u05E7</div></div>
         <div style="text-align:center"><div class="cs-n">\u20AA47M+</div><div class="cs-l">\u05EA\u05E7\u05E6\u05D9\u05D1\u05D9 \u05DE\u05D3\u05D9\u05D4</div></div>
       </div>
+      <div style="max-width:520px;margin:18px auto 0;position:relative;z-index:1;">
+        <div class="sb" style="font-size:14px;text-align:right;padding:12px 18px;">${data.report.reportPurpose}</div>
+      </div>
     </div>`;
 }
 
@@ -369,44 +372,89 @@ function chrome(label: string, num: number) {
   return { h, f };
 }
 
-function renderOverview(data: AuditData): string {
-  const { h, f } = chrome( '\u05E1\u05E7\u05D9\u05E8\u05EA \u05DE\u05E0\u05D4\u05DC\u05D9\u05DD', 2);
-  const s = data.scraped;
-  const desktopB64 = s.screenshotDesktop?.length > 0 ? `data:image/png;base64,${s.screenshotDesktop.toString('base64')}` : '';
-  const mobileB64 = s.screenshotMobile?.length > 0 ? `data:image/png;base64,${s.screenshotMobile.toString('base64')}` : '';
-  const loadSec = s.loadTimeMs > 0 ? `${(s.loadTimeMs / 1000).toFixed(1)}s` : '\u2014';
-  const altPct = s.imageCount > 0 ? Math.round((s.imagesWithAlt / s.imageCount) * 100) + '%' : '\u2014';
-  const h1Count = s.headings.filter(x => x.level === 1).length;
-  const h2Count = s.headings.filter(x => x.level === 2).length;
-  const h3Count = s.headings.filter(x => x.level === 3).length;
+function renderSituation(data: AuditData): string {
+  const { h, f } = chrome('\u05DE\u05E6\u05D1 \u05D5\u05E0\u05D9\u05EA\u05D5\u05D7 \u05E2\u05E1\u05E7\u05D9', 2);
 
   return `
     <div class="page"><div class="glow g-tr"></div>${h}
       <div class="pb">
-        <h2 class="st">\u05E1\u05E7\u05D9\u05E8\u05EA \u05DE\u05E0\u05D4\u05DC\u05D9\u05DD</h2>
-        <div class="sb">${data.report.executiveSummary}</div>
-
-        <!-- Quick stats row -->
-        <div style="display:flex;gap:8px;margin:10px 0;">
-          ${statCard(loadSec, '\u05D6\u05DE\u05DF \u05D8\u05E2\u05D9\u05E0\u05D4')}
-          ${statCard(String(s.imageCount), '\u05EA\u05DE\u05D5\u05E0\u05D5\u05EA')}
-          ${statCard(altPct, '\u05EA\u05DE\u05D5\u05E0\u05D5\u05EA \u05E2\u05DD Alt')}
-          ${statCard(String(s.internalLinkCount), '\u05E7\u05D9\u05E9\u05D5\u05E8\u05D9\u05DD \u05E4\u05E0\u05D9\u05DE\u05D9\u05D9\u05DD')}
-          ${statCard(String(s.externalLinkCount), '\u05E7\u05D9\u05E9\u05D5\u05E8\u05D9\u05DD \u05D7\u05D9\u05E6\u05D5\u05E0\u05D9\u05D9\u05DD')}
-          ${statCard(`${h1Count + h2Count + h3Count}`, '\u05DE\u05D1\u05E0\u05D4 \u05DB\u05D5\u05EA\u05E8\u05D5\u05EA')}
-        </div>
-
-        <!-- Screenshots inline -->
-        <div class="ss-row">
-          <div class="ss-card" style="flex:3;">
-            ${desktopB64 ? `<img src="${desktopB64}" alt="\u05E9\u05D5\u05DC\u05D7\u05E0\u05D9"/>` : '<div class="ss-placeholder">\u05E6\u05D9\u05DC\u05D5\u05DD \u05DE\u05E1\u05DA \u05E9\u05D5\u05DC\u05D7\u05E0\u05D9</div>'}
-            <div class="ss-cap">\u05E9\u05D5\u05DC\u05D7\u05E0\u05D9</div>
-            <div class="ss-obs">${data.report.screenshotObservations.desktop}</div>
+        <div class="two">
+          <div class="c">
+            <h2 class="st">\u05E1\u05E7\u05D9\u05E8\u05EA \u05DE\u05E6\u05D1</h2>
+            <div class="sb" style="margin-bottom:14px;">${data.report.executiveSummary}</div>
+            <div class="at">${data.report.situationOverview}</div>
           </div>
-          <div class="ss-card" style="flex:1;">
-            ${mobileB64 ? `<img src="${mobileB64}" alt="\u05E0\u05D9\u05D9\u05D3"/>` : '<div class="ss-placeholder">\u05E6\u05D9\u05DC\u05D5\u05DD \u05DE\u05E1\u05DA \u05E0\u05D9\u05D9\u05D3</div>'}
-            <div class="ss-cap">\u05E0\u05D9\u05D9\u05D3</div>
-            <div class="ss-obs">${data.report.screenshotObservations.mobile}</div>
+          <div class="c">
+            <h2 class="st">\u05E0\u05D9\u05EA\u05D5\u05D7 \u05DE\u05D5\u05D3\u05DC \u05E2\u05E1\u05E7\u05D9</h2>
+            <div class="at">${data.report.businessModelAnalysis}</div>
+          </div>
+        </div>
+      </div>
+    ${f}</div>`;
+}
+
+function renderCRO(data: AuditData): string {
+  const { h, f } = chrome('CRO \u05D5\u05D7\u05D5\u05D5\u05D9\u05D9\u05EA \u05DE\u05E9\u05EA\u05DE\u05E9', 3);
+  const s = data.scraped;
+  const desktopB64 = s.screenshotDesktop?.length > 0 ? `data:image/png;base64,${s.screenshotDesktop.toString('base64')}` : '';
+  const mobileB64 = s.screenshotMobile?.length > 0 ? `data:image/png;base64,${s.screenshotMobile.toString('base64')}` : '';
+
+  return `
+    <div class="page"><div class="glow g-bl"></div>${h}
+      <div class="pb">
+        <div class="two">
+          <div class="c">
+            <h2 class="st">\u05E6\u05D9\u05DC\u05D5\u05DE\u05D9 \u05DE\u05E1\u05DA</h2>
+            <div class="ss-row" style="gap:12px;">
+              <div class="ss-card" style="flex:3;">
+                ${desktopB64 ? `<img src="${desktopB64}" alt="\u05E9\u05D5\u05DC\u05D7\u05E0\u05D9" style="max-height:230px;"/>` : '<div class="ss-placeholder">\u05E6\u05D9\u05DC\u05D5\u05DD \u05DE\u05E1\u05DA \u05E9\u05D5\u05DC\u05D7\u05E0\u05D9</div>'}
+                <div class="ss-cap">\u05E9\u05D5\u05DC\u05D7\u05E0\u05D9</div>
+              </div>
+              <div class="ss-card" style="flex:1;">
+                ${mobileB64 ? `<img src="${mobileB64}" alt="\u05E0\u05D9\u05D9\u05D3" style="max-height:230px;"/>` : '<div class="ss-placeholder">\u05E6\u05D9\u05DC\u05D5\u05DD \u05DE\u05E1\u05DA \u05E0\u05D9\u05D9\u05D3</div>'}
+                <div class="ss-cap">\u05E0\u05D9\u05D9\u05D3</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;margin-top:10px;">
+              <div class="glass" style="flex:3;padding:10px 14px;font-size:13px;color:rgba(236,236,236,.6);line-height:1.5;"><strong style="color:#4DBCD0;font-size:11px;letter-spacing:.04em;display:block;margin-bottom:4px;">\u05E9\u05D5\u05DC\u05D7\u05E0\u05D9</strong>${data.report.screenshotObservations.desktop}</div>
+              <div class="glass" style="flex:1;padding:10px 14px;font-size:13px;color:rgba(236,236,236,.6);line-height:1.5;"><strong style="color:#4DBCD0;font-size:11px;letter-spacing:.04em;display:block;margin-bottom:4px;">\u05E0\u05D9\u05D9\u05D3</strong>${data.report.screenshotObservations.mobile}</div>
+            </div>
+          </div>
+          <div class="c">
+            <h2 class="st">\u05E0\u05D9\u05EA\u05D5\u05D7 CRO \u05D5\u05D7\u05D5\u05D5\u05D9\u05D9\u05EA \u05DE\u05E9\u05EA\u05DE\u05E9</h2>
+            <div class="at">${data.report.croAnalysis}</div>
+          </div>
+        </div>
+      </div>
+    ${f}</div>`;
+}
+
+function renderCompetitorMarket(data: AuditData): string {
+  const { h, f } = chrome('\u05EA\u05D7\u05E8\u05D5\u05EA \u05D5\u05E9\u05D5\u05E7', 4);
+  const comp = data.report.competitorAnalysis;
+
+  return `
+    <div class="page"><div class="glow g-tr"></div>${h}
+      <div class="pb">
+        <div class="two">
+          <div class="c">
+            <h2 class="st">\u05E0\u05D9\u05EA\u05D5\u05D7 \u05EA\u05D7\u05E8\u05D5\u05EA\u05D9</h2>
+            <div class="at" style="margin-bottom:14px;">${comp.insight}</div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              ${comp.competitors.map(c => `
+                <div class="glass" style="padding:14px 18px;">
+                  <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+                    <span style="font-size:16px;font-weight:800;color:#ECECEC;">${c.name}</span>
+                    <span style="font-size:11px;color:rgba(236,236,236,.35);">${c.url}</span>
+                  </div>
+                  <div style="font-size:13px;color:rgba(236,236,236,.6);line-height:1.55;">${c.strengths}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+          <div class="c">
+            <h2 class="st">\u05EA\u05D5\u05D1\u05E0\u05D5\u05EA \u05E9\u05D9\u05D5\u05D5\u05E7\u05D9\u05D5\u05EA</h2>
+            <div class="at">${data.report.marketingChannelInsights}</div>
           </div>
         </div>
       </div>
@@ -414,7 +462,7 @@ function renderOverview(data: AuditData): string {
 }
 
 function renderTechnical(data: AuditData): string {
-  const { h, f } = chrome( '\u05E0\u05D9\u05EA\u05D5\u05D7 \u05D8\u05DB\u05E0\u05D9', 3);
+  const { h, f } = chrome('\u05E0\u05D9\u05EA\u05D5\u05D7 \u05D8\u05DB\u05E0\u05D9', 5);
   const s = data.scraped;
 
   const checks = [
@@ -481,7 +529,7 @@ function renderTechnical(data: AuditData): string {
 }
 
 function renderPerformance(data: AuditData): string {
-  const { h, f } = chrome( '\u05D1\u05D9\u05E6\u05D5\u05E2\u05D9\u05DD', 4);
+  const { h, f } = chrome('\u05D1\u05D9\u05E6\u05D5\u05E2\u05D9\u05DD', 6);
   const ps = data.pageSpeed;
   const hasScores = ps.performanceScore > 0;
 
@@ -491,7 +539,7 @@ function renderPerformance(data: AuditData): string {
         <div class="two">
           <div class="c">
             <h2 class="st">\u05E6\u05D9\u05D5\u05E0\u05D9 \u05D1\u05D9\u05E6\u05D5\u05E2\u05D9\u05DD</h2>
-            ${hasScores ? `<div class="sc-grid">${scoreGaugeSVG(ps.performanceScore, '\u05D1\u05D9\u05E6\u05D5\u05E2\u05D9\u05DD')}${scoreGaugeSVG(ps.accessibilityScore, '\u05E0\u05D2\u05D9\u05E9\u05D5\u05EA')}${scoreGaugeSVG(ps.seoScore, 'SEO')}${scoreGaugeSVG(ps.bestPracticesScore, '\u05E9\u05D9\u05D8\u05D5\u05EA \u05DE\u05D5\u05DE\u05DC\u05E6\u05D5\u05EA')}</div>` : `<div class="glass" style="text-align:center;padding:28px;color:rgba(236,236,236,.45);font-size:16px;">\u05E0\u05EA\u05D5\u05E0\u05D9 PageSpeed \u05DC\u05D0 \u05D6\u05DE\u05D9\u05E0\u05D9\u05DD \u05DB\u05E8\u05D2\u05E2.</div>`}
+            ${hasScores ? `<div class="sc-grid">${scoreGaugeSVG(ps.performanceScore, '\u05D1\u05D9\u05E6\u05D5\u05E2\u05D9\u05DD')}${scoreGaugeSVG(ps.accessibilityScore, '\u05E0\u05D2\u05D9\u05E9\u05D5\u05EA')}${scoreGaugeSVG(ps.seoScore, 'SEO')}${scoreGaugeSVG(ps.bestPracticesScore, '\u05E9\u05D9\u05D8\u05D5\u05EA \u05DE\u05D5\u05DE\u05DC\u05E6\u05D5\u05EA')}</div>` : `<div class="glass" style="text-align:center;padding:28px;color:rgba(236,236,236,.45);font-size:16px;">\u05E0\u05EA\u05D5\u05E0\u05D9 PageSpeed \u05DC\u05D0 \u05D6\u05DE\u05D9\u05E0\u05D9\u05DD \u05DB\u05E8\u05D2\u05E2.</div><div class="at" style="margin-top:14px;">\u05D4\u05D0\u05EA\u05E8 \u05D0\u05D9\u05E0\u05D5 \u05E0\u05DE\u05E6\u05D0 \u05D1\u05DE\u05D0\u05D2\u05E8 \u05D4\u05E0\u05EA\u05D5\u05E0\u05D9\u05DD \u05E9\u05DC Google PageSpeed Insights \u2014 \u05D6\u05D4 \u05E7\u05D5\u05E8\u05D4 \u05DC\u05E8\u05D5\u05D1 \u05DC\u05D0\u05EA\u05E8\u05D9\u05DD \u05D7\u05D3\u05E9\u05D9\u05DD \u05D0\u05D5 \u05D0\u05EA\u05E8\u05D9\u05DD \u05E2\u05DD \u05EA\u05E0\u05D5\u05E2\u05D4 \u05DE\u05D5\u05E2\u05D8\u05D4. \u05DE\u05D5\u05DE\u05DC\u05E5 \u05DC\u05D1\u05D3\u05D5\u05E7 \u05D0\u05EA \u05D4\u05D1\u05D9\u05E6\u05D5\u05E2\u05D9\u05DD \u05D9\u05D3\u05E0\u05D9\u05EA \u05D1\u05DB\u05EA\u05D5\u05D1\u05EA: <span style="color:#4DBCD0;">pagespeed.web.dev</span></div>`}
             <h3 class="sst">\u05DE\u05D3\u05D3\u05D9 \u05D0\u05D9\u05E0\u05D8\u05E8\u05E0\u05D8 \u05DE\u05E8\u05DB\u05D6\u05D9\u05D9\u05DD (Core Web Vitals)</h3>
             <div class="vc">
               <div class="vi"><div class="vn">LCP</div><div class="vv" style="color:${ratingColor(ps.lcp.rating)}">${hasScores ? ps.lcp.value + ps.lcp.unit : '\u2014'}</div><div class="vr" style="color:${ratingColor(ps.lcp.rating)}">${hasScores ? ratingLabel(ps.lcp.rating) : ''}</div></div>
@@ -500,65 +548,92 @@ function renderPerformance(data: AuditData): string {
             </div>
           </div>
           <div class="c">
-            ${ps.opportunities.length > 0 ? `<h2 class="st">\u05D4\u05D6\u05D3\u05DE\u05E0\u05D5\u05D9\u05D5\u05EA \u05DC\u05E9\u05D9\u05E4\u05D5\u05E8</h2><div class="ol">${ps.opportunities.slice(0, 6).map(o => `<div class="oi"><div class="ot">${translatePS(o.title)}</div><div class="od">${translatePSDesc(o.description)}</div></div>`).join('')}</div>` : `<h2 class="st">\u05D4\u05D6\u05D3\u05DE\u05E0\u05D5\u05D9\u05D5\u05EA</h2><div class="glass" style="text-align:center;padding:28px;color:rgba(236,236,236,.45);font-size:16px;">\u05D0\u05D9\u05DF \u05D4\u05D6\u05D3\u05DE\u05E0\u05D5\u05D9\u05D5\u05EA \u05D6\u05DE\u05D9\u05E0\u05D5\u05EA.</div>`}
+            ${ps.opportunities.length > 0 ? `<h2 class="st">\u05D4\u05D6\u05D3\u05DE\u05E0\u05D5\u05D9\u05D5\u05EA \u05DC\u05E9\u05D9\u05E4\u05D5\u05E8</h2><div class="ol">${ps.opportunities.slice(0, 6).map(o => `<div class="oi"><div class="ot">${translatePS(o.title)}</div><div class="od">${translatePSDesc(o.description)}</div></div>`).join('')}</div>` : `<h2 class="st">\u05D4\u05DE\u05DC\u05E6\u05D5\u05EA \u05DC\u05E9\u05D9\u05E4\u05D5\u05E8 \u05D1\u05D9\u05E6\u05D5\u05E2\u05D9\u05DD</h2>
+              <div class="ol">
+                <div class="oi"><div class="ot">\u05D0\u05D5\u05E4\u05D8\u05D9\u05DE\u05D9\u05D6\u05E6\u05D9\u05D4 \u05E9\u05DC \u05EA\u05DE\u05D5\u05E0\u05D5\u05EA</div><div class="od">\u05D4\u05DE\u05E8\u05EA \u05EA\u05DE\u05D5\u05E0\u05D5\u05EA \u05DC\u05E4\u05D5\u05E8\u05DE\u05D8 WebP, \u05D3\u05D7\u05D9\u05E1\u05D4, \u05D5\u05D4\u05EA\u05D0\u05DE\u05EA \u05D2\u05D5\u05D3\u05DC \u05DC\u05E6\u05D5\u05E8\u05DA \u05D4\u05EA\u05E6\u05D5\u05D2\u05D4 \u05D1\u05E4\u05D5\u05E2\u05DC.</div></div>
+                <div class="oi"><div class="ot">\u05E6\u05DE\u05E6\u05D5\u05DD JavaScript \u05D5-CSS</div><div class="od">\u05D4\u05E1\u05E8\u05EA \u05E7\u05D5\u05D3 \u05DC\u05D0 \u05D1\u05E9\u05D9\u05DE\u05D5\u05E9, \u05DE\u05D6\u05E2\u05D5\u05E8 \u05E7\u05D1\u05E6\u05D9\u05DD, \u05D5\u05D3\u05D7\u05D9\u05D9\u05EA \u05D8\u05E2\u05D9\u05E0\u05EA \u05E1\u05E7\u05E8\u05D9\u05E4\u05D8\u05D9\u05DD \u05DC\u05D0 \u05E7\u05E8\u05D9\u05D8\u05D9\u05D9\u05DD.</div></div>
+                <div class="oi"><div class="ot">\u05E9\u05D9\u05DE\u05D5\u05E9 \u05D1-CDN</div><div class="od">\u05E8\u05E9\u05EA \u05D4\u05E4\u05E6\u05EA \u05EA\u05D5\u05DB\u05DF \u05DE\u05E7\u05E8\u05D1\u05EA \u05D0\u05EA \u05D4\u05E7\u05D1\u05E6\u05D9\u05DD \u05DC\u05DE\u05E9\u05EA\u05DE\u05E9 \u05D5\u05DE\u05E9\u05E4\u05E8\u05EA \u05D6\u05DE\u05E0\u05D9 \u05D8\u05E2\u05D9\u05E0\u05D4 \u05DE\u05E9\u05DE\u05E2\u05D5\u05EA\u05D9\u05EA.</div></div>
+                <div class="oi"><div class="ot">\u05DE\u05D8\u05DE\u05D5\u05DF \u05D3\u05E4\u05D3\u05E4\u05DF (\u05E7\u05E9\u05D9\u05E0\u05D2)</div><div class="od">\u05D4\u05D2\u05D3\u05E8\u05EA Cache-Control \u05DC\u05DE\u05E9\u05D0\u05D1\u05D9\u05DD \u05E1\u05D8\u05D8\u05D9\u05D9\u05DD \u05DE\u05E4\u05D7\u05D9\u05EA\u05D4 \u05D0\u05EA \u05D4\u05E6\u05D5\u05E8\u05DA \u05D1\u05D8\u05E2\u05D9\u05E0\u05D5\u05EA \u05D7\u05D5\u05D6\u05E8\u05D5\u05EA.</div></div>
+                <div class="oi"><div class="ot">\u05D8\u05E2\u05D9\u05E0\u05EA \u05D2\u05D5\u05E4\u05E0\u05D9\u05DD \u05D9\u05E2\u05D9\u05DC\u05D4</div><div class="od">\u05E9\u05D9\u05DE\u05D5\u05E9 \u05D1-font-display: swap \u05D5\u05D8\u05E2\u05D9\u05E0\u05D4 \u05DE\u05E7\u05D3\u05D9\u05DE\u05D4 \u05E9\u05DC \u05D2\u05D5\u05E4\u05E0\u05D9\u05DD \u05DC\u05DE\u05E0\u05D9\u05E2\u05EA \u05D4\u05D1\u05D4\u05D5\u05D1 \u05D1\u05D8\u05E7\u05E1\u05D8.</div></div>
+              </div>`}
           </div>
         </div>
       </div>
     ${f}</div>`;
 }
 
+function aiStatusSVG(found: boolean | null): string {
+  if (found === true) {
+    return `<svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="18" fill="#4DBCD0"/><path d="M10 18l5 5 11-11" stroke="#0E1F33" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  }
+  return `<svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="18" fill="#ff4e42"/><path d="M12 12l12 12M24 12l-12 12" stroke="#0E1F33" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`;
+}
+
 function renderAI(data: AuditData): string {
-  const { h, f } = chrome( '\u05E0\u05D5\u05DB\u05D7\u05D5\u05EA AI \u05D5\u05E2\u05DE\u05D3\u05D4 \u05EA\u05D7\u05E8\u05D5\u05EA\u05D9\u05EA', 5);
+  const { h, f } = chrome('\u05E0\u05D5\u05DB\u05D7\u05D5\u05EA AI \u05D5\u05E0\u05D5\u05DB\u05D7\u05D5\u05EA \u05D3\u05D9\u05D2\u05D9\u05D8\u05DC\u05D9\u05EA', 7);
 
   return `
     <div class="page"><div class="glow g-bl"></div>${h}
       <div class="pb">
-        <div class="two">
-          <div class="c">
-            <h2 class="st">\u05E0\u05D5\u05DB\u05D7\u05D5\u05EA \u05D1\u05DE\u05E0\u05D5\u05E2\u05D9 AI</h2>
-            <div class="ag">
-              <div class="ac"><div class="as">${data.aiPresence.foundInChatGPT ? '\u2705' : '\u274C'}</div><div class="an">ChatGPT</div></div>
-              <div class="ac"><div class="as">${data.aiPresence.foundInGemini ? '\u2705' : '\u274C'}</div><div class="an">Gemini</div></div>
-              <div class="ac"><div class="as">${data.aiPresence.foundInPerplexity ? '\u2705' : '\u274C'}</div><div class="an">Perplexity</div></div>
-            </div>
-            <div class="glass" style="margin-top:16px;padding:22px 26px;">
-              <h3 class="sst" style="margin-top:0;">\u05DE\u05D4 \u05D6\u05D4 \u05D0\u05D5\u05DE\u05E8?</h3>
-              <div class="at" style="font-size:15px;">${data.aiPresence.details || data.aiPresence.summary}</div>
-            </div>
-            <div class="at" style="margin-top:16px;">${data.report.aiPresenceAnalysis}</div>
-          </div>
-          <div class="c">
-            <h2 class="st">\u05E2\u05DE\u05D3\u05D4 \u05EA\u05D7\u05E8\u05D5\u05EA\u05D9\u05EA</h2>
-            <div class="at">${data.report.competitorPositioning}</div>
-          </div>
+        <h2 class="st">\u05E0\u05D5\u05DB\u05D7\u05D5\u05EA \u05D1\u05DE\u05E0\u05D5\u05E2\u05D9 AI</h2>
+        <div class="ag">
+          <div class="ac"><div class="as">${aiStatusSVG(data.aiPresence.foundInChatGPT)}</div><div class="an">ChatGPT</div></div>
+          <div class="ac"><div class="as">${aiStatusSVG(data.aiPresence.foundInGemini)}</div><div class="an">Gemini</div></div>
+          <div class="ac"><div class="as">${aiStatusSVG(data.aiPresence.foundInPerplexity)}</div><div class="an">Perplexity</div></div>
         </div>
+        <div class="glass" style="margin-top:16px;padding:22px 26px;">
+          <h3 class="sst" style="margin-top:0;">\u05DE\u05D4 \u05D6\u05D4 \u05D0\u05D5\u05DE\u05E8?</h3>
+          <div class="at" style="font-size:15px;">${data.aiPresence.details || data.aiPresence.summary}</div>
+        </div>
+        <div class="at" style="margin-top:16px;">${data.report.aiPresenceAnalysis}</div>
       </div>
     ${f}</div>`;
 }
 
-function renderActionPlan(data: AuditData): string {
-  const { h, f } = chrome( '\u05EA\u05D5\u05DB\u05E0\u05D9\u05EA \u05E4\u05E2\u05D5\u05DC\u05D4', 6);
+function renderPhaseColumn(phase: { title: string; items: { title: string; description: string; impact: 'high' | 'medium' | 'low' }[] }): string {
+  return `
+    <div class="c">
+      <h3 class="sst" style="color:#4DBCD0;margin-top:0;font-size:15px;">${phase.title}</h3>
+      <div class="al" style="margin:4px 0;">
+        ${phase.items.map((item, i) => `
+          <div class="ai" style="padding:5px 0;">
+            <div class="anum" style="width:24px;height:24px;font-size:12px;">${i + 1}</div>
+            <div class="ab">
+              <div class="atit" style="font-size:13px;margin-bottom:2px;">${item.title}</div>
+              <div class="adesc" style="font-size:11px;line-height:1.4;">${item.description.slice(0, 100)}${item.description.length > 100 ? '...' : ''}</div>
+              <div style="margin-top:3px;">${impactBadge(item.impact)}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>`;
+}
+
+function renderPhasedActionPlan(data: AuditData): string {
+  const { h, f } = chrome('\u05EA\u05D5\u05DB\u05E0\u05D9\u05EA 90 \u05D9\u05D5\u05DD', 8);
+  const plan = data.report.phasedActionPlan;
 
   return `
     <div class="page"><div class="glow g-bl"></div><div class="glow g-tr"></div>${h}
       <div class="pb">
-        <div class="two">
-          <div class="c">
-            <h2 class="st">\u05EA\u05D5\u05DB\u05E0\u05D9\u05EA \u05E4\u05E2\u05D5\u05DC\u05D4</h2>
-            <div class="al">
-              ${data.report.actionPlan.map((item, i) => `<div class="ai"><div class="anum">${i + 1}</div><div class="ab"><div class="atit">${item.title}</div><div class="adesc">${item.description}</div><div class="am">${impactBadge(item.impact)}<span style="font-size:13px;color:rgba(236,236,236,.4);font-weight:500;">\u05E2\u05D3\u05D9\u05E4\u05D5\u05EA: ${item.priority}</span></div></div></div>`).join('')}
-            </div>
+        <h2 class="st">\u05EA\u05D5\u05DB\u05E0\u05D9\u05EA \u05E4\u05E2\u05D5\u05DC\u05D4 \u05DC-90 \u05D9\u05D5\u05DD</h2>
+        <div style="display:flex;gap:18px;margin-top:8px;">
+          ${renderPhaseColumn(plan.phase1)}
+          ${renderPhaseColumn(plan.phase2)}
+          ${renderPhaseColumn(plan.phase3)}
+        </div>
+
+        <!-- Bottom row: Business potential + CTA side by side -->
+        <div style="display:flex;gap:14px;margin-top:10px;">
+          <div class="glass" style="flex:1;padding:12px 18px;">
+            <h3 class="sst" style="margin-top:0;color:#4DBCD0;font-size:15px;">\u05E4\u05D5\u05D8\u05E0\u05E6\u05D9\u05D0\u05DC \u05E6\u05DE\u05D9\u05D7\u05D4</h3>
+            <div class="at" style="font-size:12px;line-height:1.5;">${data.report.businessPotential}</div>
           </div>
-          <div class="c">
-            <h2 class="st">\u05E6\u05E2\u05D3\u05D9\u05DD \u05D4\u05D1\u05D0\u05D9\u05DD</h2>
-            <div class="at" style="margin-bottom:22px;">${data.report.nextSteps}</div>
-            <div class="cta">
-              <h3>\u05E8\u05D5\u05E6\u05D9\u05DD \u05DC\u05E9\u05E4\u05E8 \u05D0\u05EA \u05D4\u05EA\u05D5\u05E6\u05D0\u05D5\u05EA?</h3>
-              <p>\u05E6\u05D5\u05D5\u05EA PPC Advisor \u05D9\u05E2\u05D6\u05D5\u05E8 \u05DC\u05DB\u05DD \u05DC\u05DE\u05DE\u05E9 \u05D0\u05EA \u05D4\u05DE\u05DC\u05E6\u05D5\u05EA \u05D4\u05D0\u05DC\u05D5
-\u05D5\u05DC\u05D4\u05E4\u05D5\u05DA \u05D0\u05EA \u05D4\u05E0\u05D5\u05DB\u05D7\u05D5\u05EA \u05D4\u05D3\u05D9\u05D2\u05D9\u05D8\u05DC\u05D9\u05EA \u05E9\u05DC\u05DB\u05DD \u05DC\u05DE\u05DB\u05D5\u05E0\u05EA \u05E6\u05DE\u05D9\u05D7\u05D4</p>
-              <a class="cta-btn" href="https://wa.me/972587497497">\u05D3\u05D1\u05E8\u05D5 \u05D0\u05D9\u05EA\u05E0\u05D5 \u2190</a>
-              <div class="cta-c"><span>058-749-7497</span><span>felix@ppcadvisor.co.il</span></div>
-            </div>
+          <div class="cta" style="flex:1;margin-top:0;padding:12px 18px;">
+            <h3 style="font-size:18px;margin-bottom:4px;">\u05E8\u05D5\u05E6\u05D9\u05DD \u05DC\u05E9\u05E4\u05E8 \u05D0\u05EA \u05D4\u05EA\u05D5\u05E6\u05D0\u05D5\u05EA?</h3>
+            <p style="font-size:12px;margin-bottom:8px;">\u05E6\u05D5\u05D5\u05EA PPC Advisor \u05D9\u05E2\u05D6\u05D5\u05E8 \u05DC\u05DB\u05DD \u05DC\u05DE\u05DE\u05E9 \u05D0\u05EA \u05D4\u05DE\u05DC\u05E6\u05D5\u05EA \u05D5\u05DC\u05D4\u05E4\u05D5\u05DA \u05D0\u05EA \u05D4\u05E0\u05D5\u05DB\u05D7\u05D5\u05EA \u05D4\u05D3\u05D9\u05D2\u05D9\u05D8\u05DC\u05D9\u05EA \u05E9\u05DC\u05DB\u05DD</p>
+            <a class="cta-btn" style="padding:10px 36px;font-size:15px;display:inline-flex;align-items:center;gap:8px;" href="https://wa.me/972587497497">\u05D3\u05D1\u05E8\u05D5 \u05D0\u05D9\u05EA\u05E0\u05D5 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="#0E1F33" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <div class="cta-c" style="margin-top:8px;font-size:12px;"><span>058-749-7497</span><span>felix@ppcadvisor.co.il</span></div>
           </div>
         </div>
       </div>
@@ -580,11 +655,13 @@ export function renderReportHTML(data: AuditData): string {
 </head>
 <body>
   ${renderCover(data)}
-  ${renderOverview(data)}
+  ${renderSituation(data)}
+  ${renderCRO(data)}
+  ${renderCompetitorMarket(data)}
   ${renderTechnical(data)}
   ${renderPerformance(data)}
   ${renderAI(data)}
-  ${renderActionPlan(data)}
+  ${renderPhasedActionPlan(data)}
 </body>
 </html>`;
 }

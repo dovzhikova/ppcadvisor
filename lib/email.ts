@@ -69,7 +69,8 @@ export function buildUserEmailHTML(data: AuditData): string {
   const domain = data.request.website.replace(/^https?:\/\//, '').replace(/\/+$/, '');
   const ps = data.pageSpeed;
   const hasScores = ps.performanceScore > 0;
-  const topActions = data.report.actionPlan.slice(0, 3);
+  const phase1Items = data.report.phasedActionPlan.phase1.items;
+  const topActions = phase1Items.slice(0, 3);
   const loadTime = data.scraped.loadTimeMs > 0 ? `${(data.scraped.loadTimeMs / 1000).toFixed(1)}s` : '\u2014';
 
   return `<!DOCTYPE html>
@@ -169,7 +170,7 @@ ${hasScores ? `
 
 <!-- Action plan items — matches site process steps -->
 <tr><td style="padding:24px 40px;">
-  <div style="font-size:13px;font-weight:700;color:${PRIMARY};margin-bottom:16px;letter-spacing:0.04em;">\u05EA\u05D5\u05DB\u05E0\u05D9\u05EA \u05E4\u05E2\u05D5\u05DC\u05D4 \u05DE\u05D5\u05DE\u05DC\u05E6\u05EA</div>
+  <div style="font-size:13px;font-weight:700;color:${PRIMARY};margin-bottom:16px;letter-spacing:0.04em;">\u05E4\u05E2\u05D5\u05DC\u05D5\u05EA \u05E8\u05D0\u05E9\u05D5\u05E0\u05D5\u05EA \u2014 ${data.report.phasedActionPlan.phase1.title}</div>
   ${topActions.map((item, i) => `
     <div style="margin-bottom:${i < topActions.length - 1 ? '16px' : '0'};">
       ${glassCard(`

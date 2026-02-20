@@ -71,7 +71,7 @@ export async function saveAuditResults(
       opportunities: pageSpeed.opportunities,
     });
 
-    const actionPlan = JSON.stringify(report.actionPlan);
+    const actionPlan = JSON.stringify(report.phasedActionPlan);
 
     const scrapedMeta = JSON.stringify({
       title: scraped.title,

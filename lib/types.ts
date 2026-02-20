@@ -46,14 +46,31 @@ export interface AIPresenceResult {
   details: string;
 }
 
+export interface CompetitorEntry {
+  name: string;
+  url: string;
+  strengths: string;
+}
+
+export interface PhasedActionPlan {
+  phase1: { title: string; items: { title: string; description: string; impact: 'high' | 'medium' | 'low' }[] };
+  phase2: { title: string; items: { title: string; description: string; impact: 'high' | 'medium' | 'low' }[] };
+  phase3: { title: string; items: { title: string; description: string; impact: 'high' | 'medium' | 'low' }[] };
+}
+
 export interface AuditReport {
   executiveSummary: string;
   screenshotObservations: { desktop: string; mobile: string };
+  reportPurpose: string;
+  situationOverview: string;
+  businessModelAnalysis: string;
+  competitorAnalysis: { insight: string; competitors: CompetitorEntry[] };
   seoAnalysis: string;
+  croAnalysis: string;
+  marketingChannelInsights: string;
   aiPresenceAnalysis: string;
-  competitorPositioning: string;
-  actionPlan: { priority: number; title: string; description: string; impact: 'high' | 'medium' | 'low' }[];
-  nextSteps: string;
+  businessPotential: string;
+  phasedActionPlan: PhasedActionPlan;
 }
 
 export interface AuditData {
