@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 120" fill="none">
+  <rect width="300" height="120" rx="10" fill="#fff"/>
+
+  <!-- HubSpot Sprocket icon -->
+  <g transform="translate(20, 16)">
+    <svg width="88" height="88" viewBox="0 0 512 512">
+      <!-- Sprocket center -->
+      <circle cx="256" cy="256" r="68" fill="#FF7A59"/>
+      <!-- Sprocket ring -->
+      <circle cx="256" cy="256" r="115" stroke="#FF7A59" stroke-width="38" fill="none"/>
+      <!-- Top spoke -->
+      <rect x="236" y="80" width="40" height="62" rx="20" fill="#FF7A59"/>
+      <!-- Top node -->
+      <circle cx="256" cy="52" r="40" fill="#FF7A59"/>
+      <!-- Bottom spoke -->
+      <rect x="236" y="370" width="40" height="62" rx="20" fill="#FF7A59"/>
+      <!-- Bottom node -->
+      <circle cx="256" cy="460" r="40" fill="#FF7A59"/>
+      <!-- Top-right spoke -->
+      <rect x="342" y="118" width="40" height="62" rx="20" fill="#FF7A59" transform="rotate(60, 362, 149)"/>
+      <!-- Top-right node -->
+      <circle cx="432" cy="152" r="40" fill="#FF7A59"/>
+      <!-- Bottom-right spoke -->
+      <rect x="342" y="332" width="40" height="62" rx="20" fill="#FF7A59" transform="rotate(-60, 362, 363)"/>
+      <!-- Bottom-right node -->
+      <circle cx="432" cy="360" r="40" fill="#FF7A59"/>
+      <!-- Top-left spoke -->
+      <rect x="130" y="118" width="40" height="62" rx="20" fill="#FF7A59" transform="rotate(-60, 150, 149)"/>
+      <!-- Top-left node -->
+      <circle cx="80" cy="152" r="40" fill="#FF7A59"/>
+      <!-- Bottom-left spoke -->
+      <rect x="130" y="332" width="40" height="62" rx="20" fill="#FF7A59" transform="rotate(60, 150, 363)"/>
+      <!-- Bottom-left node -->
+      <circle cx="80" cy="360" r="40" fill="#FF7A59"/>
+    </svg>
+  </g>
+
+  <!-- HubSpot text -->
+  <text x="115" y="50" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="30" fill="#33475B">HubSpot</text>
+
+  <!-- Solutions Partner text -->
+  <text x="115" y="80" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="500" font-size="15" letter-spacing="1" fill="#516F90">Solutions Partner</text>
+</svg>
